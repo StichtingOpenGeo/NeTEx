@@ -4,7 +4,7 @@
 	<xsd:include schemaLocation="../../netex_framework/netex_reusableComponents/netex_notice_version-v0.1.xsd"/>
 	<xsd:include schemaLocation="../part1_networkDescription/netex_line_support-v0.1.xsd"/>
 	<xsd:include schemaLocation="netex_ifopt_localService_version-v0.4.xsd"/>
-	<xsd:include schemaLocation="netex_AssistanceBooking_support-v0.1.xsd"/>
+	<xsd:include schemaLocation="netex_assistanceBooking_support-v0.1.xsd"/>
 	<!-- ======================================================================= -->
 	<!-- ======================================================================= -->
 	<xsd:complexType name="assistanceBookingServices_RelStructure">
