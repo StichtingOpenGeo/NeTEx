@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- ==== SImple Timetable  Example ====== 
+This example shows the encoding of a Zonal fare set for a  simple bus timetable  in NeTex XML   
+ 
+This example shows the encoding of  separate pricing for  a number of Zone based fares for different periods
+  
+There are day, weekly and annual fares, and also  special student fares  geared to the student terms
+There are both mobile and tarvelc ard sales packages
+
+1. OVERVIEW
+============
+
+ There  are four  FARE PRODUCTs , standard or  concession   x  electronic  travel cards  (USAGE DISCOUNT RIGHT )  or ticket  (PREASSIGNED FARE PRODUCT) 
+
+
+There  are three zones with indivudaul  zone to zone individual fares for each matrix element for each fare product 
+   
+	   A    B    C
+A    AA  AB AC
+B 		-	 BB	BC
+C		-	  -		CC
+
+ .
+Prices In EUR
+			=====ticket=======  ======travel card ====
+			standard  concession	  standard 	concession
+AA 		0.50			0.40				0.40				0.30
+AB		1.00			0.90				0.90				0.80
+AC		3.00			2.50				2.60				2.30
+BB		0.50			0.40				0.40				0.30
+BC		2.00			1.50				1.90				1.30
+CC		0.75			0.50				0.85				0.30
+
+==================================
+2. DETAILS
+
+There are a number of Tariff Zones, 
+
+For each TariffZONE there is a DISTANCE MATERIX ELEMENT to go from and to that zone.
+ 
+There are     six FARE PRODUCTs
+
+				 
+
+	 Standard ticket: PREASSIGNED FARE PRODUCT   cdla:PreassignedFareProduct:zonal_adult_day
+		VALIDITY PARAMETER ASSIGNMENTs cdla:UsageValidityPeriod:day 
+		FARE USAGE PARAMETERs
+			USER PROFILE standard     cdla:UserProfile:adult 
+				TYPE OF CONCESSION:  cdla:TypeOfConcession:adult
+
+		 Standard ticket: PREASSIGNED FARE PRODUCT   cdla:PreassignedFareProduct:zonal_adult_weekly
+		VALIDITY PARAMETER ASSIGNMENTs cdla:UsageValidityPeriod:weekly
+		FARE USAGE PARAMETERs
+			USER PROFILE standard     cdla:UserProfile:adult 
+				TYPE OF CONCESSION:  cdla:TypeOfConcession:adult
+
+		 Standard ticket: PREASSIGNED FARE PRODUCT   cdla:PreassignedFareProduct:zonal_adult_4weekly
+		VALIDITY PARAMETER ASSIGNMENTs  
+			USAGEVALIDITY PERIOD: cdla:UsageValidityPeriod:4weekly 
+		FARE USAGE PARAMETERs
+			USER PROFILE standard     cdla:UserProfile:adult 
+				TYPE OF CONCESSION:  cdla:TypeOfConcession:adult
+
+		 Standard ticket: PREASSIGNED FARE PRODUCT   cdla:PreassignedFareProduct:zonal_adult_annual
+		VALIDITY PARAMETER ASSIGNMENTs  
+			USAGEVALIDITY PERIOD: cdla:UsageValidityPeriod:annual 
+		FARE USAGE PARAMETERs
+			USER PROFILE standard     cdla:UserProfile:adult 
+				TYPE OF CONCESSION:  cdla:TypeOfConcession:adult
+
+		 Standard ticket: PREASSIGNED FARE PRODUCT   cdla:PreassignedFareProduct:zonal_student_academicYear
+		VALIDITY PARAMETER ASSIGNMENTs  
+			USAGEVALIDITY PERIOD: cdla:UsageValidityPeriod:academicYear 
+		FARE USAGE PARAMETERs
+			USER PROFILE standard     cdla:UserProfile:adult 
+				TYPE OF CONCESSION:  cdla:TypeOfConcession:student
+
+		 Standard ticket: PREASSIGNED FARE PRODUCT   cdla:PreassignedFareProduct:zonal_student_academicTerm
+		VALIDITY PARAMETER ASSIGNMENTs  
+			USAGEVALIDITY PERIOD: cdla:UsageValidityPeriod:academicTerm
+		FARE USAGE PARAMETERs
+			USER PROFILE standard     cdla:UserProfile:adult 
+				TYPE OF CONCESSION:  cdla:TypeOfConcession:student
+
+There are     six  mobile  SALES PACKAGES, one for each fare product.  The two student pacakge shave limitations on the sales availability
+There are     two   travel card   SALES PACKAGES, for the  adult w4weekly and annual  pass 
+
+	FARE PRICEs 
+  There is a USAGE PARAMETER PRICE for exach combination of 
+	FARE PRODUCT  + DISTANCE MATRIX ELEMENT  + 	USER PROFILE  +  USAGE VALIDITY PERIOD
+
+		  for example
+		USAGE PARAMETER PRICE 		 cdla:CellPrice:Cannock_adult_day">
+									AMOUNT 3.80</Amount>
+									USAGE VALIDITY PERIOD: cdla:UsageValidityPeriod:day 
+									USER PROFILE cdla:UserProfile:adult 
+										FARE PRODUCT cdla:PreassignedFareProduct:zonal_adult_day"/>
+									 DISTANCE MATRIX ELEMENT  cdla:DistanceMatrixElement:Cannock 
+					 
+ 
+A COMPOSITE FRAME is used to group the component FRAMEs
+   
+		A SERVICE  FRAME is used to contain the TARIFF ZONEs
+		A FARE FRAME is used to contain  the FARE    elements 
+ 		A RESOURCE is used to contain the TYPE OF CONCESSION, OPERATOR etc
+ 
+
+-->
+<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PublicationTimestamp>2010-12-17T09:30:47.0Z</PublicationTimestamp>
+	<ParticipantRef>SYS001</ParticipantRef>
+	<!--- ======WHAT WAS REQUESTED ========== -->
+	<PublicationRequest version="1.0">
+		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
+		<ParticipantRef>SYS002</ParticipantRef>
+		<topics>
+			<FrameTopicFilter>
+				<selectionValidityConditions>
+					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:FF01">
+						<FromDate>2011-08-01T00:00:00Z</FromDate>
+					</AvailabilityCondition>
+				</selectionValidityConditions>
+				<FareFrameRef ref="cdla:FareFrame:FF01">REQUEST</FareFrameRef>
+			</FrameTopicFilter>
+		</topics>
+	</PublicationRequest>
+	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
+	<Description>Example  of simple point to point fares</Description>
+	<!--- =============== RESULTS =========== -->
+	<dataObjects>
+		<CompositeFrame version="1" id="hde:CompositeFrame:FF01">
+			<!--- ======= CODESPACEs======== -->
+			<codespaces>
+				<Codespace id="cdla">
+					<Xmlns>cdla</Xmlns>
+					<XmlnsUrl>http://cdla.com/stuff</XmlnsUrl>
+					<Description>My fares</Description>
+				</Codespace>
+			</codespaces>
+			<!--- =======FRAME DEFAULTS======== -->
+			<FrameDefaults>
+				<DefaultCodespaceRef ref="cdla"/>
+			</FrameDefaults>
+			<frameValidityConditions>
+				<SimpleValidityCondition>
+					<FromDate>2011-08-22T00:00:00Z</FromDate>
+					<ToDate>2012-10-31T00:00:00Z</ToDate>
+				</SimpleValidityCondition>
+			</frameValidityConditions>
+			<frames>
+				<!--- ========SERVICE FRAME  ========== -->
+				<ServiceFrame version="1" id="cdla:ServiceFrame:FF01">
+					<Name>Farezones  for 2012 fares </Name>
+					<!--- =========STOP POINTs============ -->
+					<tariffZones>
+						<!--- ====TARIFF ZONEs ======== -->
+						<!--- ====Midlands=== -->
+						<TariffZone version="any" id="cdla:TariffZone:MidlandsArea">
+							<Name>Midlands Area</Name>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Burton_And_Swadlincote">
+							<Name>Burton &amp; Swadlincote</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Cannock">
+							<Name>Cannock</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Coalville">
+							<Name>Coalville</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Derby">
+							<Name>Derby</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Leicester_City_Plus">
+							<Name>Leicester City Plus</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Midlands">
+							<Name>Midlands</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Shrewsbury">
+							<Name>Shrewsbury</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Stafford">
+							<Name>Stafford</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Sutton_And_Birmingham">
+							<Name>Sutton &amp; Birmingham</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Tamworth">
+							<Name>Tamworth</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<TariffZone version="any" id="cdla:TariffZone:Telford">
+							<Name>Telford</Name>
+							<ParentZoneRef version="any" ref="cdla:TariffZone:MidlandsArea"/>
+						</TariffZone>
+						<!--- ====North East======== -->
+						<TariffZone version="any" id="cdla:TariffZone:North_East">
+							<Name>North East Area</Name>
+						</TariffZone>
+					</tariffZones>
+				</ServiceFrame>
+				<!--- =============== FAREs =========== -->
+				<FareFrame version="any" id="cdla:FareFrame:FF01">
+					<FrameDefaults>
+						<DefaultCurrency>GBP</DefaultCurrency>
+					</FrameDefaults>
+					<!--- ====Fare Usage Parameters======= -->
+					<fareUsageParameters>
+						<UsageValidityPeriod version="any" id="cdla:UsageValidityPeriod:day">
+							<Name>Valid for24 hourse from purchase</Name>
+							<UsageEnd>standardDuration</UsageEnd>
+							<StandardDuration>P1D</StandardDuration>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="cdla:UsageValidityPeriod:weekly">
+							<Name>Valid for 1 week from purchase</Name>
+							<UsageEnd>standardDuration</UsageEnd>
+							<StandardDuration>P7D</StandardDuration>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="cdla:UsageValidityPeriod:4weekly">
+							<Name>Valid for 1 week from purchase</Name>
+							<UsageEnd>standardDuration</UsageEnd>
+							<StandardDuration>P28D</StandardDuration>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="cdla:UsageValidityPeriod:annual">
+							<Name>Valid for 1 year from purchase</Name>
+							<UsageEnd>standardDuration</UsageEnd>
+							<StandardDuration>P365D</StandardDuration>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="cdla:UsageValidityPeriod:academicYear">
+							<Name>Valid to end of academic year from purchase</Name>
+							<UsageEnd>endOfFarePeriod</UsageEnd>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="cdla:UsageValidityPeriod:academicTerm">
+							<Name>Valid to end of academic term from purchase</Name>
+							<UsageEnd>endOfFarePeriod</UsageEnd>
+						</UsageValidityPeriod>
+						<UserProfile version="any" id="cdla:UserProfile:adult">
+							<Name>Adult Fare</Name>
+							<TypeOfConcessionRef version="any" ref="cdla:TypeOfConcession:adult"/>
+						</UserProfile>
+						<UserProfile version="any" id="cdla:UserProfile:student">
+							<Name>student Fare</Name>
+							<TypeOfConcessionRef version="any" ref="cdla:TypeOfConcession:student"/>
+						</UserProfile>
+					</fareUsageParameters>
+					<!--- ====Fare Product======= -->
+					<fareProducts>
+						<PreassignedFareProduct version="any" id="cdla:PreassignedFareProduct:zonal_adult_day">
+							<Name>Adult Day Zonal  fare    </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_adult_day_UserProfile">
+									<UserProfileRef version="any" ref="cdla:UserProfile:adult"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_adult_day_UsageValidityPeriod">
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:day"/>
+									<FareStructureElementRef version="any" ref="cdla:FareStructureElement:zone_day"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="cdla:PreassignedFareProduct:zonal_adult_weekly">
+							<Name>Weekly  Zonal  fare    </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_adult_weekly_UserProfile">
+									<UserProfileRef version="any" ref="cdla:UserProfile:adult"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_adult_weekly_UsageValidityPeriod">
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:weekly"/>
+									<FareStructureElementRef version="any" ref="cdla:FareStructureElement:zone_week"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="cdla:PreassignedFareProduct:zonal_adult_4weekly">
+							<Name>4 Weekly  Zonal  fare    </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_adult_4weekly_UserProfile">
+									<UserProfileRef version="any" ref="cdla:UserProfile:adult"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_adult_4weekly_UsageValidityPeriod">
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:weekly"/>
+									<FareStructureElementRef version="any" ref="cdla:FareStructureElement:zone_4week"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="cdla:PreassignedFareProduct:zonal_adult_annual">
+							<Name>Annuak  Zonal  fare    </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_adult_annual_UserProfile">
+									<UserProfileRef version="any" ref="cdla:UserProfile:adult"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_adult_annual_UsageValidityPeriod">
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:annual"/>
+									<FareStructureElementRef version="any" ref="cdla:FareStructureElement:zone_year"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="cdla:PreassignedFareProduct:zonal_student_academicYear">
+							<Name>Student  Zonal  fare  - academic year  </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_student_annual_UserProfile">
+									<UserProfileRef version="any" ref="cdla:UserProfile:student"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_student_annual_UsageValidityPeriod">
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:academicYear"/>
+									<FareStructureElementRef version="any" ref="cdla:FareStructureElement:zone_year"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="cdla:PreassignedFareProduct:zonal_student_academicTerm">
+							<Name>Student  Zonal  fare - academic Term   </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_student_academicTerm_UserProfile">
+									<UserProfileRef version="any" ref="cdla:UserProfile:student"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="cdla:ValidityParameterAssignment:zonal_student_academicTerm_UsageValidityPeriod">
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:academicTerm"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+					</fareProducts>
+					<!--- ====Fare Structure======= -->
+					<tariffs>
+						<Tariff version="any" id="cdla:Tariff:zoneToZone_fare">
+							<Name>Zonal fares</Name>
+							<GeographicalUnitRef version="any" ref="cdla:GeographicalUnit:gu"/>
+							<!--- ====GEOGRAPHICAL Intervals======= -->
+							<geographicalIntervals>
+								<GeographicalInterval version="any" id="cdla:GeographicalInterval:gi_1">
+									<Name>Zone type</Name>
+								</GeographicalInterval>
+								<GeographicalInterval version="any" id="cdla:GeographicalInterval:gi_2">
+									<Name>Zone type2</Name>
+								</GeographicalInterval>
+							</geographicalIntervals>
+							<!--- ===GEOGRAPHICAL STRUCTURE FACTORS==== -->
+							<geographicalStructureFactors>
+								<GeographicalStructureFactor version="any" id="cdla:GeographicalStructureFactor:zoneType1">
+									<GeographicalIntervalRef version="any" ref="cdla:GeographicalInterval:gi_1"/>
+									<GeographicalUnitRef version="any" ref="cdla:GeographicalUnit:gu"/>
+								</GeographicalStructureFactor>
+								<GeographicalStructureFactor version="any" id="cdla:GeographicalStructureFactor:zoneType2">
+									<GeographicalIntervalRef version="any" ref="cdla:GeographicalInterval:gi_2"/>
+									<GeographicalUnitRef version="any" ref="cdla:GeographicalUnit:gu"/>
+								</GeographicalStructureFactor>
+							</geographicalStructureFactors>
+							<!--- ====TIME Intervals======= -->
+							<timeIntervals>
+								<TimeInterval version="any" id="cdla:TimeInterval:day">
+									<Name>One Hour</Name>
+									<Duration>P1D</Duration>
+									<timeStructureFactors>
+										<TimeStructureFactor version="any" id="cdla:TimeStructureFactor:day">
+											<Name>One hour's  use</Name>
+											<TimeUnitRef version="any" ref="cdla:TimeUnit:day"/>
+										</TimeStructureFactor>
+									</timeStructureFactors>
+								</TimeInterval>
+								<TimeInterval version="any" id="cdla:TimeInterval:week">
+									<Name>One week Hours</Name>
+									<Duration>P7D</Duration>
+									<timeStructureFactors>
+										<TimeStructureFactor version="any" id="cdla:TimeStructureFactor:week">
+											<Name>One weeks use</Name>
+											<TimeUnitRef version="any" ref="cdla:TimeUnit:week"/>
+										</TimeStructureFactor>
+									</timeStructureFactors>
+								</TimeInterval>
+								<TimeInterval version="any" id="cdla:TimeInterval:4week">
+									<Name>Four weeks</Name>
+									<Duration>P1M</Duration>
+									<timeStructureFactors>
+										<TimeStructureFactor version="any" id="cdla:TimeStructureFactor:4week">
+											<Name>Four weeks use</Name>
+											<TimeUnitRef version="any" ref="cdla:TimeUnit:week"/>
+										</TimeStructureFactor>
+									</timeStructureFactors>
+								</TimeInterval>
+								<TimeInterval version="any" id="cdla:TimeInterval:year">
+									<Name>Year</Name>
+									<Duration>P1Y</Duration>
+									<timeStructureFactors>
+										<TimeStructureFactor version="any" id="cdla:TimeStructureFactor:year">
+											<Name>One years  use</Name>
+											<TimeUnitRef version="any" ref="cdla:TimeUnit:year"/>
+										</TimeStructureFactor>
+									</timeStructureFactors>
+								</TimeInterval>
+							</timeIntervals>
+							<fareStructureElements>
+								<FareStructureElement version="any" id="cdla:FareStructureElement:zone_day">
+									<Name>One day  use of a   zone</Name>
+									<geographicalStructureFactors>
+										<GeographicalStructureFactorRef version="any" ref="cdla:GeographicalStructureFactor:zoneType1"/>
+									</geographicalStructureFactors>
+									<timeStructureFactors>
+										<TimeStructureFactorRef version="any" ref="cdla:TimeStructureFactor:day"/>
+									</timeStructureFactors>
+								</FareStructureElement>
+								<FareStructureElement version="any" id="cdla:FareStructureElement:zone_week">
+									<Name>One weeks use of a   zone</Name>
+									<geographicalStructureFactors>
+										<GeographicalStructureFactorRef version="any" ref="cdla:GeographicalStructureFactor:zoneType1"/>
+									</geographicalStructureFactors>
+									<timeStructureFactors>
+										<TimeStructureFactorRef version="any" ref="cdla:TimeStructureFactor:week"/>
+									</timeStructureFactors>
+								</FareStructureElement>
+								<FareStructureElement version="any" id="cdla:FareStructureElement:zone_4week">
+									<Name>Four weeks  use of a   zone</Name>
+									<geographicalStructureFactors>
+										<GeographicalStructureFactorRef version="any" ref="cdla:GeographicalStructureFactor:zoneType1"/>
+									</geographicalStructureFactors>
+									<timeStructureFactors>
+										<TimeStructureFactorRef version="any" ref="cdla:TimeStructureFactor:4week"/>
+									</timeStructureFactors>
+								</FareStructureElement>
+								<FareStructureElement version="any" id="cdla:FareStructureElement:zone_year">
+									<Name>Years  use of a   zone</Name>
+									<geographicalStructureFactors>
+										<GeographicalStructureFactorRef version="any" ref="cdla:GeographicalStructureFactor:zoneType1"/>
+									</geographicalStructureFactors>
+									<timeStructureFactors>
+										<TimeStructureFactorRef version="any" ref="cdla:TimeStructureFactor:year"/>
+									</timeStructureFactors>
+								</FareStructureElement>
+							</fareStructureElements>
+							<distanceMatrixElements>
+								<DistanceMatrixElement version="any" id="cdla:DistanceMatrixElement:Burton_And_Swadlincote">
+									<StartTariffZoneRef version="any" ref="cdla:TariffZone:Burton_And_Swadlincote"/>
+									<EndTariffZoneRef version="any" ref="cdla:TariffZone:Burton_And_Swadlincote"/>
+									<structureFactors>
+										<GeographicalStructureFactorRef version="any" ref="cdla:GeographicalStructureFactor:zoneType1"/>
+									</structureFactors>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="cdla:DistanceMatrixElement:Cannock">
+									<StartTariffZoneRef version="any" ref="cdla:TariffZone:Cannock"/>
+									<EndTariffZoneRef version="any" ref="cdla:TariffZone:Cannock"/>
+									<structureFactors>
+										<GeographicalStructureFactorRef version="any" ref="cdla:GeographicalStructureFactor:zoneType1"/>
+									</structureFactors>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="cdla:DistanceMatrixElement:Leicester_City_Plus">
+									<StartTariffZoneRef version="any" ref="cdla:TariffZone:Leicester_City_Plus"/>
+									<EndTariffZoneRef version="any" ref="cdla:TariffZone:Leicester_City_Plus"/>
+									<structureFactors>
+										<GeographicalStructureFactorRef version="any" ref="cdla:GeographicalStructureFactor:zoneType2"/>
+									</structureFactors>
+									<prices>
+										<CellPriceRef version="any" ref="cdla:CellPrice:Leicester_City_Plus_student_academicYear"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="cdla:DistanceMatrixElement:Stafford">
+									<StartTariffZoneRef version="any" ref="cdla:TariffZone:Stafford"/>
+									<EndTariffZoneRef version="any" ref="cdla:TariffZone:Stafford"/>
+									<structureFactors>
+										<GeographicalStructureFactorRef version="any" ref="cdla:GeographicalStructureFactor:zoneType2"/>
+									</structureFactors>
+									<prices>
+										<DiscountableCellPriceRef version="any" ref="cdla:CellPrice:Stafford_student_autumnTerm"/>
+										<DiscountableCellPriceRef version="any" ref="cdla:CellPrice:Stafford_student_springTerm"/>
+										<DiscountableCellPriceRef version="any" ref="cdla:CellPrice:Stafford_student_summerTerm"/>
+									</prices>
+								</DistanceMatrixElement>
+							</distanceMatrixElements>
+						</Tariff>
+					</tariffs>
+					<!--- ====Fare Prices======= -->
+					<farePrices>
+						<PriceGroup version="any" id="cdla:PriceGroup:zonal">
+							<Name>Prices for Zonal Fare Product  </Name>
+							<members>
+								<GeographicalIntervalPrice version="any" id="cdla:GeographicalInterval:gi_1">
+									<Amount>3.6</Amount>
+									<GeographicalIntervalRef version="any" ref="cdla:GeographicalInterval:gi_1"/>
+								</GeographicalIntervalPrice>
+								<TimeIntervalPrice version="any" id="cdla:TimeIntervalPrice:dayType1">
+									<Amount>3.6</Amount>
+									<TimeIntervalRef version="any" ref="cdla:TimeInterval:day"/>
+								</TimeIntervalPrice>
+								<TimeIntervalPrice version="any" id="cdla:TimeIntervalPrice:dayType2">
+									<Amount>3.8</Amount>
+									<TimeIntervalRef version="any" ref="cdla:TimeInterval:day"/>
+								</TimeIntervalPrice>
+								<TimeIntervalPrice version="any" id="cdla:TimeIntervalPrice:week">
+									<Amount>15</Amount>
+									<TimeIntervalRef version="any" ref="cdla:TimeInterval:week"/>
+								</TimeIntervalPrice>
+								<TimeIntervalPrice version="any" id="cdla:TimeIntervalPrice:4week">
+									<Amount>45</Amount>
+									<TimeIntervalRef version="any" ref="cdla:TimeInterval:4week"/>
+								</TimeIntervalPrice>
+								<TimeIntervalPrice version="any" id="cdla:TimeIntervalPrice:year">
+									<Amount>490</Amount>
+									<TimeIntervalRef version="any" ref="cdla:TimeInterval:year"/>
+								</TimeIntervalPrice>
+								<CellPrice version="any" id="cdla:CellPrice:Leicester_City_Plus_student_academicYear">
+									<!--	
+<Zone>Leicester City Plus</Zone>
+<Type>Student</Type>
+<Validity>Academic Year</Validity>
+<Price>320</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+<period></period>
+<ValidityPeriodFrom>20110901</ValidityPeriodFrom>
+<ValidityPeriodTo>20120731</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20110822</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20111031</AvailabilityPeriodTo>
+<SalesChannel>All</SalesChannel>
+<PostalFulfilment>Alpha Graphics</PostalFulfilment>
+<Promo>288</Promo>,  -->
+									<Name>Leicester_City_Plus Student fare Annual</Name>
+									<StartDate>2011-08-22</StartDate>
+									<EndDate>2012-07-31</EndDate>
+									<Amount>320</Amount>
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:academicYear"/>
+									<UserProfileRef version="any" ref="cdla:UserProfile:student"/>
+									<DistanceMatrixElementRef version="any" ref="cdla:DistanceMatrixElement:Leicester_City_Plus"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_student_academicYear"/>
+								</CellPrice>
+								<DiscountableCellPrice version="any" id="cdla:CellPrice:Leicester_City_Plus_student_academicYear_Promo">
+									<!--	
+<Zone>Leicester City Plus</Zone>
+<Type>Student</Type>
+<Validity>Academic Year</Validity>
+<Price>320</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+<period></period>
+<ValidityPeriodFrom>20110901</ValidityPeriodFrom>
+<ValidityPeriodTo>20120731</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20110822</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20111031</AvailabilityPeriodTo>
+<SalesChannel>All</SalesChannel>
+<PostalFulfilment>Alpha Graphics</PostalFulfilment>
+<Promo>288</Promo>,  -->
+									<Name>Leicester_City_Plus Student fare Annual - Promotional Price</Name>
+									<StartDate>2011-08-22</StartDate>
+									<EndDate>2012-07-31</EndDate>
+									<Amount>320</Amount>
+									<DiscountValue>288</DiscountValue>
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:academicYear"/>
+									<UserProfileRef version="any" ref="cdla:UserProfile:student"/>
+									<DistanceMatrixElementRef version="any" ref="cdla:DistanceMatrixElement:Leicester_City_Plus"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_student_academicYear"/>
+								</DiscountableCellPrice>
+								<!--- ===Stafford == -->
+								<DiscountableCellPrice version="any" id="cdla:CellPrice:Stafford_adult_day">
+									<!--		
+<Zone>Stafford</Zone>
+<Type>Adult</Type>
+<Validity>Day</Validity>
+<Price>3.8</Price>
+<period>0</period>
+<SalesChannel>Mobile</SalesChannel>
+<PostalFulfilment>Mobile</PostalFulfilment>			-->
+									<Name>Stafford Adult full fare day</Name>
+									<Amount>3.80</Amount>
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:day"/>
+									<UserProfileRef version="any" ref="cdla:UserProfile:adult"/>
+									<DistanceMatrixElementRef version="any" ref="cdla:DistanceMatrixElement:Stafford"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_adult_day"/>
+								</DiscountableCellPrice>
+								<DiscountableCellPrice version="any" id="cdla:CellPrice:Stafford_student_autumnTerm">
+									<!--	
+<Zone>Stafford</Zone>
+<Type>Student</Type>
+<Validity>Autumn Term</Validity>
+<Price>115</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+<period></period>
+<ValidityPeriodFrom>20110901</ValidityPeriodFrom>
+<ValidityPeriodTo>20111222</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20110822</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20111031</AvailabilityPeriodTo>
+<SalesChannel>All</SalesChannel>
+<PostalFulfilment>Alpha Graphics</PostalFulfilment>
+<Promo>103.5</Promo> 
+ -->
+									<Name>Stafford Studenty   fare Termly</Name>
+									<StartDate>2011-08-22</StartDate>
+									<EndDate>2012-07-31</EndDate>
+									<Amount>115</Amount>
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:academicTerm"/>
+									<UserProfileRef version="any" ref="cdla:UserProfile:student"/>
+									<DistanceMatrixElementRef version="any" ref="cdla:DistanceMatrixElement:Stafford"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_student_academicTerm"/>
+								</DiscountableCellPrice>
+								<DiscountableCellPrice version="any" id="cdla:CellPrice:Stafford_student_springTerm">
+									<!--	
+<Zone>Stafford</Zone>
+<Type>Student</Type>
+<Validity>Spring Term</Validity>
+<Price>115</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+<period></period>
+<ValidityPeriodFrom>20120102</ValidityPeriodFrom>
+<ValidityPeriodTo>20120330</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20111212</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20120229</AvailabilityPeriodTo>
+<SalesChannel>All</SalesChannel>
+<PostalFulfilment>Alpha Graphics</PostalFulfilment>
+<Promo>103.5</Promo>,
+ -->
+									<Name>Stafford Student    fare Spring Term</Name>
+									<StartDate>2012-01-02</StartDate>
+									<EndDate>2012-03-30</EndDate>
+									<Amount>115</Amount>
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:academicTerm"/>
+									<UserProfileRef version="any" ref="cdla:UserProfile:student"/>
+									<DistanceMatrixElementRef version="any" ref="cdla:DistanceMatrixElement:Stafford"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_student_academicTerm"/>
+								</DiscountableCellPrice>
+								<DiscountableCellPrice version="any" id="cdla:CellPrice:Stafford_student_summerTerm">
+									<!--	
+<Zone>Stafford</Zone>
+<Type>Student</Type>
+<Validity>Summer Term</Validity>
+<Price>115</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+<period></period>
+<ValidityPeriodFrom>20120416</ValidityPeriodFrom>
+<ValidityPeriodTo>20120731</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20120319</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20120531</AvailabilityPeriodTo>
+<SalesChannel>All</SalesChannel>
+<PostalFulfilment>Alpha Graphics</PostalFulfilment>
+<Promo>103.5</Promo>,
+ -->
+									<Name>Stafford Studenty   fare Summer</Name>
+									<StartDate>2012-04-16</StartDate>
+									<EndDate>2012-07-31</EndDate>
+									<Amount>115</Amount>
+									<UsageValidityPeriodRef version="any" ref="cdla:UsageValidityPeriod:academicTerm"/>
+									<UserProfileRef version="any" ref="cdla:UserProfile:student"/>
+									<DistanceMatrixElementRef version="any" ref="cdla:DistanceMatrixElement:Stafford"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_student_academicTerm"/>
+								</DiscountableCellPrice>
+							</members>
+						</PriceGroup>
+					</farePrices>
+					<salesPackages>
+						<SalesPackage version="any" id="cdla:SalesPackage:adult_day_mobile">
+							<Name>Adult Annual Mobile </Name>
+							<salesPackageElements>
+								<SalesPackageElement version="any" id="cdla:SalesPackageElement:mobile">
+									<TypeOfTravelDocumentRef version="any" ref="cdla:TypeOfTravelDocument:mobile"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_adult_day"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="cdla:SalesPackage:adult_weekly_mobile">
+							<Name>Adult Weekly Mobile  </Name>
+							<salesPackageElements>
+								<SalesPackageElement version="any" id="cdla:SalesPackageElement:adult_day_mobile">
+									<TypeOfTravelDocumentRef version="any" ref="cdla:TypeOfTravelDocument:mobile"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_adult_weekly"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="cdla:SalesPackage:adult_4weekly_mobile">
+							<Name>Adult 4 Weekly Mobile  </Name>
+							<salesPackageElements>
+								<SalesPackageElement version="any" id="cdla:SalesPackageElement:adult_4weekly_mobile">
+									<TypeOfTravelDocumentRef version="any" ref="cdla:TypeOfTravelDocument:mobile"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_adult_4weekly"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="cdla:SalesPackage:adult_annual_mobile">
+							<Name>Adult Annual Mobile  </Name>
+							<salesPackageElements>
+								<SalesPackageElement version="any" id="cdla:SalesPackageElement:adult_annual_mobile">
+									<TypeOfTravelDocumentRef version="any" ref="cdla:TypeOfTravelDocument:mobile"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_adult_annual"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="cdla:SalesPackage:adult_4weekly_card">
+							<Name>Adult 4 Weekly Mobile  </Name>
+							<salesPackageElements>
+								<SalesPackageElement version="any" id="cdla:SalesPackageElement:adult_4weekly_card">
+									<TypeOfTravelDocumentRef version="any" ref="cdla:TypeOfTravelDocument:card"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_adult_4weekly"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="cdla:SalesPackage:adult_annual_card">
+							<Name>Adult Annual Mobile  </Name>
+							<salesPackageElements>
+								<SalesPackageElement version="any" id="cdla:SalesPackageElement:adult_annual_card">
+									<TypeOfTravelDocumentRef version="any" ref="cdla:TypeOfTravelDocument:card"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_adult_annual"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="cdla:SalesPackage:student_academicYear_mobile">
+							<Name>Student Annual Mobile</Name>
+							<!--	
+<Type>Student</Type>
+<Validity>Academic Year</Validity>
+<Price>320</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+<period></period>
+<ValidityPeriodFrom>20110901</ValidityPeriodFrom>
+<ValidityPeriodTo>20120731</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20110822</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20111031</AvailabilityPeriodTo>
+<SalesChannel>All</SalesChannel>
+<PostalFulfilment>Alpha Graphics</PostalFulfilment>
+<Promo>288</Promo>,  -->
+							<availabilityForPurchase>
+								<SimpleAvailabilityCondition>
+									<FromDate>2011-08-22T00:00:00Z</FromDate>
+									<ToDate>2011-10-31T24:00:00</ToDate>
+								</SimpleAvailabilityCondition>
+							</availabilityForPurchase>
+							<salesPackageElements>
+								<SalesPackageElement version="any" id="cdla:SalesPackageElement:student_academicYear_mobile">
+									<TypeOfTravelDocumentRef version="any" ref="cdla:TypeOfTravelDocument:mobile"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_student_academicYear"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="cdla:SalesPackage:student_academicTerm_mobile">
+							<Name>Student Academice term  Mobile</Name>
+							<!--	 
+<Type>Student</Type>
+<Validity>Autumn Term</Validity>
+<Price>115</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+<period></period>
+<ValidityPeriodFrom>20110901</ValidityPeriodFrom>
+<ValidityPeriodTo>20111222</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20110822</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20111031</AvailabilityPeriodTo>
+ 
+<Type>Student</Type>
+<Validity>Spring Term</Validity>
+<Price>115</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+<period></period>
+<ValidityPeriodFrom>20120102</ValidityPeriodFrom>
+<ValidityPeriodTo>20120330</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20111212</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20120229</AvailabilityPeriodTo>
+ 
+<Type>Student</Type>
+<Validity>Summer Term</Validity>
+<Price>115</Price>
+<PriceActivationFrom>20110822</PriceActivationFrom>,Fixed,
+ 
+<ValidityPeriodFrom>20120416</ValidityPeriodFrom>
+<ValidityPeriodTo>20120731</ValidityPeriodTo>
+<AvailabilityPeriodFrom>20120319</AvailabilityPeriodFrom>
+<AvailabilityPeriodTo>20120531</AvailabilityPeriodTo>
+ 
+
+  -->
+							<availabilityForPurchase>
+								<AvailabilityCondition version="any" id="cdla:AvailabilityCondition:student_academicTerm_Autumn">
+									<Name>Autumn term</Name>
+									<FromDate>2011-08-22T00:00:00Z</FromDate>
+									<ToDate>2011-10-31T24:00:00</ToDate>
+								</AvailabilityCondition>
+								<AvailabilityCondition version="any" id="cdla:AvailabilityCondition:student_academicTerm_Spring">
+									<Name>Spring  term</Name>
+									<FromDate>2011-12-12T00:00:00Z</FromDate>
+									<ToDate>2012-02-29T24:00:00</ToDate>
+								</AvailabilityCondition>
+								<AvailabilityCondition version="any" id="cdla:AvailabilityCondition:student_academicTerm_Summer">
+									<Name>Summer term</Name>
+									<FromDate>2012-03-19T00:00:00Z</FromDate>
+									<ToDate>2012-05-31T24:00:00</ToDate>
+								</AvailabilityCondition>
+							</availabilityForPurchase>
+							<salesPackageElements>
+								<SalesPackageElement version="any" id="cdla:SalesPackageElement:student_academicTerm_mobile">
+									<TypeOfTravelDocumentRef version="any" ref="cdla:TypeOfTravelDocument:mobile"/>
+									<FareProductRef version="any" ref="cdla:PreassignedFareProduct:zonal_student_academicTerm"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+					</salesPackages>
+				</FareFrame>
+				<!--- ====RESOURCES==== -->
+				<ResourceFrame version="any" id="cdla:ResourceFrame:DTA">
+					<typesOfValue>
+						<ValueSet>
+							<values>
+								<!--- ====GeographicalU nit======== -->
+								<GeographicalUnit version="any" id="cdla:GeographicalUnit:gu">
+									<Name>Use of One zone Unit of Transport Usage</Name>
+								</GeographicalUnit>
+							</values>
+						</ValueSet>
+						<ValueSet>
+							<values>
+								<!--- ====TimeU nit======== -->
+								<TimeUnit version="any" id="cdla:TimeUnit:day">
+									<Name>Time unit of 1 day</Name>
+								</TimeUnit>
+								<TimeUnit version="any" id="cdla:TimeUnit:week">
+									<Name>Time unit of 1 week</Name>
+								</TimeUnit>
+								<TimeUnit version="any" id="cdla:TimeUnit:term">
+									<Name>Time unit of 1 term</Name>
+								</TimeUnit>
+								<TimeUnit version="any" id="cdla:TimeUnit:year">
+									<Name>Time unit of 1 year</Name>
+								</TimeUnit>
+							</values>
+						</ValueSet>
+						<ValueSet version="any" id="cdla:ValueSet:TypeOfConcession">
+							<Name>Types of concession</Name>
+							<values>
+								<!--- ====TypeOfConcession method========= -->
+								<TypeOfConcession version="any" id="cdla:TypeOfConcession:adult">
+									<Name>Adult</Name>
+								</TypeOfConcession>
+								<TypeOfConcession version="any" id="cdla:TypeOfConcession:student">
+									<Name>Student</Name>
+								</TypeOfConcession>
+							</values>
+						</ValueSet>
+						<ValueSet version="any" id="cdla:ValueSet:TypeOfTravelDocument">
+							<Name>Types of concession</Name>
+							<values>
+								<!--- ====TypeOfConcession method========= -->
+								<TypeOfTravelDocument version="any" id="cdla:TypeOfTravelDocument:mobile">
+									<Name>Mobile Electronic</Name>
+								</TypeOfTravelDocument>
+								<TypeOfTravelDocument version="any" id="cdla:TypeOfTravelDocument:card">
+									<Name>Travel Crard</Name>
+								</TypeOfTravelDocument>
+							</values>
+						</ValueSet>
+					</typesOfValue>
+				</ResourceFrame>
+			</frames>
+		</CompositeFrame>
+	</dataObjects>
+</PublicationDelivery>

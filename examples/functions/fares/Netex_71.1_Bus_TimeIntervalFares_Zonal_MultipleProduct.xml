@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- ==== SImple Timetable  Example ====== 
+This example shows the encoding of a time interval  fare set for a  simple bus timetable for a zone in NeTex XML  
+ 
+  There are three FARE PRODUCTs for  one hour  , two hour  and all day use
+ 
+1. OVERVIEW
+============
+
+Fare Prices are defined in terms of   number of   time intervals elapsed
+
+ There are three  fare products to use a single zone  , for one hour , two hours or all day
+
+
+From 	To			 Price    
+    p1	1 unit	1.00 EUR		 
+    p2	2 unit	2.50 EUR		 
+	p3	3 unit	3.00 EUR		 
+	
+==================================
+2. DETAILS
+
+There is one Line :  LINE 24 
+ 
+There is a SINGLE FARE PRODUCT
+		1h PREASSIGNED FARE PRODUCT 		myfares:PreassignedFareProduct:timeInterval_zonal_1h
+ 		2h PREASSIGNED FARE PRODUCT 		myfares:PreassignedFareProduct:timeInterval_zonal_2h
+ 		Day PREASSIGNED FARE PRODUCT 		myfares:PreassignedFareProduct:timeInterval_zonal_Day
+
+
+There are Three TIME INTERVALS, each with a price
+	1 Step: TIME INTERVAL: myfares:TimeInterval:ti_1
+		TIME INTERVALPRICE:  myfares:TimeInterval:tip_1   1H 
+	2 Steps: TIME INTERVAL: myfares:TimeInterval:ti_2
+		TIME INTERVALPRICE:  myfares:TimeInterval:tip_2   2H UR
+	3 Steps: TIME INTERVAL: myfares:TimeInterval:ti_3
+		TIME INTERVALPRICE:  myfares:TimeInterval:tip_3   8H  
+
+A COMPOSITE FRAME is used to group the component FRAMEs
+ 
+   - It has a VALIDITY CONDITION  that specifies it is valid from Jan to June
+
+		A SERVICE  FRAME is used to contain the STOP POINT  elements   LINE, etc
+		A FARE FRAME is used to contain  the FARE    elements 
+ 		A RESOURCE is used to contain the TIME UNITs, etc
+-->
+<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PublicationTimestamp>2010-12-17T09:30:47.0Z</PublicationTimestamp>
+	<ParticipantRef>SYS001</ParticipantRef>
+	<!--- ======WHAT WAS REQUESTED ========== -->
+	<PublicationRequest version="1.0">
+		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
+		<ParticipantRef>SYS002</ParticipantRef>
+		<topics>
+			<FrameTopicFilter>
+				<selectionValidityConditions>
+					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
+						<FromDate>2011-01-01T00:00:00Z</FromDate>
+					</AvailabilityCondition>
+				</selectionValidityConditions>
+				<FareFrameRef ref="myfares:FareFrame:any">REQUEST</FareFrameRef>
+			</FrameTopicFilter>
+		</topics>
+	</PublicationRequest>
+	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
+	<Description>Example  of simple point to point fares</Description>
+	<!--- =============== RESULTS =========== -->
+	<dataObjects>
+		<CompositeFrame version="1" id="myfares:CompositeFrame:CAL_02">
+			<!--- ======= CODESPACEs======== -->
+			<codespaces>
+				<Codespace id="mybus">
+					<Xmlns>mybus</Xmlns>
+					<XmlnsUrl>http://www.mybuses.eu/stuff</XmlnsUrl>
+					<Description>My buses</Description>
+				</Codespace>
+				<Codespace id="myfares">
+					<Xmlns>myfares</Xmlns>
+					<XmlnsUrl>http://www.myfares,com/fares</XmlnsUrl>
+					<Description>Fatre v data   </Description>
+				</Codespace>
+			</codespaces>
+			<!--- =======FRAME DEFAULTS======== -->
+			<FrameDefaults>
+				<DefaultCodespaceRef ref="myfares"/>
+			</FrameDefaults>
+			<frameValidityConditions>
+				<SimpleValidityCondition>
+					<FromDate>2011-01-01T00:00:00Z</FromDate>
+					<ToDate>2011-07-01T00:00:00Z</ToDate>
+				</SimpleValidityCondition>
+			</frameValidityConditions>
+			<frames>
+				<ServiceFrame version="1" id="myfares:ServiceFrame:svf_12">
+					<Name>Fares  for Winter timetable for Network</Name>
+					<!--- =========LINEs=========== -->
+					<tariffZones>
+						<!--- ====TARIFF ZONEs ======== -->
+						<TariffZone version="any" id="myfares:TariffZone:1">
+							<Name>Zone 1</Name>
+						</TariffZone>
+					</tariffZones>
+				</ServiceFrame>
+				<!--- =============== FAREs =========== -->
+				<FareFrame version="any" id="myfares:FareFrame:FF01">
+					<FrameDefaults>
+						<DefaultCurrency>EUR</DefaultCurrency>
+					</FrameDefaults>
+					<!--- ====Fare Usage Parameters======= -->
+					<fareUsageParameters>
+						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:unlimited">
+							<Name>  transfers</Name>
+							<FrequencyOfUseType>unlimited</FrequencyOfUseType>
+						</FrequencyOfUse>
+						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:1h">
+							<Name>1 hour use</Name>
+							<UsageEnd>standardDuration</UsageEnd>
+							<StandardDuration>PT1H</StandardDuration>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:2h">
+							<Name>2 hour use</Name>
+							<UsageEnd>standardDuration</UsageEnd>
+							<StandardDuration>PT2H</StandardDuration>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:day">
+							<Name>Till end of day of furchase (Not 24 hours after purchase)</Name>
+							<UsageEnd>endOfFareDay</UsageEnd>
+						</UsageValidityPeriod>
+					</fareUsageParameters>
+					<!--- ====Fare Product======= -->
+					<fareProducts>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:timeInterval_zonal_1h">
+							<Name> 1 zone use for one hour</Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_1h_FrequencyOfUse">
+									<Name> unlimited transfers</Name>
+									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
+									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_1h_TariffZone">
+									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_1h_UsageValidityPeriod">
+									<Name>one hour </Name>
+									<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:1h"/>
+									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:fse_1h"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:timeInterval_zonal_2h">
+							<Name> 1 zone use for two hours </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_2h_FrequencyOfUse">
+									<Name> unlimited transfers</Name>
+									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
+									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_2h_TariffZone">
+									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_2h_UsageValidityPeriod">
+									<Name>two hours </Name>
+									<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:2h"/>
+									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:fse_2h"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:timeInterval_zonal_day">
+							<Name> 1 zone use for one day</Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_day_FrequencyOfUse">
+									<Name> unlimited transfers</Name>
+									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_day_TariffZone">
+									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_day_UsageValidityPeriod">
+									<Name>Day Pass</Name>
+									<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:day"/>
+									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:fse_day"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+					</fareProducts>
+					<!--- ====Fare Structure======= -->
+					<tariffs>
+						<Tariff version="any" id="myfares:Tariff:timeInterval">
+							<Name>Zonal Fare</Name>
+							<TimeUnitRef version="any" ref="myfares:TimeUnit:tu1"/>
+							<timeIntervals>
+								<TimeInterval version="any" id="myfares:TimeInterval:ti_1h">
+									<Name>One Hour</Name>
+									<Duration>PT1H</Duration>
+									<timeStructureFactors>
+										<TimeStructureFactor version="any" id="myfares:TimeStructureFactor:tsf_1h">
+											<Name>One hour's  use</Name>
+											<TimeUnitRef version="any" ref="myfares:TimeUnit:tu1"/>
+										</TimeStructureFactor>
+									</timeStructureFactors>
+								</TimeInterval>
+								<TimeInterval version="any" id="myfares:TimeInterval:ti_2h">
+									<Name>Two Hours</Name>
+									<Duration>PT2H</Duration>
+									<timeStructureFactors>
+										<TimeStructureFactor version="any" id="myfares:TimeStructureFactor:tsf_2h">
+											<Name>Two hour's  use</Name>
+											<TimeUnitRef version="any" ref="myfares:TimeUnit:tu1"/>
+										</TimeStructureFactor>
+									</timeStructureFactors>
+								</TimeInterval>
+								<TimeInterval version="any" id="myfares:TimeInterval:ti_day">
+									<Name>All Day Use on day of pruchase</Name>
+									<StartTime>06:00:00</StartTime>
+									<EndTime>24:00:00</EndTime>
+									<timeStructureFactors>
+										<TimeStructureFactor version="any" id="myfares:TimeStructureFactor:tsf_day">
+											<Name>All day use on day of purchase</Name>
+											<TimeUnitRef version="any" ref="myfares:TimeUnit:tu1"/>
+										</TimeStructureFactor>
+									</timeStructureFactors>
+								</TimeInterval>
+							</timeIntervals>
+							<fareStructureElements>
+								<FareStructureElement version="any" id="myfares:FareStructureElement:fse_1h">
+									<Name>One hours  use of a   zone</Name>
+									<timeStructureFactors>
+										<TimeStructureFactorRef version="any" ref="myfares:TimeStructureFactor:tsf_1h"/>
+									</timeStructureFactors>
+								</FareStructureElement>
+								<FareStructureElement version="any" id="myfares:FareStructureElement:fse_2h">
+									<Name>Two hours  use of a   zone</Name>
+									<timeStructureFactors>
+										<TimeStructureFactorRef version="any" ref="myfares:TimeStructureFactor:tsf_2h"/>
+									</timeStructureFactors>
+								</FareStructureElement>
+								<FareStructureElement version="any" id="myfares:FareStructureElement:fse_day">
+									<Name>Day cpass  use of a   zone</Name>
+									<timeStructureFactors>
+										<TimeStructureFactorRef version="any" ref="myfares:TimeStructureFactor:tsf_day"/>
+									</timeStructureFactors>
+								</FareStructureElement>
+							</fareStructureElements>
+						</Tariff>
+					</tariffs>
+					<!--- ====Fare Prices======= -->
+					<farePrices>
+						<PriceGroup version="any" id="myfares:PriceGroup:PG01">
+							<Name>Prices for Point to Point Fare Products  - Standard</Name>
+							<members>
+								<TimeIntervalPrice version="any" id="myfares:TimeIntervalPrice:tip_1h">
+									<Amount>1.50</Amount>
+									<TimeIntervalRef version="any" ref="myfares:TimeInterval:ti_1h"/>
+								</TimeIntervalPrice>
+								<TimeIntervalPrice version="any" id="myfares:TimeIntervalPrice:tip_2h">
+									<Amount>2.00</Amount>
+									<TimeIntervalRef version="any" ref="myfares:TimeInterval:ti_2h"/>
+								</TimeIntervalPrice>
+								<TimeIntervalPrice version="any" id="myfares:TimeIntervalPrice:tip_day">
+									<Amount>5.00</Amount>
+									<TimeIntervalRef version="any" ref="myfares:TimeInterval:ti_day"/>
+								</TimeIntervalPrice>
+							</members>
+						</PriceGroup>
+					</farePrices>
+				</FareFrame>
+				<!--- ====RESOURCE FRAME===== -->
+				<ResourceFrame version="any" id="myfares:ResourceFrame:RS1">
+					<typesOfValue>
+						<ValueSet>
+							<values>
+								<!--- ====TimeU nit======== -->
+								<TimeUnit version="any" id="myfares:TimeUnit:tu1">
+									<Name>Time unit of 1 hour</Name>
+								</TimeUnit>
+							</values>
+						</ValueSet>
+					</typesOfValue>
+				</ResourceFrame>
+			</frames>
+		</CompositeFrame>
+	</dataObjects>
+</PublicationDelivery>

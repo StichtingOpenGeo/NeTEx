@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- ==== SImple Timetable  Example ====== 
+This example shows the encoding of a flat   fare set for w ith a group ticket in NeTex XML  
+ 
+Uses Flat fares   There  are thre  FARE PRODUCT ,: Standard  (one way and return)  and Group Ticket (one way)
+ 
+ 
+1. OVERVIEW
+============
+There is  a flat fare to use the network of OPERATOR DTA 
+
+ Fare type									 Single Price    	Return
+  Standard fare 							1.00 EUR		 	1.75
+   Group Tickeet 10 or more people 75% discount  n/a	
+==================================
+2. DETAILS
+
+There is one OPERATOR  :  mybus:Operator:DTA
+
+There are Three   FARE PRODUCTs
+
+	 Standard: PREASSIGNED FARE PRODUCT myfares:PreassignedFareProduct:flat_standard_single  
+		VALIDITY PARAMETER ASSIGNMENTs
+			OPERATOR mybus:Operator:DTA
+		FARE USAGE PARAMETERs
+			FREQUENCY OF USE   one trip  unlimited  myfares:FrequencyOfUse:return 
+
+	 Standard: PREASSIGNED FARE PRODUCT myfares:PreassignedFareProduct:flat_standard_return
+		VALIDITY PARAMETER ASSIGNMENTs
+			OPERATOR mybus:Operator:DTA
+		FARE USAGE PARAMETERs 
+			FREQUENCY OF USE   one trip  unlimited  myfares:FrequencyOfUse:return 
+
+	Group PREASSIGNED FARE PRODUCT myfares:PreassignedFareProduct:flat_group
+		VALIDITY PARAMETER ASSIGNMENTs
+			OPERATOR mybus:Operator:DTA
+		FARE USAGE PARAMETERs
+			FREQUENCY OF USE   one trip  unlimited  myfares:FrequencyOfUse:return 
+			GROUP TICKET - 10 or more  myfares:GroupTicketRef:group
+ 
+	Prices 
+		FARE PRODUCT PRICE : myfares:FareProductPrice:standard   1.00 EUR
+		FARE PRODUCT PRICE : myfares:FareProductPrice:return  1.75 EUR
+								 
+		USAGE PARAMETER   PRICE :myfares:UsageParameterPrice:group"> 75%
+									 
+
+A COMPOSITE FRAME is used to group the component FRAMEs
+ 
+   - It has a VALIDITY CONDITION  that specifies it is valid from Jan to June
+
+		A SERVICE  FRAME is used to contain the STOP POINT  elements   LINE, etc
+		A FARE FRAME is used to contain  the FARE    elements 
+ 		A RESOURCE is used to contain the OPERATORs, etc
+-->
+<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PublicationTimestamp>2010-12-17T09:30:47.0Z</PublicationTimestamp>
+	<ParticipantRef>SYS001</ParticipantRef>
+	<!--- ======WHAT WAS REQUESTED ========== -->
+	<PublicationRequest version="1.0">
+		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
+		<ParticipantRef>SYS002</ParticipantRef>
+		<topics>
+			<FrameTopicFilter>
+				<selectionValidityConditions>
+					<AvailabilityCondition version="any" id="mybus:AvailabilityCondition:CAL_02">
+						<FromDate>2011-01-01T00:00:00Z</FromDate>
+					</AvailabilityCondition>
+				</selectionValidityConditions>
+				<FareFrameRef ref="myfares:FareFrame:any">REQUEST</FareFrameRef>
+			</FrameTopicFilter>
+		</topics>
+	</PublicationRequest>
+	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
+	<Description>Example  of simple point to point fares</Description>
+	<!--- =============== RESULTS =========== -->
+	<dataObjects>
+		<CompositeFrame version="1" id="myfares:CompositeFrame:CAL_02">
+			<!--- ======= CODESPACEs======== -->
+			<codespaces>
+				<Codespace id="mybus">
+					<Xmlns>mybus</Xmlns>
+					<XmlnsUrl>http://www.mybuses.eu/stuff</XmlnsUrl>
+					<Description>My buses</Description>
+				</Codespace>
+				<Codespace id="myfares">
+					<Xmlns>myfares</Xmlns>
+					<XmlnsUrl>http://www.myfares,com/fares</XmlnsUrl>
+					<Description>Fatre v data   </Description>
+				</Codespace>
+			</codespaces>
+			<!--- =======FRAME DEFAULTS======== -->
+			<FrameDefaults>
+				<DefaultCodespaceRef ref="myfares"/>
+			</FrameDefaults>
+			<frameValidityConditions>
+				<SimpleValidityCondition>
+					<FromDate>2011-01-01T00:00:00Z</FromDate>
+					<ToDate>2011-07-01T00:00:00Z</ToDate>
+				</SimpleValidityCondition>
+			</frameValidityConditions>
+			<frames>
+				<!--- ===========RESOURCEs========== -->
+				<ResourceFrame version="any" id="mybus:ResourceFrame:DTA">
+					<organisations>
+						<!--- =====Agency========= -->
+						<Operator version="any" id="mybus:Operator:DTA">
+							<Name>Demo Transit Authority</Name>
+						</Operator>
+					</organisations>
+				</ResourceFrame>
+				<!--- =============== FAREs =========== -->
+				<FareFrame version="any" id="myfares:FareFrame:FF01">
+					<FrameDefaults>
+						<DefaultCurrency>EUR</DefaultCurrency>
+					</FrameDefaults>
+					
+					<!--- ====Fare Usage Parameters======= -->
+					<fareUsageParameters>
+						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:oneTrip">
+							<Name>Single  </Name>
+							<MinimalFrequency>1</MinimalFrequency>
+							<MaximalFrequency>1</MaximalFrequency>
+						</FrequencyOfUse>
+						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:return">
+							<Name>Return  </Name>
+							<MaximalFrequency>2</MaximalFrequency>
+						</FrequencyOfUse>
+						<GroupTicket version="any" id="myfares:GroupTicket:group">
+							<Name>Group Fare - 10 or more people</Name>
+							<prices>
+								<UsageParameterPriceRef version="any" ref="myfares:UsageParameterPrice:group"/>
+							</prices>
+							<MinimumNumberOfAdults>10</MinimumNumberOfAdults>
+						</GroupTicket>
+					</fareUsageParameters>
+					<!--- ====Fare Product======= -->
+					<fareProducts>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:flat_standard_single">
+							<Name>Adult  Standard Flat  fare  - One way </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:flat_standard_single_Operator">
+									<VehicleModes>metro</VehicleModes>
+									<OperatorRef version="any" ref="mybus:Operator:DTA"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:flat_standard_single_FrequencyOfUse">
+									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:oneTrip"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:flat_standard_return">
+							<Name>Adult  Standard Flat  fare  Return  </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:flat_standard_return_Operator">
+									<VehicleModes>metro</VehicleModes>
+									<OperatorRef version="any" ref="mybus:Operator:DTA"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:flat_standard_return_FrequencyOfUse">
+									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:return"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:flat_group">
+							<Name>Group Fare ,  </Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:flat_group_Operator">
+									<VehicleModes>metro</VehicleModes>
+									<OperatorRef version="any" ref="mybus:Operator:DTA"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:flat_group_FrequencyOfUse">
+									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:oneTrip"/>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:flat_group_GroupTicket">
+									<Name>75% discount for group</Name>
+									<GroupTicketRef version="any" ref="myfares:GroupTicket:group"/>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</PreassignedFareProduct>
+					</fareProducts>
+					
+					<!--- ====Fare Prices======= -->
+					<farePrices>
+						<PriceGroup version="any" id="myfares:PriceGroup:PG01">
+							<Name>Prices for Point to Point Fare Products  - Standard</Name>
+							<members>
+								<FareProductPrice version="any" id="myfares:FareProductPrice:standard">
+									<Name>Single fare</Name>
+									<Amount>1.00</Amount>
+									<Currency>EUR</Currency>
+									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:flat_standard_single"/>
+								</FareProductPrice>
+								<FareProductPrice version="any" id="myfares:FareProductPrice:return">
+									<Name>Return fare</Name>
+									<Amount>1.75</Amount>
+									<Currency>EUR</Currency>
+									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:flat_standard_return"/>
+								</FareProductPrice>
+								<UsageParameterPrice version="any" id="myfares:UsageParameterPrice:group">
+									<Name>Group discount - all fares</Name>
+									<DiscountAsPercentage>75</DiscountAsPercentage>
+									<GroupTicketRef version="any" ref="myfares:GroupTicket:group"/>
+								</UsageParameterPrice>
+							</members>
+						</PriceGroup>
+					</farePrices>
+				</FareFrame>
+			</frames>
+		</CompositeFrame>
+	</dataObjects>
+</PublicationDelivery>

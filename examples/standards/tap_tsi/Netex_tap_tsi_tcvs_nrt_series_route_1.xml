@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- ==== SImple Carrier  Example ====== 
+This example provides an example of encodeing tap TCVS Series data, &  TCVP Price data  for route & set based fares      in NeTEx XML
+ 
+ The example has  two main series    555 & 777  
+
+
+ Standard (TCV Full fare type 01 ) , Group (Fare Type 04)  & Upgrade (Supplement type 06)   Fare Tables are provided 
+
+
+Th
+
+Shows examples of  Series
+
+
+
+ 
+
+(C) ERA  Copyright 2013
+-->
+<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PublicationTimestamp>2001-12-17T09:30:47.0Z</PublicationTimestamp>
+	<ParticipantRef>SYS001</ParticipantRef>
+	<!--- ======WHAT WAS REQUESTED ========== -->
+	<Description>Simple Series example</Description>
+	<!--- =============== RESULTS =========== -->
+	<dataObjects>
+		<CompositeFrame version="1" id="tap:CF001">
+			<!--- ======= CODESPACEs======== -->
+			<codespaces>
+				<Codespace id="tap:tap">
+					<Xmlns>zbt</Xmlns>
+					<XmlnsUrl>http://www.era.eu/ru</XmlnsUrl>
+					<Description>TAP TSI location </Description>
+				</Codespace>
+			</codespaces>
+			<!--- =======FRAME DEFAULTS======== -->
+			<FrameDefaults>
+				<DefaultCodespaceRef ref="tap:tap"/>
+				<DefaultCurrency>EUR</DefaultCurrency>
+			</FrameDefaults>
+			<frames>
+				<!--   === ROUTE  based  example  =====-->
+				<FareFrame id="tap:FareFrame:RouteExample" version="any" modification="revise">
+					<fareScheduledStopPoints>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:16043" version="01">
+							<Name>Erfurt</Name>
+							<StopType>railStation</StopType>
+							<NameOnRouting lang="de">Erfurt</NameOnRouting>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:26002" version="01">
+							<Name>Hof</Name>
+							<StopType>railStation</StopType>
+							<NameOnRouting lang="de">Hof</NameOnRouting>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:23002" version="01">
+							<Name>Halle</Name>
+							<StopType>railStation</StopType>
+							<NameOnRouting lang="de">Halle</NameOnRouting>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:27359" version="01">
+							<Name>Schwerin</Name>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:213001" version="01">
+							<Name>Nurnberg</Name>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:213002" version="01">
+							<Name>Berlin</Name>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:17001" version="01">
+							<Name>Marktredwitz</Name>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:17002" version="01">
+							<Name>Wuerrzburg</Name>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:999123" version="01">
+							<Name lang="de">Nurnberg</Name>
+							<ShortName lang="de">Nurnberg</ShortName>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:999234" version="01">
+							<Name>Berlin</Name>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:04711" version="01">
+							<Name lang="fr">Forbach</Name>
+							<ShortName lang="fr">Forbach</ShortName>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:05800" version="01">
+							<Name lang="fr">Paris Est</Name>
+							<ShortName lang="fr">Paris Est</ShortName>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:06300" version="01">
+							<Name lang="fr">Paris Austerlitz</Name>
+							<ShortName lang="fr">Paris Austerlitz</ShortName>
+						</FareScheduledStopPoint>
+						<FareScheduledStopPoint id="tap:FareScheduledStopPoint:07814" version="01">
+							<Name lang="fr">Bordeaux</Name>
+							<ShortName lang="fr">Bordeaux</ShortName>
+						</FareScheduledStopPoint>
+					</fareScheduledStopPoints>
+					<!--  === SERIES INFO - NOTCIES === -->
+					<notices>
+						<Notice id="tap:Notice:SeriesInfo123" version="01">
+							<Text>Infor 123 text </Text>
+							<TypeOfNoticeRef ref="tap:TypeOfNotice:seriesInfo"/>
+							<variants>
+								<DeliveryVariant id="tap:DeliveryVariant:SeriesInfo123_of" version="01">
+									<TypeOfDeliveryVariantRef ref="tap:TypeOfDeliveryVariant:seriesInfo@Official"/>
+									<VariantText lang="de">text line 1  im Deutsch  / text line 2  im Deutsch  / text line 3  im Deutsch  / text line 4  im Deutsch   </VariantText>
+								</DeliveryVariant>
+								<DeliveryVariant id="tap:DeliveryVariant:SeriesInfo123_fr" version="01">
+									<TypeOfDeliveryVariantRef ref="tap:TypeOfDeliveryVariant:seriesInfo@Fr"/>
+									<VariantText lang="fr">text line 1  en francais / text line 2 en francais / text line 3  en francais  / text line 4  en francais  </VariantText>
+								</DeliveryVariant>
+								<DeliveryVariant id="tap:DeliveryVariant:SeriesInfo123_de" version="01">
+									<TypeOfDeliveryVariantRef ref="tap:TypeOfDeliveryVariant@De"/>
+									<VariantText lang="de">text line 1  im Deutsch  / text line 2  im Deutsch  / text line 3  im Deutsch  / text line 4  im Deutsch   </VariantText>
+								</DeliveryVariant>
+								<DeliveryVariant id="tap:DeliveryVariant:SeriesInfo123+en" version="01">
+									<TypeOfDeliveryVariantRef ref="tap:TypeOfDeliveryVariant:seriesInfo@En"/>
+									<VariantText lang="en">text line 1  in English / text line 2  in English/ text line 3  in English / text line 4  in English  </VariantText>
+								</DeliveryVariant>
+							</variants>
+						</Notice>
+					</notices>
+					<!--- ====Fare Usage Parameters======= -->
+					<fareUsageParameters>
+						<UserProfile version="any" id="tap:UserProfile:adult">
+							<Name>Adult Fare - 17 or over</Name>
+							<TypeOfConcessionRef version="any" ref="tap:TypeOfConcession:adult"/>
+							<MinimumAge>17</MinimumAge>
+						</UserProfile>
+						<UserProfile version="any" id="tap:UserProfile:child">
+							<Name>Child Fare</Name>
+							<TypeOfConcessionRef version="any" ref="tap:TypeOfConcession:child"/>
+							<MaximumAge>16</MaximumAge>
+						</UserProfile>
+						<RoundTrip version="any" id="tap:RoundTrip:single">
+							<Name>Single</Name>
+							<isAuthorised>false</isAuthorised>
+						</RoundTrip>
+						<RoundTrip version="any" id="tap:RoundTrip:return">
+							<Name>Return</Name>
+							<isAuthorised>true</isAuthorised>
+						</RoundTrip>
+						<RoundTrip version="any" id="tap:RoundTrip:returnDouble">
+							<Name>Single</Name>
+							<isAuthorised>true</isAuthorised>
+							<DoubleSingleFare>true</DoubleSingleFare>
+						</RoundTrip>
+						<Routing version="any" id="tap:Routing:international">
+							<Name>International </Name>
+							<CrossBorder>true</CrossBorder>
+						</Routing>
+						<Routing version="any" id="tap:Routing:domestic">
+							<Name>Domestic </Name>
+							<CrossBorder>false</CrossBorder>
+						</Routing>
+						<GroupTicket version="any" id="tap:GroupTicket:groupTicket">
+							<Name>Group ticket</Name>
+							<prices>
+								<UsageParameterPrice version="any" id="tap:GroupTicket:groupTicket">
+									<DiscountAsPercentage>20.00</DiscountAsPercentage>
+								</UsageParameterPrice>
+							</prices>
+							<MinimumNumberOfAdults>3</MinimumNumberOfAdults>
+							<MaximumNumberOfAdults>10</MaximumNumberOfAdults>
+						</GroupTicket>
+					</fareUsageParameters>
+					<!--  === COMMON ACCESS RIGHTS  ===  -->
+					<!--  === VALIDABLE ELEMENTS  ===  -->
+					<validableElements>
+						<ValidableElement id="tap:ValidableElement:domesticTrainRide" version="01">
+							<Name>trainRide</Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment id="tap:ValidityParameterAssignment:domesticTrainRide" version="01">
+									<Name> Domestic></Name>
+									<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canAccess"/>
+									<RoutingRef ref="tap:Routing:domestic" version="any"/>
+									<VehicleModes>rail</VehicleModes>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</ValidableElement>
+						<ValidableElement id="tap:ValidableElement:internationalTrainRide" version="01">
+							<Name>trainRide</Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment id="tap:ValidityParameterAssignment:internationalTrainRide" version="01">
+									<Name> International></Name>
+									<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canAccess"/>
+									<RoutingRef ref="tap:Routing:international" version="any"/>
+									<VehicleModes>rail</VehicleModes>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</ValidableElement>
+						<ValidableElement id="tap:ValidableElement:upgrade@second-first" version="01">
+							<Name>trainRide</Name>
+							<validityParameterAssignments>
+								<ValidityParameterAssignment id="tap:ValidityParameterAssignment:upgrade@second-first@From" version="01" order="1">
+									<Name> Upgradefrom economy first></Name>
+									<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canPurchase"/>
+									<SeatClass>economyClass</SeatClass>
+									<VehicleModes>rail</VehicleModes>
+								</ValidityParameterAssignment>
+								<ValidityParameterAssignment id="tap:ValidityParameterAssignment:upgrade@second-first@To" version="01" order="12">
+									<Name> Upgrade to first </Name>
+									<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canPurchase"/>
+									<SeatClass>firstClass</SeatClass>
+									<VehicleModes>rail</VehicleModes>
+								</ValidityParameterAssignment>
+							</validityParameterAssignments>
+						</ValidableElement>
+					</validableElements>
+					<!--  === FAR E PRODUCTs  ===  -->
+					<fareProducts>
+						<PreassignedFareProduct id="tap:PreassignedFareProduct:NrtProduct" version="01">
+							<Name>Standard    </Name>
+							<groupsOfAccessRightParameterAssignments>
+								<GroupOfAccessRightParameterAssignments id="tap:GroupOfAccessRightParameterAssignments:NrtProduct@StandardAdult" version="01">
+									<Name>Adult single</Name>
+									<PreassignedFareProductRef ref="tap:PreassignedFareProduct:NrtProduct" version="01"/>
+									<accessRightParameterAssignments>
+										<ValidityParameterAssignment id="tap:ValidityParameterAssignment:StandardAdult_01_01" version="01">
+											<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canPurchase"/>
+											<UserProfileRef ref="tap:UserProfile:adult"/>
+										</ValidityParameterAssignment>
+									</accessRightParameterAssignments>
+								</GroupOfAccessRightParameterAssignments>
+								<GroupOfAccessRightParameterAssignments id="tap:GroupOfAccessRightParameterAssignments:NrtProduct@UserProfile" version="01">
+									<Name>Eligible </Name>
+									<GroupingType>OR</GroupingType>
+									<accessRightParameterAssignments>
+										<ValidityParameterAssignment id="tap:ValidityParameterAssignment:NrtProduct@UserProfile@adult" version="01">
+											<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canPurchase"/>
+											<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+										</ValidityParameterAssignment>
+										<ValidityParameterAssignment id="tap:ValidityParameterAssignment:NrtProduct@UserProfile@child" version="01">
+											<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canPurchase"/>
+											<UserProfileRef ref="tap:UserProfile:child" version="any"/>
+										</ValidityParameterAssignment>
+									</accessRightParameterAssignments>
+								</GroupOfAccessRightParameterAssignments>
+								<GroupOfAccessRightParameterAssignments id="tap:GroupOfAccessRightParameterAssignments:NrtProduct@GroupTicket" version="01">
+									<Name>Group  Offer  </Name>
+									<accessRightParameterAssignments>
+										<ValidityParameterAssignment id="tap:ValidityParameterAssignment:NrtProduct@GroupTicket" version="01">
+											<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canPurchase"/>
+											<GroupTicketRef ref="tap:GroupTicket:groupTicket" version="any"/>
+										</ValidityParameterAssignment>
+									</accessRightParameterAssignments>
+								</GroupOfAccessRightParameterAssignments>
+							</groupsOfAccessRightParameterAssignments>
+							<!--  === Validable elements  ===  -->
+							<validableElements>
+								<ValidableElementRef ref="tap:ValidableElement:domesticTrainRide" version="01"/>
+								<ValidableElementRef ref="tap:ValidableElement:internationalTrainRide" version="01"/>
+								<ValidableElementRef ref="tap:ValidableElement:upgrade@second-first" version="01"/>
+							</validableElements>
+							<accessRightsInProduct>
+								<AccessRightInProduct id="tap:AccessRightInProduct:NrtProduct@domesticTrainRide" version="01">
+									<Name>Product covers domestic trips</Name>
+									<ValidableElementRef ref="tap:ValidableElement:domesticTrainRide" version="01"/>
+								</AccessRightInProduct>
+								<AccessRightInProduct id="tap:AccessRightInProduct:NrtProduct@internationalTrainRide" version="01">
+									<Name>Product covers international trips</Name>
+									<ValidableElementRef ref="tap:ValidableElement:internationalTrainRide" version="01"/>
+								</AccessRightInProduct>
+							</accessRightsInProduct>
+						</PreassignedFareProduct>
+						<SupplementProduct id="tap:SupplementProduct:GroupOffer01" version="01">
+							<Name>Group Fare </Name>
+							<prerequisites>
+								<PreassignedFareProductRef ref="tap:PreassignedFareProduct:NrtProduct" version="01"/>
+							</prerequisites>
+						</SupplementProduct>
+						<SupplementProduct id="tap:SupplementProduct:Upgrade2ndTo1st" version="01">
+							<Name>Upgrade 2nd to First  </Name>
+							<alternativeNames>
+								<AlternativeName id="tap:AlternativeName:SupplementProduct@Upgrade2ndTo1st@fr" version="01">
+									<Name lang="fr">Name of upgrade in French</Name>
+								</AlternativeName>
+								<AlternativeName id="tap::AlternativeNameSupplementProduct@Upgrade2ndTo1st@de" version="01">
+									<Name lang="de">Name of upgrade in German</Name>
+								</AlternativeName>
+							</alternativeNames>
+							<prerequisites>
+								<PreassignedFareProductRef ref="tap:PreassignedFareProduct:NrtProduct" version="01"/>
+							</prerequisites>
+						</SupplementProduct>
+					</fareProducts>
+					<!--  === TARIFFS  ===  -->
+					<tariffs>
+						<Tariff id="tap:Tariff:Tariff01" version="01">
+							<Name>Standard route based Fare table 1</Name>
+							<alternativeNames>
+								<AlternativeName id="tap:AlternativeName:Tariff01@of" version="01">
+									<Name lang="en">My Standard  Fare table    description in the Offical Language</Name>
+								</AlternativeName>
+								<AlternativeName id="tap:AlternativeName:Tariff01@fr" version="01">
+									<Name lang="fr">My  Standard Fare tabledescription in the French</Name>
+								</AlternativeName>
+								<AlternativeName id="tap:AlternativeName:Tariff01@de" version="01">
+									<Name lang="de">My Standard Fare table description in German</Name>
+								</AlternativeName>
+								<AlternativeName id="tap:AlternativeName:Tariff01@en" version="01">
+									<Name lang="de">My Standard Fare table description in English</Name>
+								</AlternativeName>
+							</alternativeNames>
+							<validityConditions>
+								<AvailabilityCondition id="tap:AvailabilityCondition:Tariff01" version="01">
+									<FromDate>2011-01-01T00:00:00Z</FromDate>
+									<ToDate>2014-01-01T00:00:00Z</ToDate>
+								</AvailabilityCondition>
+							</validityConditions>
+							<OperatorRef ref="tap:Operator:0106" version="any"/>
+							<TypeOfTariffRef ref="tap:TypeOfTariff:B.1.1:01" version="any"/>
+							<TariffBasis>route</TariffBasis>
+							<ReturnFareTwiceSingle>true</ReturnFareTwiceSingle>
+							<!-- === Fare Structure elements ====   -->
+							<fareStructureElements>
+								<FareStructureElement id="tap:FareStructureElement:series " version="01">
+									<Name>For Basic Tariffs  </Name>
+									<groupsOfAccessRightParameterAssignments>
+										<GroupOfAccessRightParameterAssignments id="tap:GroupOfAccessRightParameterAssignments:Tariff01@series" version="01">
+											<Name>explict assignment of series (Could just do this indirecty via distance matrices: this way allows multiple series for teh same matrix</Name>
+											<GroupingType>OR</GroupingType>
+											<accessRightParameterAssignments>
+												<AccessRightParameterAssignment id="tap:AccessRightParameterAssignment:series@series555" version="01">
+													<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canAccess"/>
+													<SeriesPatternRef ref="tap:SeriesPattern:series555" version="01"/>
+													<Directions>both</Directions>
+												</AccessRightParameterAssignment>
+												<AccessRightParameterAssignment id="tap:AccessRightParameterAssignment:series@series777" version="01">
+													<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canAccess"/>
+													<SeriesPatternRef ref="tap:SeriesPattern:series777" version="01"/>
+													<Directions>both</Directions>
+												</AccessRightParameterAssignment>
+												<AccessRightParameterAssignment id="tap:AccessRightParameterAssignment:series@series1234" version="01">
+													<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canAccess"/>
+													<SeriesPatternRef ref="tap:SeriesPattern:series1234" version="01"/>
+													<Directions>both</Directions>
+												</AccessRightParameterAssignment>
+												<AccessRightParameterAssignment id="tap:AccessRightParameterAssignment:series@series1235" version="01">
+													<TypeOfAccessRightAssignmentRef version="any" ref="tap:TypeOfAccessRightAssignment:canAccess"/>
+													<SeriesPatternRef ref="tap:SeriesPattern:series1235" version="01"/>
+													<Directions>both</Directions>
+												</AccessRightParameterAssignment>
+											</accessRightParameterAssignments>
+										</GroupOfAccessRightParameterAssignments>
+									</groupsOfAccessRightParameterAssignments>
+								</FareStructureElement>
+							</fareStructureElements>
+							<!-- ===== SERIES ELEMENTS ======== -->
+							<distanceMatrixElements>
+								<DistanceMatrixElement id="tap:DistanceMatrixElement:series555" version="01">
+									<StartStopPointView>
+										<FareScheduledStopPointRef version="01" ref="tap:FareScheduledStopPoint:999123"/>
+										<Name lang="de">Nurnberg</Name>
+										<ShortName lang="de">Nurnberg</ShortName>
+									</StartStopPointView>
+									<EndStopPointView>
+										<FareScheduledStopPointRef version="01" ref="tap:FareScheduledStopPoint:999234"/>
+										<Name lang="de">Berlin</Name>
+										<ShortName lang="de">Berlin</ShortName>
+									</EndStopPointView>
+									<validityConditions>
+										<AvailabilityCondition id="tap:AvailabilityCondition:series555" version="01">
+											<FromDate>2011-01-01T00:00:00Z</FromDate>
+											<ToDate>2014-01-01T00:00:00Z</ToDate>
+											<IsAvailable>true</IsAvailable>
+										</AvailabilityCondition>
+									</validityConditions>
+									<tariffs>
+										<TariffRef ref="tap:Tariff:Tariff01" version="01"/>
+									</tariffs>
+									<FareTableRef ref="tap:FareTable:FareTable_555" version="01"/>
+									<seriesPatterns>
+										<SeriesPattern id="tap:SeriesPattern:series555" version="01">
+											<Itinerary>(Erfurt/Hof)*Halle*Schwerin</Itinerary>
+											<UseStandardFareCalculation>route</UseStandardFareCalculation>
+											<SeriesType>stationToStation</SeriesType>
+											<farePointsInPattern>
+												<FarePointInPattern id="tap:FarePointInPattern:55501" version="01" order="1">
+													<ScheduledStopPointView>
+														<ScheduledStopPointRef ref="tap:FareScheduledStopPoint:16043" version="01"/>
+														<Name>Erfurt</Name>
+													</ScheduledStopPointView>
+													<AbridgementRanking>2</AbridgementRanking>
+													<PresentationPosition>optionalLeft</PresentationPosition>
+												</FarePointInPattern>
+												<FarePointInPattern id="tap:FarePointInPattern:55502" version="01" order="2">
+													<ScheduledStopPointView>
+														<ScheduledStopPointRef ref="tap:FareScheduledStopPoint:26002"/>
+														<Name>Hof</Name>
+													</ScheduledStopPointView>
+													<AbridgementRanking>2</AbridgementRanking>
+													<PresentationPosition>optionalRight</PresentationPosition>
+												</FarePointInPattern>
+												<FarePointInPattern id="tap:FarePointInPattern:55503" version="01" order="3">
+													<ScheduledStopPointView>
+														<ScheduledStopPointRef ref="tap:FareScheduledStopPoint:23002"/>
+														<Name>Halle</Name>
+													</ScheduledStopPointView>
+													<PresentationPosition>required</PresentationPosition>
+												</FarePointInPattern>
+												<FarePointInPattern id="tap:FarePointInPattern:55504" version="01" order="4">
+													<ScheduledStopPointView>
+														<ScheduledStopPointRef ref="tap:FareScheduledStopPoint:27359"/>
+														<Name>Schwerin</Name>
+													</ScheduledStopPointView>
+													<AbridgementRanking>2</AbridgementRanking>
+													<PresentationPosition>required</PresentationPosition>
+												</FarePointInPattern>
+											</farePointsInPattern>
+											<noticeAssignments>
+												<NoticeAssignment id="tap:NoticeAssignment:series555" version="01">
+													<NoticeRef ref="tap:Notice:SeriesInfo123" version="01"/>
+												</NoticeAssignment>
+											</noticeAssignments>
+										</SeriesPattern>
+									</seriesPatterns>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement id="tap:DistanceMatrixElement:series777" version="01">
+									<Name>Marktredwitz to Hannover</Name>
+									<StartStopPointView>
+										<ScheduledStopPointRef ref="tap:FareScheduledStopPoint:17001"/>
+										<Name lang="de">Marktredwitz</Name>
+										<ShortName lang="de">Marktredwitz</ShortName>
+									</StartStopPointView>
+									<EndStopPointView>
+										<ScheduledStopPointRef ref="tap:FareScheduledStopPoint:17043"/>
+										<Name lang="de">Hannover</Name>
+										<ShortName lang="de">Hannover</ShortName>
+									</EndStopPointView>
+									<validityConditions>
+										<AvailabilityCondition id="tap:AvailabilityCondition:series777" version="01">
+											<FromDate>2011-01-01T00:00:00Z</FromDate>
+											<ToDate>2014-01-01T00:00:00Z</ToDate>
+											<IsAvailable>true</IsAvailable>
+										</AvailabilityCondition>
+									</validityConditions>
+									<tariffs>
+										<TariffRef ref="tap:Tariff:Tariff01" version="01"/>
+									</tariffs>
+									<StandardFareTableRef ref="tap:StandardFareTable:FareTable_777" version="01"/>
+									<seriesPatterns>
+										<SeriesPattern id="tap:SeriesPattern:series777" version="01">
+											<ShortName>Example or required route</ShortName>
+											<Itinerary>  * Wuerrzburg  </Itinerary>
+											<UseStandardFareCalculation>route</UseStandardFareCalculation>
+											<SeriesType>stationToStation</SeriesType>
+											<farePointsInPattern>
+												<FarePointInPattern id="tap:FarePointInPattern:77701" version="01" order="1">
+													<ScheduledStopPointView>
+														<ScheduledStopPointRef ref="tap:FareScheduledStopPoint:17002" version="01"/>
+														<ShortName>Wuerrzburg</ShortName>
+													</ScheduledStopPointView>
+													<PresentationPosition>required</PresentationPosition>
+												</FarePointInPattern>
+											</farePointsInPattern>
+										</SeriesPattern>
+									</seriesPatterns>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement id="tap:DistanceMatrixElement:series1234" version="01">
+									<Name>Example with onward connection code</Name>
+									<StartStopPointView>
+										<FareScheduledStopPointRef version="01" ref="tap:FareScheduledStopPoint:04711"/>
+										<Name lang="fr">Forbach</Name>
+										<ShortName lang="fr">Forbach</ShortName>
+									</StartStopPointView>
+									<EndStopPointView>
+										<FareScheduledStopPointRef version="01" ref="tap:FareScheduledStopPoint:05800"/>
+										<Name lang="fr">Paris Est</Name>
+										<ShortName lang="fr">Paris Est</ShortName>
+									</EndStopPointView>
+									<validityConditions>
+										<AvailabilityCondition id="tap:AvailabilityCondition:series1234" version="01">
+											<FromDate>2011-01-01T00:00:00Z</FromDate>
+											<ToDate>2014-01-01T00:00:00Z</ToDate>
+											<IsAvailable>true</IsAvailable>
+										</AvailabilityCondition>
+									</validityConditions>
+									<FareTableRef ref="tap:FareTable:FareTable_555" version="01"/>
+									<seriesPatterns>
+										<SeriesPattern id="tap:SeriesPattern:series1234" version="01">
+											<Name>Example with onward connection code</Name>
+											<ToConnectionRef ref="tap:Connection:99" version="01"/>
+										</SeriesPattern>
+									</seriesPatterns>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement id="tap:DistanceMatrixElement:series1235" version="01">
+									<Name>Example with From connection code</Name>
+									<StartStopPointView>
+										<FareScheduledStopPointRef ref="tap:FareScheduledStopPoint:06300"/>
+										<Name lang="fr">Paris Austerlitz</Name>
+										<ShortName lang="fr">Paris Austerlitz</ShortName>
+									</StartStopPointView>
+									<EndStopPointView>
+										<FareScheduledStopPointRef ref="tap:FareScheduledStopPoint:07814"/>
+										<Name lang="fr">Bordeaux</Name>
+										<ShortName lang="fr">Bordeaux</ShortName>
+									</EndStopPointView>
+									<validityConditions>
+										<AvailabilityCondition id="tap:AvailabilityCondition:series1235" version="01">
+											<FromDate>2011-01-01T00:00:00Z</FromDate>
+											<ToDate>2014-01-01T00:00:00Z</ToDate>
+											<IsAvailable>true</IsAvailable>
+										</AvailabilityCondition>
+									</validityConditions>
+									<StandardFareTableRef ref="tap:StandardFareTable:FareTable_777" version="01"/>
+									<seriesPatterns>
+										<SeriesPattern id="tap:SeriesPattern:series1235" version="01">
+											<Name>Example with From connection code</Name>
+											<FromConnectionRef ref="tap:Connection:99" version="01"/>
+										</SeriesPattern>
+									</seriesPatterns>
+								</DistanceMatrixElement>
+							</distanceMatrixElements>
+						</Tariff>
+						<Tariff id="tap:Tariff:GroupOffer01" version="01">
+							<Name>Fare table 2</Name>
+							<alternativeNames>
+								<AlternativeName id="tap:AlternativeName:GroupOffer01@official" version="01">
+									<Name lang="en">My  Group Fare table   description in the Offical Language</Name>
+								</AlternativeName>
+								<AlternativeName id="tap:AlternativeName:GroupOffer01@fr" version="01">
+									<Name lang="fr">My  Group Fare table description in the French</Name>
+								</AlternativeName>
+								<AlternativeName id="tap:AlternativeName:GroupOffer01@de" version="01">
+									<Name lang="de">My Group Fare table description in German</Name>
+								</AlternativeName>
+								<AlternativeName id="tap:AlternativeName:GroupOffer01@en" version="01">
+									<Name lang="de">My Group Fare table description in English</Name>
+								</AlternativeName>
+							</alternativeNames>
+							<validityConditions>
+								<AvailabilityCondition id="tap:AvailabilityCondition:GroupOffer01" version="01">
+									<FromDate>2011-01-01T00:00:00Z</FromDate>
+									<ToDate>2014-01-01T00:00:00Z</ToDate>
+								</AvailabilityCondition>
+							</validityConditions>
+							<OperatorRef ref="tap:Operator:0106" version="any"/>
+							<TypeOfTariffRef ref="tap:TypeOfTariff:B.1.1:04" version="any"/>
+							<TariffBasis>group</TariffBasis>
+							<ReturnFareTwiceSingle>true</ReturnFareTwiceSingle>
+							<fareStructureElements>
+								<FareStructureElement id="tap:FareStructureElement:GroupOffer01" version="01">
+									<Name>Group Offer 01</Name>
+									<validityConditions>
+										<AvailabilityCondition id="tap:AvailabilityCondition:GroupOffer01_01" version="01">
+											<FromDate>2011-01-01T00:00:00Z</FromDate>
+											<ToDate>2014-01-01T00:00:00Z</ToDate>
+											<IsAvailable>true</IsAvailable>
+										</AvailabilityCondition>
+									</validityConditions>
+									<groupsOfAccessRightParameterAssignments>
+										<GroupOfAccessRightParameterAssignments id="tap:SupplementProduct:GroupOffer01_01" version="01">
+											<SupplementProductRef ref="tap:SupplementProduct:GroupOffer01" version="01"/>
+											<accessRightParameterAssignments>
+												<ValidityParameterAssignment id="tap:SupplementProduct:GroupOffer01_01_01" version="01">
+													<GroupTicketRef ref="tap:GroupTicket:groupTicket"/>
+													<VehicleModes>rail</VehicleModes>
+												</ValidityParameterAssignment>
+											</accessRightParameterAssignments>
+										</GroupOfAccessRightParameterAssignments>
+									</groupsOfAccessRightParameterAssignments>
+								</FareStructureElement>
+							</fareStructureElements>
+							<distanceMatrixElements>
+								<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series555" version="01"/>
+								<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series777" version="01"/>
+								<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series1234" version="01"/>
+							</distanceMatrixElements>
+						</Tariff>
+						<Tariff id="tap:Tariff:Upgrade01" version="01">
+							<Name>Tariff for upgarde 2nd to first </Name>
+							<alternativeNames>
+								<AlternativeName id="tap:AlternativeName:Upgrade01@of" version="01">
+									<Name lang="en">My  Upgrade Fare table   description in the Offical Language</Name>
+								</AlternativeName>
+								<AlternativeName id="tap:AlternativeName:Upgrade01@of" version="01">
+									<Name lang="fr">My  Upgrade Fare table description in the French</Name>
+								</AlternativeName>
+								<AlternativeName id="tap:AlternativeName:Upgrade01@of" version="01">
+									<Name lang="de">My Upgrade Fare table description in German</Name>
+								</AlternativeName>
+								<AlternativeName id="tap::AlternativeNameUpgrade01@of" version="01">
+									<Name lang="de">My Upgrade Fare table description in English</Name>
+								</AlternativeName>
+							</alternativeNames>
+							<validityConditions>
+								<AvailabilityCondition id="tap:AvailabilityCondition:Upgrade01" version="01">
+									<FromDate>2011-01-01T00:00:00Z</FromDate>
+									<ToDate>2014-01-01T00:00:00Z</ToDate>
+								</AvailabilityCondition>
+							</validityConditions>
+							<OperatorRef ref="tap:Operator:0106" version="any"/>
+							<TypeOfTariffRef ref="tap:TypeOfTariff:B.1.1:06" version="any"/>
+							<TariffBasis>other</TariffBasis>
+							<ReturnFareTwiceSingle>true</ReturnFareTwiceSingle>
+							<fareStructureElements>
+								<FareStructureElement id="tap:FareStructureElement:Upgrade01" version="01">
+									<Name>Group Offer 01</Name>
+									<validityConditions>
+										<AvailabilityCondition id="tap:AvailabilityCondition:Upgrade01_01" version="01">
+											<FromDate>2011-01-01T00:00:00Z</FromDate>
+											<ToDate>2014-01-01T00:00:00Z</ToDate>
+											<IsAvailable>true</IsAvailable>
+										</AvailabilityCondition>
+									</validityConditions>
+									<groupsOfAccessRightParameterAssignments>
+										<GroupOfAccessRightParameterAssignments id="tap:GroupOfAccessRightParameterAssignments:Upgrade01_01" version="01">
+											<SupplementProductRef ref="tap:SupplementProduct:Upgrade2ndTo1st" version="01"/>
+											<accessRightParameterAssignments>
+												<ValidityParameterAssignment id="tap:Upgrade01_01_01" version="01">
+													<SeatClass>firstClass</SeatClass>
+													<VehicleModes>rail</VehicleModes>
+													<OperatorRef ref="tap:Operator:0106" version="any"/>
+												</ValidityParameterAssignment>
+											</accessRightParameterAssignments>
+										</GroupOfAccessRightParameterAssignments>
+									</groupsOfAccessRightParameterAssignments>
+								</FareStructureElement>
+							</fareStructureElements>
+							<distanceMatrixElements>
+								<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series555" version="01"/>
+								<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series777" version="01"/>
+								<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series1234" version="01"/>
+							</distanceMatrixElements>
+						</Tariff>
+					</tariffs>
+					<!--  === Prices  ===  -->
+					<farePrices>
+						<FareTable id="tap:FareTable:FareTable_555" version="01">
+							<Description> Some Description of Route</Description>
+							<PurposeOfGroupingRef ref="tap:PurposeOfGrouping:route" version="any"/>
+							<StartDate>2012-01-12</StartDate>
+							<EndDate>2013-01-12</EndDate>
+							<members>
+								<CellPrice id="tap:CellPrice:FareTable_555_adult_1st_single" version="01">
+									<Name>Price of a First class adult ticket</Name>
+									<Amount>123.40</Amount>
+									<FareClass>firstClass</FareClass>
+									<RoundTripRef ref="tap:RoundTrip:single" version="any"/>
+								</CellPrice>
+								<CellPrice id="tap:CellPrice:FareTable_555_adult_2nd_single" version="01">
+									<Name>Price of a First class adult ticket</Name>
+									<Amount>99.40</Amount>
+									<FareClass>secondClass</FareClass>
+									<RoundTripRef ref="tap:RoundTrip:single" version="any"/>
+								</CellPrice>
+								<CellPrice id="tap:CellPrice:FareTable_555_adult_1st_return" version="01">
+									<Name>Price of a First class adult return ticket</Name>
+									<Amount>250.40</Amount>
+									<FareClass>firstClass</FareClass>
+									<RoundTripRef ref="tap:RoundTrip:return" version="any"/>
+								</CellPrice>
+								<CellPrice id="tap:CellPrice:FareTable_555_adult_2nd_return" version="01">
+									<Name>Price of a Second  class adult return  ticket</Name>
+									<Amount>145.00</Amount>
+									<FareClass>secondClass</FareClass>
+									<RoundTripRef ref="tap:RoundTrip:return" version="any"/>
+								</CellPrice>
+							</members>
+							<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+							<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series555" version="01"/>
+							<PreassignedFareProductRef ref="tap:PreassignedFareProduct:NrtProduct" version="01"/>
+						</FareTable>
+						<!--  AN OPTIMIZATION OF THE ABOVE -->
+						<FareTable id="tap:FareTable:FareTableFareTable_555b" version="01">
+							<PurposeOfGroupingRef ref="tap:PurposeOfGrouping:route" version="any"/>
+							<members>
+								<CellPrice id="tap:FareTable_555b_adult_1st_single" version="01">
+									<Name>Price of a First class adult ticket</Name>
+									<Amount>123.40</Amount>
+									<GroupOfAccessRightParameterAssignmentsRef ref="tap:GroupOfAccessRightParameterAssignments:Adult_single_first"/>
+								</CellPrice>
+								<CellPrice id="tap:FareTable_555b_adult_2nd_single" version="01">
+									<Name>Price of a First class adult ticket</Name>
+									<Amount>99.40</Amount>
+									<GroupOfAccessRightParameterAssignmentsRef ref="tap:GroupOfAccessRightParameterAssignments:Adult_single_second"/>
+								</CellPrice>
+								<CellPrice id="tap:FareTable_555b_adult_1st_return" version="01">
+									<Name>Price of a First class adult return ticket</Name>
+									<Amount>250.40</Amount>
+									<GroupOfAccessRightParameterAssignmentsRef ref="tap:GroupOfAccessRightParameterAssignments:Adult_return_first"/>
+								</CellPrice>
+								<CellPrice id="tap:FareTable_555b_adult_2nd_return" version="01">
+									<Name>Price of a Second  class adult return  ticket</Name>
+									<Amount>145.00</Amount>
+									<GroupOfAccessRightParameterAssignmentsRef ref="tap:GroupOfAccessRightParameterAssignments:Adult_return_second"/>
+								</CellPrice>
+							</members>
+							<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+							<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series555" version="01"/>
+							<PreassignedFareProductRef ref="tap:PreassignedFareProduct:NrtProduct" version="01"/>
+						</FareTable>
+						<!--  A FURTHER OPTIMIZATION OF THE ABOVE -->
+						<StandardFareTable id="tap:StandardFareTable:FareTable_555c" version="01">
+							<Name>Standard point to point Fares for  Series 555 </Name>
+							<PurposeOfGroupingRef ref="tap:PurposeOfGrouping:route" version="any"/>
+							<FirstClassSingle>123.40</FirstClassSingle>
+							<SecondClassSingle>99.40</SecondClassSingle>
+							<FirstClassReturn>250.40</FirstClassReturn>
+							<SecondClassReturn>145.00</SecondClassReturn>
+							<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+							<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series555" version="01"/>
+							<PreassignedFareProductRef ref="tap:PreassignedFareProduct:NrtProduct" version="01"/>
+						</StandardFareTable>
+						<StandardFareTable id="tap:StandardFareTable:FareTable_GroupOffer_555" version="01">
+							<Name>Group  Standard fare for 555</Name>
+							<PurposeOfGroupingRef ref="tap:PurposeOfGrouping:set" version="any"/>
+							<FirstClassSingle>133.40</FirstClassSingle>
+							<SecondClassSingle>109.40</SecondClassSingle>
+							<FirstClassReturn>260.40</FirstClassReturn>
+							<SecondClassReturn>155.00</SecondClassReturn>
+							<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+							<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series1235" version="01"/>
+							<SupplementProductRef ref="tap:SupplementProduct:GroupOffer01" version="01"/>
+						</StandardFareTable>
+						<StandardFareTable id="tap:StandardFareTable:FareTable_Upgrade_555" version="01">
+							<Name>Upgrade  fare for 555</Name>
+							<PurposeOfGroupingRef ref="tap:PurposeOfGrouping:route" version="any"/>
+							<FirstClassSingle>50.0</FirstClassSingle>
+							<SecondClassSingle>0</SecondClassSingle>
+							<FirstClassReturn>60</FirstClassReturn>
+							<SecondClassReturn>0</SecondClassReturn>
+							<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+							<ValidableElementRef ref="tap:ValidableElement:upgrade@second-first" version="01"/>
+							<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series555" version="01"/>
+							<SupplementProductRef ref="tap:SupplementProduct:Upgrade2ndTo1st" version="01"/>
+						</StandardFareTable>
+						<StandardFareTable id="tap:StandardFareTable:FareTable_777" version="01">
+							<Name>Standard point to point Fares for  Series 777 </Name>
+							<PurposeOfGroupingRef ref="tap:PurposeOfGrouping:route" version="any"/>
+							<FirstClassSingle>133.40</FirstClassSingle>
+							<SecondClassSingle>109.40</SecondClassSingle>
+							<FirstClassReturn>260.40</FirstClassReturn>
+							<SecondClassReturn>155.00</SecondClassReturn>
+							<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+							<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series777" version="01"/>
+						</StandardFareTable>
+						<StandardFareTable id="tap:StandardFareTable:FareTable_GroupOffer_777" version="01">
+							<Name>Group    fare for 777</Name>
+							<PurposeOfGroupingRef ref="tap:PurposeOfGrouping:set" version="any"/>
+							<FirstClassSingle>133.40</FirstClassSingle>
+							<SecondClassSingle>109.40</SecondClassSingle>
+							<FirstClassReturn>260.40</FirstClassReturn>
+							<SecondClassReturn>155.00</SecondClassReturn>
+							<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+							<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series777" version="01"/>
+							<SupplementProductRef ref="tap:SupplementProduct:GroupOffer01" version="01"/>
+						</StandardFareTable>
+						<StandardFareTable id="tap:StandardFareTable:FareTable_Upgrade_777" version="01">
+							<Name>Upgrade  fare for 777</Name>
+							<PurposeOfGroupingRef ref="tap:PurposeOfGrouping:route" version="any"/>
+							<FirstClassSingle>30.0</FirstClassSingle>
+							<SecondClassSingle>0</SecondClassSingle>
+							<FirstClassReturn>52.50</FirstClassReturn>
+							<SecondClassReturn>0</SecondClassReturn>
+							<UserProfileRef ref="tap:UserProfile:adult" version="any"/>
+							<ValidableElementRef ref="tap:ValidableElement:upgrade@second-first" version="01"/>
+							<DistanceMatrixElementRef ref="tap:DistanceMatrixElement:series777" version="01"/>
+							<SupplementProductRef ref="tap:SupplementProduct:Upgrade2ndTo1st" version="01"/>
+						</StandardFareTable>
+					</farePrices>
+					<!-- ====SALES PACKAGE ========     -->
+					<salesPackages>
+						<SalesPackage id="tap:SalesPackage:Standard" version="01">
+							<Name>Standard Fare</Name>
+							<salesPackageElements>
+								<SalesPackageElement id="tap:Standard_01" version="01">
+									<PreassignedFareProductRef ref="tap:PreassignedFareProduct:NrtProduct" version="01"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage id="tap:SalesPackage:GroupTicket" version="01">
+							<Name>Group Discount </Name>
+							<prices>
+								<SalesPackagePrice version="any" id="tap:GroupTicket:groupTicket_01">
+									<DiscountAsPercentage>25.00</DiscountAsPercentage>
+								</SalesPackagePrice>
+							</prices>
+							<salesPackageElements>
+								<SalesPackageElement id="tap:SalesPackageElement:groupTicket@01" version="01">
+									<PreassignedFareProductRef ref="tap:PreassignedFareProduct:NrtProduct" version="01"/>
+								</SalesPackageElement>
+								<SalesPackageElement id="tap:SalesPackageElement:groupTicket@02" version="01">
+									<SupplementProductRef ref="tap:SupplementProduct:GroupOffer01" version="01"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+					</salesPackages>
+				</FareFrame>
+				<!-- ====SERVICE FRAME======== -->
+				<ServiceFrame version="any" id="tap:ServiceFrame:svc01">
+					<connections>
+						<Connection version="01" id="tap:Connection:99">
+					
+					</Connection>
+					</connections>
+				</ServiceFrame>
+				<!-- ====RESOURCE FRAME======== -->
+				<ResourceFrame version="any" id="tap:ResourceFrame:res01">
+					<typesOfValue>
+						<ValueSet version="any" id="tap:ValueSet:FareTableTypes" classOfValues="PurposeOfGrouping">
+							<Name>Fare Table Types </Name>
+							<values>
+								<!--- ====Type of Fare Table  method========= -->
+								<PurposeOfGrouping version="any" id="tap:PurposeOfGrouping:distance">
+									<Name>H DistanceRoute Fare Price Table</Name>
+								</PurposeOfGrouping>
+								<PurposeOfGrouping version="any" id="tap:PurposeOfGrouping:route">
+									<Name>I Route Fare Price Table</Name>
+								</PurposeOfGrouping>
+								<PurposeOfGrouping version="any" id="tap:PurposeOfGrouping:set">
+									<Name>J Set  Fare Price Table</Name>
+								</PurposeOfGrouping>
+							</values>
+						</ValueSet>
+						<ValueSet version="any" id="tap:ValueSet:TypeOfConcession" classOfValues="TypeOfConcession">
+							<Name>Types of concession</Name>
+							<values>
+								<!--- ====TypeOfConcession method========= -->
+								<TypeOfConcession version="any" id="tap:TypeOfConcession:adult">
+									<Name>Adult</Name>
+								</TypeOfConcession>
+								<TypeOfConcession version="any" id="tap:TypeOfConcession:child">
+									<Name>Child</Name>
+								</TypeOfConcession>
+							</values>
+						</ValueSet>
+						<ValueSet version="any" id="tap:ValueSet:TypeOfTariff" classOfValues="TypeOfTariff">
+							<Name>Types of Tariff </Name>
+							<values>
+								<!--- ====TypeOTariff Tap method========= -->
+								<TypeOfTariff version="any" id="tap:TypeOfTariff:B.1.1:01">
+									<Name>TCV Full Fare</Name>
+								</TypeOfTariff>
+								<TypeOfTariff version="any" id="tap:TypeOfTariff:B.1.1:02">
+									<Name>Distance based Fare</Name>
+								</TypeOfTariff>
+								<TypeOfTariff version="any" id="tap:TypeOfTariff:B.1.1:03">
+									<Name>MarketFare</Name>
+								</TypeOfTariff>
+								<TypeOfTariff version="any" id="tap:TypeOfTariff:B.1.1:04">
+									<Name>Group Fare</Name>
+								</TypeOfTariff>
+								<TypeOfTariff version="any" id="tap:TypeOfTariff:B.1.1:05">
+									<Name>Surcharges</Name>
+								</TypeOfTariff>
+								<TypeOfTariff version="any" id="tap:TypeOfTariff:B.1.1:06">
+									<Name>Supplements</Name>
+								</TypeOfTariff>
+							</values>
+						</ValueSet>
+						<ValueSet version="any" id="tap:ValueSet:TypeOfAccessRightAssignment" classOfValues="TypeOfAccessRightAssignment">
+							<Name>Types of  Access right Assignment</Name>
+							<values>
+								<TypeOfAccessRightAssignment version="any" id="tap:TypeOfAccessRightAssignment:eligible">
+									<Name>Eligible for  a product or discount</Name>
+								</TypeOfAccessRightAssignment>
+								<TypeOfAccessRightAssignment version="any" id="tap:TypeOfAccessRightAssignment:canAccess">
+									<Name>Grants access rights  to use or travel on</Name>
+								</TypeOfAccessRightAssignment>
+								<TypeOfAccessRightAssignment version="any" id="tap:TypeOfAccessRightAssignment:canAccessIfPurchased">
+									<Name>Right defines a property that may be Accesssed if pourchased</Name>
+								</TypeOfAccessRightAssignment>
+								<TypeOfAccessRightAssignment version="any" id="tap:TypeOfAccessRightAssignment:conditionOfUse">
+									<Name>Defines a condition or restriction on use</Name>
+								</TypeOfAccessRightAssignment>
+								<TypeOfAccessRightAssignment version="any" id="tap:TypeOfAccessRightAssignment:conditionOfSale">
+									<Name>Defines a condition or restriction on purchase</Name>
+								</TypeOfAccessRightAssignment>
+								<TypeOfAccessRightAssignment version="any" id="tap:TypeOfAccessRightAssignment:canPurchase">
+									<Name>Gives right to purchase</Name>
+								</TypeOfAccessRightAssignment>
+								<TypeOfAccessRightAssignment version="any" id="tap:TypeOfAccessRightAssignment:canUseToPayFor">
+									<Name>Givesability  to purchase automatically using smartcard</Name>
+								</TypeOfAccessRightAssignment>
+							</values>
+						</ValueSet>
+					</typesOfValue>
+					<!-- ========Operators ========== -->
+					<organisations>
+						<!--- =====Data owners ========= -->
+						<Operator version="any" id="tap:Operator:0003">
+							<PublicCode>UIC</PublicCode>
+							<Name>International Union of Railways</Name>
+							<ShortName>UIC</ShortName>
+							<ValidityPeriod>
+								<FromDate>2001-01-01T00:00:00Z</FromDate>
+								<ToDate>2020-01-01T00:00:00Z</ToDate>
+							</ValidityPeriod>
+						</Operator>
+						<Operator version="any" id="tap:Operator:0106">
+							<PublicCode>DB</PublicCode>
+							<Name>Deutsche Bahn</Name>
+						</Operator>
+					</organisations>
+				</ResourceFrame>
+			</frames>
+		</CompositeFrame>
+	</dataObjects>
+</PublicationDelivery>
