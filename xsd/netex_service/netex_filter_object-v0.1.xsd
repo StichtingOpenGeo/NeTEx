@@ -5,7 +5,7 @@
 	<xsd:include schemaLocation="../netex_framework/netex_utility/netex_utility_xml-v0.1.xsd"/>
 	<xsd:include schemaLocation="../netex_framework/netex_utility/netex_utility_time-v0.1.xsd"/>
 	<xsd:include schemaLocation="../netex_framework/netex_utility/netex_location_types-v0.1.xsd"/>
-	<xsd:include schemaLocation="..\netex_framework\netex_responsibility\netex_dataSource_version-v0.1.xsd"/>
+	<xsd:include schemaLocation="../netex_framework/netex_responsibility/netex_dataSource_version-v0.1.xsd"/>
 	<xsd:include schemaLocation="../netex_framework/netex_reusableComponents/netex_availabilityCondition_version-v0.1.xsd"/>
 	<!-- ===eGIF/GovTalk Documentation ======================================= -->
 	<xsd:annotation>
@@ -21,7 +21,7 @@
 					<!-- Documentation headers added -->
 				</Date>
 				<Description>
-					<p> NeTEx  Xml is an XML representation of the Transmodel Public Transport Data model that can be used to exchange data objects between  for  databases and other services.</p>. 
+					<p> NeTEx  Xml is an XML representation of the Transmodel Public Transport Data model that can be used to exchange data objects between  for  databases and other services.</p>.
 					<p>This subschema describes the  common properties of abstract   filter. It can be used to specify which Instances of objects  are to be returned in concrete instances
 					<ul>
 							<li>Network Filter</li>
@@ -60,7 +60,7 @@
 				<Subject>
 					<Category>Arts, recreation and travel, Tourism, Travel (tourism), Transport,
 Public transport, Bus services, Coach services, Bus stops and stations,
-Business and industry, Transport, 
+Business and industry, Transport,
 Roads and Road transport
 </Category>
 					<Project>NeTEx  for Xml Interface</Project>
