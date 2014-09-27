@@ -97,7 +97,7 @@ Rail transport, Roads and Road transport
 		</xsd:annotation>
 		<xsd:restriction base="EquipmentIdType"/>
 	</xsd:simpleType>
-	<xsd:element name="TicketValidatorEquipmentRef" type="TicketValidatorEquipmentRefStructure" substitutionGroup=" EquipmentRef">
+	<xsd:element name="TicketValidatorEquipmentRef" type="TicketValidatorEquipmentRefStructure" substitutionGroup="EquipmentRef">
 		<xsd:annotation>
 			<xsd:documentation>Identifier of a TICKET VALIDATOR.</xsd:documentation>
 		</xsd:annotation>
