@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- ==== SImple Timetable  Example ====== 
-This example shows the encoding of a  unit distance fare set for a  simple bus timetable for a linear route in NeTex XML  
+This example shows the encoding of a unit distance fare set for a simple bus timetable for a linear route in NeTex XML  
  
 Uses a fare based on the number of units between each point. There is a single FARE PRODUCT 
 
@@ -85,14 +85,14 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2011-01-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<FareFrameRef ref="myfares:FareFrame:any">REQUEST</FareFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -100,6 +100,12 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="myfares:CompositeFrame:CAL_02">
+			<validityConditions>
+				<ValidBetween>
+					<FromDate>2011-01-01T00:00:00Z</FromDate>
+					<ToDate>2011-07-01T00:00:00Z</ToDate>
+				</ValidBetween>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -117,12 +123,6 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="myfares"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<SimpleValidityCondition>
-					<FromDate>2011-01-01T00:00:00Z</FromDate>
-					<ToDate>2011-07-01T00:00:00Z</ToDate>
-				</SimpleValidityCondition>
-			</frameValidityConditions>
 			<frames>
 				<ServiceFrame version="1" id="mybus:ServiceFrame:svf_12">
 					<Name>Stops for Fare network </Name>
@@ -184,25 +184,22 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 					<FrameDefaults>
 						<DefaultCurrency>EUR</DefaultCurrency>
 					</FrameDefaults>
-					<!--- ====Fare USAGE PARAMETERS======= -->
-					<fareUsageParameters>
-						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:noTransfer">
-							<FrequencyOfUseType>none</FrequencyOfUseType>
-						</FrequencyOfUse>
-					</fareUsageParameters>
-					<!--- ====Fare Product======= -->
-					<fareProducts>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:unitDistance_adult">
-							<Name>Point  to Point  fare</Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:unitDistance_adult_Transferability">
-									<Name>No transfers</Name>
-									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:noTransfer"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</PreassignedFareProduct>
-					</fareProducts>
 					<!--- ====Fare Structure======= -->
+					<geographicalUnits>
+						<!--- ====GeographicalU nit======== -->
+						<GeographicalUnit version="any" id="myfares:GeographicalUnit:gu">
+							<Name>Arbitrary Quanitized Unit of Transport Usage</Name>
+						</GeographicalUnit>
+					</geographicalUnits>
+					<fareStructureElements>
+						<FareStructureElement version="any" id="myfares:FareStructureElement:routes">
+							<distanceMatrixElements>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_001_to_SSP_002"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_002_to_SSP_077"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_077_to_SSP_078"/>
+							</distanceMatrixElements>
+						</FareStructureElement>
+					</fareStructureElements>
 					<tariffs>
 						<Tariff version="any" id="myfares:Tariff:unitDistance">
 							<Name>Unit distance fare</Name>
@@ -212,11 +209,15 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<Name>One Click</Name>
 									<StartGeographicalValue>1</StartGeographicalValue>
 									<EndGeographicalValue>2</EndGeographicalValue>
+									<NumberOfUnits>1</NumberOfUnits>
+									<IntervalType>distance</IntervalType>
 								</GeographicalInterval>
 								<GeographicalInterval version="any" id="myfares:GeographicalInterval:gi_2">
 									<Name>Two Clicks</Name>
 									<StartGeographicalValue>1</StartGeographicalValue>
 									<EndGeographicalValue>3</EndGeographicalValue>
+									<NumberOfUnits>2</NumberOfUnits>
+									<IntervalType>distance</IntervalType>
 								</GeographicalInterval>
 							</geographicalIntervals>
 							<!--- ===GEOGRAPHICAL STRUCTURE FACTORS==== -->
@@ -259,8 +260,44 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 							</distanceMatrixElements>
 						</Tariff>
 					</tariffs>
+					<!--- ====Fare USAGE PARAMETERS======= -->
+					<usageParameters>
+						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:noTransfer">
+							<FrequencyOfUseType>none</FrequencyOfUseType>
+						</FrequencyOfUse>
+					</usageParameters>
+					<!--- ====Fare Product======= -->
+					<fareProducts>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:unitDistance">
+							<Name>Point  to Point  fare</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:unitDistance@conditions">
+									<Name>No transfers</Name>
+									<limitations>
+										<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:noTransfer"/>
+									</limitations>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="2" id="myfares:GenericParameterAssignment:unitDistanceconditions@routes">
+									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:routes"/>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<!--- ====VALIDABLE ELEMENTs====== -->
+							<validableElements>
+								<ValidableElement version="any" id="myfares:ValidableElement:singleRide">
+									<Name>Single  ride</Name>
+								</ValidableElement>
+							</validableElements>
+							<!--- ====ACCESS RIGHTs======= -->
+							<accessRightsInProduct>
+								<AccessRightInProduct version="any" id="myfares:AccessRightInProduct:unitDistance@elements" order="1">
+									<Name>First ride</Name>
+									<ValidableElementRef version="any" ref="myfares:ValidableElement:singleRide"/>
+								</AccessRightInProduct>
+							</accessRightsInProduct>
+						</PreassignedFareProduct>
+					</fareProducts>
 					<!--- ====Fare Prices======= -->
-					<farePrices>
+					<priceGroups>
 						<PriceGroup version="any" id="myfares:Unit DIstance">
 							<Name>  Fare Prices  - Standard</Name>
 							<members>
@@ -276,21 +313,8 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 								</GeographicalIntervalPrice>
 							</members>
 						</PriceGroup>
-					</farePrices>
+					</priceGroups>
 				</FareFrame>
-				<!--- ====RESOURCE FRAME===== -->
-				<ResourceFrame version="any" id="myfares:ResourceFrame:RS1">
-					<typesOfValue>
-						<ValueSet>
-							<values>
-								<!--- ====GeographicalU nit======== -->
-								<GeographicalUnit version="any" id="myfares:GeographicalUnit:gu">
-									<Name>Arbitrary Quanitized Unit of Transport Usage</Name>
-								</GeographicalUnit>
-							</values>
-						</ValueSet>
-					</typesOfValue>
-				</ResourceFrame>
 			</frames>
 		</CompositeFrame>
 	</dataObjects>

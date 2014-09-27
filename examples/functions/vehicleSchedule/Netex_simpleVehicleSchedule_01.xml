@@ -245,14 +245,14 @@ There is one DUTY ops:Duty:dty_01 with TWO DUTY PARTS
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="xj:AvailabilityCondition:cf_12">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
-				<TypeOfFrameRef ref="xj:MyVsFrame">REQUEST</TypeOfFrameRef>
-			</FrameTopicFilter>
+				<TypeOfFrameRef ref="xj:MyVsFrame">REQUEST</TypeOfFrameRef> 
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -260,6 +260,16 @@ There is one DUTY ops:Duty:dty_01 with TWO DUTY PARTS
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="xj:CompositeFrame:cf_12">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="xj:AvailabilityCondition:Cnd001">
+					<Description>Sept  to March</Description>
+					<FromDate>2010-11-01T00:00:00Z</FromDate>
+					<ToDate>2011-03-31T00:00:00Z</ToDate>
+					<dayTypes>
+						<DayTypeRef version="any" ref="xj:DayType:DT_01"/>
+					</dayTypes>
+				</AvailabilityCondition>
+			</validityConditions>
 			<TypeOfFrameRef ref="xj:TypeOfFrame:MyVsFrame"/>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
@@ -282,16 +292,6 @@ There is one DUTY ops:Duty:dty_01 with TWO DUTY PARTS
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="kx"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="xj:AvailabilityCondition:Cnd001">
-					<Description>Sept  to March</Description>
-					<FromDate>2010-11-01T00:00:00Z</FromDate>
-					<ToDate>2011-03-31T00:00:00Z</ToDate>
-					<dayTypes>
-						<DayTypeRef version="any" ref="xj:DayType:DT_01"/>
-					</dayTypes>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!-- =====Service Calendar frame===== -->
 				<ServiceCalendarFrame version="any" id="xj:ServiceCalendarFrame:scf_01">
@@ -316,7 +316,7 @@ There is one DUTY ops:Duty:dty_01 with TWO DUTY PARTS
 					</ServiceCalendar>
 				</ServiceCalendarFrame>
 				<!-- =====Service====== -->
-				<ServiceFrame id="kx:ServiceFrame:svf_12">
+				<ServiceFrame id="kx:ServiceFrame:svf_12" version="any">
 					<Name>Winter timetable for route 12  </Name>
 					<routeLinks>
 						<RouteLink version="any" id="kx:RouteLink:rl_grg1-ssp_001">
@@ -536,7 +536,7 @@ There is one DUTY ops:Duty:dty_01 with TWO DUTY PARTS
 							<RouteRef version="any" ref="kx:Route:rt_24i"/>
 							<DirectionType>inbound</DirectionType>
 							<journeyPatterns>
-								<ServiceJourneyPatternRef  version="any"  ref="kx:ServiceJourneyPattern:sjp_L24i"/>
+								<ServiceJourneyPatternRef version="any" ref="kx:ServiceJourneyPattern:sjp_L24i"/>
 							</journeyPatterns>
 							<pointsInSequence>
 								<StopPointInJourneyPattern version="any" order="1" id="kx:StopPointInJourneyPattern:spijp_24i_01">

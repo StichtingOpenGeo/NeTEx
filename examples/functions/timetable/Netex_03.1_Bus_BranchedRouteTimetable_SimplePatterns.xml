@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- ====   Timetable  Example ====== 
-This example shows the encoding of a   bus timetable for a branched route in NeTex XML  
+This example shows the encoding of a  bus timetable for a branched route in NeTex XML  
 
 It also shows changing DESTINATION DISPLAYS and Vias 
 
@@ -154,7 +154,7 @@ The SERVICE JOURNEYs are for LINE hde:Line:LN_24 .
 
 A GROUP of SERVICEs  groups the four outbound journeys.  
  
-A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  connecting graph 
+A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a connecting graph 
 
 		Y -A		LINE SECTION:  hde:LineSection:LS_Yankee_Alpha  (Y, A)   & (A, Y)
 	    Z- A		LINE SECTION:  hde:LineSection:LS_Yankee_Alpha   (Z, A)   & (A, Z)
@@ -177,10 +177,10 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<TimetableFrameRef ref="hde:TimetableFrameTIM_24o_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -1048,33 +1048,33 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 							<DirectionType>outbound</DirectionType>
 							<TimingPatternRef version="any" ref="hde:TimingPattern:tp_YQo"/>
 							<pointsInSequence>
-								<StopPointInJourneyPattern version="any" order="1" id="hde:StopPointInJourneyPattern:jp_YQo_01">
+								<StopPointInJourneyPattern version="any" order="1" id="hde:StopPointInJourneyPattern:sjp_YQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Yankee"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="2" id="hde:StopPointInJourneyPattern:jp_YQo_02">
+								<StopPointInJourneyPattern version="any" order="2" id="hde:StopPointInJourneyPattern:sjp_YQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Alpha"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="3" id="hde:StopPointInJourneyPattern:jp_YQo_03">
+								<StopPointInJourneyPattern version="any" order="3" id="hde:StopPointInJourneyPattern:sjp_YQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Bravo"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="4" id="hde:StopPointInJourneyPattern:jp_YQo_04">
+								<StopPointInJourneyPattern version="any" order="4" id="hde:StopPointInJourneyPattern:sjp_YQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Charley"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="5" id="hde:StopPointInJourneyPattern:jp_YQo_05">
+								<StopPointInJourneyPattern version="any" order="5" id="hde:StopPointInJourneyPattern:sjp_YQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Quebec"/>
 								</StopPointInJourneyPattern>
 							</pointsInSequence>
 							<linksInSequence>
-								<ServiceLinkInJourneyPattern version="any" order="1" id="hde:ServiceLinkInJourneyPattern:jp_YQo_01">
+								<ServiceLinkInJourneyPattern version="any" order="1" id="hde:ServiceLinkInJourneyPattern:sjp_YQo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Yankee_to_Alpha"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="2" id="hde:ServiceLinkInJourneyPattern:jp_YQo_02">
+								<ServiceLinkInJourneyPattern version="any" order="2" id="hde:ServiceLinkInJourneyPattern:sjp_YQo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Alpha_to_Bravo"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="3" id="hde:ServiceLinkInJourneyPattern:jp_YQo_03">
+								<ServiceLinkInJourneyPattern version="any" order="3" id="hde:ServiceLinkInJourneyPattern:sjp_YQo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Bravo_to_Charley"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="4" id="hde:ServiceLinkInJourneyPattern:jp_YQo_04">
+								<ServiceLinkInJourneyPattern version="any" order="4" id="hde:ServiceLinkInJourneyPattern:sjp_YQo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Charley_to_Quebec"/>
 								</ServiceLinkInJourneyPattern>
 							</linksInSequence>
@@ -1084,33 +1084,33 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 							<DirectionType>outbound</DirectionType>
 							<TimingPatternRef version="any" ref="hde:TimingPattern:tp_ZPo"/>
 							<pointsInSequence>
-								<StopPointInJourneyPattern version="any" order="1" id="hde:StopPointInJourneyPattern:jp_ZPo_01">
+								<StopPointInJourneyPattern version="any" order="1" id="hde:StopPointInJourneyPattern:sjp_ZPo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Zulu"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="2" id="hde:StopPointInJourneyPattern:jp_ZPo_02">
+								<StopPointInJourneyPattern version="any" order="2" id="hde:StopPointInJourneyPattern:sjp_ZPo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Alpha"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="3" id="hde:StopPointInJourneyPattern:jp_ZPo_03">
+								<StopPointInJourneyPattern version="any" order="3" id="hde:StopPointInJourneyPattern:sjp_ZPo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Bravo"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="4" id="hde:StopPointInJourneyPattern:jp_ZPo_04">
+								<StopPointInJourneyPattern version="any" order="4" id="hde:StopPointInJourneyPattern:sjp_ZPo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Charley"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="5" id="hde:StopPointInJourneyPattern:jp_ZPo_05">
+								<StopPointInJourneyPattern version="any" order="5" id="hde:StopPointInJourneyPattern:sjp_ZPo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Papa"/>
 								</StopPointInJourneyPattern>
 							</pointsInSequence>
 							<linksInSequence>
-								<ServiceLinkInJourneyPattern version="any" order="1" id="hde:ServiceLinkInJourneyPattern:jp_ZPo_01">
+								<ServiceLinkInJourneyPattern version="any" order="1" id="hde:ServiceLinkInJourneyPattern:sjp_ZPo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Zulu_to_Alpha"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="2" id="hde:ServiceLinkInJourneyPattern:jp_ZPo_02">
+								<ServiceLinkInJourneyPattern version="any" order="2" id="hde:ServiceLinkInJourneyPattern:sjp_ZPo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Alpha_to_Bravo"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="3" id="hde:ServiceLinkInJourneyPattern:jp_ZPo_03">
+								<ServiceLinkInJourneyPattern version="any" order="3" id="hde:ServiceLinkInJourneyPattern:sjp_ZPo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Bravo_to_Charley"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="4" id="hde:ServiceLinkInJourneyPattern:jp_ZPo_04">
+								<ServiceLinkInJourneyPattern version="any" order="4" id="hde:ServiceLinkInJourneyPattern:sjp_ZPo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Charley_to_Papa"/>
 								</ServiceLinkInJourneyPattern>
 							</linksInSequence>
@@ -1120,33 +1120,33 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 							<DirectionType>outbound</DirectionType>
 							<TimingPatternRef version="any" ref="hde:TimingPattern:tp_ZQo"/>
 							<pointsInSequence>
-								<StopPointInJourneyPattern version="any" order="1" id="hde:StopPointInJourneyPattern:jp_ZQo_01">
+								<StopPointInJourneyPattern version="any" order="1" id="hde:StopPointInJourneyPattern:sjp_ZQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Zulu"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="2" id="hde:StopPointInJourneyPattern:jp_ZQo_02">
+								<StopPointInJourneyPattern version="any" order="2" id="hde:StopPointInJourneyPattern:sjp_ZQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Alpha"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="3" id="hde:StopPointInJourneyPattern:jp_ZQo_03">
+								<StopPointInJourneyPattern version="any" order="3" id="hde:StopPointInJourneyPattern:sjp_ZQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Bravo"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="4" id="hde:StopPointInJourneyPattern:jp_ZQo_04">
+								<StopPointInJourneyPattern version="any" order="4" id="hde:StopPointInJourneyPattern:sjp_ZQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Charley"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="any" order="5" id="hde:StopPointInJourneyPattern:jp_ZQo_05">
+								<StopPointInJourneyPattern version="any" order="5" id="hde:StopPointInJourneyPattern:sjp_ZQo">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:Quebec"/>
 								</StopPointInJourneyPattern>
 							</pointsInSequence>
 							<linksInSequence>
-								<ServiceLinkInJourneyPattern version="any" order="1" id="hde:ServiceLinkInJourneyPattern:jp_ZQo_01">
+								<ServiceLinkInJourneyPattern version="any" order="1" id="hde:ServiceLinkInJourneyPattern:sjp_ZQo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Zulu_to_Alpha"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="2" id="hde:ServiceLinkInJourneyPattern:jp_ZQo_02">
+								<ServiceLinkInJourneyPattern version="any" order="2" id="hde:ServiceLinkInJourneyPattern:sjp_ZQo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Alpha_to_Bravo"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="3" id="hde:ServiceLinkInJourneyPattern:jp_ZQo_03">
+								<ServiceLinkInJourneyPattern version="any" order="3" id="hde:ServiceLinkInJourneyPattern:sjp_ZQo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Bravo_to_Charley"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern version="any" order="4" id="hde:ServiceLinkInJourneyPattern:jp_ZQo_04">
+								<ServiceLinkInJourneyPattern version="any" order="4" id="hde:ServiceLinkInJourneyPattern:sjp_ZQo">
 									<ServiceLinkRef version="any" ref="mybus:ServiceLink:Charley_to_Quebec"/>
 								</ServiceLinkInJourneyPattern>
 							</linksInSequence>
@@ -1214,8 +1214,7 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 				<!--  ========================================== -->
 				<!-- ======Timetable ======= -->
 				<TimetableFrame version="any" id="hde:TimetableFrame:TIM_24o_O">
-					<Name>Winter timetable for route 23 outbound</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:Cnd001">
 							<Description>Sept  to March</Description>
 							<FromDate>2010-11-01T00:00:00Z</FromDate>
@@ -1224,7 +1223,8 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 								<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Winter timetable for route 23 outbound</Name>
 					<VehicleModes>bus</VehicleModes>
 					<!--- ======SERVICE JOURNEYs=========== -->
 					<vehicleJourneys>
@@ -1372,7 +1372,7 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 							<StandardTransferTime>PT1M</StandardTransferTime>
 							<MinimumTransferTime>PT1M</MinimumTransferTime>
 							<noticeAssignments>
-								<NoticeAssignment version="any" id="hde:NoticeAssignment:sji_YPo_01_YQo_02">
+								<NoticeAssignment version="any" id="hde:NoticeAssignment:sji_YPo_01_YQo_02" order="1">
 									<NoticeRef version="any" ref="hde:Notice:fn_01"/>
 									<Mark>(1)</Mark>
 								</NoticeAssignment>
@@ -1396,7 +1396,7 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 							<StandardTransferTime>PT1M</StandardTransferTime>
 							<MinimumTransferTime>PT1M</MinimumTransferTime>
 							<noticeAssignments>
-								<NoticeAssignment version="any" id="hde:NoticeAssignment:sji_ZPo_02_YPo_03">
+								<NoticeAssignment version="any" id="hde:NoticeAssignment:sji_ZPo_02_YPo_03" order="1">
 									<NoticeRef version="any" ref="hde:Notice:fn_02"/>
 									<Mark>(2)</Mark>
 									<Advertised>true</Advertised>
@@ -1421,7 +1421,7 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 							<StandardTransferTime>PT1M</StandardTransferTime>
 							<MinimumTransferTime>PT1M</MinimumTransferTime>
 							<noticeAssignments>
-								<NoticeAssignment version="any" id="hde:NoticeAssignment:sji_ZPo_03_ZQo_04">
+								<NoticeAssignment version="any" id="hde:NoticeAssignment:sji_ZPo_03_ZQo_04" order="1">
 									<NoticeRef version="any" ref="hde:Notice:fn_01"/>
 									<Mark>(1)</Mark>
 								</NoticeAssignment>
@@ -1454,37 +1454,37 @@ A LINE NETWORK mybus:LineNetwork:NTP_Route24   describes all the branches as a  
 						</DayType>
 					</dayTypes>
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
 							<Description>Monday 2010-11-01</Description>
 							<Date>2010-11-01</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
 							<Description>Tuesday 2010-11-02</Description>
 							<Date>2010-11-02</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
 							<Description>Wednesday 2010-11-03</Description>
 							<Date>2010-11-03</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
 							<Description>Thusday 2010-11-04</Description>
 							<Date>2010-11-04</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
 							<Description>MFriday 2010-11-05</Description>
 							<Date>2010-11-05</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-06">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-06">
 							<Description>Saturday 2010-11-06</Description>
 							<Date>2010-11-06</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-07">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-07">
 							<Description>Sunday 2010-11-07</Description>
 							<Date>2010-11-07</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>

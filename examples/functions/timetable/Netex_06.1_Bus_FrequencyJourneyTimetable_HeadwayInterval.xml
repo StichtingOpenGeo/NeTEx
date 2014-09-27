@@ -63,14 +63,14 @@ There is a single SERVICE PATTERN
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:TIM_23_O">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="hde:TIM_23HFT_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -98,14 +98,14 @@ There is a single SERVICE PATTERN
 			<frames>
 				<!-- ======Timetable ======= -->
 				<TimetableFrame version="any" id="hde:TimetableFrame:hde:TIM_23HFT_O">
-					<Name>Winter timetable for route 23 outbound</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:Cnd001">
 							<Description>Sept  to March</Description>
 							<FromDate>2010-11-01T00:00:00Z</FromDate>
 							<ToDate>2011-03-31T00:00:00Z</ToDate>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Winter timetable for route 23 outbound</Name>
 					<VehicleModes>bus</VehicleModes>
 					<vehicleJourneys>
 						<ServiceJourney version="any" id="hde:ServiceJourney:sj_fg_24o_01">

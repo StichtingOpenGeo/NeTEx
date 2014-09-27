@@ -43,12 +43,12 @@ So the NeTEx File will probably be something like 50% bigger with the same level
 		<RequestTimestamp>2009-08-01T09:30:00Z</RequestTimestamp>
 		<ParticipantRef>RATP110</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<!-- NEPTUNE [local agreement:fixed] : Only the current data set is requested  -->
 				<Current/>
 				<!-- NEPTUNE [local agreement:variable] : a NEPTUNE Frame is named "operator":Neptune:ServiceAndTimetableFrame:"line Id"  -->
 				<CompositeFrameRef ref="RATP_PIVI:Neptune:ServiceAndTimetableFrame:100110107"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 		<RequestPolicy>
 			<!-- NEPTUNE [local agreement:fixed] : a NEPTUNE Frame is without Geometry -->
@@ -110,61 +110,70 @@ So the NeTEx File will probably be something like 50% bigger with the same level
 							<TypeOfValidityRef version="01" ref="Neptune:TypeOfValidity:WeeklyPlanned"/>
 							<FrameClassRef nameOfClass="CompositeFrame"/>
 							<classes>
-								<ClassInContextRef nameOfClass="AvailabilityCondition" classRefType="memberReferences"/>
+								<ClassInFrameRef nameOfClass="AvailabilityCondition" classRefType="memberReferences"/>
 							</classes>
-							<typesOfFrame>
+							<includes>
 								<TypeOfFrame version="01" id="Neptune:TypeOfFrame:TimeTableFrame">
 									<Name>Neptune Profile:ServiceCalendar  Frame </Name>
 									<FrameClassRef nameOfClass="TimeTableFrame"/>
 									<classes>
-										<ClassInContextRef classRefType="members" nameOfClass="TimeTableFrame"/>
-										<ClassInContextRef classRefType="members" nameOfClass="ServiceJourney"/>
-										<ClassInContextRef classRefType="members" nameOfClass="JourneyPart"/>
-										<ClassInContextRef classRefType="members" nameOfClass="JourneyPart"/>
+										<ClassInFrameRef classRefType="members" nameOfClass="TimeTableFrame"/>
+										<ClassInFrameRef classRefType="members" nameOfClass="ServiceJourney"/>
+										<ClassInFrameRef classRefType="members" nameOfClass="JourneyPart"/>
 									</classes>
 								</TypeOfFrame>
 								<TypeOfFrame version="01" id="Neptune:TypeOfFrame:ServiceFrame">
 									<Name>Neptune Profile:  Service  Frame </Name>
 									<FrameClassRef nameOfClass="ServiceFrame"/>
 									<classes>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="ScheduledStopPoint"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="ServicePattern"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="Network"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="RoutePoint"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="RouteLink"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="Line"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="Route"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="Direction"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="TariffZone"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="PassengerStopAssignment"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="ScheduledStopPoint"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="ServicePattern"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="Network"/>
+										<ClassInFrame>
+											<attributes>
+												<ClassAttributeInFrame name="Name">
+													<Mandatory>required</Mandatory>
+												</ClassAttributeInFrame>
+												<ClassAttributeInFrame name="lines">
+													<Mandatory>required</Mandatory>
+												</ClassAttributeInFrame>
+											</attributes>
+										</ClassInFrame>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="RoutePoint"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="RouteLink"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="Line"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="Route"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="Direction"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="TariffZone"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="PassengerStopAssignment"/>
 									</classes>
 								</TypeOfFrame>
 								<TypeOfFrame version="01" id="Neptune:TypeOfFrame:SiteFrame">
 									<Name>Neptune Profile:  Site  Frame </Name>
 									<FrameClassRef nameOfClass="SiteFrame"/>
 									<classes>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="StopPlace"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="StopPlace"/>
 									</classes>
 								</TypeOfFrame>
 								<TypeOfFrame version="01" id="Neptune:TypeOfFrame:ServiceCalendarFrame">
 									<Name>Neptune Profile:ServceCalendar  Frame </Name>
 									<FrameClassRef nameOfClass="ServiceCalendarFrame"/>
 									<classes>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="ServiceCalendar"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="DayType"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="DayTypeAssignment"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="ServiceCalendar"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="DayType"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="DayTypeAssignment"/>
 									</classes>
 								</TypeOfFrame>
 								<TypeOfFrame version="01" id="Neptune:TypeOfFrame:ResourceFrame">
 									<Name>Neptune Profile:  Resource Frame </Name>
 									<FrameClassRef nameOfClass="ResourceFrame"/>
 									<classes>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="TypeOfFrame"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="Operator"/>
-										<ClassInContextRef classRefType="memberReferences" nameOfClass="Authority"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="TypeOfFrame"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="Operator"/>
+										<ClassInFrameRef classRefType="memberReferences" nameOfClass="Authority"/>
 									</classes>
 								</TypeOfFrame>
-							</typesOfFrame>
+							</includes>
 						</TypeOfFrame>
 					</typesOfValue>
 					<organisations>
@@ -623,25 +632,25 @@ To make it clean inside the mapping, the Link Id is now RATP_PIVI:RouteLink:xxxx
 							<!-- NEPTUNE [mapping:variable] : ServicePattern->RouteRef mapped to NEPTUNE JourneyPattern->routeId -->
 							<RouteRef version="1" ref="RATP_PIVI:Route:317452"/>
 							<pointsInSequence>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-1">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-1" order="1">
 									<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246063"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-2">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-2" order="2">
 									<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246062"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-3">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-3" order="3">
 									<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246067"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-4">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-4" order="4">
 									<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246068"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-5">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-5" order="5">
 									<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246069"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-6">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-6" order="6">
 									<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246066"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-7">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:317452-7" order="7">
 									<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246065"/>
 								</StopPointInJourneyPattern>
 							</pointsInSequence>
@@ -654,31 +663,31 @@ To make it clean inside the mapping, the Link Id is now RATP_PIVI:RouteLink:xxxx
 							<!-- NEPTUNE [mapping:variable] : ServicePattern->RouteRef mapped to NEPTUNE JourneyPattern->routeId -->
 							<RouteRef version="1" ref="RATP_PIVI:Route:317453"/>
 							<pointsInSequence>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-1">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-1" order="1">
 									<!-- MISSING AS STOP PONT f version="1" -->
 									<ScheduledStopPointRef ref="RATP_PIVI:RoutePoint:317453A0A5246074"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-2">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-2" order="2">
 									<!-- MISSING AS STOP PONT f version="1" -->
 									<ScheduledStopPointRef ref="RATP_PIVI:RoutePoint:317453A1A5246073"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-3">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-3" order="3">
 									<!-- MISSING AS STOP PONT f version="1" -->
 									<ScheduledStopPointRef ref="RATP_PIVI:RoutePoint:317453A2A5246070"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-4">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-4" order="4">
 									<!-- MISSING AS STOP PONT f version="1" -->
 									<ScheduledStopPointRef ref="RATP_PIVI:RoutePoint:317453A3A5246071"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-5">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-5" order="5">
 									<!-- MISSING AS STOP PONT f version="1" -->
 									<ScheduledStopPointRef ref="RATP_PIVI:RoutePoint:317453A4A5246072"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-6">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-6" order="6">
 									<!-- MISSING AS STOP PONT f version="1" -->
 									<ScheduledStopPointRef ref="RATP_PIVI:RoutePoint:317453A5A5246064"/>
 								</StopPointInJourneyPattern>
-								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-7">
+								<StopPointInJourneyPattern version="1" id="RATP_PIVI:Route:514340-7" order="7">
 									<!-- MISSING AS STOP PONT f version="1" -->
 									<ScheduledStopPointRef ref="RATP_PIVI:RoutePoint:317453A6A5246075"/>
 								</StopPointInJourneyPattern>
@@ -712,73 +721,73 @@ To make it clean inside the mapping, the Link Id is now RATP_PIVI:RouteLink:xxxx
 					<!--   -->
 					<!-- Assignments of Schedules Stop Points to Stop Places -->
 					<stopAssignments>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246067">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246067">
 							<!-- NEPTUNE [mapping:variable] : The assignement is done from the Scheduled Stop Point to the Quay, and also references the Stop Place including the Quay -->
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246067"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430399"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246067"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246072">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246072">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246072"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430399"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246072"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246069">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246069">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246069"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430398"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246069"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246070">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246070">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246070"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430398"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246070"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246068">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246068">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246068"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430397"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246068"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246071">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246071">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246071"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430397"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246071"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246062">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246062">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246062"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430396"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246062"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246063">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246063">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246063"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430395"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246063"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246075">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246075">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246075"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:430395"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246075"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246065">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246065">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246065"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:5988"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246065"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246074">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246074">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246074"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:5988"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246074"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246066">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246066">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246066"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:5766"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246066"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246073">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246073">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246073"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:5766"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246073"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="RATP_PIVI:PassengerStopAssignment:5246064">
+						<PassengerStopAssignment order="1" version="any" id="RATP_PIVI:PassengerStopAssignment:5246064">
 							<ScheduledStopPointRef version="1" ref="RATP_PIVI:StopPoint:5246064"/>
 							<StopPlaceRef version="1" ref="RATP_PIVI:StopArea:768"/>
 							<QuayRef version="1" ref="RATP_PIVI:Quay:5246064"/>
@@ -1220,251 +1229,251 @@ To make it clean inside the mapping, the Link Id is now RATP_PIVI:RouteLink:xxxx
 					</dayTypes>
 					<!--- === Day assignments ==== -->
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090831">
 							<Date>2009-08-31</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090901">
 							<Date>2009-09-01</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090902">
 							<Date>2009-09-02</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090903">
 							<Date>2009-09-03</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090907">
 							<Date>2009-09-07</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090908">
 							<Date>2009-09-08</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090909">
 							<Date>2009-09-09</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090910">
 							<Date>2009-09-10</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090914">
 							<Date>2009-09-14</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090915">
 							<Date>2009-09-15</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090916">
 							<Date>2009-09-16</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090917">
 							<Date>2009-09-17</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090921">
 							<Date>2009-09-21</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090922">
 							<Date>2009-09-22</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090923">
 							<Date>2009-09-23</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090924">
 							<Date>2009-09-24</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090928">
 							<Date>2009-09-28</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090929">
 							<Date>2009-09-29</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20090930">
 							<Date>2009-09-30</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091001">
 							<Date>2009-10-01</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091005">
 							<Date>2009-10-05</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091006">
 							<Date>2009-10-06</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091007">
 							<Date>2009-10-07</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091008">
 							<Date>2009-10-08</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091012">
 							<Date>2009-10-12</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091013">
 							<Date>2009-10-13</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091014">
 							<Date>2009-10-14</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091015">
 							<Date>2009-10-15</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091019">
 							<Date>2009-10-19</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091020">
 							<Date>2009-10-20</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091021">
 							<Date>2009-10-21</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091022">
 							<Date>2009-10-22</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091026">
 							<Date>2009-10-26</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091027">
 							<Date>2009-10-27</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091028">
 							<Date>2009-10-28</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091029">
 							<Date>2009-10-29</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091102">
 							<Date>2009-11-02</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091103">
 							<Date>2009-11-03</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091104">
 							<Date>2009-11-04</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091105">
 							<Date>2009-11-05</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091109">
 							<Date>2009-11-09</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091112">
 							<Date>2009-11-12</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091116">
 							<Date>2009-11-16</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091117">
 							<Date>2009-11-17</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091118">
 							<Date>2009-11-18</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091119">
 							<Date>2009-11-19</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091123">
 							<Date>2009-11-23</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091124">
 							<Date>2009-11-24</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091125">
 							<Date>2009-11-25</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091126">
 							<Date>2009-11-26</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091130">
 							<Date>2009-11-30</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091201">
 							<Date>2009-12-01</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091202">
 							<Date>2009-12-02</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091203">
 							<Date>2009-12-03</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091207">
 							<Date>2009-12-07</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091208">
 							<Date>2009-12-08</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091209">
 							<Date>2009-12-09</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091210">
 							<Date>2009-12-10</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091214">
 							<Date>2009-12-14</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091215">
 							<Date>2009-12-15</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091216">
 							<Date>2009-12-16</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:DayType:385159" order="20091217">
 							<Date>2009-12-17</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:DayType:385159"/>
 						</DayTypeAssignment>
@@ -1489,71 +1498,71 @@ To make it clean inside the mapping, the Link Id is now RATP_PIVI:RouteLink:xxxx
 					</dayTypes>
 					<!--- === Day assignments ==== -->
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20090913">
 							<Date>2009-09-13</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20090920">
 							<Date>2009-09-20</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20090927">
 							<Date>2009-09-27</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091004">
 							<Date>2009-10-04</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091011">
 							<Date>2009-10-11</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091018">
 							<Date>2009-10-18</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091025">
 							<Date>2009-10-25</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091101">
 							<Date>2009-11-01</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091108">
 							<Date>2009-11-08</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091111">
 							<Date>2009-11-11</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091115">
 							<Date>2009-11-15</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091122">
 							<Date>2009-11-22</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091129">
 							<Date>2009-11-29</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091206">
 							<Date>2009-12-06</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091213">
 							<Date>2009-12-13</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091220">
 							<Date>2009-12-20</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385160" order="20091227">
 							<Date>2009-12-27</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385160"/>
 						</DayTypeAssignment>
@@ -1578,219 +1587,219 @@ To make it clean inside the mapping, the Link Id is now RATP_PIVI:RouteLink:xxxx
 					</dayTypes>
 					<!--- === Day assignments ==== -->
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100101">
 							<Date>2010-01-01</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100102">
 							<Date>2010-01-02</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100109">
 							<Date>2010-01-09</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100116">
 							<Date>2010-01-16</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100123">
 							<Date>2010-01-23</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100130">
 							<Date>2010-01-30</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100206">
 							<Date>2010-02-06</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100213">
 							<Date>2010-02-13</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100220">
 							<Date>2010-02-20</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100227">
 							<Date>2010-02-27</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100306">
 							<Date>2010-03-06</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100313">
 							<Date>2010-03-13</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100320">
 							<Date>2010-03-20</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100327">
 							<Date>2010-03-27</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100403">
 							<Date>2010-04-03</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100404">
 							<Date>2010-04-04</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100410">
 							<Date>2010-04-10</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100417">
 							<Date>2010-04-17</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100424">
 							<Date>2010-04-24</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100501">
 							<Date>2010-05-01</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100508">
 							<Date>2010-05-08</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100515">
 							<Date>2010-05-15</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100522">
 							<Date>2010-05-22</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100529">
 							<Date>2010-05-29</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100605">
 							<Date>2010-06-05</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100612">
 							<Date>2010-06-12</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100619">
 							<Date>2010-06-19</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100626">
 							<Date>2010-06-26</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100703">
 							<Date>2010-07-03</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100710">
 							<Date>2010-07-10</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100714">
 							<Date>2010-07-14</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100717">
 							<Date>2010-07-17</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100724">
 							<Date>2010-07-24</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100731">
 							<Date>2010-07-31</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100807">
 							<Date>2010-08-07</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100814">
 							<Date>2010-08-14</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100821">
 							<Date>2010-08-21</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100828">
 							<Date>2010-08-28</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100904">
 							<Date>2010-09-04</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100911">
 							<Date>2010-09-11</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100918">
 							<Date>2010-09-18</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20100925">
 							<Date>2010-09-25</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101002">
 							<Date>2010-10-02</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101009">
 							<Date>2010-10-09</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101016">
 							<Date>2010-10-16</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101023">
 							<Date>2010-10-23</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101030">
 							<Date>2010-10-30</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101106">
 							<Date>2010-11-06</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101113">
 							<Date>2010-11-13</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101120">
 							<Date>2010-11-20</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101127">
 							<Date>2010-11-27</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101204">
 							<Date>2010-12-04</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101211">
 							<Date>2010-12-11</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any">
+						<DayTypeAssignment version="any" id="RATP_PIVI:Timetable:385170" order="20101218">
 							<Date>2010-12-18</Date>
 							<DayTypeRef version="1" ref="RATP_PIVI:Timetable:385170"/>
 						</DayTypeAssignment>

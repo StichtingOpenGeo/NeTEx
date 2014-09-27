@@ -25,10 +25,10 @@ This is part 3 of a multistep example on versioning
 		<RequestTimestamp>2001-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<ServiceFrameRef ref="mybus:ServiceFrame:ntwkf001">REQUEST</ServiceFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P7D</PublicationRefreshInterval>
@@ -36,6 +36,12 @@ This is part 3 of a multistep example on versioning
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="003" id="mybus:CompositeFrame:ntwkf001">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="mybus:AvailabilityCondition:ntwkf001">
+					<FromDate>2010-05-17T00:00:00Z</FromDate>
+					<ToDate>2011-05-17T00:00:00Z</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -57,12 +63,6 @@ This is part 3 of a multistep example on versioning
 					<DerivedFromVersionRef ref="mybus:CompositeFrame:ntwkf001" version="002"/>
 				</Version>
 			</versions>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="mybus:AvailabilityCondition:ntwkf001">
-					<FromDate>2010-05-17T00:00:00Z</FromDate>
-					<ToDate>2011-05-17T00:00:00Z</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!--- ===Calendar======== -->
 				<ServiceCalendarFrame version="002" id="mybus:ServiceCalendarFrame:ntwkf001">
@@ -116,6 +116,17 @@ This is part 3 of a multistep example on versioning
 				</ServiceCalendarFrame>
 				<!--- ===Services ========== -->
 				<ServiceFrame version="003" created="2010-05-17T09:30:47.0Z" changed="2010-05-19T10:30:47.0Z" modification="revise" derivedFromVersionRef="002" id="mybus:ServiceFrame:ntwkf001">
+					<validityConditions>
+						<AvailabilityCondition created="2010-05-18T10:30:47.0Z" modification="revise" version="002" responsibilitySetRef="mybus:ResponsibilitySet:RS_10" id="mybus:AvailabilityCondition:VC002_mf">
+							<Description>Use when no ice</Description>
+							<FromDate>2010-05-17T00:00:00Z</FromDate>
+							<ToDate>2011-05-17T00:00:00Z</ToDate>
+							<dayTypes>
+								<DayTypeRef version="001" ref="mybus:DayType:DT001_MF"/>
+								<DayTypeRef version="001" ref="mybus:DayType:DT002_MFHols"/>
+							</dayTypes>
+						</AvailabilityCondition>
+					</validityConditions>
 					<Name>My Network  Version 3 with two stops in it and a VALIDITY CONDITIONa added  in it. Baseline is version 2 as stops A and B must exist</Name>
 					<BaselineVersionFrameRef ref="mybus:ServiceFrame:002">EXTERNAL</BaselineVersionFrameRef>
 					<versions>
@@ -144,17 +155,6 @@ This is part 3 of a multistep example on versioning
 							<Description>Version 1 of ServiceLink  SL_BtoA01 </Description>
 						</Version>
 					</versions>
-					<frameValidityConditions>
-						<AvailabilityCondition created="2010-05-18T10:30:47.0Z" modification="revise" version="002" responsibilitySetRef="mybus:ResponsibilitySet:RS_10" id="mybus:AvailabilityCondition:VC002_mf">
-							<Description>Use when no ice</Description>
-							<FromDate>2010-05-17T00:00:00Z</FromDate>
-							<ToDate>2011-05-17T00:00:00Z</ToDate>
-							<dayTypes>
-								<DayTypeRef version="001" ref="mybus:DayType:DT001_MF"/>
-								<DayTypeRef version="001" ref="mybus:DayType:DT002_MFHols"/>
-							</dayTypes>
-						</AvailabilityCondition>
-					</frameValidityConditions>
 					<scheduledStopPoints>
 						<!-- == Frame contents == -->
 						<ScheduledStopPoint version="002" created="2010-05-17T09:30:47.0Z" changed="2010-05-18T10:30:47.0Z" modification="revise" derivedFromVersionRef="001" id="mybus:ScheduledStopPoint:SSP0001A">

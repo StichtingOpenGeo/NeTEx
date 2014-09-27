@@ -66,14 +66,14 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="AvailabilityCondition:CAL_02">
 						<FromDate>2011-01-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<FareFrameRef ref="myfares:FareFrame:any">REQUEST</FareFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -81,6 +81,12 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="myfares:CompositeFrame:CAL_02">
+			<validityConditions>
+				<ValidBetween>
+					<FromDate>2011-01-01T00:00:00Z</FromDate>
+					<ToDate>2011-07-01T00:00:00Z</ToDate>
+				</ValidBetween>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -98,12 +104,6 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="myfares"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<SimpleValidityCondition>
-					<FromDate>2011-01-01T00:00:00Z</FromDate>
-					<ToDate>2011-07-01T00:00:00Z</ToDate>
-				</SimpleValidityCondition>
-			</frameValidityConditions>
 			<frames>
 				<ResourceFrame version="any" id="myfares:ResourceFrame:OP_01">
 					<typesOfValue>
@@ -171,70 +171,19 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 					<FrameDefaults>
 						<DefaultCurrency>EUR</DefaultCurrency>
 					</FrameDefaults>
-					<!--- ====Fare USAGE PARAMETERS======= -->
-					<fareUsageParameters>
-						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:oneTrip">
-							<FrequencyOfUseType>unlimited</FrequencyOfUseType>
-							<MaximalFrequency>1</MaximalFrequency>
-						</FrequencyOfUse>
-					</fareUsageParameters>
-					
-					
-<groupsOfAccessRightParameterAssignments>
-						<GroupOfAccessRightParameterAssignments version="any" id="myfares:GroupOfAccessRightParameterAssignments:Operator">
-							<accessRightParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:Operator">
-									<Name> Operator</Name>
-									<OperatorRef version="any" ref="myfares:Operator:DTA"/>
-								</ValidityParameterAssignment>
-							</accessRightParameterAssignments>
-						</GroupOfAccessRightParameterAssignments>
-						<GroupOfAccessRightParameterAssignments version="any" id="myfares:GroupOfAccessRightParameterAssignments:Operator_oneTrip">
-							<GroupOfAccessRightParameterAssignmentsRef version="any" ref="myfares:GroupOfAccessRightParameterAssignments:Operator"/>
-							<accessRightParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:Operator_oneTrip">
-									<Name> One Trip</Name>
-									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:oneTrip"/>
-								</ValidityParameterAssignment>
-							</accessRightParameterAssignments>
-						</GroupOfAccessRightParameterAssignments>
-					</groupsOfAccessRightParameterAssignments>					
-					
-					
-					
-						<!--- ====Fare Product======= -->
-					<fareProducts>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:pointToPoint_adult">
-							<Name>Point  to Point  fare</Name>
-							<groupsOfAccessRightParameterAssignments>
-								<GroupOfAccessRightParameterAssignmentsRef version="any" ref="myfares:GroupOfAccessRightParameterAssignments:Operator_oneTrip"/>
-							</groupsOfAccessRightParameterAssignments>
-							<!--- ====VALIDABLE ELEMENTs====== -->
-							<validableElements>
-								<ValidableElement version="any" id="myfares:ValidableElement:singleRide">
-									<Name>Single  ride</Name>
-									<groupsOfAccessRightParameterAssignments>
-										<GroupOfAccessRightParameterAssignmentsRef version="any" ref="myfares:GroupOfAccessRightParameterAssignments:Operator_oneTrip"/>
-									</groupsOfAccessRightParameterAssignments>
-								</ValidableElement>
-							</validableElements>
-							<!--- ====ACCESS RIGHTs======= -->
-							<accessRightsInProduct>
-								<AccessRightInProduct version="any" id="myfares:AccessRightInProduct:singleRide" order="1">
-									<Name>First ride</Name>
-									<IsFirstInSequence>true</IsFirstInSequence>
-									<IsLastInSequence>true</IsLastInSequence>
-									<ValidableElementRef version="any" ref="myfares:ValidableElement:singleRide"/>
-								</AccessRightInProduct>
-							</accessRightsInProduct>
-						</PreassignedFareProduct>
-					</fareProducts>
-					
-				
+					<fareStructureElements>
+						<FareStructureElement version="any" id="myfares:FareStructureElement:routes">
+							<distanceMatrixElements>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_001_to_SSP_002"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_001_to_SSP_077"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_002_to_SSP_077"/>
+							</distanceMatrixElements>
+						</FareStructureElement>
+					</fareStructureElements>
 					<!--- ====Fare Structure======= -->
 					<tariffs>
 						<Tariff version="any" id="myfares:Tariff:pointToPoint">
-							<Name/>
+							<Name>Point to pont tariff</Name>
 							<distanceMatrixElements>
 								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:SSP_001_to_SSP_002">
 									<Name>Alpha to Bravo</Name>
@@ -243,7 +192,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<prices>
 										<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:SSP_001_to_SSP_002">
 											<Amount>1.00</Amount>
-											<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pointToPoint_adult"/>
+											<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_001_to_SSP_002"/>
 										</DistanceMatrixElementPrice>
 									</prices>
 								</DistanceMatrixElement>
@@ -254,7 +203,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<prices>
 										<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:SSP_001_to_SSP_077">
 											<Amount>3.00</Amount>
-											<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pointToPoint_adult"/>
+											<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_001_to_SSP_077"/>
 										</DistanceMatrixElementPrice>
 									</prices>
 								</DistanceMatrixElement>
@@ -265,21 +214,68 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<prices>
 										<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:SSP_002_to_SSP_077">
 											<Amount>2.00</Amount>
-											<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pointToPoint_adult"/>
+											<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:SSP_002_to_SSP_077"/>
 										</DistanceMatrixElementPrice>
 									</prices>
 								</DistanceMatrixElement>
 							</distanceMatrixElements>
 						</Tariff>
 					</tariffs>
+					<!--- ====Fare USAGE PARAMETERS======= -->
+					<usageParameters>
+						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:oneTrip">
+							<FrequencyOfUseType>unlimited</FrequencyOfUseType>
+							<MaximalFrequency>1</MaximalFrequency>
+						</FrequencyOfUse>
+					</usageParameters>
+					<!--- ====Fare Product======= -->
+					<fareProducts>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:pointToPoint">
+							<Name>Point  to Point  fare</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:pointToPoint@oneTrip">
+									<Name> One Trip</Name>
+									<limitations>
+										<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:oneTrip"/>
+									</limitations>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="2" id="myfares:GenericParameterAssignment:pointToPoint@routes">
+									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:routes"/>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<!--- ====VALIDABLE ELEMENTs====== -->
+							<validableElements>
+								<ValidableElement version="any" id="myfares:ValidableElement:DTARide">
+									<Name>Single  ride</Name>
+									<validityParameterAssignments>
+										<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:DTARide">
+											<Name> Operator</Name>
+											<validityParameters>
+												<OperatorRef version="any" ref="myfares:Operator:DTA"/>
+											</validityParameters>
+										</GenericParameterAssignment>
+									</validityParameterAssignments>
+								</ValidableElement>
+							</validableElements>
+							<!--- ====ACCESS RIGHTs======= -->
+							<accessRightsInProduct>
+								<AccessRightInProduct version="any" id="myfares:AccessRightInProduct:singleRide" order="1">
+									<Name>First ride</Name>
+									<IsFirstInSequence>true</IsFirstInSequence>
+									<IsLastInSequence>true</IsLastInSequence>
+									<ValidableElementRef version="any" ref="myfares:ValidableElement:DTARide"/>
+								</AccessRightInProduct>
+							</accessRightsInProduct>
+						</PreassignedFareProduct>
+					</fareProducts>
 					<!--- ====Sales Packages ====== -->
 					<salesPackages>
-						<SalesPackage version="any" id="myfares:SalesPackage:adult_ticket">
+						<SalesPackage version="any" id="myfares:SalesPackage:pointToPoint@ticket">
 							<Name>  Adult Paper Ticket </Name>
 							<salesPackageElements>
-								<SalesPackageElement version="any" id="myfares:SalesPackageElement:adult_ticket">
+								<SalesPackageElement order="1"  version="any" id="myfares:SalesPackageElement:pointToPoint@ticket">
 									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:paperTicket"/>
-									<FareProductRef version="any" ref="myfares:PreassignedFareProduct:pointToPoint_adult"/>
+									<FareProductRef version="any" ref="myfares:PreassignedFareProduct:pointToPoint"/>
 								</SalesPackageElement>
 							</salesPackageElements>
 						</SalesPackage>

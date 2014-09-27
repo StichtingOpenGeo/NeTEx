@@ -43,8 +43,7 @@ B. Frames and grouping
 				Also get details for 
 				</Description>
 		<topics>
-			<FrameTopicFilter>
-				
+			<NetworkFrameTopic>
 				<Current/>
 				<NetworkFilterByValue>
 					<BoundingBox>
@@ -59,13 +58,12 @@ B. Frames and grouping
 					</BoundingBox>
 					<objectReferences>
 						<ScheduledStopPointRef ref=""/>
-						<StopPlaceRef ref=""/>
-						<PassengerStopAssignmentRef ref=""/>
+						<StopPlaceRef ref=""/> 
 						<TopographicPlaceRef ref=""/>
 					</objectReferences>
 					<NetworkRef ref="mynet">REQUEST</NetworkRef>
 				</NetworkFilterByValue>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P3M</PublicationRefreshInterval>
@@ -73,6 +71,12 @@ B. Frames and grouping
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="frtop:CompositeFrame:RF01">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="mybus:AvailabilityCondition:RF01">
+					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
+					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -90,24 +94,18 @@ B. Frames and grouping
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="mybus"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="mybus:AvailabilityCondition:RF01">
-					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
-					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!--- =====SITE FRAME========== -->
 				<SiteFrame version="any" id="frtop:SiteFrame:SF005">
-					<FrameDefaults>
-						<DefaultResponsibilitySetRef version="3.0" ref="frtop:ResponsibilitySet:RS_22"/>
-					</FrameDefaults>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="frtop:AvailabilityCondition:SF005">
 							<FromDate>2012-07-26T00:00:00Z</FromDate>
 							<ToDate>2012-08-12T00:00:00Z</ToDate>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<FrameDefaults>
+						<DefaultResponsibilitySetRef version="3.0" ref="frtop:ResponsibilitySet:RS_22"/>
+					</FrameDefaults>
 					<!--- ====TOPOGRAPHIC PLACES======== -->
 					<topographicPlaces>
 						<TopographicPlace version="any" id="frtop:TopographicPlace:TP_0032A">
@@ -184,13 +182,13 @@ B. Frames and grouping
 											<Latitude>51.4217482061</Latitude>
 										</Location>
 									</Centroid>
+									<RoadAddress version="any" id="mybus:RoadAddress:Rad_SP001A_01">
+										<RoadName>Rue  de la Gare</RoadName>
+									</RoadAddress>
 									<CrossRoad lang="fr">Rue du Chene</CrossRoad>
 									<Landmark lang="fr">Place Victoire</Landmark>
 									<Covered>outdoors</Covered>
 									<Lighting>unlit</Lighting>
-									<RoadAddress version="any" id="mybus:RoadAddress:Rad_SP001A_01">
-										<RoadName>Rue  de la Gare</RoadName>
-									</RoadAddress>
 									<placeEquipments>
 										<PassengerInformationEquipment version="any" id="mybus:PassengerInformationEquipment:Q_SSP_02456A_1">
 											<AccessibilityInfoFacilityList> visualDisplays</AccessibilityInfoFacilityList>
@@ -231,7 +229,7 @@ B. Frames and grouping
 						</TariffZone>
 					</tariffZones>
 					<stopAssignments>
-						<PassengerStopAssignment version="any" id="frtop:PassengerStopAssignment:PSA_40016_A1">
+						<PassengerStopAssignment order="1" version="any" id="frtop:PassengerStopAssignment:PSA_40016_A1">
 							<Description lang="en">Assigns Timetable timetable ref to physical stop</Description>
 							<ScheduledStopPointRef version="032" ref="frtop:ScheduledStopPoint:SSP0042A"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SSP_02456A"/>
@@ -246,7 +244,7 @@ B. Frames and grouping
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="3.0" id="frtop:ResponsibilitySet:RS_22">
 							<Name>Stop data on street</Name>
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="frtop:ResponsibilityRoleAssignment:RS_22_01">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="frtop:ResponsibilityRoleAssignment:RS_22_01" version="3.0">
 									<DataRoleType>collects</DataRoleType>
 									<ResponsibleOrganisationRef version="any" ref="mybus:Authority:Org_Mb042"/>
 								</ResponsibilityRoleAssignment>
@@ -255,7 +253,7 @@ B. Frames and grouping
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="3.0" id="frtop:ResponsibilitySet:RS_24">
 							<Name>Stop data on timetable</Name>
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="frtop:ResponsibilityRoleAssignment:RS_24_01">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="frtop:ResponsibilityRoleAssignment:RS_24_01" version="3.0">
 									<DataRoleType>collects</DataRoleType>
 									<ResponsibleOrganisationRef version="any" ref="frtop:Operator:Org_Hd001"/>
 								</ResponsibilityRoleAssignment>

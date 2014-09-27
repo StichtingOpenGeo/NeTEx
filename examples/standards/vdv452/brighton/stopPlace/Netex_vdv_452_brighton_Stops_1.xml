@@ -38,7 +38,7 @@ STOP_POINT/STOP_POINT_DESC 					<ScheduledStopPoint version="any"><Name>
 				</DataSource>
 			</dataSources>
 		</ResourceFrame>
-		<ServiceFrame version="any">
+		<ServiceFrame version="any" id="bright:ServiceFrame:SF01">
 				<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="vdv">

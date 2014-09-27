@@ -149,7 +149,7 @@ that defines a number of
  
 (C) CEN Copyright 2010
 -->
-<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<PublicationTimestamp>2001-12-17T09:30:47.0Z</PublicationTimestamp>
 	<ParticipantRef>SYS001</ParticipantRef>
 	<!--- ======WHAT WAS REQUESTED ========== -->
@@ -161,6 +161,12 @@ that defines a number of
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="oda:CompositeFrame:OPK_01">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="oda:AvailabilityCondition:OPK_01">
+					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
+					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!-- ==  CODESPACEs = -->
 			<codespaces>
 				<Codespace id="napt">
@@ -187,14 +193,7 @@ that defines a number of
 			<!--- =======FRAME DEFAULTS======== -->
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="oda"/>
-			</FrameDefaults>		
-		
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="oda:AvailabilityCondition:OPK_01">
-					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
-					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
+			</FrameDefaults>
 			<frames>
 				<!-- - ==== SERVICE CALENDAR === -->
 				<ServiceCalendarFrame version="any" id="oda:ServiceCalendarFrame:CAL_01">
@@ -272,53 +271,53 @@ that defines a number of
 						</Timeband>
 					</timebands>
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-27">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-27">
 							<Description>Friday 2012-07-27 Opening</Description>
 							<Date>2012-07-27</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-28">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-28">
 							<Description>Saturday 2012-07-28</Description>
 							<Date>2012-07-28</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-29">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-29">
 							<Description>Sunday 2012-07-29</Description>
 							<Date>2012-07-29</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
 						<!-- Week 2 -->
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-30">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-30">
 							<Description>Monday 2012-07-30</Description>
 							<Date>2012-07-30</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-31">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-31">
 							<Description>Tuesday 2012-07-31</Description>
 							<Date>2012-07-31</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT03_Normal"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-01">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-01">
 							<Description>Wednesday 2012-08-01</Description>
 							<Date>2012-08-01</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT03_Normal"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-02">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-02">
 							<Description>Thusday 2012-08-02</Description>
 							<Date>2012-08-02</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-03">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-03">
 							<Description>Friday 2012-08-03</Description>
 							<Date>2012-08-03</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-04">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-04">
 							<Description>Saturday2012-08-04</Description>
 							<Date>2012-08-04</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-05">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-05">
 							<Description>Sunday 2012-08-05</Description>
 							<Date>2012-08-05</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
@@ -427,15 +426,15 @@ that defines a number of
 						<PointOfInterest version="any" id="napt:PointOfInterest:8100OPK">
 							<Name>London 2012 Olympic Park</Name>
 							<Description>Queen Elizabeth II Olympic Park</Description>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-180</Longitude>
 									<Latitude>-90</Latitude>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:POI"/>
-							</types>
 							<!-- ============LEVELS ===================- -->
 							<levels>
 								<Level version="any" created="2010-04-17T09:30:47Z" id="napt:Level:8100OPK_Lvl_01">
@@ -446,14 +445,14 @@ that defines a number of
 							<entrances>
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E1">
 									<Name>2012 Olympic Park Stratford Entrance</Name>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">184435 538185</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E1_addr1">
 										<BuildingName>Olympic Park Entrance</BuildingName>
 										<AddressLine1>Station Street  </AddressLine1>
@@ -634,14 +633,14 @@ that defines a number of
 								</PointOfInterestEntrance>
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E2">
 									<Name>2012 Olympic Park North Entrance</Name>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">1856565.33 37409.715</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E2_addr1">
 										<BuildingName>North Entrance</BuildingName>
 										<AddressLine1>Temple Mill Lane</AddressLine1>
@@ -822,14 +821,14 @@ that defines a number of
 								</PointOfInterestEntrance>
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E3">
 									<Name>2012 Olympic Park South Entrance</Name>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">183681 538232</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E3_Addr1">
 										<BuildingName>South Entrance</BuildingName>
 										<AddressLine1>Burford Road</AddressLine1>
@@ -1010,14 +1009,14 @@ that defines a number of
 								</PointOfInterestEntrance>
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E4">
 									<Name>2012 Olympic Park East Entrance</Name>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">183839.455 537322.929</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E4_addr1">
 										<BuildingName>Park West Entrance</BuildingName>
 										<AddressLine1>Warton Road</AddressLine1>
@@ -1906,120 +1905,94 @@ that defines a number of
 							<pathJunctions>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj1">
 									<Name>Between aquatics centres and sotratfor entrance</Name>
-							 
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-						
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj2">
 									<Name>Near s jouth entrance centres</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj3">
 									<Name>Between south entrance and PJ3, PJ4 and Bridge4 </Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj4">
 									<Name>Between pj2  and stadium3</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj5">
 									<Name>Between pridgeS 3 and pj3, pj4, pj6, pj8</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj6">
 									<Name>Between stadium  and pj3, pj4, pj7, pj8</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj7">
 									<Name>Between stadium  and pj8</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj8">
 									<Name>Between bridge 2 and pj5, pj6, pj7, pj10 </Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj9">
 									<Name>Between bridge 2 and pj1 and bascketball arean</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj10">
 									<Name>Between bridge 1 and pj8 and hockey arean</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj11">
 									<Name>Between bridge 1 and pj9and basketball area, velodrom, bmxn</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj12">
 									<Name>Between bridge 1 and North entrance</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 								<PathJunction version="any" id="napt:PathJunction:8100OPK_pj13">
 									<Name>Between southern entrance 1 and eastern entrance</Name>
-									
-										<Location>
-											<Longitude>-180</Longitude>
-											<Latitude>-90</Latitude>
-										</Location>
-									
+									<Location>
+										<Longitude>-180</Longitude>
+										<Latitude>-90</Latitude>
+									</Location>
 								</PathJunction>
 							</pathJunctions>
 							<navigationPaths>

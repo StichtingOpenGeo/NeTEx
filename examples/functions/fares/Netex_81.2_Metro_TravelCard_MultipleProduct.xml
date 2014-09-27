@@ -2,7 +2,7 @@
 <!-- ==== SImple Timetable  Example ====== 
 This example shows the encoding of  separate pricing for   travel Card and paper ticket products  in NeTex XML  
  
-	If a  Travel  card  is used  the user is charged a lower tariff than  for  a ticket
+	If a Travel  card  is used  the user is charged a lower tariff than  for  a ticket
 
 	There are standadr and concessionary tariffs for both travel cards and for paper tickets
 
@@ -11,13 +11,13 @@ This example shows the encoding of  separate pricing for   travel Card and paper
 
  There  are four  FARE PRODUCTs , standard or  concession   x  electronic  travel cards  (USAGE DISCOUNT RIGHT )  or ticket  (PREASSIGNED FARE PRODUCT) 
 
- There are four corresponding SALES PACKAGEs  , ie 4  FARE PRODUCTs x  TYPE OF DOCUMENT
+ There are four corresponding SALES PACKAGEs  , i.e. 4  FARE PRODUCTs x  TYPE OF DOCUMENT
 
 	SALES PACKAGE						FARE PRODUCT 								USER PROFILE			  TYPE OF DOCUMENT
-		adult_ticket					PreassignedFareProduct:	ticket_standard					adult								paperTicket
-		adult_travelCard				UsageDiscountRight:			travelCard_standard			adult								card
-		concession_ticket			PreassignedFareProduct:	ticket_concession				concession					paperTicket
-		concession_travelCard	UsageDiscountRight:			travelCard_concession		concession					card
+		standard@ticket					PreassignedFareProduct:	ticket@standard					standard								paperTicket
+		standard@travelcard				UsageDiscountRight:			travelCard@standard			standard								card
+		concession@ticket			PreassignedFareProduct:	ticket@concession				concession					paperTicket
+		concession@travelcard	UsageDiscountRight:			travelCard@concession		concession					card
 
 Q. Since the prices are per zone Should ere be a Salez package for every single zone combination e.g. 4  x 6  ?
 
@@ -49,28 +49,28 @@ There is one Operator  :  DTA
  
 There are Four  FARE PRODUCTs
 
-	 Standard ticket: PREASSIGNED FARE PRODUCT   myfares:PreassignedFareProduct:travelCard_standard
+	 Standard ticket: PREASSIGNED FARE PRODUCT   myfares:PreassignedFareProduct:travelCard@standard
 		VALIDITY PARAMETER ASSIGNMENTs
 			OPERATOR hde:Operator:DTA
 		FARE USAGE PARAMETERs
-			USER PROFILE standard     myfares:UserProfile:adult 
-				TYPE OF CONCESSION:  myfares:TypeOfConcession:adult
+			USER PROFILE standard     myfares:UserProfile:standard 
+				TYPE OF CONCESSION:  myfares:TypeOfConcession:standard
 
-	 Concession ticket: PREASSIGNED FARE PRODUCT  myfares:PreassignedFareProduct:travelCard_concession
+	 Concession ticket: PREASSIGNED FARE PRODUCT  myfares:PreassignedFareProduct:travelCard@concession
 		VALIDITY PARAMETER ASSIGNMENTs
 			OPERATOR hde:Operator:DTA
 		FARE USAGE PARAMETERs
 			USER PROFILE standard     myfares:UserProfile:concession 
 					TYPE OF CONCESSION:  myfares:TypeOfConcession:concession
 
-	 Standard travel card: USAGE DISCOUNT RIGHT  myfares:UsageDiscountRight:travelCard_standard
+	 Standard travel card: USAGE DISCOUNT RIGHT  myfares:UsageDiscountRight:travelCard@standard
 		VALIDITY PARAMETER ASSIGNMENTs
 			OPERATOR hde:Operator:DTA
 		FARE USAGE PARAMETERs
-			USER PROFILE standard     myfares:UserProfile:adult 
-				TYPE OF CONCESSION:  myfares:TypeOfConcession:adult
+			USER PROFILE standard     myfares:UserProfile:standard 
+				TYPE OF CONCESSION:  myfares:TypeOfConcession:standard
 
-	 Concession travel card: USAGE DISCOUNT RIGHT  myfares:UsageDiscountRight:travelCard_concession
+	 Concession travel card: USAGE DISCOUNT RIGHT  myfares:UsageDiscountRight:travelCard@concession
 		VALIDITY PARAMETER ASSIGNMENTs
 			OPERATOR hde:Operator:DTA
 		FARE USAGE PARAMETERs
@@ -79,56 +79,56 @@ There are Four  FARE PRODUCTs
  
 	FARE PRICEs 
 
-	PRICE GROUP  myfares:PriceGroup:ticket_standard
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A_ticket_standard  0.50
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B_ticket_standard  1.00
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C_ticket_standard  3.00
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B_ticket_standard  0.50
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C_ticket_standard  2.00
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C_ticket_standard  0.75
-	PRICE GROUP  myfares:PriceGroup:ticket_concession
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A_ticket_concession  0.40
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B_ticket_concession  0.90
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C_ticket_concession  2.50
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B_ticket_concession  0.40
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C_ticket_concession  1.50
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C_ticket_concession  0.50
-	PRICE GROUP  myfares:PriceGroup:travelCard_standard
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A_travelCard_standard 0.40
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B_travelCard_standard  0.90
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C_travelCard_standard  2.60	
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B_travelCard_standard 0.40	
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C_travelCard_standard  1.90	
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C_travelCard_standard  0.85	
-	PRICE GROUP  myfares:PriceGroup:travelCard_concession
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A_travelCard_concession 0.30
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B_travelCard_concession0.80
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C_travelCard_concession 2.30
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B_travelCard_concession 0.30
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C_travelCard_concession  1.30
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C_travelCard_concession  0.30 
+	PRICE GROUP  myfares:FareTable:ticket@standard
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A@ticket@standard  0.50
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B@ticket@standard  1.00
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C@ticket@standard  3.00
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B@ticket@standard  0.50
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C@ticket@standard  2.00
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C@ticket@standard  0.75
+	PRICE GROUP  myfares:FareTable:ticket@concession
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A@ticket@concession  0.40
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B@ticket@concession  0.90
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C@ticket@concession  2.50
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B@ticket@concession  0.40
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C@ticket@concession  1.50
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C@ticket@concession  0.50
+	PRICE GROUP  myfares:FareTable:travelCard@standard
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A@travelcard@standard 0.40
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B@travelcard@standard  0.90
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C@travelcard@standard  2.60	
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B@travelcard@standard 0.40	
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C@travelcard@standard  1.90	
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C@travelcard@standard  0.85	
+	PRICE GROUP  myfares:FareTable:travelCard@concession
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A@travelcard@concession 0.30
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B@travelcard@concession0.80
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C@travelcard@concession 2.30
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B@travelcard@concession 0.30
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C@travelcard@concession  1.30
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C@travelcard@concession  0.30 
 
 There are Four  SALES PACKAGEs
 
-	 Standard paper ticket:  SALES PACKAGEs myfares:SalesPackage:adult_ticket	
-				SALES PACKAGE ELEMENT myfares:SalesPackageElement:adult_ticket
+	 Standard paper ticket:  SALES PACKAGEs myfares:SalesPackage:standard@ticket	
+				SALES PACKAGE ELEMENT myfares:SalesPackageElement:standard@ticket
 					TYPE OF TRAVEL DOCUMENT  myfares:TypeOfTravelDocument:paperTicket
-					PREASSIGNED FARE PRODUCT   myfares:PreassignedFareProduct:ticket_standard
+					PREASSIGNED FARE PRODUCT   myfares:PreassignedFareProduct:ticket@standard
 
-	 Standard travelcard :  SALES PACKAGEs myfares:SalesPackage:adult_travelCard
-				SALES PACKAGE ELEMENT myfares:SalesPackageElement:adult_ticket
+	 Standard travelcard :  SALES PACKAGEs myfares:SalesPackage:standard@travelcard
+				SALES PACKAGE ELEMENT myfares:SalesPackageElement:standard@ticket
 					TYPE OF TRAVEL DOCUMENT  myfares:TypeOfTravelDocument:card
-					USAGE DISCOUNT RIGHT   myfares:UsageDiscountRight:travelCard_standard
+					USAGE DISCOUNT RIGHT   myfares:UsageDiscountRight:travelCard@standard
 
-	 Concession paper ticket :  SALES PACKAGEs myfares:SalesPackage:concession_ticket
-				SALES PACKAGE ELEMENT myfares:SalesPackageElement:concession_ticket
+	 Concession paper ticket :  SALES PACKAGEs myfares:SalesPackage:concession@ticket
+				SALES PACKAGE ELEMENT myfares:SalesPackageElement:concession@ticket
 					TYPE OF TRAVEL DOCUMENT  myfares:TypeOfTravelDocument:card
-					PREASSIGNED FARE PRODUCT   myfares:PreassignedFareProduct:ticket_standard
+					PREASSIGNED FARE PRODUCT   myfares:PreassignedFareProduct:ticket@standard
 		
-	 Concession travelcard :  SALES PACKAGEs myfares:SalesPackage:concession_travelCard
-				SALES PACKAGE ELEMENT myfares:SalesPackageElement:concession_ticket
+	 Concession travelcard :  SALES PACKAGEs myfares:SalesPackage:concession@travelcard
+				SALES PACKAGE ELEMENT myfares:SalesPackageElement:concession@ticket
 					TYPE OF TRAVEL DOCUMENT  myfares:TypeOfTravelDocument:card
-					USAGE DISCOUNT RIGHT   myfares:UsageDiscountRight:travelCard_standard				 
+					USAGE DISCOUNT RIGHT   myfares:UsageDiscountRight:travelCard@standard				 
 						  
 
 A COMPOSITE FRAME is used to group the component FRAMEs
@@ -147,14 +147,14 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2011-01-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<FareFrameRef ref="myfares:FareFrame:any">REQUEST</FareFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -162,6 +162,12 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="myfares:CompositeFrame:CAL_02">
+			<validityConditions>
+				<ValidBetween>
+					<FromDate>2011-01-01T00:00:00Z</FromDate>
+					<ToDate>2011-07-01T00:00:00Z</ToDate>
+				</ValidBetween>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -184,37 +190,421 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="myfares"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<SimpleValidityCondition>
-					<FromDate>2011-01-01T00:00:00Z</FromDate>
-					<ToDate>2011-07-01T00:00:00Z</ToDate>
-				</SimpleValidityCondition>
-			</frameValidityConditions>
 			<frames>
+				<!--- ========SERVICE FRAME  ========== -->
+				<ServiceFrame version="1" id="myfares:ServiceFrame:svf_12">
+					<Name>Tarif ZonesNetwork</Name>
+					<!--- =========LINEs=========== -->
+					<tariffZones>
+						<!--- ====TARIFF ZONEs ======== -->
+						<TariffZone version="any" id="myfares:TariffZone:A">
+							<Name>Zone A inner</Name>
+						</TariffZone>
+						<TariffZone version="any" id="myfares:TariffZone:B">
+							<Name>Zone B middle</Name>
+						</TariffZone>
+						<TariffZone version="any" id="myfares:TariffZone:C">
+							<Name>Zone C  Outre</Name>
+						</TariffZone>
+					</tariffZones>
+				</ServiceFrame>
+				<!--- =============== FAREs =========== -->
+				<FareFrame version="any" id="myfares:FareFrame:DTA">
+					<FrameDefaults>
+						<DefaultCurrency>EUR</DefaultCurrency>
+					</FrameDefaults>
+					<!--- ====Fare Structure======= -->
+					<fareStructureElements>
+						<FareStructureElement version="any" id="myfares:FareStructureElement:routes">
+							<distanceMatrixElements>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
+							</distanceMatrixElements>
+						</FareStructureElement>
+					</fareStructureElements>
+					<tariffs>
+						<Tariff version="any" id="myfares:Tariff:ticket@standard_fare">
+							<Name/>
+							<distanceMatrixElements>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_A">
+									<Name> Zone 1  to  Zone 1</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A@ticket@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A@travelcard@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A@ticket@concession"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A@travelcard@concession"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_B">
+									<Name> Zone 1  to  Zone 2</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:B"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B@ticket@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B@travelcard@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B@ticket@concession"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B@travelcard@concession"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_C">
+									<Name> Zone 1  to  Zone 3</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C@ticket@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C@travelcard@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C@ticket@concession"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C@travelcard@concession"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:B_to_B">
+									<Name> Zone 2  to  Zone 2</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@ticket@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@travelcard@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@ticket@concession"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@travelcard@concession"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:B_to_C">
+									<Name> Zone 2  to  Zone 3</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:B"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@ticket@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@travelcard@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@ticket@concession"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@travelcard@concession"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:C_to_C">
+									<Name> Zone 3  to  Zone 3</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C@ticket@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C@travelcard@standard"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C@ticket@concession"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C@travelcard@concession"/>
+									</prices>
+								</DistanceMatrixElement>
+							</distanceMatrixElements>
+						</Tariff>
+					</tariffs>
+					<!--- ====Validable Elements======= -->
+					<validableElements>
+						<ValidableElement version="any" id="myfares:ValidableElement:metroTrip">
+							<Name>A metro Trip</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:metroTrip">
+									<validityParameters>
+										<VehicleModes>metro</VehicleModes>
+										<OperatorRef version="any" ref="hde:Operator:DTA"/>
+									</validityParameters>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+						</ValidableElement>
+					</validableElements>
+					<!--- ====Fare Usage Parameters======= -->
+					<usageParameters>
+						<UserProfile version="any" id="myfares:UserProfile:standard">
+							<Name>Standard User</Name>
+							<TypeOfConcessionRef version="any" ref="myfares:TypeOfConcession:standard"/>
+						</UserProfile>
+						<UserProfile version="any" id="myfares:UserProfile:concession">
+							<Name>Concessionary User</Name>
+							<TypeOfConcessionRef version="any" ref="myfares:TypeOfConcession:concession"/>
+						</UserProfile>
+					</usageParameters>
+					<!--- ====Fare Product======= -->
+					<fareProducts>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:ticket">
+							<Name>Standard  Ticket  </Name>
+							<OperatorRef version="any" ref="hde:Operator:DTA"/>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:ticket@UserProfile">
+									<Name>  Anyone is eligible </Name>
+									<limitations>
+										<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
+										<UserProfileRef version="any" ref="myfares:UserProfile:concession"/>
+									</limitations>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="2" id="myfares:GenericParameterAssignment:ticket@elements">
+									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:routes"/>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<!--- ====VALIDABLE ELEMENTs====== -->
+							<validableElements>
+								<ValidableElementRef ref="myfares:ValidableElement:metroTrip"/>
+							</validableElements>
+							<!--- ====ACCESS RIGHTs======= -->
+							<accessRightsInProduct>
+								<AccessRightInProduct version="any" id="myfares:AccessRightInProduct:ticket" order="1">
+									<Name>First ride</Name>
+									<ValidableElementRef version="any" ref="myfares:ValidableElement:metroTrip"/>
+								</AccessRightInProduct>
+							</accessRightsInProduct>
+						</PreassignedFareProduct>
+						<UsageDiscountRight version="any" id="myfares:UsageDiscountRight:travelCard">
+							<Name>standard  Travel Card   </Name>
+							<OperatorRef version="any" ref="hde:Operator:DTA"/>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:travelCard@UserProfile">
+									<limitations>
+										<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
+										<UserProfileRef version="any" ref="myfares:UserProfile:concession"/>
+									</limitations>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+						</UsageDiscountRight>
+					</fareProducts>
+					<!--- ====Fare Prices======= -->
+					<fareTables>
+						<FareTable version="any" id="myfares:FareTable:ticket@standard">
+							<Name>Prices for Point to Point Fare Products  - Standard</Name>
+							<pricesFor>
+								<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
+								<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket"/>
+							</pricesFor>
+							<cells>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A@ticket@standard">
+									<Name> Zone A  to  Zone A</Name>
+									<Amount>0.50</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B@ticket@standard">
+									<Name> Zone A  to  Zone B</Name>
+									<Amount>1.00</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C@ticket@standard">
+									<Name> Zone A  to  Zone C</Name>
+									<Amount>3.00</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B@ticket@standard">
+									<Name> Zone B  to  Zone B</Name>
+									<Amount>0.50</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C@ticket@standard">
+									<Name> Zone B  to  Zone C</Name>
+									<Amount>2.00</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C@ticket@standard">
+									<Name> Zone C  to  Zone C</Name>
+									<Amount>0.75</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
+								</DistanceMatrixElementPrice>
+							</cells>
+						</FareTable>
+						<FareTable version="any" id="myfares:FareTable:ticket@concession">
+							<Name>Prices for Point to Point Fare Products  - concession</Name>
+							<pricesFor>
+								<UserProfileRef version="any" ref="myfares:UserProfile:concession"/>
+								<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket"/>
+							</pricesFor>
+							<cells>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A@ticket@concession">
+									<Name> Zone A  to  Zone A</Name>
+									<Amount>0.40</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B@ticket@concession">
+									<Name> Zone A  to  Zone B</Name>
+									<Amount>0.90</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C@ticket@concession">
+									<Name> Zone A  to  Zone C</Name>
+									<Amount>2.50</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B@ticket@concession">
+									<Name> Zone B  to  Zone B</Name>
+									<Amount>0.40</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C@ticket@concession">
+									<Name> Zone B  to  Zone C</Name>
+									<Amount>1.50</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C@ticket@concession">
+									<Name> Zone C  to  Zone C</Name>
+									<Amount>0.50</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
+								</DistanceMatrixElementPrice>
+							</cells>
+						</FareTable>
+						<FareTable version="any" id="myfares:FareTable:travelCard@standard">
+							<Name>Prices for Point to Point Fare Products  - Travel Card Standard</Name>
+							<pricesFor>
+								<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
+								<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard"/>
+							</pricesFor>
+							<cells>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A@travelcard@standard">
+									<Name> Zone A  to  Zone A</Name>
+									<Amount>0.40</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B@travelcard@standard">
+									<Name> Zone A  to  Zone B</Name>
+									<Amount>0.90</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C@travelcard@standard">
+									<Name> Zone A  to  Zone C</Name>
+									<Amount>2.60</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B@travelcard@standard">
+									<Name> Zone B  to  Zone B</Name>
+									<Amount>0.40</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C@travelcard@standard">
+									<Name> Zone B  to  Zone C</Name>
+									<Amount>1.90</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C@travelcard@standard">
+									<Name> Zone C  to  Zone C</Name>
+									<Amount>0.85</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
+								</DistanceMatrixElementPrice>
+							</cells>
+						</FareTable>
+						<FareTable version="any" id="myfares:FareTable:travelCard@concession">
+							<Name>Prices for Point to Point Fare Products  - Travel Card concession</Name>
+							<pricesFor>
+								<UserProfileRef version="any" ref="myfares:UserProfile:concession"/>
+								<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard"/>
+							</pricesFor>
+							<cells>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A@travelcard@concession">
+									<Name> Zone A  to  Zone A</Name>
+									<Amount>0.30</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B@travelcard@concession">
+									<Name> Zone A  to  Zone B</Name>
+									<Amount>0.80</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C@travelcard@concession">
+									<Name> Zone A  to  Zone C</Name>
+									<Amount>2.30</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B@travelcard@concession">
+									<Name> Zone B  to  Zone B</Name>
+									<Amount>0.30</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C@travelcard@concession">
+									<Name> Zone B  to  Zone C</Name>
+									<Amount>1.30</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
+								</DistanceMatrixElementPrice>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C@travelcard@concession">
+									<Name> Zone C  to  Zone C</Name>
+									<Amount>0.30</Amount>
+									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
+								</DistanceMatrixElementPrice>
+							</cells>
+						</FareTable>
+					</fareTables>
+					<!--- ====Sales Packages ====== -->
+					<salesPackages>
+						<SalesPackage version="any" id="myfares:SalesPackage:standard@ticket">
+							<Name>  standard Paper Ticket </Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:standard@ticket">
+									<limitations>
+										<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
+									</limitations>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<salesPackageElements>
+								<SalesPackageElement order="1"     version="any" id="myfares:SalesPackageElement:standard@ticket">
+									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:paperTicket"/>
+									<FareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="myfares:SalesPackage:standard@travelcard">
+							<Name>  standard Travel Card</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:standard@travelcard">
+									<limitations>
+										<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
+									</limitations>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<salesPackageElements>
+								<SalesPackageElement order="1"     version="any" id="myfares:SalesPackageElement:standard@travelcard">
+									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:card"/>
+									<FareProductRef version="any" ref="myfares:UsageDiscountRight:travelCard"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="myfares:SalesPackage:concession@ticket">
+							<Name>  Concession Paper Ticket </Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:concession@ticket">
+									<limitations>
+										<UserProfileRef version="any" ref="myfares:UserProfile:concession"/>
+									</limitations>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<salesPackageElements>
+								<SalesPackageElement order="1"     version="any" id="myfares:SalesPackageElement:concession@ticket">
+									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:paperTicket"/>
+									<FareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+						<SalesPackage version="any" id="myfares:SalesPackage:concession@travelcard">
+							<Name>  concession Travel Card</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:concession@travelcard">
+									<limitations>
+										<UserProfileRef version="any" ref="myfares:UserProfile:concession"/>
+									</limitations>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<salesPackageElements>
+								<SalesPackageElement order="1"     version="any" id="myfares:SalesPackageElement:concession@travelcard">
+									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:card"/>
+									<FareProductRef version="any" ref="myfares:UsageDiscountRight:travelCard"/>
+								</SalesPackageElement>
+							</salesPackageElements>
+						</SalesPackage>
+					</salesPackages>
+				</FareFrame>
 				<!--- ===========RESOURCEs========== -->
 				<ResourceFrame version="any" id="myfares:ResourceFrame:DTA">
 					<typesOfValue>
-						<ValueSet version="any" id="myfares:ValueSet:ChargingMoment">
-							<Name>Types of concession</Name>
-							<values>
-								<!--- ====TypeOfConcession method========= -->
-								<TypeOfConcession version="any" id="myfares:TypeOfConcession:adult">
-									<Name>Adult</Name>
-								</TypeOfConcession>
-								<TypeOfConcession version="any" id="myfares:TypeOfConcession:concession">
-									<Name>concession</Name>
-								</TypeOfConcession>
-							</values>
-						</ValueSet>
 						<ValueSet version="any" id="myfares:ValueSet:TypeOfConcession">
 							<Name>Types of concession</Name>
 							<values>
 								<!--- ====TypeOfConcession method========= -->
 								<TypeOfConcession version="any" id="myfares:TypeOfConcession:standard">
-									<Name>Adult</Name>
+									<Name>standard</Name>
 								</TypeOfConcession>
-								<TypeOfConcession version="any" id="myfares:TypeOfConcession:student">
-									<Name>Student</Name>
+								<TypeOfConcession version="any" id="myfares:TypeOfConcession:concession">
+									<Name>concession</Name>
 								</TypeOfConcession>
 							</values>
 						</ValueSet>
@@ -238,375 +628,6 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 						</Operator>
 					</organisations>
 				</ResourceFrame>
-				<!--- ========SERVICE FRAME  ========== -->
-				<ServiceFrame version="1" id="myfares:ServiceFrame:svf_12">
-					<Name>Tarif ZonesNetwork</Name>
-					<!--- =========LINEs=========== -->
-					<tariffZones>
-						<!--- ====TARIFF ZONEs ======== -->
-						<TariffZone version="any" id="myfares:TariffZone:A">
-							<Name>Zone A inner</Name>
-						</TariffZone>
-						<TariffZone version="any" id="myfares:TariffZone:B">
-							<Name>Zone B middle</Name>
-						</TariffZone>
-						<TariffZone version="any" id="myfares:TariffZone:C">
-							<Name>Zone C  Outre</Name>
-						</TariffZone>
-					</tariffZones>
-				</ServiceFrame>
-				<!--- =============== FAREs =========== -->
-				<FareFrame version="any" id="myfares:FareFrame:DTA">
-					<FrameDefaults>
-						<DefaultCurrency>EUR</DefaultCurrency>
-					</FrameDefaults>
-					<!--- ====Fare Usage Parameters======= -->
-					<fareUsageParameters>
-						<UserProfile version="any" id="myfares:UserProfile:standard">
-							<Name>Standard User</Name>
-							<TypeOfConcessionRef version="any" ref="myfares:TypeOfConcession:standard"/>
-						</UserProfile>
-						<UserProfile version="any" id="myfares:UserProfile:concession">
-							<Name>Concessionary User</Name>
-							<TypeOfConcessionRef version="any" ref="myfares:TypeOfConcession:concession"/>
-						</UserProfile>
-					</fareUsageParameters>
-					<!--- ====Fare Product======= -->
-					<fareProducts>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:ticket_standard">
-							<Name>Standard  Ticket  </Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:ticket_standard_Operator">
-									<VehicleModes>metro</VehicleModes>
-									<OperatorRef version="any" ref="hde:Operator:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:ticket_adult_UserProfile">
-									<Name>  Anyone is eligible </Name>
-									<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</PreassignedFareProduct>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:ticket_concession">
-							<Name>concession  Ticket</Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:ticket_concession_Operator">
-									<VehicleModes>metro</VehicleModes>
-									<OperatorRef version="any" ref="hde:Operator:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:ticket_concession_UserProfile">
-									<Name>concessions are eligible</Name>
-									<UserProfileRef version="any" ref="myfares:UserProfile:concession"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</PreassignedFareProduct>
-						<UsageDiscountRight version="any" id="myfares:UsageDiscountRight:travelCard_standard">
-							<Name>Adult  Travel Card   </Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:travelCard_standard_Operator">
-									<VehicleModes>metro</VehicleModes>
-									<OperatorRef version="any" ref="hde:Operator:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:travelCard_adult_UserProfile">
-									<Name> Anyone is  eligible </Name>
-									<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</UsageDiscountRight>
-						<UsageDiscountRight version="any" id="myfares:UsageDiscountRight:travelCard_concession">
-							<Name>concession  Travel Card</Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:travelCard_concession_Operator">
-									<VehicleModes>metro</VehicleModes>
-									<OperatorRef version="any" ref="hde:Operator:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:travelCard_concession_UserProfile">
-									<Name>concessions are eligible</Name>
-									<UserProfileRef version="any" ref="myfares:UserProfile:concession"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</UsageDiscountRight>
-					</fareProducts>
-					<!--- ====Fare Structure======= -->
-					<tariffs>
-						<Tariff version="any" id="myfares:Tariff:ticket_Standard_fare">
-							<Name/>
-							<distanceMatrixElements>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_A">
-									<Name> Zone 1  to  Zone 1</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A_ticket_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A_travelCard_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A_ticket_concession"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A_travelCard_concession"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_B">
-									<Name> Zone 1  to  Zone 2</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:B"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B_ticket_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B_travelCard_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B_ticket_concession"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B_travelCard_concession"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_C">
-									<Name> Zone 1  to  Zone 3</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C_ticket_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C_travelCard_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C_ticket_concession"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C_travelCard_concession"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:B_to_B">
-									<Name> Zone 2  to  Zone 2</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_ticket_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_travelCard_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_ticket_concession"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_travelCard_concession"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:B_to_C">
-									<Name> Zone 2  to  Zone 3</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:B"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_ticket_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_travelCard_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_ticket_concession"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_travelCard_concession"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:C_to_C">
-									<Name> Zone 3  to  Zone 3</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C_ticket_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C_travelCard_standard"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C_ticket_concession"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C_travelCard_concession"/>
-									</prices>
-								</DistanceMatrixElement>
-							</distanceMatrixElements>
-						</Tariff>
-					</tariffs>
-					<!--- ====Fare Prices======= -->
-					<farePrices>
-						<PriceGroup version="any" id="myfares:PriceGroup:ticket_standard">
-							<Name>Prices for Point to Point Fare Products  - Standard</Name>
-							<members>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A_ticket_standard">
-									<Name> Zone A  to  Zone A</Name>
-									<Amount>0.50</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B_ticket_standard">
-									<Name> Zone A  to  Zone B</Name>
-									<Amount>1.00</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C_ticket_standard">
-									<Name> Zone A  to  Zone C</Name>
-									<Amount>3.00</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B_ticket_standard">
-									<Name> Zone B  to  Zone B</Name>
-									<Amount>0.50</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C_ticket_standard">
-									<Name> Zone B  to  Zone C</Name>
-									<Amount>2.00</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C_ticket_standard">
-									<Name> Zone C  to  Zone C</Name>
-									<Amount>0.75</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_standard"/>
-								</DistanceMatrixElementPrice>
-							</members>
-						</PriceGroup>
-						<PriceGroup version="any" id="myfares:PriceGroup:ticket_concession">
-							<Name>Prices for Point to Point Fare Products  - concession</Name>
-							<members>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A_ticket_concession">
-									<Name> Zone A  to  Zone A</Name>
-									<Amount>0.40</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B_ticket_concession">
-									<Name> Zone A  to  Zone B</Name>
-									<Amount>0.90</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C_ticket_concession">
-									<Name> Zone A  to  Zone C</Name>
-									<Amount>2.50</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B_ticket_concession">
-									<Name> Zone B  to  Zone B</Name>
-									<Amount>0.40</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C_ticket_concession">
-									<Name> Zone B  to  Zone C</Name>
-									<Amount>1.50</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C_ticket_concession">
-									<Name> Zone C  to  Zone C</Name>
-									<Amount>0.50</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_concession"/>
-								</DistanceMatrixElementPrice>
-							</members>
-						</PriceGroup>
-						<PriceGroup version="any" id="myfares:PriceGroup:travelCard_standard">
-							<Name>Prices for Point to Point Fare Products  - Travel Card Standard</Name>
-							<members>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A_travelCard_standard">
-									<Name> Zone A  to  Zone A</Name>
-									<Amount>0.40</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B_travelCard_standard">
-									<Name> Zone A  to  Zone B</Name>
-									<Amount>0.90</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C_travelCard_standard">
-									<Name> Zone A  to  Zone C</Name>
-									<Amount>2.60</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B_travelCard_standard">
-									<Name> Zone B  to  Zone B</Name>
-									<Amount>0.40</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C_travelCard_standard">
-									<Name> Zone B  to  Zone C</Name>
-									<Amount>1.90</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_standard"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C_travelCard_standard">
-									<Name> Zone C  to  Zone C</Name>
-									<Amount>0.85</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_standard"/>
-								</DistanceMatrixElementPrice>
-							</members>
-						</PriceGroup>
-						<PriceGroup version="any" id="myfares:PriceGroup:travelCard_concession">
-							<Name>Prices for Point to Point Fare Products  - Travel Card concession</Name>
-							<members>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A_travelCard_concession">
-									<Name> Zone A  to  Zone A</Name>
-									<Amount>0.30</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B_travelCard_concession">
-									<Name> Zone A  to  Zone B</Name>
-									<Amount>0.80</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C_travelCard_concession">
-									<Name> Zone A  to  Zone C</Name>
-									<Amount>2.30</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B_travelCard_concession">
-									<Name> Zone B  to  Zone B</Name>
-									<Amount>0.30</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C_travelCard_concession">
-									<Name> Zone B  to  Zone C</Name>
-									<Amount>1.30</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_concession"/>
-								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C_travelCard_concession">
-									<Name> Zone C  to  Zone C</Name>
-									<Amount>0.30</Amount>
-									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
-									<UsageDiscountRightRef version="any" ref="myfares:UsageDiscountRight:travelCard_concession"/>
-								</DistanceMatrixElementPrice>
-							</members>
-						</PriceGroup>
-					</farePrices>
-					<!--- ====Sales Packages ====== -->
-					<salesPackages>
-						<SalesPackage version="any" id="myfares:SalesPackage:adult_ticket">
-							<Name>  Adult Paper Ticket </Name>
-							<salesPackageElements>
-								<SalesPackageElement version="any" id="myfares:SalesPackageElement:adult_ticket">
-									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:paperTicket"/>
-									<FareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_standard"/>
-								</SalesPackageElement>
-							</salesPackageElements>
-						</SalesPackage>
-						<SalesPackage version="any" id="myfares:SalesPackage:adult_travelCard">
-							<Name>  Adult Travel Card</Name>
-							<salesPackageElements>
-								<SalesPackageElement version="any" id="myfares:SalesPackageElement:adult_travelCard">
-									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:card"/>
-									<FareProductRef version="any" ref="myfares:UsageDiscountRight:travelCard_standard"/>
-								</SalesPackageElement>
-							</salesPackageElements>
-						</SalesPackage>
-						<SalesPackage version="any" id="myfares:SalesPackage:concession_ticket">
-							<Name>  Adult Paper Ticket </Name>
-							<salesPackageElements>
-								<SalesPackageElement version="any" id="myfares:SalesPackageElement:concession_ticket">
-									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:paperTicket"/>
-									<FareProductRef version="any" ref="myfares:PreassignedFareProduct:ticket_concession"/>
-								</SalesPackageElement>
-							</salesPackageElements>
-						</SalesPackage>
-						<SalesPackage version="any" id="myfares:SalesPackage:concession_travelCard">
-							<Name>  Adult Travel Card</Name>
-							<salesPackageElements>
-								<SalesPackageElement version="any" id="myfares:SalesPackageElement:concession_travelCard">
-									<TypeOfTravelDocumentRef version="any" ref="myfares:TypeOfTravelDocument:card"/>
-									<FareProductRef version="any" ref="myfares:UsageDiscountRight:travelCard_concession"/>
-								</SalesPackageElement>
-							</salesPackageElements>
-						</SalesPackage>
-					</salesPackages>
-				</FareFrame>
 			</frames>
 		</CompositeFrame>
 	</dataObjects>

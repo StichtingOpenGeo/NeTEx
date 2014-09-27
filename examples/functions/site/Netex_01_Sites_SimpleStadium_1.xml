@@ -73,7 +73,7 @@ The example  comprises
 
 (C) CEN Copyright 2010, 2011
 -->
-<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<PublicationTimestamp>2001-12-17T09:30:47.0Z</PublicationTimestamp>
 	<ParticipantRef>SYS001</ParticipantRef>
 	<!--- ======WHAT WAS REQUESTED ========== -->
@@ -85,6 +85,12 @@ The example  comprises
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<SiteFrame version="any" id="nptg:SiteFrame:SF01">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="nptg:AvailabilityCondition:SF01">
+					<FromDate>2012-07-26T00:00:00Z</FromDate>
+					<ToDate>2012-08-12T00:00:00Z</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!-- ==  CODESPACEs = -->
 			<codespaces>
 				<Codespace id="napt">
@@ -102,19 +108,11 @@ The example  comprises
 					<XmlnsUrl>http://www.intdata.co.uk/data</XmlnsUrl>
 					<Description>Other interchange DATA SOURCE </Description>
 				</Codespace>
-				
 			</codespaces>
 			<!--- =======FRAME DEFAULTS======== -->
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="tbd"/>
-			</FrameDefaults>		
-		
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="nptg:AvailabilityCondition:SF01">
-					<FromDate>2012-07-26T00:00:00Z</FromDate>
-					<ToDate>2012-08-12T00:00:00Z</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
+			</FrameDefaults>
 			<!--- =====Places========= -->
 			<topographicPlaces>
 				<TopographicPlace version="any" responsibilitySetRef="nptg:ResponsibilitySet:GZ_01" id="nptg:TopographicPlace:TP_0032A">
@@ -137,6 +135,13 @@ The example  comprises
 							<Altitude>-1000</Altitude>
 						</Location>
 					</Centroid>
+					<Image>http://www.amy.com/stad.gif</Image>
+					<PostalAddress version="any" id="tbd:PostalAddress:POI_23">
+						<BuildingName>The Stadium</BuildingName>
+						<AddressLine1>23 Foo St</AddressLine1>
+						<Town>Frampton</Town>
+						<PostCode>FGR 1JS</PostCode>
+					</PostalAddress>
 					<AccessibilityAssessment version="any" id="tbd:AccessibilityAssessment:POI_23">
 						<MobilityImpairedAccess>true</MobilityImpairedAccess>
 						<limitations>
@@ -149,7 +154,6 @@ The example  comprises
 						</limitations>
 					</AccessibilityAssessment>
 					<AccessModes>foot</AccessModes>
-					<Image>http://www.amy.com/stad.gif</Image>
 					<CrossRoad>Foo St</CrossRoad>
 					<PublicUse>all</PublicUse>
 					<Covered>indoors</Covered>
@@ -158,12 +162,6 @@ The example  comprises
 					<TopographicPlaceView>
 						<TopographicPlaceRef version="any" ref="nptg:TopographicPlace:TP_0032A"/>
 					</TopographicPlaceView>
-					<PostalAddress version="any" id="tbd:PostalAddress:POI_23">
-						<BuildingName>The Stadium</BuildingName>
-						<AddressLine1>23 Foo St</AddressLine1>
-						<Town>Frampton</Town>
-						<PostCode>FGR 1JS</PostCode>
-					</PostalAddress>
 					<levels>
 						<Level version="any" id="tbd:Level:POI_23_Lvl_01_lower">
 							<Name>Ground</Name>
@@ -215,7 +213,7 @@ The example  comprises
 									<AccessFeatureType>confinedSpace</AccessFeatureType>
 									<Congestion>queue</Congestion>
 									<delays>
-										<CheckConstraintDelay version="any" id="tbd:CheckConstraintDelay:POI_23_A1-E1_C1 ">
+										<CheckConstraintDelay version="any" id="tbd:CheckConstraintDelay:POI_23_A1-E1_C1 " order="1">
 											<MinimumLikelyDelay>PT5M</MinimumLikelyDelay>
 											<AverageDelay>PT10M</AverageDelay>
 											<MaximumLikelyDelay>PT30M</MaximumLikelyDelay>
@@ -302,7 +300,7 @@ The example  comprises
 									<AccessFeatureType>confinedSpace</AccessFeatureType>
 									<Congestion>queue</Congestion>
 									<delays>
-										<CheckConstraintDelay version="any" id="tbd:CheckConstraintDelay:POI_23_A1_E2_C1_D1">
+										<CheckConstraintDelay version="any" id="tbd:CheckConstraintDelay:POI_23_A1_E2_C1_D1" order="1">
 											<MinimumLikelyDelay>PT10M</MinimumLikelyDelay>
 											<AverageDelay>PT12M</AverageDelay>
 											<MaximumLikelyDelay>PT30M</MaximumLikelyDelay>
@@ -330,7 +328,7 @@ The example  comprises
 									<placeEquipments>
 										<TicketValidatorEquipment version="any" id="tbd:TicketValidatorEquipment:POI_23_A1-E1_Eq1">
 											<Name>Ticket validator</Name>
-											<TypeOfEquipmentRef   ref="">validator</TypeOfEquipmentRef>
+											<TypeOfEquipmentRef ref="">validator</TypeOfEquipmentRef>
 											<TicketValidatorType>paperStamp</TicketValidatorType>
 										</TicketValidatorEquipment>
 									</placeEquipments>
@@ -817,7 +815,7 @@ The example  comprises
 							</TransferDuration>
 							<NavigationType>streetToSpace</NavigationType>
 							<placesInSequence>
-								<PlaceInSequence order="1" id="tbd:PlaceInSequence:POI_23_N1_A1-E1_to_A2_p01">
+								<PlaceInSequence version="any" order="1" id="tbd:PlaceInSequence:POI_23_N1_A1-E1_to_A2_p01">
 									<PlaceRef version="any" xsi:type="PointOfInterestEntranceRefStructure" ref="tbd:PointOfInterestEntrance:POI_23_A1-E1"/>
 									<Description>Entrance A</Description>
 									<onwardLinks>
@@ -830,7 +828,7 @@ The example  comprises
 										</PathLinkInSequence>
 									</onwardLinks>
 								</PlaceInSequence>
-								<PlaceInSequence order="2" id="tbd:PathLinkInSequence:POI_23_N1_A1-E1_to_A2_p02">
+								<PlaceInSequence version="any" order="2" id="tbd:PathLinkInSequence:POI_23_N1_A1-E1_to_A2_p02">
 									<PlaceRef version="any" ref="tbd:PathJunction:POI_23_A1-J1"/>
 									<Description>Branch {pomit in  concours A</Description>
 									<onwardLinks>
@@ -843,7 +841,7 @@ The example  comprises
 										</PathLinkInSequence>
 									</onwardLinks>
 								</PlaceInSequence>
-								<PlaceInSequence order="3" id="tbd:PathLinkInSequence:POI_23_N1_A1-E1_to_A2_p03">
+								<PlaceInSequence version="any" order="3" id="tbd:PathLinkInSequence:POI_23_N1_A1-E1_to_A2_p03">
 									<PlaceRef version="any" xsi:type="PointOfInterestSpaceRefStructure" ref="tbd:PointOfInterestSpace:POI_23_A2"/>
 									<Description>lower terrace</Description>
 								</PlaceInSequence>
@@ -896,7 +894,7 @@ The example  comprises
 							</TransferDuration>
 							<NavigationType>streetToSpace</NavigationType>
 							<placesInSequence>
-								<PlaceInSequence order="1" id="tbd:PlaceInSequence:POI_23_N2_A1-E1_to_A3_p01">
+								<PlaceInSequence version="any" order="1" id="tbd:PlaceInSequence:POI_23_N2_A1-E1_to_A3_p01">
 									<PlaceRef version="any" ref="tbd:PointOfInterestEntrance:POI_23_A1-E1"/>
 									<Description>entrance A</Description>
 									<onwardLinks>
@@ -909,7 +907,7 @@ The example  comprises
 										</PathLinkInSequence>
 									</onwardLinks>
 								</PlaceInSequence>
-								<PlaceInSequence order="2" id="tbd:PlaceInSequence:POI_23_N2_A1-E1_to_A3_p02">
+								<PlaceInSequence version="any" order="2" id="tbd:PlaceInSequence:POI_23_N2_A1-E1_to_A3_p02">
 									<PlaceRef version="any" xsi:type="PointOfInterestSpaceRefStructure" ref="tbd:PointOfInterestSpace:POI_23_A1"/>
 									<Description>entrance concours A</Description>
 									<onwardLinks>
@@ -922,7 +920,7 @@ The example  comprises
 										</PathLinkInSequence>
 									</onwardLinks>
 								</PlaceInSequence>
-								<PlaceInSequence order="3" id="tbd:PlaceInSequence:POI_23_N2_A1-E1_to_A3_p03">
+								<PlaceInSequence version="any" order="3" id="tbd:PlaceInSequence:POI_23_N2_A1-E1_to_A3_p03">
 									<PlaceRef version="any" xsi:type="PointOfInterestSpaceRefStructure" ref="tbd:PointOfInterestSpace:POI_23_A3"/>
 									<Description>upperterrace</Description>
 								</PlaceInSequence>
@@ -973,7 +971,7 @@ The example  comprises
 							</TransferDuration>
 							<NavigationType>streetToSpace</NavigationType>
 							<placesInSequence>
-								<PlaceInSequence order="1" id="tbd:PlaceInSequence:POI_23_N1_B1-E1_to_B2_p01">
+								<PlaceInSequence version="any" order="1" id="tbd:PlaceInSequence:POI_23_N1_B1-E1_to_B2_p01">
 									<PlaceRef version="any" xsi:type="PointOfInterestEntranceRefStructure" ref="tbd:PointOfInterestEntrance:POI_23_B1-E1"/>
 									<Description>Entrance A</Description>
 									<onwardLinks>
@@ -986,7 +984,7 @@ The example  comprises
 										</PathLinkInSequence>
 									</onwardLinks>
 								</PlaceInSequence>
-								<PlaceInSequence order="2" id="tbd:PathLinkInSequence:POI_23_N1_B1-E1_to_B2_p02">
+								<PlaceInSequence version="any" order="2" id="tbd:PathLinkInSequence:POI_23_N1_B1-E1_to_B2_p02">
 									<PlaceRef version="any" ref="tbd:PathJunction:POI_23_B1-J1"/>
 									<Description>Branch {pomit in  concours A</Description>
 									<onwardLinks>
@@ -999,7 +997,7 @@ The example  comprises
 										</PathLinkInSequence>
 									</onwardLinks>
 								</PlaceInSequence>
-								<PlaceInSequence order="3" id="tbd:PathLinkInSequence:POI_23_N1_B1-E1_to_B2_p03">
+								<PlaceInSequence version="any" order="3" id="tbd:PathLinkInSequence:POI_23_N1_B1-E1_to_B2_p03">
 									<PlaceRef version="any" xsi:type="PointOfInterestSpaceRefStructure" ref="tbd:PointOfInterestSpace:POI_23_B2"/>
 									<Description>lower terrace</Description>
 								</PlaceInSequence>
@@ -1052,7 +1050,7 @@ The example  comprises
 							</TransferDuration>
 							<NavigationType>streetToSpace</NavigationType>
 							<placesInSequence>
-								<PlaceInSequence order="1" id="tbd:PlaceInSequence:POI_23_N2_B1-E1_to_B3_p01">
+								<PlaceInSequence version="any" order="1" id="tbd:PlaceInSequence:POI_23_N2_B1-E1_to_B3_p01">
 									<PlaceRef version="any" xsi:type="PointOfInterestEntranceRefStructure" ref="tbd:PointOfInterestEntrance:POI_23_B1-E1"/>
 									<Description>entrance A</Description>
 									<onwardLinks>
@@ -1065,7 +1063,7 @@ The example  comprises
 										</PathLinkInSequence>
 									</onwardLinks>
 								</PlaceInSequence>
-								<PlaceInSequence order="2" id="tbd:PlaceInSequence:POI_23_N2_B1-E1_to_B3_p02">
+								<PlaceInSequence version="any" order="2" id="tbd:PlaceInSequence:POI_23_N2_B1-E1_to_B3_p02">
 									<PlaceRef version="any" xsi:type="PointOfInterestSpaceRefStructure" ref="tbd:PointOfInterestSpace:POI_23_B1"/>
 									<Description>entrance concours A</Description>
 									<onwardLinks>
@@ -1078,7 +1076,7 @@ The example  comprises
 										</PathLinkInSequence>
 									</onwardLinks>
 								</PlaceInSequence>
-								<PlaceInSequence order="3" id="tbd:PlaceInSequence:POI_23_N2_B1-E1_to_B3_p03">
+								<PlaceInSequence version="any" order="3" id="tbd:PlaceInSequence:POI_23_N2_B1-E1_to_B3_p03">
 									<PlaceRef version="any" xsi:type="PointOfInterestSpaceRefStructure" ref="tbd:PointOfInterestSpace:POI_23_B3"/>
 									<Description>upperterrace</Description>
 								</PlaceInSequence>

@@ -214,211 +214,211 @@ Friday 		01/01/2010 	 001 	1, 12, 21, 33
 			</operatingDays>
 			<!--- === Day asignments ==== -->
 			<dayTypeAssignments>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-04_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-04_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-04_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-04_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-04_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-04_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-04_DT_31">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-04_DT_31">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_31"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-05_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-05_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:278"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-05_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-05_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-05_DT_05">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-05_DT_05">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-05_DT_31">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-05_DT_31">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_31"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-06_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-06_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:279"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-06_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-06_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-06_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-06_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-06_DT_32">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-06_DT_32">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_32"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-07_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-07_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:280"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-07_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-07_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-07_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-07_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-07_DT_32">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-07_DT_32">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_32"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-08_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-08_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:281"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-08_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-08_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-08_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-08_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-08_DT_33">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-08_DT_33">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_33"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-09_DT_02">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-09_DT_02">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:282"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_02"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-09_DT_13">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-09_DT_13">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_13"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-09_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-09_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-10_DT_02">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-10_DT_02">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:283"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_02"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-10_DT_14">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-10_DT_14">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_14"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-10_DT_22">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-10_DT_22">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_22"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-11_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-11_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-11_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-11_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-11_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-11_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-11_DT_31">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-11_DT_31">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_31"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-12_DT_12">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-12_DT_12">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:278"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-12_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-12_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-12_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-12_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-12_DT_31">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-12_DT_31">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_31"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-13_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-13_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:279"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-13_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-13_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-13_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-13_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-13_DT_32">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-13_DT_32">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_32"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-14_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-14_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:280"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-14_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-14_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-14_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-14_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-14_DT_32">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-14_DT_32">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_32"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-15_DT_01">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-15_DT_01">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:281"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_01"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-15_DT_11">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-15_DT_11">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_11"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-15_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-15_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-15_DT_33">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-15_DT_33">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_33"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-16_DT_02">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-16_DT_02">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:282"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_02"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-16_DT_13">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-16_DT_13">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_13"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-10-16_DT_21">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-10-16_DT_21">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_21"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-17-10_DT_02">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-17-10_DT_02">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:283"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_02"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-17-10_DT_14">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-17-10_DT_14">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_14"/>
 				</DayTypeAssignment>
-				<DayTypeAssignment version="any" id="ust:DayTypeAssignment:DayAsgn_2010-17-10_DT_22">
+				<DayTypeAssignment version="any" order="1" id="ust:DayTypeAssignment:DayAsgn_2010-17-10_DT_22">
 					<OperatingDayRef version="any" ref="ust:OperatingDay:277"/>
 					<DayTypeRef version="any" ref="ust:DayType:DT_22"/>
 				</DayTypeAssignment>

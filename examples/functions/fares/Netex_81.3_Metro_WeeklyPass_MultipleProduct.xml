@@ -2,7 +2,7 @@
 <!-- ==== SImple Timetable  Example ====== 
 This example shows the encoding of  a week pass   in NeTex XML  
  
-	If a  Travel  card  is used  the user is charged a lower tariff than  for  a ticket
+	If a Travel  card  is used  the user is charged a lower tariff than  for  a ticket
 
 	There are standadr and concessionary tariffs for both travel cards and for paper tickets
 
@@ -61,21 +61,21 @@ There are Two  FARE PRODUCTs
 
 	FARE PRICEs 
 
-	PRICE GROUP  myfares:PriceGroup:pass_3d
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A_pass_3d  5 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B_pass_3d  8 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C_pass_3d  10 EUR	
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B_pass_3d  5 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C_pass_3d  8 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C_pass_3d  5 EUR 
+	PRICE GROUP  myfares:FareTable:pass_3d
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A@pass@3d  5 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B@pass@3d  8 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C@pass@3d  10 EUR	
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B@pass@3d  5 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C@pass@3d  8 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C@pass@3d  5 EUR 
 
-	PRICE GROUP  myfares:PriceGroup:pass_5d
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A_pass_5d  7 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B_pass_5d 12 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C_pass_5d 13 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B_pass_5d 7 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C_pass_5d 12 EUR
-		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C_pass_5d 7 EUR 
+	PRICE GROUP  myfares:FareTable:pass_5d
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_A@pass@5d  7 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_B@pass@5d 12 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:A_to_C@pass@5d 13 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_B@pass@5d 7 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:B_to_C@pass@5d 12 EUR
+		DISTANCE MATRIX ELEMENT  PRICE :myfares:DistanceMatrixElementPrice:C_to_C@pass@5d 7 EUR 
 
 A COMPOSITE FRAME is used to group the component FRAMEs
  
@@ -93,14 +93,14 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="AvailabilityCondition:CAL_02">
 						<FromDate>2011-01-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<FareFrameRef ref="myfares:FareFrame:any">REQUEST</FareFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -108,6 +108,12 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="myfares:CompositeFrame:CAL_02">
+			<validityConditions>
+				<ValidBetween>
+					<FromDate>2011-01-01T00:00:00Z</FromDate>
+					<ToDate>2011-07-01T00:00:00Z</ToDate>
+				</ValidBetween>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -130,12 +136,6 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="myfares"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<SimpleValidityCondition>
-					<FromDate>2011-01-01T00:00:00Z</FromDate>
-					<ToDate>2011-07-01T00:00:00Z</ToDate>
-				</SimpleValidityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!--- ===========RESOURCEs========== -->
 				<ResourceFrame version="any" id="hde:ResourceFrame:DTA">
@@ -168,8 +168,96 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 					<FrameDefaults>
 						<DefaultCurrency>EUR</DefaultCurrency>
 					</FrameDefaults>
-				<!--- ====Fare Usage Parameters======= -->
-					<fareUsageParameters>
+					<!--- ====Fare Structure======= -->
+					<fareStructureElements>
+						<FareStructureElement version="any" id="myfares:FareStructureElement:routes">
+							<distanceMatrixElements>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
+								<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
+							</distanceMatrixElements>
+						</FareStructureElement>
+					</fareStructureElements>
+					<tariffs>
+						<Tariff version="any" id="myfares:Tariff:pass_3d_fare">
+							<Name/>
+							<distanceMatrixElements>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_A">
+									<Name> Zone 1  to  Zone 1</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A@pass@3d"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A@pass@5d"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_B">
+									<Name> Zone 1  to  Zone 2</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:B"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B@pass@3d"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B@pass@5d"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_C">
+									<Name> Zone 1  to  Zone 3</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C@pass@3d"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C@pass@5d"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:B_to_B">
+									<Name> Zone 2  to  Zone 2</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@pass@3d"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@pass@5d"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:B_to_C">
+									<Name> Zone 2  to  Zone 3</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:B"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@pass@3d"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C@pass@5d"/>
+									</prices>
+								</DistanceMatrixElement>
+								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:C_to_C">
+									<Name> Zone 3  to  Zone 3</Name>
+									<StartTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
+									<prices>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C@pass@3d"/>
+										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C@pass@5d"/>
+									</prices>
+								</DistanceMatrixElement>
+							</distanceMatrixElements>
+						</Tariff>
+					</tariffs>
+					<!--- ====Validable Elements======= -->
+					<validableElements>
+						<ValidableElement version="any" id="myfares:ValidableElement:metroTrip">
+							<Name>A metro Trip</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1"  id="myfares:GenericParameterAssignment:metroTrip">
+									<validityParameters>
+										<VehicleModes>metro</VehicleModes>
+										<OperatorRef version="any" ref="hde:Operator:DTA"/>
+									</validityParameters>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+						</ValidableElement>
+					</validableElements>
+					<!--- ====Fare Usage Parameters======= -->
+					<usageParameters>
 						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:unlimited">
 							<Name>Use as many times as  you like</Name>
 							<FrequencyOfUseType>unlimited</FrequencyOfUseType>
@@ -182,193 +270,118 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 							<UsageEnd>standardDuration</UsageEnd>
 							<StandardDuration>P5D</StandardDuration>
 						</UsageValidityPeriod>
-					</fareUsageParameters>					
-					
+					</usageParameters>
 					<!--- ====Fare Product======= -->
 					<fareProducts>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:pass_3d">
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:pass">
 							<Name>Three day Pass  </Name>
 							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:pass_3d_Operator">
-									<VehicleModes>metro</VehicleModes>
-									<OperatorRef version="any" ref="hde:Operator:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:pass_3d_UsageValidityPeriod">
-									<Name> Three days </Name>
-									<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:3d"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:pass_3d_FrequencyOfUse">
-									<Name>Can be sued repretedly </Name>
-									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
-								</ValidityParameterAssignment>
+								<GenericParameterAssignment version="any" order="1"  id="myfares:GenericParameterAssignment:pass@Frequency">
+									<limitations>
+										<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
+									</limitations>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="2"  id="myfares:GenericParameterAssignment:pass@validity">
+									<LimitationGroupingType>XOR</LimitationGroupingType>
+									<limitations>
+										<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:3d"/>
+										<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:5d"/>
+									</limitations>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="3"  id="myfares:GenericParameterAssignment:ticket@routes">
+									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:routes"/>
+								</GenericParameterAssignment>
 							</validityParameterAssignments>
-						</PreassignedFareProduct>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:pass_5d">
-							<Name>Fice day Pass  </Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:pass_5d_Operator">
-									<VehicleModes>metro</VehicleModes>
-									<OperatorRef version="any" ref="hde:Operator:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:pass_5d_UsageValidityPeriod">
-									<Name> Three days </Name>
-									<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:5d"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:pass_5d_FrequencyOfUse">
-									<Name>Can be sued repretedly </Name>
-									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
+							<!--- ====ACCESS RIGHTs======= -->
+							<accessRightsInProduct>
+								<AccessRightInProduct version="any" id="myfares:AccessRightInProduct:unitZone" order="1">
+									<Name>First ride</Name>
+									<ValidableElementRef version="any" ref="myfares:ValidableElement:metroTrip"/>
+								</AccessRightInProduct>
+							</accessRightsInProduct>
 						</PreassignedFareProduct>
 					</fareProducts>
-	
-					<!--- ====Fare Structure======= -->
-					<tariffs>
-						<Tariff version="any" id="myfares:Tariff:pass_3d_fare">
-							<Name/>
-							<distanceMatrixElements>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_A">
-									<Name> Zone 1  to  Zone 1</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A_pass_3d"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_A_pass_5d"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_B">
-									<Name> Zone 1  to  Zone 2</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:B"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B_pass_3d"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_B_pass_5d"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:A_to_C">
-									<Name> Zone 1  to  Zone 3</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C_pass_3d"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:A_to_C_pass_5d"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:B_to_B">
-									<Name> Zone 2  to  Zone 2</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:A"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_pass_3d"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_pass_5d"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:B_to_C">
-									<Name> Zone 2  to  Zone 3</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:B"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_pass_3d"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:B_to_C_pass_5d"/>
-									</prices>
-								</DistanceMatrixElement>
-								<DistanceMatrixElement version="any" id="myfares:DistanceMatrixElement:C_to_C">
-									<Name> Zone 3  to  Zone 3</Name>
-									<StartTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<EndTariffZoneRef version="any" ref="myfares:TariffZone:C"/>
-									<prices>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C_pass_3d"/>
-										<DistanceMatrixElementPriceRef version="any" ref="myfares:DistanceMatrixElementPrice:C_to_C_pass_5d"/>
-									</prices>
-								</DistanceMatrixElement>
-							</distanceMatrixElements>
-						</Tariff>
-					</tariffs>
 					<!--- ====Fare Prices======= -->
-					<farePrices>
-						<PriceGroup version="any" id="myfares:PriceGroup:pass_3d">
-							<Name>Prices for Point to Point Fare Products  - 5d</Name>
-							<members>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A_pass_3d">
+					<fareTables>
+						<FareTable version="any" id="myfares:FareTable:pass@3d">
+							<Name>Prices for Point to Point Fare Products  - 3d</Name>
+							<pricesFor>
+								<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass"/>
+								<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:3d"/>
+							</pricesFor>
+							<cells>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A@pass@3d">
 									<Name> Zone A  to  Zone A</Name>
 									<Amount>5</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_3d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B_pass_3d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B@pass@3d">
 									<Name> Zone A  to  Zone B</Name>
 									<Amount>8</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_3d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C_pass_3d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C@pass@3d">
 									<Name> Zone A  to  Zone C</Name>
 									<Amount>10</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_3d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B_pass_3d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B@pass@3d">
 									<Name> Zone B  to  Zone B</Name>
 									<Amount>5</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_3d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C_pass_3d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C@pass@3d">
 									<Name> Zone B  to  Zone C</Name>
 									<Amount>8</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_3d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C_pass_3d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C@pass@3d">
 									<Name> Zone C  to  Zone C</Name>
 									<Amount>5</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_3d"/>
 								</DistanceMatrixElementPrice>
-							</members>
-						</PriceGroup>
-						<PriceGroup version="any" id="myfares:PriceGroup:pass_5d">
-							<Name>Prices for Point to Point Fare Products  - 3d</Name>
-							<members>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A_pass_5d">
+							</cells>
+						</FareTable>
+						<FareTable version="any" id="myfares:FareTable:pass@5d">
+							<Name>Prices for Point to Point Fare Products  - 5d</Name>
+							<pricesFor>
+								<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass"/>
+								<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:5d"/>
+							</pricesFor>
+							<cells>
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_A@pass@5d">
 									<Name> Zone A  to  Zone A</Name>
 									<Amount>7</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_A"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_5d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B_pass_5d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_B@pass@5d">
 									<Name> Zone A  to  Zone B</Name>
 									<Amount>12</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_B"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_5d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C_pass_5d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:A_to_C@pass@5d">
 									<Name> Zone A  to  Zone C</Name>
 									<Amount>13</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:A_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_5d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B_pass_5d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_B@pass@5d">
 									<Name> Zone B  to  Zone B</Name>
 									<Amount>7</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_B"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_5d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C_pass_5d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:B_to_C@pass@5d">
 									<Name> Zone B  to  Zone C</Name>
 									<Amount>12</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:B_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_5d"/>
 								</DistanceMatrixElementPrice>
-								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C_pass_5d">
+								<DistanceMatrixElementPrice version="any" id="myfares:DistanceMatrixElementPrice:C_to_C@pass@5d">
 									<Name> Zone C  to  Zone C</Name>
 									<Amount>7</Amount>
 									<DistanceMatrixElementRef version="any" ref="myfares:DistanceMatrixElement:C_to_C"/>
-									<PreassignedFareProductRef version="any" ref="myfares:PreassignedFareProduct:pass_5d"/>
 								</DistanceMatrixElementPrice>
-							</members>
-						</PriceGroup>
-					</farePrices>
+							</cells>
+						</FareTable>
+					</fareTables>
 				</FareFrame>
 			</frames>
 		</CompositeFrame>

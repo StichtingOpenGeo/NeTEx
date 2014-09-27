@@ -7,7 +7,7 @@ The data comes from the sample-feed.zip available at   http://code.google.com/tr
 September 2011  
 
 1. DATA
-    It comprises prices for a  simple route base fare
+    It comprises prices for a simple route base fare
  
 
 Fare_Attributes
@@ -23,7 +23,7 @@ A GTFS FareAttribute  maps variously  to a NeTEx FARE PRODUCT + VALIDITY PARAMET
 
 Where FARE PRODUCT may be 	PREASSIGNED FARE PRODUCT 
 
- And FARE   PRICE  may be a FARE PRODUCT PRICE or a  USAGE PARAMETER PRICE 
+ And FARE   PRICE  may be a FARE PRODUCT PRICE or a USAGE PARAMETER PRICE 
 	or a DISTANCE MATRIX ELEMENT PRICE or a FARE STRUCTURE ELEMENT PRICE
 
 GTFS						NeTEx
@@ -38,16 +38,16 @@ payment_method,		<FareProduct> <ChargingMoment>
 				0 = Pay on Boarding </Name> 
 				1 = Fare must be paid before boarding  
 transfers,					<FareProduct> <validityParameterAssignments>
-										<ValidityParameterAssignment><FrequencyOfUse><MaximumNumberOfChanges>
-										<ValidityParameterAssignment><FrequencyOfUse><TransfeType>unlimited | none | single
-										<ValidityParameterAssignment><UsageValidityPeriod>endofDay | endOfRide |etc
+										<GenericParameterAssignment><FrequencyOfUse><MaximumNumberOfChanges>
+										<GenericParameterAssignment><FrequencyOfUse><TransfeType>unlimited | none | single
+										<GenericParameterAssignment><UsageValidityPeriod>endofDay | endOfRide |etc
 transfer_duration		<FareProduct> <UsageValidityPeriod><StandardDuration>
 
 
 Note that Prices may be inline 
 
 price,						<FareProduct>	<prices> <FareProductPrice><Amount>
-								<FareProduct>	<validityParameterAssignments> <ValidityParameterAssignment >
+								<FareProduct>	<validityParameterAssignments> <GenericParameterAssignment >
 										<FrequencyOfUse>  <prices> <UsageParameterPrice> <Amount>
 								<Tariff> <distanceMatrixElements>
 										<DistanceMatrixElement><prices> <DistanceMatrixElementPrice><Amount>
@@ -87,31 +87,58 @@ GTFS Data copyright Google Inc
 				<DefaultCodespaceRef ref="mygtfsxm"/>
 				<DefaultCurrency>USD</DefaultCurrency>
 			</FrameDefaults>
+			<!--- ====VALIDABLE ELEMENTs====== -->
+			<validableElements>
+				<ValidableElement version="any" id="mygtfsxm:ValidableElement:busTrip">
+					<Name>A Bus Trip</Name>
+					<validityParameterAssignments>
+						<GenericParameterAssignment version="any" order="1"  id="mygtfsxm:GenericParameterAssignment:busTrip">
+							<validityParameters>
+								<VehicleModes>bus</VehicleModes>
+							</validityParameters>
+						</GenericParameterAssignment>
+					</validityParameterAssignments>
+				</ValidableElement>
+			</validableElements>
 			<!--- ====Fare USAGE PARAMETERS======= -->
-			<fareUsageParameters>
+			<usageParameters>
 				<Interchanging version="any" id="mygtfsxm:Interchanging:a">
+					<FromMode>bus</FromMode>
+					<ToMode>bus</ToMode>
 					<MaximumNumberOfInterchanges>0</MaximumNumberOfInterchanges>
 				</Interchanging>
-				<FrequencyOfUse version="any" id="mygtfsxm:FrequencyOfUse:p">
+				<FrequencyOfUse version="any" id="mygtfsxm:FrequencyOfUse:once">
 					<FrequencyOfUseType>single</FrequencyOfUseType>
 				</FrequencyOfUse>
-			</fareUsageParameters>
+				<RoundTrip version="any" id="mygtfsxm:RoundTrip:single">
+					<TripType>single</TripType>
+				</RoundTrip>
+			</usageParameters>
 			<!--- ====Fare Product======= -->
 			<fareProducts>
 				<PreassignedFareProduct version="any" id="mygtfsxm:PreassignedFareProduct:p">
 					<Name>Local Flat Fare, no transfers</Name>
 					<ChargingMomentRef version="any" ref="gtfs:ChargingMoment:0"/>
-					<groupsOfAccessRightParameterAssignments>
-						<GroupOfAccessRightParameterAssignments version="any" id="myfares:GroupOfAccessRightParameterAssignmentsRef:pointToPoint_first">
-							<accessRightParameterAssignments>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:p">
-									<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:p"/>
-									<InterchangingRef version="any" ref="mygtfsxm:Interchanging:a"/>
-									<GroupOfLinesRef ref="mygtfsxm:GroupOfLines:p"/>
-								</ValidityParameterAssignment>
-							</accessRightParameterAssignments>
-						</GroupOfAccessRightParameterAssignments>
-					</groupsOfAccessRightParameterAssignments>
+					<validityParameterAssignments>
+						<GenericParameterAssignment version="any" order="1"  id="mygtfsxm:GenericParameterAssignment:p">
+							<limitations>
+								<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:once"/>
+								<RoundTripRef version="any" ref="mygtfsxm:RoundTrip:single"/>
+								<InterchangingRef version="any" ref="mygtfsxm:Interchanging:a"/>
+							</limitations>
+						</GenericParameterAssignment>
+						<GenericParameterAssignment version="any" order="2"  id="mygtfsxm:GenericParameterAssignment:access@p">
+							<validityParameters>
+								<GroupOfLinesRef ref="mygtfsxm:GroupOfLines:p"/>
+							</validityParameters>
+						</GenericParameterAssignment>
+					</validityParameterAssignments>
+					<!--- ====ACCESS RIGHTs======= -->
+					<accessRightsInProduct>
+						<AccessRightInProduct version="any" id="mygtfsxm:AccessRightInProduct:p" order="1">
+							<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:busTrip"/>
+						</AccessRightInProduct>
+					</accessRightsInProduct>
 					<prices>
 						<FareProductPriceRef version="any" ref="mygtfsxm:FareProductPrice:p"/>
 					</prices>
@@ -120,18 +147,31 @@ GTFS Data copyright Google Inc
 					<Name>AMV Flat Fare, no transfers</Name>
 					<ChargingMomentRef version="any" ref="gtfs:ChargingMoment:0"/>
 					<validityParameterAssignments>
-						<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:a">
-							<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:p"/>
-							<InterchangingRef version="any" ref="mygtfsxm:Interchanging:a"/>
-							<GroupOfLinesRef ref="mygtfsxm:GroupOfLines:a"/>
-						</ValidityParameterAssignment>
+						<GenericParameterAssignment version="any" order="1"  id="mygtfsxm:GenericParameterAssignment:a">
+							<limitations>
+								<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:once"/>
+								<RoundTripRef version="any" ref="mygtfsxm:RoundTrip:single"/>
+								<InterchangingRef version="any" ref="mygtfsxm:Interchanging:a"/>
+							</limitations>
+						</GenericParameterAssignment>
+						<GenericParameterAssignment version="any" order="2"  id="mygtfsxm:GenericParameterAssignment:access@a">
+							<validityParameters>
+								<GroupOfLinesRef ref="mygtfsxm:GroupOfLines:a"/>
+							</validityParameters>
+						</GenericParameterAssignment>
 					</validityParameterAssignments>
+					<!--- ====ACCESS RIGHTs======= -->
+					<accessRightsInProduct>
+						<AccessRightInProduct version="any" id="mygtfsxm:AccessRightInProduct:a" order="1">
+							<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:busTrip"/>
+						</AccessRightInProduct>
+					</accessRightsInProduct>
 					<prices>
 						<FareProductPriceRef version="any" ref="mygtfsxm:FareProductPrice:a"/>
 					</prices>
 				</PreassignedFareProduct>
 			</fareProducts>
-			<farePrices>
+			<priceGroups>
 				<PriceGroup version="any" id="mygtfsxm:PriceGroup:DTA">
 					<members>
 						<FareProductPrice version="any" id="mygtfsxm:FareProductPrice:p">
@@ -142,7 +182,7 @@ GTFS Data copyright Google Inc
 						</FareProductPrice>
 					</members>
 				</PriceGroup>
-			</farePrices>
+			</priceGroups>
 		</FareFrame>
 		<!--- ===== BUILT IN GTFS VALUES======== -->
 		<ResourceFrame version="any" id="gtfs:ResourceFrame:GTFS">

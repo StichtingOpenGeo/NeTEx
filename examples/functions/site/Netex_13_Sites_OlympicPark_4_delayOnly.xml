@@ -77,10 +77,10 @@ See OPK-3
 			</FrameDefaults>
 			<!-- == Delays for == CheckConstraint napt:PointOfInterest:8100OPK_E1_C1  -->
 			<checkConstraints>
-				<CheckConstraint version="any" id="napt:CheckConstraint:8100OPK_E1_C1">
+				<CheckConstraint order ="1" version="any" id="napt:CheckConstraint:8100OPK_E1_C1">
 					<!-- == Delays on  Very Busy Days ==   -->
 					<delays>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_VB_i">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_VB_i">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Very_Busy_ingress">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -88,7 +88,7 @@ See OPK-3
 							<AverageDelay>PT40M</AverageDelay>
 							<MaximumLikelyDelay>PT80M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_VB_d">
+						<CheckConstraintDelay order ="2" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_VB_d">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Very_Busy_during">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -96,7 +96,7 @@ See OPK-3
 							<AverageDelay>PT15M</AverageDelay>
 							<MaximumLikelyDelay>PT30M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_VB_o">
+						<CheckConstraintDelay order ="3" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_VB_o">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Very_Busy_other">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -105,7 +105,7 @@ See OPK-3
 							<MaximumLikelyDelay>PT6M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
 						<!-- == Delays on   Busy Days ==   -->
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_B_i">
+						<CheckConstraintDelay order ="4" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_B_i">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Busy_ingress">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -113,7 +113,7 @@ See OPK-3
 							<AverageDelay>PT25M</AverageDelay>
 							<MaximumLikelyDelay>PT50M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_B_d">
+						<CheckConstraintDelay order ="5" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_B_d">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Busy_during">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -121,7 +121,7 @@ See OPK-3
 							<AverageDelay>PT15M</AverageDelay>
 							<MaximumLikelyDelay>PT30M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_B_o">
+						<CheckConstraintDelay order ="6" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_B_o">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Busy_other">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -130,7 +130,7 @@ See OPK-3
 							<MaximumLikelyDelay>PT6M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
 						<!-- == Delays on  NormalDays ==   -->
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_N_i">
+						<CheckConstraintDelay order ="7" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_N_i">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Normal_ingress">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -138,7 +138,7 @@ See OPK-3
 							<AverageDelay>PT20M</AverageDelay>
 							<MaximumLikelyDelay>PT40M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_N_d">
+						<CheckConstraintDelay order ="7" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_N_d">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Normal_during">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -146,7 +146,7 @@ See OPK-3
 							<AverageDelay>PT10M</AverageDelay>
 							<MaximumLikelyDelay>PT20M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_N_o">
+						<CheckConstraintDelay order ="8" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C1_Del_N_o">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Normal_other">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -157,11 +157,11 @@ See OPK-3
 						<!-- == ====================================  -->
 					</delays>
 				</CheckConstraint>
-				<CheckConstraint version="any" id="napt:CheckConstraint:8100OPK_E1_C2">
+				<CheckConstraint order ="1" version="any" id="napt:CheckConstraint:8100OPK_E1_C2">
 					<!-- == Delays for == CheckConstraint napt:PointOfInterest:8100OPK_E1_C2  -->
 					<delays>
 						<!-- == Delays on  Very Busy Days ==   -->
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_VB_d">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_VB_d">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Very_Busy_during">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -169,7 +169,7 @@ See OPK-3
 							<AverageDelay>PT15M</AverageDelay>
 							<MaximumLikelyDelay>PT30M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_VB_e">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_VB_e">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Very_Busy_egress">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -177,7 +177,7 @@ See OPK-3
 							<AverageDelay>PT20M</AverageDelay>
 							<MaximumLikelyDelay>PT30M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_VB_o">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_VB_o">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Very_Busy_other">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -186,7 +186,7 @@ See OPK-3
 							<MaximumLikelyDelay>PT6M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
 						<!-- == Delays on   Busy Days ==   -->
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_B_d">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_B_d">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Busy_during">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -194,7 +194,7 @@ See OPK-3
 							<AverageDelay>PT15M</AverageDelay>
 							<MaximumLikelyDelay>PT30M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_B_e">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_B_e">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Busy_egress">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -202,7 +202,7 @@ See OPK-3
 							<AverageDelay>PT15M</AverageDelay>
 							<MaximumLikelyDelay>PT25M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_B_o">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_B_o">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Busy_other">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -211,7 +211,7 @@ See OPK-3
 							<MaximumLikelyDelay>PT6M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
 						<!-- == Delays on  NormalDays ==   -->
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_N_d">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_N_d">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Normal_during">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -219,7 +219,7 @@ See OPK-3
 							<AverageDelay>PT10M</AverageDelay>
 							<MaximumLikelyDelay>PT20M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_N_e">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_N_e">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Normal_egress">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>
@@ -227,7 +227,7 @@ See OPK-3
 							<AverageDelay>PT12M</AverageDelay>
 							<MaximumLikelyDelay>PT20M</MaximumLikelyDelay>
 						</CheckConstraintDelay>
-						<CheckConstraintDelay version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_N_o">
+						<CheckConstraintDelay order ="1" version="any" id="napt:CheckConstraintDelay:8100OPK_E1_C2_Del_N_o">
 							<validityConditions>
 								<AvailabilityConditionRef ref="oda:AvailabilityCondition:Avl_Normal_other">EXTERNAL</AvailabilityConditionRef>
 							</validityConditions>

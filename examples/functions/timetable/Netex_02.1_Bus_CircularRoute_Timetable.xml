@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- ====   Timetable  Example ====== 
-This example shows the encoding of a   bus timetable for a circular  route in NeTex XML  
+This example shows the encoding of a bus timetable for a circular  route in NeTex XML. 
 
-It also shows SERVICE INTERCHANGE (to stay on the same bus) and BLOCKs 
+It also shows SERVICE INTERCHANGE (to stay on the same bus) and BLOCKs.
 
  1.  OVERVIEW
  
-    There are five stops in the topology:  A, and D are shown as the destinations
+    There are five stops in the topology:  A, and D are shown as the destinations.
  
 						 - B  -
 					/			\		
@@ -14,10 +14,10 @@ It also shows SERVICE INTERCHANGE (to stay on the same bus) and BLOCKs
 				    \			/
 		 				E	- D	
 
-There are   four    journeys, two clockwise, two anticlockwise, Both Starting at A
+There are   four    journeys, two clockwise, two anticlockwise, Both Starting at A.
 			 
 
-Giving a timetable as follows
+Giving a timetable as follows:
 
 		<==Clockwise ==Block42c_AE=>
 					sj_AE_01c |  sj_AE_02c  | 			   |	run times
@@ -45,7 +45,7 @@ Giving a timetable as follows
 (1) Can Stay on board and Seated 
 
 The DESTINATION DISPLAY changes as the bus proceeds round the circuit
-The value at a given stop is used to  set the next destination just before the stop  is   visited
+The value at a given stop is used to  set the next destination just before the stop  is   visited.
 			Clockwise
 			   DESTINATION DISPLAY  
     A 	|	To Charley	 
@@ -61,7 +61,7 @@ The value at a given stop is used to  set the next destination just before the s
 	B	|	To Alpha		 
 	A	|	To Charley	 
 
-A SERVICE JOURNEY INTERCHANGE is used to show that passengers may remain seated ay 
+A SERVICE JOURNEY INTERCHANGE is used to show that passengers may remain seated. 
 
 ==============
 2. DETAILS
@@ -202,10 +202,10 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<TimetableFrameRef ref="hde:TimetableFrameTIM_42o_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -213,6 +213,15 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="hde:CompositeFrame:CF_1">
+			<validityConditions>
+				<ValidityRuleParameter version="1" id="hde:ValidityRuleParameter:VR_1">
+					<Name>Applies to area west</Name>
+					<Description>Name </Description>
+					<ConditionedObjectRef version="1" ref="hde:CompositeFrame:CF_1"/>
+					<RuleObjectRef version="any" ref="hde:TopographicPlace:TP_1"/>
+					<isValid>true</isValid>
+				</ValidityRuleParameter>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -230,15 +239,6 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="mybus"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<ValidityRuleParameter version="1" id="hde:ValidityRuleParameter:VR_1">
-					<Name>Applies to area west</Name>
-					<Description>Name </Description>
-					<ConditionedObjectRef version="1" ref="hde:CompositeFrame:CF_1"/>
-					<RuleObjectRef version="any" ref="hde:TopographicPlace:TP_1"/>
-					<isValid>true</isValid>
-				</ValidityRuleParameter>
-			</frameValidityConditions>
 			<frames>
 				<ServiceFrame version="1" id="hde:ServiceFrame:svf_42">
 					<Name>Stops for Winter timetable for route 24 </Name>
@@ -327,53 +327,53 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 					<serviceLinks>
 						<!--- =====ClockWise=== -->
 						<ServiceLink version="any" id="mybus:ServiceLink:Alpha_to_Bravo">
-							<Name>Alpha to Bravo</Name>
+							<Name>Alpha to Bravo.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Alpha"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Bravo"/>
 						</ServiceLink>
 						<ServiceLink version="any" id="mybus:ServiceLink:Bravo_to_Charley">
-							<Name>Bravo to Charley</Name>
+							<Name>Bravo to Charley.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Bravo"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Charley"/>
 						</ServiceLink>
 						<ServiceLink version="any" id="mybus:ServiceLink:Charley_to_Delta">
-							<Name>Charley to Delta</Name>
+							<Name>Charley to Delta.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Charley"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Delta"/>
 						</ServiceLink>
 						<ServiceLink version="any" id="mybus:ServiceLink:Delta_to_Echo">
-							<Name>Charley to Echo</Name>
+							<Name>Charley to Echo.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Delta"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Echo"/>
 						</ServiceLink>
 						<ServiceLink version="any" id="mybus:ServiceLink:Echo_to_Alpha">
-							<Name>Echo to Alpha   </Name>
+							<Name>Echo to Alpha.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Echo"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Alpha"/>
 						</ServiceLink>
 						<!--- =====inbound=== -->
 						<ServiceLink version="any" id="mybus:ServiceLink:Echo_to_Delta">
-							<Name>Echo to Delta</Name>
+							<Name>Echo to Delta.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Echo"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Delta"/>
 						</ServiceLink>
 						<ServiceLink version="any" id="mybus:ServiceLink:Delta_to_Charley">
-							<Name>Delta to Charley</Name>
+							<Name>Delta to Charley.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Delta"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Charley"/>
 						</ServiceLink>
 						<ServiceLink version="any" id="mybus:ServiceLink:Charley_to_Bravo">
-							<Name>Charley to Bravo</Name>
+							<Name>Charley to Bravo.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Charley"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Bravo"/>
 						</ServiceLink>
 						<ServiceLink version="any" id="mybus:ServiceLink:Bravo_to_Alpha">
-							<Name>Bravo to Alpha</Name>
+							<Name>Bravo to Alpha.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Bravo"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Alpha"/>
 						</ServiceLink>
 						<ServiceLink version="any" id="mybus:ServiceLink:Alpha_to_Echo">
-							<Name>Alpha to Echo</Name>
+							<Name>Alpha to Echo.</Name>
 							<FromPointRef version="any" ref="mybus:ScheduledStopPoint:Alpha"/>
 							<ToPointRef version="any" ref="mybus:ScheduledStopPoint:Echo"/>
 						</ServiceLink>
@@ -381,7 +381,7 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 					<!--- ======SERVICE PATTERNs=========== -->
 					<servicePatterns>
 						<ServicePattern version="any" id="hde:ServicePattern:svp_42c_AE">
-							<Name>42 Alpha to Echo Clockwise</Name>
+							<Name>42 Alpha to Echo Clockwise.</Name>
 							<RouteRef ref="mybus:Route:RT_42c_AE">EXTERNAL</RouteRef>
 							<DirectionType>clockwise</DirectionType>
 							<journeyPatterns>
@@ -434,7 +434,7 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 							</linksInSequence>
 						</ServicePattern>
 						<ServicePattern version="any" id="hde:ServicePattern:svp_42a_EA">
-							<Name>42  Echo to Alpha Anticlockwise</Name>
+							<Name>42  Echo to Alpha Anticlockwise.</Name>
 							<RouteRef ref="mybus:Route:RT_42a_EA">EXTERNAL</RouteRef>
 							<DirectionType>anticlockwise</DirectionType>
 							<journeyPatterns>
@@ -745,8 +745,7 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 				<!--  ========================================== -->
 				<!-- ======Timetable ======= -->
 				<TimetableFrame version="1" id="hde:TimetableFrame:TIM_42o_O">
-					<Name>Winter timetable for route 23 outbound</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:Cnd001">
 							<Description>Sept  to March</Description>
 							<FromDate>2010-11-01T00:00:00Z</FromDate>
@@ -755,7 +754,8 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 								<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Winter timetable for route 23 outbound</Name>
 					<VehicleModes>bus</VehicleModes>
 					<!--- ======SERVICE JOURNEYs=========== -->
 					<vehicleJourneys>
@@ -1447,37 +1447,37 @@ Two GROUP of SERVICEs  groups two sets of      journeys.
 						</DayType>
 					</dayTypes>
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
 							<Description>Monday 2010-11-01</Description>
 							<Date>2010-11-01</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
 							<Description>Tuesday 2010-11-02</Description>
 							<Date>2010-11-02</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
 							<Description>Wednesday 2010-11-03</Description>
 							<Date>2010-11-03</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
 							<Description>Thusday 2010-11-04</Description>
 							<Date>2010-11-04</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
 							<Description>MFriday 2010-11-05</Description>
 							<Date>2010-11-05</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-06">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-06">
 							<Description>Saturday 2010-11-06</Description>
 							<Date>2010-11-06</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-07">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-07">
 							<Description>Sunday 2010-11-07</Description>
 							<Date>2010-11-07</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>

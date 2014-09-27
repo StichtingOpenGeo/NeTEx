@@ -127,14 +127,14 @@
 							<Name>Olympic Park</Name>
 							<Description>Olympic Park</Description>
 							<PurposeOfGroupingRef ref="Park"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537910 184993</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Park"/>
 							</placeTypes>
@@ -301,14 +301,14 @@
 							<Name>Aquatics Centre</Name>
 							<Description>Aquatics Centre</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>538066 184238</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -326,14 +326,14 @@
 							<Name>Olympic Stadium</Name>
 							<Description>Olympic Stadium</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537655 184052</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -351,14 +351,14 @@
 							<Name>Velodrome</Name>
 							<Description>Velodrome</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537705 185368</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -376,14 +376,14 @@
 							<Name>Basketball Arena</Name>
 							<Description>Basketball Arena</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537819 185156</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -401,14 +401,14 @@
 							<Name>Hockey Centre</Name>
 							<Description>Hockey Centre</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537369 185222</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -426,14 +426,14 @@
 							<Name>Water Polo Arena</Name>
 							<Description>Water Polo Arena</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537940 184339</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -451,14 +451,14 @@
 							<Name>Handball Arena</Name>
 							<Description>Handball Arena</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537397 184688</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -476,14 +476,14 @@
 							<Name>BMX Track</Name>
 							<Description>BMX Track</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537845 185409</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -501,14 +501,14 @@
 							<Name>Eton Manor</Name>
 							<Description>Eton Manor (Paralympics only)</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537699 185672</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -1693,14 +1693,14 @@
 							<Name>ExCeL</Name>
 							<Description>ExCeL</Description>
 							<PurposeOfGroupingRef ref="Park"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>540790 180766</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -1763,14 +1763,14 @@
 							<Name>Excel North Sports Hall 1</Name>
 							<Description>Excel North Sports Hall 1</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>540764 180806</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -1781,14 +1781,14 @@
 							<Name>Excel North Sports Hall 2</Name>
 							<Description>Excel North Sports Hall 2</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>541013 180806</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -1799,14 +1799,14 @@
 							<Name>Excel South Sports Hall 1</Name>
 							<Description>Excel South Sports Hall 1</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>540756 180700</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -1817,14 +1817,14 @@
 							<Name>Excel South Sports Hall 2</Name>
 							<Description>Excel South Sports Hall 2</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>540921 180700</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -1835,14 +1835,14 @@
 							<Name>Excel South Sports Hall 3</Name>
 							<Description>Excel South Sports Hall 3</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>541046 180700</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -2055,14 +2055,14 @@
 							<Name>Greenwich Park</Name>
 							<Description>Greenwich Park</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>539055 177256</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -2106,18 +2106,18 @@
 									<EntranceType>gate</EntranceType>
 								</PointOfInterestEntrance>
 								<PointOfInterestEntrance version="any" created="2011-02-22T16:00:00Z" changed="2011-05-27T17:00:00Z" modification="revise" id="napt:8100GRPgBKH1">
-									<Name>Blackheath Spectator Gate (Days 1-4)</Name>
-									<Centroid>
-										<Location>
-											<gml:pos>539336 176791</gml:pos>
-										</Location>
-									</Centroid>
 									<validityConditions>
 										<AvailabilityCondition version="any" id="napt:8100GRPgBKH1">
 											<FromDate>2012-07-28T00:00:00Z</FromDate>
 											<ToDate>2012-07-31T23:59:00Z</ToDate>
 										</AvailabilityCondition>
 									</validityConditions>
+									<Name>Blackheath Spectator Gate (Days 1-4)</Name>
+									<Centroid>
+										<Location>
+											<gml:pos>539336 176791</gml:pos>
+										</Location>
+									</Centroid>
 									<placeTypes>
 										<TypeOfPlaceRef ref="napt:PIE"/>
 									</placeTypes>
@@ -2148,18 +2148,18 @@
 									<EntranceType>gate</EntranceType>
 								</PointOfInterestEntrance>
 								<PointOfInterestEntrance version="any" created="2011-02-22T16:00:00Z" changed="2011-05-27T17:00:00Z" modification="revise" id="napt:8100GRPgBKH6">
-									<Name>Blackheath Spectator Gate (Days 6-16)</Name>
-									<Centroid>
-										<Location>
-											<gml:pos>538967 177427</gml:pos>
-										</Location>
-									</Centroid>
 									<validityConditions>
 										<AvailabilityCondition version="any" id="napt:8100GRPgBKH6">
 											<FromDate>2012-08-02T00:00:00Z</FromDate>
 											<ToDate>2012-08-12T23:59:00Z</ToDate>
 										</AvailabilityCondition>
 									</validityConditions>
+									<Name>Blackheath Spectator Gate (Days 6-16)</Name>
+									<Centroid>
+										<Location>
+											<gml:pos>538967 177427</gml:pos>
+										</Location>
+									</Centroid>
 									<placeTypes>
 										<TypeOfPlaceRef ref="napt:PIE"/>
 									</placeTypes>
@@ -2303,14 +2303,14 @@
 							<Name>North Greenwich Arena</Name>
 							<Description>North Greenwich Arena</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>539118 180126</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -2412,14 +2412,14 @@
 							<Name>The Royal Artillery Barracks</Name>
 							<Description>The Royal Artillery Barracks</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>542945 177825</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -2568,14 +2568,14 @@
 							<Name>Earls Court</Name>
 							<Description>Earls Court</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>525200 177997</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -2681,14 +2681,14 @@
 							<Name>Lords Cricket Ground</Name>
 							<Description>Lords Cricket Ground</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>526886 182783</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -2836,14 +2836,14 @@
 							<Name>Wimbledon</Name>
 							<Description>Wimbledon</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>524192 172098</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -3059,14 +3059,14 @@
 							<Name>Horse Guards Parade</Name>
 							<Description>Horse Guards Parade</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>529792 180070</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -3252,14 +3252,14 @@
 							<Name>The Mall</Name>
 							<Description>The Mall</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>529424 179933</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -3410,14 +3410,14 @@
 							<Name>Hyde Park</Name>
 							<Description>Hyde Park</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>527225 180252</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -3501,14 +3501,14 @@
 							<Name>Wembley Arena</Name>
 							<Description>Wembley Arena</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>519091 185802</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -3611,14 +3611,14 @@
 							<Name>Lee Valley Centre</Name>
 							<Description>Lee Valley White Water Centre</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>537250 200647</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -3702,14 +3702,14 @@
 							<Name>Hadleigh Farm</Name>
 							<Description>Hadleigh Farm</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>580171 186408</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -3793,14 +3793,14 @@
 							<Name>Eton Dorney</Name>
 							<Description>Eton Dorney</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>492843 178016</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -3949,14 +3949,14 @@
 							<Name>Weymouth and Portland</Name>
 							<Description>Weymouth and Portland - The Nothe</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>368401 078574</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -4043,14 +4043,14 @@
 							<Name>Wembley Stadium</Name>
 							<Description>Wembley Stadium</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>519373 185548</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -4134,14 +4134,14 @@
 							<Name>Millennium Stadium</Name>
 							<Description>Millennium Stadium</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>317988 176162</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -4156,14 +4156,14 @@
 							<Name>Hampden Park</Name>
 							<Description>Hampden Park</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>259020 661457</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -4178,14 +4178,14 @@
 							<Name>Old Trafford</Name>
 							<Description>Old Trafford</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>380752 396300</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -4200,14 +4200,14 @@
 							<Name>City of Coventry Stadium</Name>
 							<Description>City of Coventry Stadium</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>434253 283486</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
@@ -4222,14 +4222,14 @@
 							<Name>St James' Park (Newcastle)</Name>
 							<Description>St James' Park (Newcastle)</Description>
 							<PurposeOfGroupingRef ref="Venue"/>
+							<types>
+								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos>424272 564616</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>

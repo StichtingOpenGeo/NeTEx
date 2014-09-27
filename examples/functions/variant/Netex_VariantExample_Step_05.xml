@@ -77,9 +77,7 @@ This is variant on the multistep SImple Network Version example on versioning.
 				</ServiceFrame>
 				<!--- =====NETWORK VERSIONChanges only ========== -->
 				<GeneralFrame version="002" created="2010-05-17T09:30:47.0Z" changed="2010-05-21T10:30:51.0Z" modification="revise" responsibilitySetRef="mybus:ResponsibilitySet:RS_10" id="mybus:GeneralFrame:ntwkf002">
-					<Name>ntwkf002  - Frame with SERVICE PATTERN for Normal conditions</Name>
-					<BaselineVersionFrameRef version="001" ref="mybus:GeneralFrame"/>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" created="2010-05-18T10:30:47.0Z" modification="new" id="mybus:AvailabilityCondition:VC_ntwkf002_002_mf">
 							<Description>Use when no ice</Description>
 							<FromDate>2010-05-17T00:00:00Z</FromDate>
@@ -88,7 +86,9 @@ This is variant on the multistep SImple Network Version example on versioning.
 								<DayTypeRef ref="mybus:DayType:DT001_MF">EXTERNAL</DayTypeRef>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>ntwkf002  - Frame with SERVICE PATTERN for Normal conditions</Name>
+					<BaselineVersionFrameRef version="001" ref="mybus:GeneralFrame"/>
 					<members>
 						<GeneralFrameMember modification="revise" id="mybus:GeneralFrameMember:ntwkf002_01">
 							<ScheduledStopPointRef ref="mybus:ScheduledStopPoint:SSP0001A">EXTERNAL</ScheduledStopPointRef>
@@ -114,9 +114,7 @@ This is variant on the multistep SImple Network Version example on versioning.
 					</members>
 				</GeneralFrame>
 				<GeneralFrame version="002" created="2010-05-17T09:30:47.0Z" changed="2010-05-21T10:30:51.0Z" modification="revise" responsibilitySetRef="mybus:ResponsibilitySet:RS_10" id="mybus:GeneralFrame:ntwkf003">
-					<Name>ntwkf003 Different Frame  with a different condition - a different frame</Name>
-					<BaselineVersionFrameRef version="001" ref="mybus:GeneralFrame:ntwkf001"/>
-					<frameValidityConditions>
+					<validityConditions>
 						<ValidityRuleParameter version="any" created="2010-05-18T10:30:47.0Z" modification="new" responsibilitySetRef="mybus:ResponsibilitySet:RS_10" id="mybus:ValidityRuleParameter:VC_ntwkf003_002_icy">
 							<Description>Use when Icy</Description>
 							<RuleObjectRef nameOfRefClass="Weather" ref="Myobj:Cur001">EXTERNAL</RuleObjectRef>
@@ -132,7 +130,9 @@ This is variant on the multistep SImple Network Version example on versioning.
 								<DayTypeRef ref="mybus:DayType:DT001_MF"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>ntwkf003 Different Frame  with a different condition - a different frame</Name>
+					<BaselineVersionFrameRef version="001" ref="mybus:GeneralFrame:ntwkf001"/>
 					<members>
 						<GeneralFrameMember modification="revise" id="mybus:GeneralFrameMember:ntwkf003_01">
 							<ScheduledStopPointRef ref="mybus:ScheduledStopPoint:SSP0001A"/>

@@ -33,10 +33,10 @@ This is part 4 of a multistep example on versioning.
 		<RequestTimestamp>2010-08-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<GeneralFrameRef ref="mynet:123">REQUEST</GeneralFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P7D</PublicationRefreshInterval>
@@ -44,6 +44,16 @@ This is part 4 of a multistep example on versioning.
 	<dataObjects>
 		<!--- =====NETWORK VERSION All========== -->
 		<GeneralFrame version="005" created="2010-05-17T09:30:47.0Z" changed="2010-05-22T10:30:51.0Z" modification="revise" derivedFromVersionRef="004" responsibilitySetRef="mybus:ResponsibilitySet:RS_10" id="mybus:ntwkf001">
+			<validityConditions>
+				<AvailabilityCondition created="2010-05-18T10:30:47.0Z" modification="revise" version="003" id="mybus:AvailabilityCondition:VC002_mf">
+					<Description>Use when no ice</Description>
+					<FromDate>2010-05-17T00:00:00Z</FromDate>
+					<ToDate>2011-05-17T00:00:00Z</ToDate>
+					<dayTypes>
+						<DayTypeRef version="001" ref="mybus:DayType:DT001_MF"/>
+					</dayTypes>
+				</AvailabilityCondition>
+			</validityConditions>
 			<Name>My Network  Version 4 One link has been removed. Baseline is version 3 as Links  needs exist</Name>
 			<BaselineVersionFrameRef ref="mybus:GeneralFrame:003">EXTERNAL</BaselineVersionFrameRef>
 			<!--- ======= CODESPACEs======== -->
@@ -59,16 +69,6 @@ This is part 4 of a multistep example on versioning.
 				<DefaultCodespaceRef ref="mybus"/>
 				<DefaultResponsibilitySetRef ref="mybus:ResponsibilitySet:RS_10">EXTERNAL</DefaultResponsibilitySetRef>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition created="2010-05-18T10:30:47.0Z" modification="revise" version="003" id="mybus:AvailabilityCondition:VC002_mf">
-					<Description>Use when no ice</Description>
-					<FromDate>2010-05-17T00:00:00Z</FromDate>
-					<ToDate>2011-05-17T00:00:00Z</ToDate>
-					<dayTypes>
-						<DayTypeRef version="001" ref="mybus:DayType:DT001_MF"/>
-					</dayTypes>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<members modificationSet="all">
 				<!--- =====Data objects ========= -->
 				<ScheduledStopPoint version="002" created="2010-05-17T09:30:47.0Z" changed="2010-05-18T09:30:47.0Z" modification="revise" id="mybus:ScheduledStopPoint:SSP0001A">

@@ -11,10 +11,10 @@
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<SiteFrameRef ref="noptis:SiteFrame:9010001000000000:StopPlaceTEH"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P3M</PublicationRefreshInterval>
@@ -22,6 +22,19 @@
 	<dataObjects>
 		<!-- =========================================== -->
 		<CompositeFrame version="1" id="noptis:9010001000000000:StopPlaceTEH">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="noptis:AllDays_0540To0059">
+					<dayTypes>
+						<DayTypeRef ref="AllDays"/>
+					</dayTypes>
+					<timebands>
+						<Timeband version="any" id="Timeband:AllDays_0540To0059">
+							<StartTime>05:40:00</StartTime>
+							<EndTime>00:59:00</EndTime>
+						</Timeband>
+					</timebands>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="noptis">
@@ -34,19 +47,6 @@
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="noptis"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="noptis:AllDays_0540To0059">
-					<dayTypes>
-						<DayTypeRef ref="AllDays"/>
-					</dayTypes>
-					<timebands>
-						<Timeband version="any" id="Timeband:AllDays_0540To0059">
-							<StartTime>05:40:00</StartTime>
-							<EndTime>00:59:00</EndTime>
-						</Timeband>
-					</timebands>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<SiteFrame version="any" id="SF01">
 					<topographicPlaces>
@@ -85,10 +85,10 @@
 							<ParentSiteRef version="any" xsi:type="StopPlaceRefStructure" ref="noptis:9091001000009204"/>
 							<entrances>
 								<StopPlaceEntrance version="any" id="noptis:9023001002221001">
-									<Name>Odengatan</Name>
 									<validityConditions>
 										<AvailabilityConditionRef ref="AllDays_0540To0059"/>
 									</validityConditions>
+									<Name>Odengatan</Name>
 									<EntranceType>door</EntranceType>
 									<IsExternal>true</IsExternal>
 									<IsEntry>true</IsEntry>
@@ -368,22 +368,22 @@
 					</tariffZones>
 					<!-- == STOP ASSIGNMENTs =========== -->
 					<stopAssignments>
-						<PassengerStopAssignment version="any" id="noptis:9021001002221000">
+						<PassengerStopAssignment order ="1" version="any" id="noptis:9021001002221000">
 							<ScheduledStopPointRef version="any" ref="noptis:9022001002221001"/>
 							<StopPlaceRef version="any" ref="noptis:9021001002221000"/>
 							<QuayRef version="any" ref="noptis:9025001000002221"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="noptis:9010001000000000-01">
+						<PassengerStopAssignment order ="1" version="any" id="noptis:9010001000000000-01">
 							<ScheduledStopPointRef version="any" ref="noptis:9022001002221002"/>
 							<StopPlaceRef version="any" ref="noptis:9021001002221000"/>
 							<QuayRef version="any" ref="noptis:9025001000002222"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="noptis:9010001000000000-02">
+						<PassengerStopAssignment order ="1" version="any" id="noptis:9010001000000000-02">
 							<ScheduledStopPointRef version="any" ref="noptis:9022001060080001"/>
 							<StopPlaceRef version="any" ref="noptis:9021001060080000"/>
 							<QuayRef version="any" ref="noptis:9025001000060080"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="noptis:9010001000000000-03">
+						<PassengerStopAssignment order ="1" version="any" id="noptis:9010001000000000-03">
 							<ScheduledStopPointRef version="any" ref="noptis:9022001060080002"/>
 							<StopPlaceRef version="any" ref="noptis:9021001060080000"/>
 							<QuayRef version="any" ref="noptis:9025001000060081"/>

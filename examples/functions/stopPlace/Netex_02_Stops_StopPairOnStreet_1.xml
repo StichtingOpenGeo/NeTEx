@@ -7,7 +7,7 @@ This Example provides an example of a pair of stops on a street , as a general d
        (ii) A  QUAY           mybus:Q_SSP_0751A_1  - East side
        (iii) A  QUAY           mybus:Q_SSP_0751A_1  - West side
 
-In Addition we provide elements to handle the asssignment where the timetable styop reference is different from syop id in the the stop database
+In Addition we provide elements to handle the assignment where the timetable stop reference is different from syop id in the the stop database
        
       (i) A SCHEDULED STOP POINT  - jqx:SSP0042A Museum
       (ii) STOP ASSIGNMENTs 
@@ -36,12 +36,11 @@ B. Frames and grouping
 	<PublicationRequest version="1.0">
 		<RequestTimestamp>2001-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
-			<Description>Filter used to reest these contnets Get all STOP PLACEs, STOP ASSIGNMENTs and reponsib ilitySets  for Network TNET1 in topgraphic area    :TP_0032A.
+		<Description>Filter used to reest these contnets Get all STOP PLACEs, STOP ASSIGNMENTs and reponsib ilitySets  for Network TNET1 in topgraphic area    :TP_0032A.
 				Also get details for 
 				</Description>
 		<topics>
-		
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<NetworkFilterByValue>
 					<objectReferences>
@@ -51,7 +50,7 @@ B. Frames and grouping
 						<TopographicPlaceRef version="any" ref="detop:TopographicPlace:TP_0032A"/>
 					</places>
 				</NetworkFilterByValue>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P3M</PublicationRefreshInterval>
@@ -59,6 +58,12 @@ B. Frames and grouping
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="mybus:CompositeFrame:CF002">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="jqx:AvailabilityCondition:CF002">
+					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
+					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="jqx">
@@ -81,12 +86,6 @@ B. Frames and grouping
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="jqx"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="jqx:AvailabilityCondition:CF002">
-					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
-					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<SiteFrame version="any" id="detop:SiteFrame:SF00121">
 					<FrameDefaults>
@@ -145,13 +144,13 @@ B. Frames and grouping
 											<Latitude>51.4217482061</Latitude>
 										</Location>
 									</Centroid>
+									<RoadAddress version="any" id="mybus:RoadAddress:Rad_SP001A_01">
+										<RoadName>Museumstrasse</RoadName>
+									</RoadAddress>
 									<CrossRoad lang="de">Kohlstrasse</CrossRoad>
 									<Landmark lang="de">Stadtmuseum</Landmark>
 									<Covered>outdoors</Covered>
 									<Lighting>wellLit</Lighting>
-									<RoadAddress version="any" id="mybus:RoadAddress:Rad_SP001A_01">
-										<RoadName>Museumstrasse</RoadName>
-									</RoadAddress>
 									<placeEquipments>
 										<PassengerInformationEquipment version="any" id="mybus:PassengerInformationEquipment:Rad_SP001A_01">
 											<AccessibilityInfoFacilityList>audioForHearingImpaired visualDisplays</AccessibilityInfoFacilityList>
@@ -173,13 +172,13 @@ B. Frames and grouping
 											<Latitude>51.4217482063</Latitude>
 										</Location>
 									</Centroid>
+									<RoadAddress version="any" id="mybus:RoadAddress:Rad_Q_SP_0751A_2">
+										<RoadName>Museumstrasse</RoadName>
+									</RoadAddress>
 									<CrossRoad lang="de">Kohlstrasse</CrossRoad>
 									<Landmark lang="de">Stadtmuseum</Landmark>
 									<Covered>outdoors</Covered>
 									<Lighting>wellLit</Lighting>
-									<RoadAddress version="any" id="mybus:RoadAddress:Rad_Q_SP_0751A_2">
-										<RoadName>Museumstrasse</RoadName>
-									</RoadAddress>
 									<placeEquipments>
 										<PassengerInformationEquipment version="any" id="mybus:PassengerInformationEquipment:Q_SP_0751A_2">
 											<AccessibilityInfoFacilityList>audioForHearingImpaired visualDisplays</AccessibilityInfoFacilityList>
@@ -208,18 +207,18 @@ B. Frames and grouping
 						</ScheduledStopPoint>
 					</scheduledStopPoints>
 					<stopAssignments>
-						<PassengerStopAssignment version="any" id="jqx:PassengerStopAssignment:PSA_20012_A">
+						<PassengerStopAssignment order="1" version="any" id="jqx:PassengerStopAssignment:PSA_20012_A">
 							<Description lang="en">Assigns Museum timetable ref to physical stop - regardless of quay </Description>
 							<ScheduledStopPointRef version="032" ref="jqx:ScheduledStopPoint:SSP0021A"/>
 							<StopPlaceRef version="01" ref="mybus:StopPlace:SP_0751A"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="jqx:PassengerStopAssignment:PSA_20012_A1">
+						<PassengerStopAssignment order="2" version="any" id="jqx:PassengerStopAssignment:PSA_20012_A1">
 							<Description lang="en">Assigns Eastbound Museum timetable ref to physical stop</Description>
 							<ScheduledStopPointRef version="032" ref="jqx:ScheduledStopPoint:SSP0021A"/>
 							<StopPlaceRef version="01" ref="mybus:StopPlace:SP_0751A"/>
 							<QuayRef version="01" ref="mybus:Quay:Q_SP_0751A_1"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="jqx:PassengerStopAssignment:PSA_20012_A2">
+						<PassengerStopAssignment order="3" version="any" id="jqx:PassengerStopAssignment:PSA_20012_A2">
 							<Description lang="en">Assigns Westbound Museum timetable ref to physical stop</Description>
 							<ScheduledStopPointRef version="032" ref="jqx:ScheduledStopPoint:SSP0021A"/>
 							<StopPlaceRef version="01" ref="mybus:StopPlace:SP_0751A"/>

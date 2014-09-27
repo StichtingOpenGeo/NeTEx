@@ -17,14 +17,14 @@ See <PublciationDescription> below  for details
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="hde:TimetableFrameTIM_23_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -130,6 +130,9 @@ The Calendar is shown coded as
 									<AlightingUse>true</AlightingUse>
 								</FlexibleArea>
 							</areas>
+							<lines>
+								<FlexibleLineRef version="any" ref="mybus:FlexibleLine:FL_24"/>
+							</lines>
 						</FlexibleStopPlace>
 						<FlexibleStopPlace version="any" id="mybus:FlexibleStopPlace:fsp_Tau">
 							<Name>Flexible Zone Tau</Name>
@@ -190,6 +193,9 @@ The Calendar is shown coded as
 									<AlightingUse>true</AlightingUse>
 								</FlexibleArea>
 							</areas>
+							<lines>
+								<FlexibleLineRef version="any" ref="mybus:FlexibleLine:FL_24"/>
+							</lines>
 						</FlexibleStopPlace>
 					</flexibleStopPlaces>
 				</SiteFrame>
@@ -210,17 +216,13 @@ The Calendar is shown coded as
 							<BookingAccess>public</BookingAccess>
 							<LatestBookingTime>16:30:00</LatestBookingTime>
 							<MinimumBookingPeriod>PT30M</MinimumBookingPeriod>
-							<flexiblePlaces>
-								<FlexibleStopPlaceRef version="any" ref="mybus:FlexibleStopPlace:fsp_Sigma"/>
-								<FlexibleStopPlaceRef version="any" ref="mybus:FlexibleStopPlace:fsp_Tau"/>
-							</flexiblePlaces>
+ 
 						</FlexibleLine>
 					</lines>
 				</ServiceFrame>
 				<!--  "Timetable"   === -->
 				<TimetableFrame version="1" id="hde:TimetableFrame:TIM_02">
-					<Name>TimetableNov to Jan 2011   </Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:AC_runs_02">
 							<Description>Operating  times for DRT service 24</Description>
 							<IsAvailable>true</IsAvailable>
@@ -234,7 +236,8 @@ The Calendar is shown coded as
 								</Timeband>
 							</timebands>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>TimetableNov to Jan 2011   </Name>
 					<VehicleModes>bus</VehicleModes>
 					<LineView>
 						<FlexibleLineRef version="any" ref="mybus:FlexibleLine:FL_24"/>

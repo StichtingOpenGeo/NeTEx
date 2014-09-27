@@ -32,7 +32,7 @@ Version History
 		<RequestTimestamp>2001-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<NetworkFilterByValue>
 					<objectReferences>
@@ -46,7 +46,7 @@ Version History
 						<DayTypeRef ref="mybus:DayType:DT001_MF">REQUEST</DayTypeRef>
 					</objectReferences>
 				</NetworkFilterByValue>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1Y2M3DT10H30M0S</PublicationRefreshInterval>

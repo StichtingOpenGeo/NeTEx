@@ -27,10 +27,10 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<CompositeFrameRef ref="tfl:CompositeFrame:LU_CF001"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P7D</PublicationRefreshInterval>
@@ -76,7 +76,7 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 					<responsibilitySets>
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="2.0" id="nptg:ResponsibilitySet:082">
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z">
+								<ResponsibilityRoleAssignment version="2.0" id="nptg:ResponsibilityRoleAssignment:082" created="2010-05-17T09:30:47Z">
 									<DataRoleType>collects</DataRoleType>
 									<ResponsibleOrganisationRef version="any" ref="tfl:Operator:Old_01"/>
 								</ResponsibilityRoleAssignment>
@@ -84,7 +84,7 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 						</ResponsibilitySet>
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="3.0" id="hde:ResponsibilitySet:RS_22">
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z">
+								<ResponsibilityRoleAssignment version="2.0" id="nptg:ResponsibilityRoleAssignment:RS_22" created="2010-05-17T09:30:47Z">
 									<DataRoleType>collects</DataRoleType>
 									<ResponsibleOrganisationRef version="any" ref="tfl:Authority:Tfl"/>
 								</ResponsibilityRoleAssignment>
@@ -92,7 +92,7 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 						</ResponsibilitySet>
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="1.1" id="gis:ResponsibilitySet:RS_31">
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z">
+								<ResponsibilityRoleAssignment version="2.0" id="nptg:ResponsibilityRoleAssignment:RS_31" created="2010-05-17T09:30:47Z">
 									<DataRoleType>collects</DataRoleType>
 									<ResponsibleOrganisationRef ref="gis:GeneralOrganisation:Org_Gis003"/>
 								</ResponsibilityRoleAssignment>
@@ -125,7 +125,7 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 							</values>
 						</ValueSet>
 						<!--- =====Reified modes===== -->
-						<ValueSet version="any" id="napt:ValueSet:StopTypes">
+						<ValueSet version="any" id="napt:ValueSet:Modes">
 							<Name>Mode Names</Name>
 							<values>
 								<OpenTransportMode version="any" id="napt:OpenTransportMode:Metro">
@@ -13322,6 +13322,9 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 					<stopAreas>
 						<StopArea created="2005-05-09T00:00:00" changed="2005-05-09T00:00:00" version="0" status="active" id="napt:StopArea:490G00002068">
 							<Name>Reeves Corner</Name>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-0.1057243686</Longitude>
@@ -13329,12 +13332,12 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 									<gml:pos srsName="UKOS">531941 165701</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
-							</types>
 						</StopArea>
 						<StopArea created="2006-05-11T00:00:00" changed="2006-05-11T00:00:00" version="0" status="active" id="napt:StopArea:490G00001090">
 							<Name>East Dulwich</Name>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-0.0804512002</Longitude>
@@ -13342,9 +13345,6 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 									<gml:pos srsName="UKOS">533448 		 175360</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
-							</types>
 						</StopArea>
 					</stopAreas>
 				</ServiceFrame>
@@ -19187,6 +19187,9 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 					<stopAreas>
 						<StopArea created="2005-05-09T00:00:00" changed="2005-05-09T00:00:00" version="0" status="active" id="napt:StopArea:490G00002068_A">
 							<Name>Reeves Corner</Name>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-0.1057243686</Longitude>
@@ -19194,12 +19197,12 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 									<gml:pos srsName="UKOS">531941 165701</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
-							</types>
 						</StopArea>
 						<StopArea created="2006-05-11T00:00:00" changed="2006-05-11T00:00:00" version="0" status="active" id="napt:StopArea:490G00001090_B">
 							<Name>East Dulwich</Name>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-0.0804512002</Longitude>
@@ -19207,9 +19210,6 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 									<gml:pos srsName="UKOS">533448 		 175360</gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
-							</types>
 						</StopArea>
 					</stopAreas>
 				</ServiceFrame>

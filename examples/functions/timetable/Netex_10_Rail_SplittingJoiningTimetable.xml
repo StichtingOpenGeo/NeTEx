@@ -313,14 +313,14 @@ The TIMETABLE FRAME groups the servicee  elements
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="bbd:AvailabilityCondition:TIM_23_O">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="bbd:TimetableFrame:TIM_23_O"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -328,6 +328,17 @@ The TIMETABLE FRAME groups the servicee  elements
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="bbd:CompositeFrame:TIM_23_O">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="bbd:AvailabilityCondition:Cnd001">
+					<Description>Sept  to March</Description>
+					<FromDate>2010-11-01T00:00:00Z</FromDate>
+					<ToDate>2011-03-31T00:00:00Z</ToDate>
+					<dayTypes>
+						<DayTypeRef version="any" ref="bbd:DayType:DT_01-MF-NH"/>
+						<DayTypeRef version="any" ref="bbd:DayType:DT_03-WE-NH"/>
+					</dayTypes>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="ops">
@@ -349,17 +360,6 @@ The TIMETABLE FRAME groups the servicee  elements
 				<!-- ======Timetable ======= -->
 				<TimetableFrame version="any" id="bbd:TimetableFrame:TIM_23_O">
 					<Name>Winter timetable for route 23 Outbound</Name>
-					<frameValidityConditions>
-						<AvailabilityCondition version="any" id="bbd:AvailabilityCondition:Cnd001">
-							<Description>Sept  to March</Description>
-							<FromDate>2010-11-01T00:00:00Z</FromDate>
-							<ToDate>2011-03-31T00:00:00Z</ToDate>
-							<dayTypes>
-								<DayTypeRef version="any" ref="bbd:DayType:DT_01-MF-NH"/>
-								<DayTypeRef version="any" ref="bbd:DayType:DT_03-WE-NH"/>
-							</dayTypes>
-						</AvailabilityCondition>
-					</frameValidityConditions>
 					<VehicleModes>rail</VehicleModes>
 					<vehicleJourneys>
 						<ServiceJourney version="any" id="bbd:ServiceJourney:sj_447">
@@ -1195,39 +1195,42 @@ The TIMETABLE FRAME groups the servicee  elements
 							<AccommodationAccessList>reservation</AccommodationAccessList>
 							<AccommodationFacilityList> sleeper </AccommodationFacilityList>
 							<accommodations>
-								<Accommodation  version="any" id="bbd:Accommodation:svcfc_firs@singleSleeper">
-								<FareClass>firstClass</FareClass>
-								<AccommodationFacility>sleeper</AccommodationFacility>
-								<CouchetteFacility>singleSleeper</CouchetteFacility>
-								<BerthFacility>lower</BerthFacility>
-								<ShowerFacility>shower</ShowerFacility>
-								<ToiletFacility>toilet</ToiletFacility>
-								<NuisanceFacilityList>noSmoking mobilePhoneFreeZone</NuisanceFacilityList>
+								<Accommodation version="any" id="bbd:Accommodation:svcfc_firs@singleSleeper">
+									<FareClass>firstClass</FareClass>
+									<AccommodationFacility>singleCouchette</AccommodationFacility>
+									<BerthFacility>lower</BerthFacility>
+									<ShowerFacility>shower</ShowerFacility>
+									<ToiletFacility>toilet</ToiletFacility>
+									<NuisanceFacilityList>noSmoking mobilePhoneFreeZone</NuisanceFacilityList>
 									<PassengerCommsFacilityList>freeWifi</PassengerCommsFacilityList>
-							</Accommodation>
+								</Accommodation>
 								<Accommodation version="any" id="bbd:Accommodation:svcfc_firs@doubleSleeper">
-								<FareClass>firstClass</FareClass>
-								<AccommodationFacility>sleeper</AccommodationFacility>
-								<CouchetteFacility>doubleSleeper</CouchetteFacility>
-								<ShowerFacility>shower</ShowerFacility>
-									<ToiletFacility>toilet</ToiletFacility><PassengerCommsFacilityList>freeWifi</PassengerCommsFacilityList>
-							</Accommodation>
+									<FareClass>firstClass</FareClass>
+									<AccommodationFacility>doubleSleeper</AccommodationFacility>
+									<CouchetteFacility>C2</CouchetteFacility>
+									<ShowerFacility>shower</ShowerFacility>
+									<ToiletFacility>toilet</ToiletFacility>
+									<PassengerCommsFacilityList>freeWifi</PassengerCommsFacilityList>
+								</Accommodation>
 								<Accommodation version="any" id="bbd:Accommodation:svcfc_firs@sleeper">
-								<FareClass>secondClass</FareClass>
-								<AccommodationFacility>sleeper</AccommodationFacility>
-									<CouchetteFacility>couchette</CouchetteFacility><PassengerCommsFacilityList>freeWifi</PassengerCommsFacilityList>
-							</Accommodation></accommodations>
+									<FareClass>secondClass</FareClass>
+									<AccommodationFacility>couchette</AccommodationFacility>
+									<CouchetteFacility>C4</CouchetteFacility>
+									<PassengerCommsFacilityList>freeWifi</PassengerCommsFacilityList>
+								</Accommodation>
+							</accommodations>
 							<onboardStays>
 								<OnboardStay version="any" id="bbd:OnboardStay:svcfc_firs@earlyBoardingPossibleBeforeDeparture">
-								<FareClass>firstClass</FareClass>
-								<BoardingPermisssion>earlyBoardingPossibleBeforeDeparture</BoardingPermisssion>
-								<Period>PT1H</Period>
-							</OnboardStay>
+									<FareClass>firstClass</FareClass>
+									<BoardingPermisssion>earlyBoardingPossibleBeforeDeparture</BoardingPermisssion>
+									<Period>PT1H</Period>
+								</OnboardStay>
 								<OnboardStay version="any" id="bbd:OnboardStay:svcfc_firs@overnightStayOnboardAllowed">
-								<FareClass>firstClass</FareClass>
-								<BoardingPermisssion>overnightStayOnboardAllowed</BoardingPermisssion>
-								<Period>PT9H</Period>
-							</OnboardStay></onboardStays>
+									<FareClass>firstClass</FareClass>
+									<BoardingPermisssion>overnightStayOnboardAllowed</BoardingPermisssion>
+									<Period>PT9H</Period>
+								</OnboardStay>
+							</onboardStays>
 						</ServiceFacilitySet>
 					</serviceFacilitySets>
 					<!-- ==== JOURNEY MEETINGs ==== -->
@@ -1698,7 +1701,7 @@ The TIMETABLE FRAME groups the servicee  elements
 						</CompoundBlock>
 					</blocks>
 				</VehicleScheduleFrame>
-				<ServiceFrame id="myrail:ServiceFrame:svf_12">
+				<ServiceFrame id="myrail:ServiceFrame:svf_12" version="any">
 					<Name>Stops for Winter timetable for Splitting timnetable  Amsterdamn to Warsaw  </Name>
 					<routes>
 						<Route version="any" id="myrail:Route:RT_447">

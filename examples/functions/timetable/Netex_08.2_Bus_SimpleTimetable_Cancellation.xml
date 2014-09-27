@@ -81,14 +81,14 @@ The Calendar is shown coded as
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="hde:TimetableFrameTIM_23_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -192,9 +192,7 @@ The Calendar is shown coded as
 				</ServiceFrame>
 				<!-- ======Timetable ======= -->
 				<TimetableFrame version="2" id="hde:TimetableFrame:TIM_23_O">
-					<Name>Winter timetable for route 23 outbound</Name>
-					<BaselineVersionFrameRef nameOfRefClass="TimetableFrame" ref="hde:TimetableFrame:1"/>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:Cnd001">
 							<Description>Sept  to March</Description>
 							<FromDate>2010-11-01T00:00:00Z</FromDate>
@@ -204,7 +202,9 @@ The Calendar is shown coded as
 								<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Winter timetable for route 23 outbound</Name>
+					<BaselineVersionFrameRef nameOfRefClass="TimetableFrame" ref="hde:TimetableFrame:1"/>
 					<VehicleModes>bus</VehicleModes>
 					<vehicleJourneys>
 						<ServiceJourney version="2" id="hde:ServiceJourney:sj_24o_01">
@@ -313,6 +313,12 @@ The Calendar is shown coded as
 							</facilities>
 						</ServiceJourney>
 						<ServiceJourney version="1" id="hde:ServiceJourney:sj_24o_03">
+							<noticeAssignments>
+								<NoticeAssignmentView>
+									<Advertised>true</Advertised>
+									<Text>foot note text</Text>
+								</NoticeAssignmentView>
+							</noticeAssignments>
 							<ServiceAlteration>extraJourney</ServiceAlteration>
 							<DepartureTime>16:20:00.0Z</DepartureTime>
 							<dayTypes>
@@ -327,12 +333,6 @@ The Calendar is shown coded as
 								<DirectionType>outbound</DirectionType>
 								<DestinationDisplayRef version="any" ref="mybus:DestinationDisplay:DST_Charley"/>
 							</JourneyPatternView>
-							<noticeAssignments>
-								<NoticeAssignmentView>
-									<Advertised>true</Advertised>
-									<Text>foot note text</Text>
-								</NoticeAssignmentView>
-							</noticeAssignments>
 							<calls>
 								<Call id="hde:Call:sj_24o_02_001" order="1">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_001"/>
@@ -432,73 +432,73 @@ The Calendar is shown coded as
 						</DayType>
 					</dayTypes>
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
 							<Description>Monday 2010-11-01</Description>
 							<Date>2010-11-01</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
 							<Description>Tuesday 2010-11-02</Description>
 							<Date>2010-11-02</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
 							<Description>Wednesday 2010-11-03</Description>
 							<Date>2010-11-03</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
 							<Description>Thusday 2010-11-04</Description>
 							<Date>2010-11-04</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
 							<Description>MFriday 2010-11-05</Description>
 							<Date>2010-11-05</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-06">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-06">
 							<Description>Saturday 2010-11-06</Description>
 							<Date>2010-11-06</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-07">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-07">
 							<Description>Sunday 2010-11-07</Description>
 							<Date>2010-11-07</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>
 						</DayTypeAssignment>
 						<!-- Week 2 -->
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-08">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-08">
 							<Description>Monday 2010-11-08</Description>
 							<Date>2010-11-08</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-09">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-09">
 							<Description>Tuesday 2010-11-09</Description>
 							<Date>2010-11-09</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-10">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-10">
 							<Description>Wednesday 2010-11-10</Description>
 							<Date>2010-11-10</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-11">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-11">
 							<Description>Thusday 2010-11-11</Description>
 							<Date>2010-11-11</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-12">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-12">
 							<Description>MFriday 2010-11-12</Description>
 							<Date>2010-11-12</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-113">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-113">
 							<Description>Saturday 2010-11-13</Description>
 							<Date>2010-11-13</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-14">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-14">
 							<Description>Sunday 2010-11-14</Description>
 							<Date>2010-11-14</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>

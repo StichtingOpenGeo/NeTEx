@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- ==== SImple Timetable  Example ====== 
-This example shows the encoding of a simple bus timetable for a flexible  route in NeTex XML  
+This example shows the encoding of a simple bus timetable for a flexible  route in NeTex XML.
  
 
-It covers a     DRT  which follows a route 
+It covers a DRT journey which follows a route.
  
              A  - B  - C=T
  
-Where stop C corresponds to flexible zone T
+Where stop C corresponds to flexible zone T.
 
 
-Q should there be  shown times for being in DRT Zone   Tau ? e.g. a FlexibleTemplate journey
+Q should there be  shown times for being in DRT Zone   Tau ? e.g. a FlexibleTemplate journey.
 
 Where SCHEDULED STOP POINT A  corresponds to fixed stop   A 
 Where SCHEDULED STOP POINT B  corresponds to fixed stop    B 
-And  SCHEDULED STOP POINT C  corresponds to FLEXIBLE zone Tau  T 
+And  SCHEDULED STOP POINT C  corresponds to FLEXIBLE zone Tau  T.
 
 There are two journeys at fixed times. Other journeys are on demand
 		sj_24o_01  				 sj_24o_02
@@ -37,14 +37,14 @@ It extends the previous example
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="hde:TimetableFrameTIM_23_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -53,15 +53,15 @@ It extends the previous example
 1. OVERVIEW
 ============
 
-   The servIce has one zones  T
- 	All journeys go via stop A and B
+   The servIce has one zones  T.
+ 	All journeys go via stop A and B.
  	
-	There are on demand services between specified start and end time
+	There are on demand services between specified start and end time.
 		
 		   9 to 5 Monday to Friday.
 	   Booking starts 8 to 12: 1 to 4:30
  										
-  There are two journesy scheduled for And B at specific times  
+  There are two journesy scheduled for And B at specific times.
 
 ==================================
 2. DETAILS
@@ -112,15 +112,15 @@ There is a single SERVICE  PATTERN  has  three STOP POINTs IN JOURNEY PATTERN re
    
 A COMPOSITE FRAME is used to group the component FRAMEs
  
-   - It has a VALIDITY CONDITION  that specifies it is valid from Sept to Matrch
+   - It has a VALIDITY CONDITION  that specifies it is valid from Sept to Matrch.
 
-		A SERVICE  FRAME is used to contain the STOP POINT  elements   LINE, etc
+		A SERVICE  FRAME is used to contain the STOP POINT  elements   LINE, etc.
 		A TIMETABLE FRAME is used to contain  the SERVICE JOURNEY   elements 
  
-			 a SERVICE CALENDAR FRAMEb	A SERVICE CALENDAR FRAME is used to contain the DAY TYPEs etc 
+			 a SERVICE CALENDAR FRAMEb	A SERVICE CALENDAR FRAME is used to contain the DAY TYPEs etc.
 
 The Calendar is shown coded as
-      Compact : OPERATING DAYs are assumed for each calendar date within the period of the calendar 
+      Compact : OPERATING DAYs are assumed for each calendar date within the period of the calendar.
 	
 	</Description>
 	<!--- =============== RESULTS =========== -->
@@ -287,13 +287,11 @@ The Calendar is shown coded as
 								<BusSubmode>demandAndResponseBus</BusSubmode>
 							</TransportSubmode>
 							<PublicCode>24</PublicCode>
-							<FlexibleLineType>mixed</FlexibleLineType>
+							<FlexibleLineType>mixedFlexibleAndFixed</FlexibleLineType>
 							<BookingAccess>public</BookingAccess>
 							<LatestBookingTime>16:30:00</LatestBookingTime>
 							<MinimumBookingPeriod>PT30M</MinimumBookingPeriod>
-							<flexiblePlaces>
-								<FlexibleStopPlaceRef version="any" ref="mybus:FlexibleStopPlace:fsp_Tau"/>
-							</flexiblePlaces>
+			 
 						</FlexibleLine>
 					</lines>
 					<!--- =========DESTINATION DISPLAYs============ -->
@@ -535,9 +533,8 @@ The Calendar is shown coded as
 					</journeyPatterns>
 				</ServiceFrame>
 				<!-- ======TIMETABLE ======= -->
-				<TimetableFrame version="1" id="hde:TimetableFrame:TIM_02">
-					<Name>TimetableNov to Jan 2011   </Name>
-					<frameValidityConditions>
+				<TimetableFrame version="1" id="hde:TimetableFrame:TIM_02"> 
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:AC_runs_02">
 							<Description>Operating  times for service</Description>
 							<IsAvailable>true</IsAvailable>
@@ -551,7 +548,8 @@ The Calendar is shown coded as
 								</Timeband>
 							</timebands>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>TimetableNov to Jan 2011   </Name>
 					<VehicleModes>bus</VehicleModes>
 					<LineView>
 						<FlexibleLineRef version="any" ref="mybus:FlexibleLine:FL_24"/>
@@ -689,7 +687,6 @@ The Calendar is shown coded as
 								<BookingAccess>public</BookingAccess>
 								<LatestBookingTime>16:00:00Z</LatestBookingTime>
 								<MinimumBookingPeriod>PT2H</MinimumBookingPeriod>
-						 
 							</FlexibleServiceProperties>
 						</ServiceJourney>
 						<ServiceJourney version="any" id="hde:ServiceJourney:sj_24o_02">
