@@ -3,7 +3,7 @@
 <description targetNamespace="http://www.siri.org.uk/siriWS" xmlns="http://www.w3.org/ns/wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:netexWs="http://www.siri.org.uk/siriWS" xmlns:netex="http://www.netex.org.uk/netex" xmlns:ns="http://www.opengis.net/gml/3.2" xmlns:siri="http://www.siri.org.uk/siri" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap">
 	<types>
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:siri="http://www.siri.org.uk/siri"  xmlns:netexWs="http://www.siri.org.uk/siriWS" targetNamespace="http://www.siri.org.uk/siriWS">
-			<xsd:include schemaLocation="../siri/siri_wsProducer-Framework.xsd"/>
+			<xsd:include schemaLocation="../wsdl_model/siri_wsProducer-Framework.xsd"/>
 		</xsd:schema>
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:siri="http://www.siri.org.uk/siri" xmlns:netexWs="http://www.siri.org.uk/siriWS" targetNamespace="http://www.siri.org.uk/siriWS">
 			<xsd:import namespace="http://www.siri.org.uk/siri" schemaLocation="../netex_siri.xsd"/>

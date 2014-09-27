@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2011 rel. 2 sp1 (x64) (http://www.altova.com) by Christophe Duquesne (Dryade) -->
-<xsd:schema xmlns:netex="http://www.netex.org.uk/netex"   xmlns:siri="http://www.siri.org.uk/siri" xmlns="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.siri.org.uk/siri" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="netex_siri">
+<xsd:schema xmlns:netex="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.siri.org.uk/siri" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="netex_siri">
 	<!-- ===Dependencies ======================================= -->
 	<!-- ====INCLUDE NETEX REQUESTS==================================================== -->
-	<xsd:import namespace="http://www.netex.org.uk/netex" schemaLocation="netex_service/netex_all-v0.1.xsd"/>
+	<xsd:import namespace="http://www.netex.org.uk/netex" schemaLocation="netex_service/netex_all-v1.0.xsd"/>
+	<xsd:import namespace="http://www.netex.org.uk/netex" schemaLocation="netex_service/netex_dataObjectRequest_service-v1.0.xsd"/>
 	<!-- ======================================================================= -->
-	<xsd:include schemaLocation="siri/siri_base-v1.3.xsd"/>
+	<xsd:include schemaLocation="siri/siri_base-v2.0.xsd"/>
 	<!-- ===eGIF/GovTalk Documentation ======================================= -->
 	<xsd:annotation>
 		<xsd:appinfo>
 			<Metadata xmlns="http://www.govtalk.gov.uk/CM/gms-xs">
 				<Aggregation>main schema</Aggregation>
 				<Audience>e-service developers</Audience>
-				<Contributor>NeTEx Xml Nicholas Knowles, KIZOOM LTD., London EC4A 1LT</Contributor>
+				<Contributor>Nicholas Knowles</Contributor>
 				<Contributor>Christophe Duquesne, Aurige, Guyancourt FRANCE</Contributor>
 				<Contributor>TO be COMPLETED  </Contributor>
 				<Coverage>Europe</Coverage>
-				<Creator>Drafted for version 1.0 NeTEx Editor Nicholas Knowles, Kizoom. mailto:schemer@netex.org.uk</Creator>
+				<Creator>First Drafted for NeTEx version 1.0 CEN TC278 WG3 SG9 Editor Nicholas Knowles.  mailto:schemer@netex.org.uk</Creator>
 				<Date>
 					<Created>2009-01-17</Created>
 					<!-- Created from Siri.xsd -->
@@ -42,7 +43,7 @@
 					<Syntax>http://www.w3.org/2001/XMLSchema</Syntax>
 					<Description>XML schema, W3C Recommendation 2001</Description>
 				</Format>
-				<Identifier>{http://www.netex.org.uk/schemas/1.0}netex.xsd</Identifier>
+				<Identifier>{http://www.netex.org.uk/schemas/1.0/xsd/}netex_siri.xsd</Identifier>
 				<Language>[ISO 639-2/B] ENG</Language>
 				<Publisher>Kizoom Software Ltd, 16 High Holborn, London WC1V 6BX </Publisher>
 				<Relation>
@@ -50,7 +51,7 @@
 					<Requires>http://www.netex.org.uk/schemas/1.0/netex_filters.xsd</Requires>
 				</Relation>
 				<Rights>Unclassified
-                            <Copyright>NeTEx, netex  2009</Copyright>
+                            <Copyright>CEN NeTEx   2009-2014</Copyright>
 				</Rights>
 				<Source>
 					<ul>
@@ -67,7 +68,7 @@ Rail transport, Railway stations and track, Train services, Underground trains,
 Business and industry, Transport, Air transport , Ports and maritime transport, Public transport,
 Rail transport, Roads and Road transport.
 </Category>
-					<Project>CEN  TC278 WG3 SG7</Project>
+					<Project>CEN TC278 WG3 SG9.</Project>
 				</Subject>
 				<Title>NeTEx XML schema. Service Interface for exchanging NeTEx data as SIRI requests and responses </Title>
 				<Type>Standard</Type>
@@ -93,12 +94,12 @@ Rail transport, Roads and Road transport.
 	<!-- ======================================================================= -->
 	<xsd:element name="SiriRequest" type="SiriRequestStructure">
 		<xsd:annotation>
-			<xsd:documentation>SIRI Request - Groups individual functional requests</xsd:documentation>
+			<xsd:documentation>SIRI Request - Groups individual functional requests.</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
 	<xsd:complexType name="SiriRequestStructure">
 		<xsd:annotation>
-			<xsd:documentation>Type for SIRI Request - Groups individual functional requests</xsd:documentation>
+			<xsd:documentation>Type for SIRI Request - Groups individual functional requests.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
 			<xsd:group ref="RequestGroup"/>
@@ -107,12 +108,12 @@ Rail transport, Roads and Road transport.
 	<!-- ======================================================================= -->
 	<xsd:element name="SiriResponse" type="SiriResponseStructure">
 		<xsd:annotation>
-			<xsd:documentation>SIRI Request - Groups individual functional responses</xsd:documentation>
+			<xsd:documentation>SIRI Request - Groups individual functional responses.</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
 	<xsd:complexType name="SiriResponseStructure">
 		<xsd:annotation>
-			<xsd:documentation>Type for SIRI Response - Groups individual functional responses</xsd:documentation>
+			<xsd:documentation>Type for SIRI Response - Groups individual functional responses.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
 			<xsd:group ref="ResponseGroup"/>

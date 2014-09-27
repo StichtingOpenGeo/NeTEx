@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 sp1 (x64) (http://www.altova.com) by Christophe Duquesne (Dryade) -->
 <xsd:schema xmlns="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:acsb="http://www.ifopt.org.uk/acsb" targetNamespace="http://www.siri.org.uk/siri" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0" id="siri_common_services">
 	<xsd:annotation>
 		<xsd:appinfo>
@@ -7,7 +8,7 @@
 				<Audience>e-service developers</Audience>
 				<Contributor>CEN TC278 WG3 SG7 Team</Contributor>
 				<Coverage>Europe</Coverage>
-				<Creator>Drafted for version 1.0 CEN TC278 WG3 SG7 Editor Nicholas Knowles, Kizoom. mailto:schemer@siri.org.uk</Creator>
+				<Creator>First drafted for version 1.0 CEN TC278 WG3 SG7 Editor Nicholas Knowles, Kizoom. mailto:schemer@siri.org.uk</Creator>
 				<Date>
 					<Created>2004-09-29</Created>
 				</Date>
@@ -35,8 +36,21 @@
 				<Date>
 					<Modified>2012-03-23</Modified>
 					 +SIRI v2.0
-					  Add DataReady to Check Status
-					  Add DistanceUnits and VelocityUnits to ServiceRequestContext
+					   - Add DataReady to Check Status
+					   - Add DistanceUnits and VelocityUnits to ServiceRequestContext
+					   - [FR]    Add Extensions tag to Terminate SubscriptionRequest
+				</Date>
+				<Date>
+					<Modified>2014-03-31</Modified>
+					 +SIRI v2.0 Comments
+					   - Add terminate subscription notification
+				</Date>
+				<Date>
+					<Modified>2014-07-30</Modified>
+					 +SIRI v2.0 revise Comments
+					   -  Inter revision to make CheskStatus a type of ProductResponse. 
+					   -  Mark with SubstoitutionGroups
+
 				</Date>
 				<Description>
 					<p>SIRI is a European CEN standard for the exchange of real-time information.</p>
@@ -99,7 +113,7 @@ Rail transport, Roads and road transport
 	<!-- ======================================================================= -->
 	<xsd:group name="SiriCommonIndexGroup">
 		<xsd:annotation>
-			<xsd:documentation>Convenience artefact to pick out main elements of the common requests .</xsd:documentation>
+			<xsd:documentation>Convenience artefact to pick out main elements of the common requests.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
 			<xsd:group ref="SubscriptionManagementGroup"/>
@@ -131,6 +145,7 @@ Rail transport, Roads and road transport
 			<xsd:element ref="RequestTimestamp"/>
 			<xsd:group ref="AuthenticatedRequestGroup"/>
 			<xsd:group ref="RequestorEndpointGroup"/>
+			<xsd:group ref="DelegatorEndpointGroup"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:group name="ServiceEndpointAddressGroup">
@@ -282,27 +297,27 @@ Rail transport, Roads and road transport
 		<xsd:sequence>
 			<xsd:element name="StopPointNameSpace" type="xsd:anyURI" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>CODESPACE for STOP POINTs.</xsd:documentation>
+					<xsd:documentation>Name space for STOP POINTs.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="LineNameSpace" type="xsd:anyURI" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>CODESPACE for LINE names and DIRECTIONss.</xsd:documentation>
+					<xsd:documentation>Name space for LINE names and DIRECTIONss.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="ProductCategoryNameSpace" type="xsd:anyURI" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>CODESPACE for Product Categories.</xsd:documentation>
+					<xsd:documentation>Name space for Product Categories.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="ServiceFeatureNameSpace" type="xsd:anyURI" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>CODESPACEe for service features.</xsd:documentation>
+					<xsd:documentation>Name space for service features.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="VehicleFeatureNameSpace" type="xsd:anyURI" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>CODESPACE for VEHICLE features.</xsd:documentation>
+					<xsd:documentation>Name space for VEHICLE features.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 		</xsd:sequence>
@@ -314,7 +329,7 @@ Rail transport, Roads and road transport
 		<xsd:sequence>
 			<xsd:element name="DataNameSpaces" type="DataNameSpacesStructure" minOccurs="0">
 				<xsd:annotation>
-					<xsd:documentation>Default CODESPACEs used to scope data identifiers.</xsd:documentation>
+					<xsd:documentation>Default names pace used to scope data identifiers.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
 			<xsd:element name="Language" type="xsd:language" default="en" minOccurs="0">
@@ -387,7 +402,13 @@ Rail transport, Roads and road transport
 			<xsd:extension base="AuthenticatedRequestStructure">
 				<xsd:sequence>
 					<xsd:group ref="RequestorEndpointGroup"/>
+					<xsd:group ref="DelegatorEndpointGroup">
+						<xsd:annotation>
+							<xsd:documentation>If request has been proxied by an intermediate  aggregating system , tracking information relating to the original requestor. This allows the aggregation to be stateless. +SIRI 2.0</xsd:documentation>
+						</xsd:annotation>
+					</xsd:group>
 					<xsd:group ref="TerminateSubscriptionTopicGroup"/>
+					<xsd:element ref="Extensions" minOccurs="0"/>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -421,38 +442,10 @@ Rail transport, Roads and road transport
 			<xsd:documentation>Status Info.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="TerminationResponseStatus" minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="TerminationResponseStatus" type="TerminationResponseStatusStructure" minOccurs="0" maxOccurs="unbounded">
 				<xsd:annotation>
 					<xsd:documentation>Status of each subscription termnination response.</xsd:documentation>
 				</xsd:annotation>
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element ref="ResponseTimestamp" minOccurs="0"/>
-						<xsd:group ref="ContextualisedResponseEndpointGroup"/>
-						<xsd:group ref="SubscriptionIdentifierResourcePropertyGroup" minOccurs="0"/>
-						<xsd:element ref="Status"/>
-						<xsd:element name="ErrorCondition" minOccurs="0">
-							<xsd:annotation>
-								<xsd:documentation>Description of any error or warning condition.</xsd:documentation>
-							</xsd:annotation>
-							<xsd:complexType>
-								<xsd:sequence>
-									<xsd:choice>
-										<xsd:element ref="CapabilityNotSupportedError"/>
-										<xsd:element ref="UnknownSubscriberError"/>
-										<xsd:element ref="UnknownSubscriptionError"/>
-										<xsd:element ref="OtherError"/>
-									</xsd:choice>
-									<xsd:element name="Description" type="ErrorDescriptionStructure" minOccurs="0">
-										<xsd:annotation>
-											<xsd:documentation>Text description of error.</xsd:documentation>
-										</xsd:annotation>
-									</xsd:element>
-								</xsd:sequence>
-							</xsd:complexType>
-						</xsd:element>
-					</xsd:sequence>
-				</xsd:complexType>
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:group>
@@ -474,10 +467,65 @@ Rail transport, Roads and road transport
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
+	<xsd:complexType name="TerminationResponseStatusStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Status of termination response.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="ResponseTimestamp" minOccurs="0"/>
+			<xsd:group ref="ContextualisedResponseEndpointGroup"/>
+			<xsd:group ref="SubscriptionIdentifierResourcePropertyGroup" minOccurs="0"/>
+			<xsd:element ref="Status"/>
+			<xsd:element name="ErrorCondition" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of any error or warning condition.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:choice>
+							<xsd:element ref="CapabilityNotSupportedError"/>
+							<xsd:element ref="UnknownSubscriberError"/>
+							<xsd:element ref="UnknownSubscriptionError"/>
+							<xsd:element ref="OtherError"/>
+						</xsd:choice>
+						<xsd:element name="Description" type="ErrorDescriptionStructure" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Text description of error.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- === GS: Terminate Subscription Notification ======================================================== -->
+	<xsd:element name="SubscriptionTerminatedNotification" type="SubscriptionTerminatedNotificationStructure" substitutionGroup="ProducerResponse">
+		<xsd:annotation>
+			<xsd:documentation>Notification from Subscriber to Subscription Manager to terminate a subscription.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SubscriptionTerminatedNotificationStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Notification to terminate a subscription or subscriptions.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ProducerResponseStructure">
+				<xsd:sequence>
+					<xsd:group ref="SubscriptionIdentifierResourcePropertyGroup" maxOccurs="unbounded"/>
+					<xsd:element name="Description" type="ErrorDescriptionStructure" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Text description providing additional information about the reason for the subscription termination.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element ref="Extensions" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
 	<!-- ===Responses==================================================================== -->
 	<xsd:group name="StatusResponseGroup">
 		<xsd:annotation>
-			<xsd:documentation>Responses that inform about the service status.</xsd:documentation>
+			<xsd:documentation>Responses that infrom about the service status.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:choice>
 			<xsd:element ref="CheckStatusResponse"/>
@@ -659,6 +707,18 @@ Rail transport, Roads and road transport
 			<xsd:documentation>Response from Consumer to Producer to acknowledge that data hase been received. Used as optioanl extra step if reliable delivery is needed. Answers a ServiceDelivery.</xsd:documentation>
 		</xsd:annotation>
 	</xsd:element>
+	<xsd:complexType name="DataReceivedResponseStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Data received Acknowledgement Response.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ConsumerResponseEndpointStructure">
+				<xsd:sequence>
+					<xsd:group ref="DataReceivedPayloadGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
 	<xsd:group name="DataReceivedPayloadGroup">
 		<xsd:annotation>
 			<xsd:documentation>Data received Acknowledgement content.</xsd:documentation>
@@ -687,18 +747,6 @@ Rail transport, Roads and road transport
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:group>
-	<xsd:complexType name="DataReceivedResponseStructure">
-		<xsd:annotation>
-			<xsd:documentation>Type for Data received Acknowledgement Response.</xsd:documentation>
-		</xsd:annotation>
-		<xsd:complexContent>
-			<xsd:extension base="ConsumerResponseEndpointStructure">
-				<xsd:sequence>
-					<xsd:group ref="DataReceivedPayloadGroup"/>
-				</xsd:sequence>
-			</xsd:extension>
-		</xsd:complexContent>
-	</xsd:complexType>
 	<xsd:group name="DeliveryEndpointGroup">
 		<xsd:annotation>
 			<xsd:documentation>Elements identifying data Consumer, i.e. requestor, if synchronous delivery or subscriber if asynchronous.</xsd:documentation>
@@ -725,6 +773,31 @@ Rail transport, Roads and road transport
 		<xsd:complexContent>
 			<xsd:extension base="RequestStructure">
 				<xsd:sequence>
+					<xsd:element ref="Extensions" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute name="version" type="VersionString" default="2.0">
+					<xsd:annotation>
+						<xsd:documentation>Version number of request.  
+</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- =====GS: Check Status Request ============================================= -->
+	<xsd:element name="CheckStatusResponse" type="CheckStatusResponseStructure" substitutionGroup="ProducerResponse">
+		<xsd:annotation>
+			<xsd:documentation>Response from Producer to Consumer to inform whether services is working. Answers a CheckStatusRequest.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="CheckStatusResponseStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Service Status Check Response.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ProducerResponseStructure">
+				<xsd:sequence>
+					<xsd:group ref="CheckStatusPayloadGroup"/>
 					<xsd:element ref="Extensions" minOccurs="0"/>
 				</xsd:sequence>
 			</xsd:extension>
@@ -767,26 +840,6 @@ Rail transport, Roads and road transport
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:group>
-	<!-- =====GS: Check Status Request ============================================= -->
-	<xsd:element name="CheckStatusResponse" type="CheckStatusResponseStructure" substitutionGroup="AbstractResponse">
-		<xsd:annotation>
-			<xsd:documentation>Response from Producer to Consumer to inform whether services is working. Answers a CheckStatusRequest.</xsd:documentation>
-		</xsd:annotation>
-	</xsd:element>
-	<xsd:complexType name="CheckStatusResponseStructure">
-		<xsd:annotation>
-			<xsd:documentation>Type for Service Status Check Response.</xsd:documentation>
-		</xsd:annotation>
-		<xsd:complexContent>
-			<xsd:extension base="ResponseStructure">
-				<xsd:sequence>
-					<xsd:group ref="ProducerResponseEndpointGroup"/>
-					<xsd:group ref="CheckStatusPayloadGroup"/>
-					<xsd:element ref="Extensions" minOccurs="0"/>
-				</xsd:sequence>
-			</xsd:extension>
-		</xsd:complexContent>
-	</xsd:complexType>
 	<!-- ==== GS: Heartbeat Response ================================================ -->
 	<xsd:element name="HeartbeatNotification" type="HeartbeatNotificationStructure" substitutionGroup="ProducerRequest">
 		<xsd:annotation>
@@ -807,7 +860,17 @@ Rail transport, Roads and road transport
 		</xsd:complexContent>
 	</xsd:complexType>
 	<!-- ======================================================================= -->
+	<!-- ======================================================================= -->
 	<!-- ===WSDL=============================================================== -->
+	<xsd:complexType name="TerminateSubscriptionRequestBodyStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Body of Terminate Subscription Request content. Used in WSDL.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:group ref="TerminateSubscriptionTopicGroup"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ======================================================================= -->
 	<xsd:complexType name="SubscriptionResponseBodyStructure">
 		<xsd:annotation>
 			<xsd:documentation>Type for Body of Subscription Response. Used in WSDL.</xsd:documentation>
@@ -826,14 +889,7 @@ Rail transport, Roads and road transport
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
-	<xsd:complexType name="TerminateSubscriptionRequestBodyStructure">
-		<xsd:annotation>
-			<xsd:documentation>Type for Body of Terminate Subscription Request content. Used in WSDL.</xsd:documentation>
-		</xsd:annotation>
-		<xsd:sequence>
-			<xsd:group ref="TerminateSubscriptionTopicGroup"/>
-		</xsd:sequence>
-	</xsd:complexType>
+	<!-- ======================================================================= -->
 	<xsd:complexType name="DataSupplyRequestBodyStructure">
 		<xsd:annotation>
 			<xsd:documentation>Type for Body of Data Supply Request. Used in WSDL.</xsd:documentation>
