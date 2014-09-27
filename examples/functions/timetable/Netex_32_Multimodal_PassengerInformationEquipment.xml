@@ -162,14 +162,14 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="hde:TimetableFrameTIM_23_O"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -410,17 +410,17 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 					</connections>
 					<!--- =========STOP ASSIGNMENTs=========== -->
 					<stopAssignments>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:psa_SSP_002_to_SP002B">
+						<PassengerStopAssignment order ="1" version="any" id="hde:PassengerStopAssignment:psa_SSP_002_to_SP002B">
 							<Description lang="en">Assigns   Bravo tram  to physical stop - </Description>
 							<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP002B"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:psa_SSP_032_to_SP002B">
+						<PassengerStopAssignment order ="1"  version="any" id="hde:PassengerStopAssignment:psa_SSP_032_to_SP002B">
 							<Description lang="en">Assigns  Bravo bus to physical stop </Description>
 							<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_032"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP002B"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:psa_SSP_042_to_SP002B">
+						<PassengerStopAssignment order ="1"  version="any" id="hde:PassengerStopAssignment:psa_SSP_042_to_SP002B">
 							<Description lang="en">Assigns  Bravo  rail to physical stop </Description>
 							<ScheduledStopPointRef version="any" ref="myrail:ScheduledStopPoint:SSP_042"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP002B"/>
@@ -542,7 +542,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 						<LogicalDisplay version="any" id="mybus:LogicalDisplay:LD001_TramBus_Q1_EastboundSouthbound">
 							<Description>Departures Display for use on  Bravo Bus/Tram Quay 1 Outbound</Description>
 							<displayAssignments>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD001_SSP002_24o_departures">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD001_TramBus_Q1_EastboundSouthbound" order="1">
 									<Name>Assign  ScheduledStopPoint 002 (Bravo) route 24 Eastbound Departures to Display LD001 </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 									<ServiceJourneyPatternRef version="any" ref="hde:ServiceJourneyPattern:jp_24o"/>
@@ -550,7 +550,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<NumberOfJourneysToShow>2</NumberOfJourneysToShow>
 									<DisplayPriority>1</DisplayPriority>
 								</DisplayAssignment>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD001_SSP032_46o_departures">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD001_TramBus_Q1_EastboundSouthbound" order="2">
 									<Name>Assign ScheduledStopPoint 032 (Bravo) route 46 Southbound Departures to Display LD001  </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_032"/>
 									<ServiceJourneyPatternRef version="any" ref="hde:ServiceJourneyPattern:jp_46o"/>
@@ -558,7 +558,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<NumberOfJourneysToShow>2</NumberOfJourneysToShow>
 									<DisplayPriority>1</DisplayPriority>
 								</DisplayAssignment>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD001_SSP032_68o_departures">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD001_TramBus_Q1_EastboundSouthbound" order="3">
 									<Name>Assign   ScheduledStopPoint 032 (Bravo)  route 68 Eastbound Departures to Display LD001  </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_032"/>
 									<ServiceJourneyPatternRef version="any" ref="hde:ServiceJourneyPattern:jp_68o"/>
@@ -571,7 +571,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 						<LogicalDisplay version="any" id="mybus:LogicalDisplay:LD002_TramBus_Q2_WestboundNorthbound">
 							<Description>Departures Display for use on  Bravo Bus/Tram Quay 2</Description>
 							<displayAssignments>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD002_SSP_002_24i_departures">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD002_TramBus_Q2_WestboundNorthbound" order="1">
 									<Name>Assign ScheduledStopPoint 002 (Bravo)  LINE 24 Westbound Departures to Display LD002 </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 									<ServiceJourneyPatternRef version="any" ref="hde:ServiceJourneyPattern:jp_24i"/>
@@ -579,7 +579,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<NumberOfJourneysToShow>2</NumberOfJourneysToShow>
 									<DisplayPriority>1</DisplayPriority>
 								</DisplayAssignment>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD002_SSP_032_46i_departures">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD002_TramBus_Q2_WestboundNorthbound" order="2">
 									<Name>Assign ScheduledStopPoint 0032  (Bravo)  LINE 46 Northbound Departures to Display LD002 </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_032"/>
 									<ServiceJourneyPatternRef version="any" ref="hde:ServiceJourneyPattern:jp_46i"/>
@@ -587,7 +587,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<NumberOfJourneysToShow>2</NumberOfJourneysToShow>
 									<DisplayPriority>2</DisplayPriority>
 								</DisplayAssignment>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD002_SSP_032_68_arrivals">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD002_TramBus_Q2_WestboundNorthbound" order="3">
 									<Name>Assign ScheduledStopPoint 0032  (Bravo)  LINE 68  Northbound  Departuresto Display LD002 - Arrivals</Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_032"/>
 									<ServiceJourneyPatternRef version="any" ref="hde:ServiceJourneyPattern:jp_68i"/>
@@ -600,19 +600,19 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 						<LogicalDisplay version="any" id="mybus:LogicalDisplay:LD010_TicketHall_arrivals">
 							<Name>All Arrivals Display for use in Rail Ticket Hall</Name>
 							<displayAssignments>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD010_SSP002_SP_002_arrivals">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD010_TicketHall_arrivals" order="1">
 									<Name>Assign ScheduledStopPoint 002 tram arrivals  all routes for Bravo to Display LD010 </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 									<VehicleMode>tram</VehicleMode>
 									<DisplayPriority>1</DisplayPriority>
 								</DisplayAssignment>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD010_SSP002_SP_032_arrivals">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD010_TicketHall_arrivals" order="2">
 									<Name>Assign ScheduledStopPoint 032 bus arivals  all  routes for Bravo to Display LD010  </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_032"/>
 									<VehicleMode>bus</VehicleMode>
 									<DisplayAssignmentType>arrivals</DisplayAssignmentType>
 								</DisplayAssignment>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD010_SSP002_SP_042_arrivals">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD010_TicketHall_arrivals" order="3">
 									<Name>Assign ScheduledStopPoint 042 rail  arrivals all routes for Bravo to Display LD010  </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_032"/>
 									<VehicleMode>rail</VehicleMode>
@@ -623,17 +623,17 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 						<LogicalDisplay version="any" id="mybus:LogicalDisplay:LD011_TicketHall_departures">
 							<Description>Departures Display in Ticket Hall</Description>
 							<displayAssignments>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD011_SSP_002_departures">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD011_TicketHall_departures" order="1">
 									<Name>Assign ScheduledStopPoint 002 tram all routes for Bravo to Display LD011 </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 									<DisplayAssignmentType>departures</DisplayAssignmentType>
 								</DisplayAssignment>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD011_SSP_032_departures">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD011_TicketHall_departures" order="2">
 									<Name>Assign ScheduledStopPoint 032 bus all routes for Bravo to Display LD011 </Name>
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_032"/>
 									<DisplayAssignmentType>departures</DisplayAssignmentType>
 								</DisplayAssignment>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD011_SSP_042_departures">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD011_TicketHall_departures" order="3">
 									<Name>Assign ScheduledStopPoint 042 rail all routes for Bravo to Display LD011 </Name>
 									<ScheduledStopPointRef version="any" ref="myrail:ScheduledStopPoint:SSP_042"/>
 									<DisplayAssignmentType>departures</DisplayAssignmentType>
@@ -643,7 +643,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 						<LogicalDisplay version="any" id="mybus:LogicalDisplay:LD003_Rail_Q1_all">
 							<Name>Arrivals and Departures Display for use on  on rail Platform 3</Name>
 							<displayAssignments>
-								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD003_SSP_042_all">
+								<DisplayAssignment version="any" id="mybus:DisplayAssignment:LD003_Rail_Q1_all" order="1">
 									<Name>Assign ScheduledStopPoint 042 rail  all routes for Bravo   </Name>
 									<ScheduledStopPointRef version="any" ref="myrail:ScheduledStopPoint:SSP_042"/>
 									<VehicleMode>rail</VehicleMode>

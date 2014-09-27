@@ -56,14 +56,14 @@ The SERVICE JOURNEYs are for LINE24 .
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:01">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="hde:TimetableFrame:TIM_23_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -91,8 +91,7 @@ The SERVICE JOURNEYs are for LINE24 .
 			<frames>
 				<!-- ======Timetable ======= -->
 				<TimetableFrame version="001" id="hde:TimetableFrame:TIM_23_O">
-					<Name>Winter timetable for route 23 outbound</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:Cnd001">
 							<Description>Sept  to March</Description>
 							<FromDate>2010-11-01T00:00:00Z</FromDate>
@@ -101,7 +100,8 @@ The SERVICE JOURNEYs are for LINE24 .
 								<DayTypeRef version="any" ref="hde:DayType:DT_01MTWTFSS"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Winter timetable for route 23 outbound</Name>
 					<VehicleModes>bus</VehicleModes>
 					<vehicleJourneys>
 						<ServiceJourney version="any" id="hde:ServiceJourney:sj_24o_01">
@@ -118,7 +118,7 @@ The SERVICE JOURNEYs are for LINE24 .
 								<TransportMode>bus</TransportMode>
 							</LineView>
 							<calls>
-								<Call id="hde:Call:sj_24o_01_001">
+								<Call id="hde:Call:sj_24o_01_001" order="1">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_001"/>
 									<Arrival>
 										<ForAlighting>false</ForAlighting>
@@ -128,7 +128,7 @@ The SERVICE JOURNEYs are for LINE24 .
 										<ForBoarding>true</ForBoarding>
 									</Departure>
 								</Call>
-								<Call id="hde:Call:sj_24o_01_002">
+								<Call id="hde:Call:sj_24o_01_002" order="2">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 									<Arrival>
 										<Time>09:00:00.0Z</Time>
@@ -140,7 +140,7 @@ The SERVICE JOURNEYs are for LINE24 .
 										<WaitTime>PT2M</WaitTime>
 									</Departure>
 								</Call>
-								<Call id="hde:Call:sj_24o_01_003">
+								<Call id="hde:Call:sj_24o_01_003" order="3">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_077"/>
 									<Arrival>
 										<Time>10:00:00.0Z</Time>
@@ -167,7 +167,7 @@ The SERVICE JOURNEYs are for LINE24 .
 								<TransportMode>bus</TransportMode>
 							</LineView>
 							<calls>
-								<Call id="hde:Call:tvj_24o_02_001">
+								<Call id="hde:Call:tvj_24o_02_001" order="1">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_001"/>
 									<Arrival>
 										<ForAlighting>false</ForAlighting>
@@ -179,7 +179,7 @@ The SERVICE JOURNEYs are for LINE24 .
 										<ScheduledHeadwayInterval>PT8M</ScheduledHeadwayInterval>
 									</Frequency>
 								</Call>
-								<Call id="hde:Call:tvj_24o_02_002">
+								<Call id="hde:Call:tvj_24o_02_002" order="2">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 									<Arrival>
 										<Time>11:20:00.0Z</Time>
@@ -194,7 +194,7 @@ The SERVICE JOURNEYs are for LINE24 .
 										<ScheduledHeadwayInterval>PT8M</ScheduledHeadwayInterval>
 									</Frequency>
 								</Call>
-								<Call id="hde:Call:tvj_24o_02_003">
+								<Call id="hde:Call:tvj_24o_02_003" order="3">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_077"/>
 									<Arrival>
 										<Time>12:20:00.0Z</Time>
@@ -236,7 +236,7 @@ The SERVICE JOURNEYs are for LINE24 .
 								<TransportMode>bus</TransportMode>
 							</LineView>
 							<calls>
-								<Call id="hde:Call:sj_24o_04_001">
+								<Call id="hde:Call:sj_24o_04_001" order="1">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_001"/>
 									<Arrival>
 										<ForAlighting>false</ForAlighting>
@@ -245,7 +245,7 @@ The SERVICE JOURNEYs are for LINE24 .
 										<Time>18:00:00.0Z</Time>
 									</Departure>
 								</Call>
-								<Call id="hde:Call:sj_24o_04_002">
+								<Call id="hde:Call:sj_24o_04_002" order="2">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 									<Arrival>
 										<Time>19:00:00.0Z</Time>
@@ -257,7 +257,7 @@ The SERVICE JOURNEYs are for LINE24 .
 										<WaitTime>PT2M</WaitTime>
 									</Departure>
 								</Call>
-								<Call id="hde:Call:sj_24o_04_003">
+								<Call id="hde:Call:sj_24o_04_003" order="3">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_077"/>
 									<Arrival>
 										<Time>20:00:00.0Z</Time>
@@ -271,7 +271,7 @@ The SERVICE JOURNEYs are for LINE24 .
 						</ServiceJourney>
 					</vehicleJourneys>
 				</TimetableFrame>
-				<ServiceFrame id="mybus:ServiceFrame:svf_12">
+				<ServiceFrame id="mybus:ServiceFrame:svf_12" version="any">
 					<Name>Stops for Winter timetable for route 234 </Name>
 					<lines>
 						<Line version="any" id="mybus:Line:LN_234">

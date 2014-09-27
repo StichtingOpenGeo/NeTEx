@@ -100,11 +100,11 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<InfrastructureFrameRef ref="mybus:ifwkf001">REQUEST</InfrastructureFrameRef>
 				<ServiceFrameRef ref="mybus:ntwkf001">REQUEST</ServiceFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P7D</PublicationRefreshInterval>
@@ -388,20 +388,20 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 					</elements>
 					<restrictions>
 						<!--- ===SOME TOKEN RESTRICTIONS========== -->
-						<RestrictedManoeuvre version="002" created="2010-12-17T09:30:47.0Z" id="hde:RestrictedManoeuvre:RM_01">
+						<RestrictedManoeuvre order="1" version="002" created="2010-12-17T09:30:47.0Z" id="hde:RestrictedManoeuvre:RM_01">
 							<Restricted>false</Restricted>
 							<FromLinkRef ref="gis:RoadElement:rdE001">EXTERNAL</FromLinkRef>
 							<ToLinkRef ref="gis:RoadElement:rdE002">EXTERNAL</ToLinkRef>
 							<VehicleTypeRef version="002" ref="hde:VehicleType:VT001"/>
 						</RestrictedManoeuvre>
-						<MeetingRestriction version="002" created="2010-12-17T09:30:47.0Z" id="hde:MeetingRestriction:RMT_02">
+						<MeetingRestriction order="1" version="002" created="2010-12-17T09:30:47.0Z" id="hde:MeetingRestriction:RMT_02">
 							<Restricted>true</Restricted>
 							<FromLinkRef ref="gis:RoadElement:rdE001">EXTERNAL</FromLinkRef>
 							<ToLinkRef ref="gis:RoadElement:rdE002">EXTERNAL</ToLinkRef>
 							<ForVehicleTypeRef version="002" ref="hde:VehicleType:VT001"/>
 							<AgainstVehicleTypeRef version="002" ref="hde:VehicleType:VT001"/>
 						</MeetingRestriction>
-						<OvertakingPossibility version="002" created="2010-12-17T09:30:47.0Z" id="hde:OvertakingPossibility:ROP_03">
+						<OvertakingPossibility order="1" version="002" created="2010-12-17T09:30:47.0Z" id="hde:OvertakingPossibility:ROP_03">
 							<Restricted>false</Restricted>
 							<OvertakingOnLinkRef ref="gis:RoadElement:rdE002">EXTERNAL</OvertakingOnLinkRef>
 							<OvertakingAtPointRef ref="gis:pt0021">EXTERNAL</OvertakingAtPointRef>
@@ -424,7 +424,7 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 					</vehicleTypes>
 				</InfrastructureFrame>
 				<!--- =====FRAME WITH ROUTEs========= -->
-				<ServiceFrame version="any">
+				<ServiceFrame version="any" id="sV01">
 					<FrameDefaults>
 						<DefaultResponsibilitySetRef version="3.0" ref="hde:ResponsibilitySet:RS_22"/>
 					</FrameDefaults>
@@ -935,13 +935,13 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 								</StopPointInJourneyPattern>
 							</pointsInSequence>
 							<linksInSequence>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_001o_01" order="1">
+								<ServiceLinkInJourneyPattern version="any" id="hde:ServiceLinkInJourneyPattern:SvlLip_001o_01" order="1">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0001A-SSP0002B_a"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_001o_02" order="2">
+								<ServiceLinkInJourneyPattern version="any"  id="hde:ServiceLinkInJourneyPattern:SvlLip_001o_02" order="2">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0002B_a-SSP0003C_a"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_001o_03" order="3">
+								<ServiceLinkInJourneyPattern version="any"  id="hde:ServiceLinkInJourneyPattern:SvlLip_001o_03" order="3">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0003C_a-SSP0004D"/>
 								</ServiceLinkInJourneyPattern>
 							</linksInSequence>
@@ -972,13 +972,13 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 								</StopPointInJourneyPattern>
 							</pointsInSequence>
 							<linksInSequence>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_001i_01" order="1">
+								<ServiceLinkInJourneyPattern  version="any" id="hde:ServiceLinkInJourneyPattern:SvlLip_001i_01" order="1">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0004D-SSP0003C_b"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_001i_02" order="2">
+								<ServiceLinkInJourneyPattern  version="any"  id="hde:ServiceLinkInJourneyPattern:SvlLip_001i_02" order="2">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0003C_b-SSP0002B_b"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_001i_03" order="3">
+								<ServiceLinkInJourneyPattern version="any"  id="hde:ServiceLinkInJourneyPattern:SvlLip_001i_03" order="3">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0002B_b-SSP0001A"/>
 								</ServiceLinkInJourneyPattern>
 							</linksInSequence>
@@ -1009,13 +1009,13 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 								</StopPointInJourneyPattern>
 							</pointsInSequence>
 							<linksInSequence>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_002o_01" order="1">
+								<ServiceLinkInJourneyPattern  version="any"  id="hde:ServiceLinkInJourneyPattern:SvlLip_002o" order="1">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0001A-SSP0002B_a"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_002o_02" order="2">
+								<ServiceLinkInJourneyPattern version="any"  id="hde:ServiceLinkInJourneyPattern:SvlLip_002o" order="2">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0002B_a-SSP0003C_a"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_002o_03" order="3">
+								<ServiceLinkInJourneyPattern  version="any"  id="hde:ServiceLinkInJourneyPattern:SvlLip_002o" order="3">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0003C_a-SSP0005E"/>
 								</ServiceLinkInJourneyPattern>
 							</linksInSequence>
@@ -1046,56 +1046,56 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 								</StopPointInJourneyPattern>
 							</pointsInSequence>
 							<linksInSequence>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_002i_01" order="1">
+								<ServiceLinkInJourneyPattern  version="any" id="hde:ServiceLinkInJourneyPattern:SvlLip_002i_01" order="1">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0005E-SSP0003C_b"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_002i_02" order="2">
+								<ServiceLinkInJourneyPattern  version="any" id="hde:ServiceLinkInJourneyPattern:SvlLip_002i_02" order="2">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0003C_b-SSP0002B_b"/>
 								</ServiceLinkInJourneyPattern>
-								<ServiceLinkInJourneyPattern id="hde:ServiceLinkInJourneyPattern:SvlLip_002i_03" order="3">
+								<ServiceLinkInJourneyPattern version="any"  id="hde:ServiceLinkInJourneyPattern:SvlLip_002i_03" order="3">
 									<ServiceLinkRef version="001" ref="hde:ServiceLink:SL_SSP0002B_b-SSP0001A"/>
 								</ServiceLinkInJourneyPattern>
 							</linksInSequence>
 						</ServicePattern>
 					</servicePatterns>
 					<stopAssignments>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:PSA_01">
+						<PassengerStopAssignment order="1" version="any" id="hde:PassengerStopAssignment:PSA_01">
 							<Description>Bus Assignment A</Description>
 							<ScheduledStopPointRef version="032" ref="hde:ScheduledStopPoint:SSP0001A"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP001A"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP001A_1"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:PSA_02">
+						<PassengerStopAssignment order="1" version="any" id="hde:PassengerStopAssignment:PSA_02">
 							<Description>Bus Assignment B</Description>
 							<ScheduledStopPointRef version="032" ref="hde:ScheduledStopPoint:SSP0002B_a"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP002B"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP002B_1"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:PSA_03">
+						<PassengerStopAssignment order="2" version="any" id="hde:PassengerStopAssignment:PSA_03">
 							<Description>Bus Assignment B</Description>
 							<ScheduledStopPointRef version="032" ref="hde:ScheduledStopPoint:SSP0002B_b"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP002B"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP002B_2"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:PSA_04">
+						<PassengerStopAssignment order="1" version="any" id="hde:PassengerStopAssignment:PSA_04">
 							<Description>Bus Assignment B</Description>
 							<ScheduledStopPointRef version="015" ref="hde:ScheduledStopPoint:SSP0003C_a"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP003C"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP003C_1"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:PSA_05">
+						<PassengerStopAssignment order="2" version="any" id="hde:PassengerStopAssignment:PSA_05">
 							<Description>Bus Assignment B</Description>
 							<ScheduledStopPointRef version="015" ref="hde:ScheduledStopPoint:SSP0003C_b"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP003C"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP003C_2"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:PSA_06">
+						<PassengerStopAssignment order="1" version="any" id="hde:PassengerStopAssignment:PSA_06">
 							<Description>Bus Assignment D</Description>
 							<ScheduledStopPointRef version="015" ref="hde:ScheduledStopPoint:SSP0004D"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP004D"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP004D_1"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:PSA_07">
+						<PassengerStopAssignment order="1" version="any" id="hde:PassengerStopAssignment:PSA_07">
 							<Description>Bus Assignment E</Description>
 							<ScheduledStopPointRef version="015" ref="hde:ScheduledStopPoint:SSP0005E"/>
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP005E"/>
@@ -1455,7 +1455,7 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 					<responsibilitySets>
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="2.0" id="mybus:ResponsibilitySet:RS_10">
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="mybus:ResponsibilitySet:RS_10_01">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="mybus:ResponsibilitySet:RS_10_01" version="any">
 									<DataRoleType>collects</DataRoleType>
 									<ResponsibleOrganisationRef version="any" ref="mybus:Operator:Org_TL001"/>
 								</ResponsibilityRoleAssignment>
@@ -1463,7 +1463,7 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 						</ResponsibilitySet>
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="3.0" id="hde:ResponsibilitySet:RS_22">
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="mybus:ResponsibilitySet:RS_22_02">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="mybus:ResponsibilitySet:RS_22_02" version="any">
 									<DataRoleType>collects</DataRoleType>
 									<ResponsibleOrganisationRef version="any" ref="hde:Authority:Org_Hd001"/>
 								</ResponsibilityRoleAssignment>
@@ -1471,7 +1471,7 @@ A COMPOSITE FRAME Is used to group the above frames as a cohernet version.
 						</ResponsibilitySet>
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="1.1" id="gis:ResponsibilitySet:RS_31">
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="mybus:ResponsibilitySet:RS_22_31">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="mybus:ResponsibilitySet:RS_22_31" version="any">
 									<DataRoleType>collects</DataRoleType>
 									<ResponsibleOrganisationRef ref="gis:Org_Gis003">EXTERNAL</ResponsibleOrganisationRef>
 								</ResponsibilityRoleAssignment>

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!---  NK add id to  Availa/bility condition 
 			 schedueld stop point /Availa/bility condition - use that of schedueld stop point ssp
 		  NK add id to  stop place / Availability condition - use that of sttop place + sp 
 		 NK add version="any" to  Availability condition  -->
 <!---  NK add version="any" to  Connection -->
-
-<!--  NK comment out  Duplicate instacne of 
+<!--  NK comment out  Duplicate instance of 
 				<Connection version="any" id= " 008768666008739110">
 					<Description>From PARIS BERCY to PARIS MONTPARNASSE 3 VAUGIRARD</Description> 
 		<Connection version="any" id="008738400008739110">
@@ -16,13 +14,11 @@
 		<Connection version="any" id="008739110008768666">
 					<Description>From PARIS MONTPARNASSE 3 VAUGIRARD to PARIS BERCY</Description> -->
 <!---  NK add version="any" and id  to  Site frame  -->
-
- 
 <PublicationDelivery xmlns:siri="http://www.siri.org.uk/siri" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" version="1.0" xmlns="http://www.netex.org.uk/netex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<PublicationTimestamp>2011-06-01T18:14:19.653+02:00</PublicationTimestamp>
 	<ParticipantRef>TAP</ParticipantRef>
 	<dataObjects>
-		<ServiceFrame>
+		<ServiceFrame id="SV01" version="any">
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="uic">
@@ -30,107 +26,104 @@
 					<XmlnsUrl>http://www.uic.eu/stuff</XmlnsUrl>
 					<Description>UIC stations</Description>
 				</Codespace>
-			 
 			</codespaces>
 			<!--- =======FRAME DEFAULTS======== -->
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="uic"/>
-			</FrameDefaults>		
-		
-		
+			</FrameDefaults>
 			<scheduledStopPoints>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008721390">
 					<Name>WISSEMBOURG FRONTIERE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008710930">
-					<Name>LILLE CHR</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008710930">
 							<FromDate>1996-06-21T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>LILLE CHR</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008885720">
-					<Name>LILLE-FLANDRES (B)</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008885720">
 							<FromDate>2008-01-17T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>LILLE-FLANDRES (B)</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008728600">
-					<Name>LILLE FLANDRES</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008728600">
 							<FromDate>1999-06-09T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>LILLE FLANDRES</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008722326">
-					<Name>LILLE EUROPE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008722326">
 							<FromDate>1997-08-23T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>LILLE EUROPE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008731726">
-					<Name>CALAIS VILLE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008731726">
 							<FromDate>1996-06-21T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>CALAIS VILLE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008728107">
-					<Name>CALAIS FRETHUN</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008728107">
 							<FromDate>1994-02-21T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>CALAIS FRETHUN</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008711184">
-					<Name>MARNE LA VALLEE CHESSY</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008711184">
 							<FromDate>1994-01-01T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>MARNE LA VALLEE CHESSY</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008738264">
-					<Name>MARNE LA VALLEE CHESSY SNCF</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008738264">
 							<FromDate>2002-07-03T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>MARNE LA VALLEE CHESSY SNCF</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008813086">
-					<Name>BRUXELLES AGGLO/BRUSSEL AGGLO</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008813086">
 							<FromDate>2008-12-10T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>BRUXELLES AGGLO/BRUSSEL AGGLO</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008814002">
@@ -142,218 +135,218 @@
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008727100">
-					<Name>PARIS NORD</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008727100">
 							<FromDate>1996-06-21T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS NORD</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008727102">
-					<Name>GARE DU NORD</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008727102">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>GARE DU NORD</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008727103">
-					<Name>GARE DU NORD SURFACE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008727103">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>GARE DU NORD SURFACE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008768600">
-					<Name>PARIS GARE DE LYON</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008768600">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS GARE DE LYON</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008768666">
-					<Name>PARIS BERCY</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008768666">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS BERCY</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008754700">
-					<Name>PARIS AUSTERLITZ</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008754700">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS AUSTERLITZ</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008754702">
-					<Name>PARIS AUSTERLITZ RER C</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008754702">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS AUSTERLITZ RER C</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008775858">
-					<Name>PARIS GARE DE LYON RER</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008775858">
 							<FromDate>2007-11-13T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS GARE DE LYON RER</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008738400">
-					<Name>PARIS ST LAZARE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008738400">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS ST LAZARE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008739100">
-					<Name>PARIS MONTPARNASSE 1 ET 2</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008739100">
 							<FromDate>1993-10-05T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS MONTPARNASSE 1 ET 2</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008768603">
-					<Name>GARE DE LYON BANLIEUE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008768603">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>GARE DE LYON BANLIEUE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008739110">
-					<Name>PARIS MONTPARNASSE 3 VAUGIRARD</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008739110">
 							<FromDate>1995-09-24T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS MONTPARNASSE 3 VAUGIRARD</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008711300">
-					<Name>PARIS EST</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008711300">
 							<FromDate>1992-03-13T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS EST</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="007015400">
-					<Name>ST PANCRAS</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp007015400">
 							<FromDate>2006-10-05T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>ST PANCRAS</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="007015440">
-					<Name>EBBSFLEET</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp007015440">
 							<FromDate>2006-10-05T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>EBBSFLEET</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="007054660">
-					<Name>ASHFORD INTERNATIONAL</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp007054660">
 							<FromDate>1993-07-09T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>ASHFORD INTERNATIONAL</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008776500">
-					<Name>AVIGNON CENTRE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008776500">
 							<FromDate>1992-04-14T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>AVIGNON CENTRE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008731896">
-					<Name>AVIGNON TGV</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008731896">
 							<FromDate>2001-05-25T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>AVIGNON TGV</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008774179">
-					<Name>BOURG ST MAURICE</Name>
 					<validityConditions>
-						<AvailabilityCondition  version="any"  id="008774179">
+						<AvailabilityCondition version="any" id="008774179">
 							<FromDate>2000-01-05T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>BOURG ST MAURICE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008774176">
-					<Name>AIME LA PLAGNE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008774176">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>AIME LA PLAGNE</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 				<ScheduledStopPoint created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008774172">
-					<Name>MOUTIERS SALINS BRIDES L BAINS</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="ssp008774172">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>MOUTIERS SALINS BRIDES L BAINS</Name>
 					<StopType>railStation</StopType>
 				</ScheduledStopPoint>
 			</scheduledStopPoints>
 			<connections>
-				<Connection  version="any"  id="008728600008722326">
+				<Connection version="any" id="008728600008722326">
 					<Description>From LILLE FLANDRES to LILLE EUROPE</Description>
 					<TransferDuration>
 						<DefaultDuration>PT20M</DefaultDuration>
@@ -1016,7 +1009,7 @@
 						<ScheduledStopPointRef nameOfRefClass="ScheduledStopPoint" ref="008768603"/>
 					</To>
 				</Connection>
-			 <Connection version="any" id="008768666008739110">
+				<Connection version="any" id="008768666008739110">
 					<Description>From PARIS BERCY to PARIS MONTPARNASSE 3 VAUGIRARD</Description>
 					<TransferDuration>
 						<DefaultDuration>PT1H10M</DefaultDuration>
@@ -1028,7 +1021,7 @@
 					<To>
 						<ScheduledStopPointRef nameOfRefClass="ScheduledStopPoint" ref="008739110"/>
 					</To>
-				</Connection>  
+				</Connection>
 				<Connection version="any" id="008768666008754702">
 					<Description>From PARIS BERCY to PARIS AUSTERLITZ RER C</Description>
 					<TransferDuration>
@@ -1146,7 +1139,6 @@
 						<ScheduledStopPointRef nameOfRefClass="ScheduledStopPoint" ref="008711300"/>
 					</To>
 				</Connection>
-				
 				<!--
 				<Con nection version="any" id="  008768666008739110">
 					<Description>From PARIS BERCY to PARIS MONTPARNASSE 3 VAUGIRARD</Description>
@@ -2071,7 +2063,7 @@
 						<ScheduledStopPointRef nameOfRefClass="ScheduledStopPoint" ref="008739100"/>
 					</To>
 				</Connection>
-			<!--	<Connection version="any" id="008739110008738400">
+				<!--	<Connection version="any" id="008739110008738400">
 					<Description>From PARIS MONTPARNASSE 3 VAUGIRARD to PARIS ST LAZARE</Description>
 					<TransferDuration>
 						<DefaultDuration>PT1H</DefaultDuration>
@@ -2188,7 +2180,7 @@
 						<ScheduledStopPointRef nameOfRefClass="ScheduledStopPoint" ref="008775858"/>
 					</To>
 				</Connection>
-			<!--	<Connection version="any" id="008739110008768666">
+				<!--	<Connection version="any" id="008739110008768666">
 					<Description>From PARIS MONTPARNASSE 3 VAUGIRARD to PARIS BERCY</Description>
 					<TransferDuration>
 						<DefaultDuration>PT1H10M</DefaultDuration>
@@ -2443,13 +2435,13 @@
 					<BorderCrossing>true</BorderCrossing>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008710930">
-					<Name>LILLE CHR</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008710930">
 							<FromDate>1996-06-21T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>LILLE CHR</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2464,13 +2456,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008885720">
-					<Name>LILLE-FLANDRES (B)</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008885720">
 							<FromDate>2008-01-17T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>LILLE-FLANDRES (B)</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2485,13 +2477,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008728600">
-					<Name>LILLE FLANDRES</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008728600">
 							<FromDate>1999-06-09T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>LILLE FLANDRES</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2506,13 +2498,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008722326">
-					<Name>LILLE EUROPE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008722326">
 							<FromDate>1997-08-23T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>LILLE EUROPE</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2528,13 +2520,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008731726">
-					<Name>CALAIS VILLE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008731726">
 							<FromDate>1996-06-21T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>CALAIS VILLE</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2549,13 +2541,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008728107">
-					<Name>CALAIS FRETHUN</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008728107">
 							<FromDate>1994-02-21T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>CALAIS FRETHUN</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2570,13 +2562,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008711184">
-					<Name>MARNE LA VALLEE CHESSY</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008711184">
 							<FromDate>1994-01-01T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>MARNE LA VALLEE CHESSY</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2591,13 +2583,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008738264">
-					<Name>MARNE LA VALLEE CHESSY SNCF</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008738264">
 							<FromDate>2002-07-03T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>MARNE LA VALLEE CHESSY SNCF</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2612,13 +2604,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008813086">
-					<Name>BRUXELLES AGGLO/BRUSSEL AGGLO</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008813086">
 							<FromDate>2008-12-10T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>BRUXELLES AGGLO/BRUSSEL AGGLO</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2675,13 +2667,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008727100">
-					<Name>PARIS NORD</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008727100">
 							<FromDate>1996-06-21T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS NORD</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2696,13 +2688,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008727102">
-					<Name>GARE DU NORD</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008727102">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>GARE DU NORD</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2717,13 +2709,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008727103">
-					<Name>GARE DU NORD SURFACE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008727103">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>GARE DU NORD SURFACE</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2738,13 +2730,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008768600">
-					<Name>PARIS GARE DE LYON</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008768600">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS GARE DE LYON</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2759,13 +2751,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008768666">
-					<Name>PARIS BERCY</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008768666">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS BERCY</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2780,13 +2772,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008754700">
-					<Name>PARIS AUSTERLITZ</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008754700">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS AUSTERLITZ</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2801,13 +2793,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008754702">
-					<Name>PARIS AUSTERLITZ RER C</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008754702">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS AUSTERLITZ RER C</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2822,13 +2814,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008775858">
-					<Name>PARIS GARE DE LYON RER</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008775858">
 							<FromDate>2007-11-13T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS GARE DE LYON RER</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2843,13 +2835,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008738400">
-					<Name>PARIS ST LAZARE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008738400">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS ST LAZARE</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2864,13 +2856,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008739100">
-					<Name>PARIS MONTPARNASSE 1 ET 2</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008739100">
 							<FromDate>1993-10-05T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS MONTPARNASSE 1 ET 2</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2885,13 +2877,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008768603">
-					<Name>GARE DE LYON BANLIEUE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008768603">
 							<FromDate>1987-12-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>GARE DE LYON BANLIEUE</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2906,13 +2898,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008739110">
-					<Name>PARIS MONTPARNASSE 3 VAUGIRARD</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008739110">
 							<FromDate>1995-09-24T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS MONTPARNASSE 3 VAUGIRARD</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2927,13 +2919,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008711300">
-					<Name>PARIS EST</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008711300">
 							<FromDate>1992-03-13T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>PARIS EST</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2948,13 +2940,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="007015400">
-					<Name>ST PANCRAS</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp007015400">
 							<FromDate>2006-10-05T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>ST PANCRAS</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2969,13 +2961,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="007015440">
-					<Name>EBBSFLEET</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp007015440">
 							<FromDate>2006-10-05T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>EBBSFLEET</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -2990,13 +2982,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="007054660">
-					<Name>ASHFORD INTERNATIONAL</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp007054660">
 							<FromDate>1993-07-09T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>ASHFORD INTERNATIONAL</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -3011,13 +3003,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008776500">
-					<Name>AVIGNON CENTRE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008776500">
 							<FromDate>1992-04-14T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>AVIGNON CENTRE</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -3032,13 +3024,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008731896">
-					<Name>AVIGNON TGV</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008731896">
 							<FromDate>2001-05-25T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>AVIGNON TGV</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -3053,13 +3045,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008774179">
-					<Name>BOURG ST MAURICE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008774179">
 							<FromDate>2000-01-05T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>BOURG ST MAURICE</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -3074,13 +3066,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008774176">
-					<Name>AIME LA PLAGNE</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008774176">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>AIME LA PLAGNE</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>
@@ -3095,13 +3087,13 @@
 					<StopPlaceType>railStation</StopPlaceType>
 				</StopPlace>
 				<StopPlace created="2011-06-01T18:14:19.653+02:00" version="1" status="active" id="008774172">
-					<Name>MOUTIERS SALINS BRIDES L BAINS</Name>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="sp008774172">
 							<FromDate>1989-05-31T00:00:00</FromDate>
 							<ToDate>2099-12-31T23:59:59</ToDate>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>MOUTIERS SALINS BRIDES L BAINS</Name>
 					<alternativeNames>
 						<AlternativeName>
 							<NameType>alias</NameType>

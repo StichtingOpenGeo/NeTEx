@@ -33,6 +33,12 @@ To be decided - Hopw to represent operaing day
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="uic:CompositeFrame:Cf_01">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="uic:AvailabilityCondition:SC_01">
+					<FromDate>2006-11-04T12:00:00</FromDate>
+					<ToDate>2006-11-04T12:00:00</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="tap">
@@ -65,12 +71,6 @@ To be decided - Hopw to represent operaing day
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="uic"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="uic:AvailabilityCondition:SC_01">
-					<FromDate>2006-11-04T12:00:00</FromDate>
-					<ToDate>2006-11-04T12:00:00</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<ServiceCalendarFrame version="any" id="uic:ServiceCalendarFrame:SC_01">
 					<dayTypes>
@@ -95,8 +95,7 @@ To be decided - Hopw to represent operaing day
 					</dayTypes>
 				</ServiceCalendarFrame>
 				<TimetableFrame version="any" id="uic:TimetableFrame:TIM_001">
-					<Name>Uic Example of a very simple train timetable</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:393">
 							<FromDate>2006-11-04T12:00:00</FromDate>
 							<ToDate>2006-11-04T12:00:00</ToDate>
@@ -104,7 +103,8 @@ To be decided - Hopw to represent operaing day
 								<DayTypeRef ref="uic:DayType:DT_01"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Uic Example of a very simple train timetable</Name>
 					<VehicleModes>rail</VehicleModes>
 					<vehicleJourneys>
 						<!-- =====     == -->

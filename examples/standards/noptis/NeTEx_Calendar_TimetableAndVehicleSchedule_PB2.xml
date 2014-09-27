@@ -3,7 +3,7 @@
 <!-- ==== Condensed Timetable, VehicleSchedule and ServiceCalendar Example ====== 
 This example shows: 
 
-1) The definition of a  ServiceCalendarFrame, a VehicleScheduleFrame and a TimetableFrame in a form that 
+1) The definition of a ServiceCalendarFrame, a VehicleScheduleFrame and a TimetableFrame in a form that 
 is relevant for supplying an Integrator with partial data from multiple sources.
 
 2) Three different types of InterchangeRule with a number of required and optional values
@@ -23,10 +23,10 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<TimetableFrameRef ref="noptis:9010001000000000:Timetable201"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P7D</PublicationRefreshInterval>
@@ -34,6 +34,12 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 	<dataObjects>
 		<!--- =============="Version batch"==========  -->
 		<CompositeFrame version="any" id="noptis:CF01">
+			<validityConditions>
+				<ValidBetween>
+					<FromDate>2011-01-23T00:00:00Z</FromDate>
+					<ToDate>2011-03-25T00:00:00Z</ToDate>
+				</ValidBetween>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="noptis">
@@ -46,24 +52,18 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="noptis"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<SimpleValidityCondition>
-					<FromDate>2011-01-23T00:00:00Z</FromDate>
-					<ToDate>2011-03-25T00:00:00Z</ToDate>
-				</SimpleValidityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!-- =========================================== -->
 				<ServiceCalendarFrame version="any" id="noptis:9010001000000000:ServiceCalendar1" dataSourceRef="BL_HASTUS" changed="2010-12-23T23:05:12">
+					<validityConditions>
+						<ValidBetween>
+							<FromDate>2011-01-23T00:00:00Z</FromDate>
+							<ToDate>2011-03-25T00:00:00Z</ToDate>
+						</ValidBetween>
+					</validityConditions>
 					<FrameDefaults>
 						<DefaultResponsibilitySetRef ref="noptis:9010001000000000:BL"/>
 					</FrameDefaults>
-					<frameValidityConditions>
-						<SimpleValidityCondition>
-							<FromDate>2011-01-23T00:00:00Z</FromDate>
-							<ToDate>2011-03-25T00:00:00Z</ToDate>
-						</SimpleValidityCondition>
-					</frameValidityConditions>
 					<ServiceCalendar version="any" id="noptis:CF01">
 						<dayTypes>
 							<DayType version="any" id="D_V2207C060500_6"/>
@@ -73,15 +73,15 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 						</dayTypes>
 						<!--- === Day assignments ==== -->
 						<dayTypeAssignments>
-							<DayTypeAssignment>
+							<DayTypeAssignment id="D_V2205T150000_1" version="any" order="1">
 								<Date>2011-01-23</Date>
 								<DayTypeRef version="any" ref="D_V2205T150000_1"/>
 							</DayTypeAssignment>
-							<DayTypeAssignment>
+							<DayTypeAssignment id="D_V2207C060500_6" version="any" order="1">
 								<Date>2011-01-24</Date>
 								<DayTypeRef version="any" ref="D_V2207C060500_6"/>
 							</DayTypeAssignment>
-							<DayTypeAssignment>
+							<DayTypeAssignment id="D_V2207C060500_6" version="any" order="2">
 								<Date>2011-01-25</Date>
 								<DayTypeRef version="any" ref="D_V2207C060500_6"/>
 							</DayTypeAssignment>
@@ -90,15 +90,15 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 				</ServiceCalendarFrame>
 				<!-- =========================================== -->
 				<TimetableFrame version="any" id="noptis:9010001000000000:Timetable201" dataSourceRef="BL_HASTUS" changed="2010-12-23T23:05:12">
+					<validityConditions>
+						<ValidBetween>
+							<FromDate>2011-01-23T00:00:00Z</FromDate>
+							<ToDate>2011-03-25T00:00:00Z</ToDate>
+						</ValidBetween>
+					</validityConditions>
 					<FrameDefaults>
 						<DefaultResponsibilitySetRef ref="noptis:9010001000000000:BL"/>
 					</FrameDefaults>
-					<frameValidityConditions>
-						<SimpleValidityCondition>
-							<FromDate>2011-01-23T00:00:00Z</FromDate>
-							<ToDate>2011-03-25T00:00:00Z</ToDate>
-						</SimpleValidityCondition>
-					</frameValidityConditions>
 					<ServiceCalendarFrameRef ref="noptis:9010001000000000:ServiceCalendar1"/>
 					<vehicleJourneys>
 						<DeadRun version="any" id="noptis:9016002003400001" responsibilitySetRef="noptis:9010001000000000:BX">
@@ -176,6 +176,19 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 								</JourneyAccounting>
 							</journeyAccountings>
 							<!-- In scope of referred ServiceCalendar-->
+							<noticeAssignments>
+								<NoticeAssignmentView>
+									<NoticeRef ref="xxx"/>
+									<PublicityChannel> dynamicMedia</PublicityChannel>
+									<Advertised>true</Advertised>
+									<Text>Special conditions apply for payment.</Text>
+								</NoticeAssignmentView>
+								<NoticeAssignmentView>
+									<NoticeRef ref="xxx"/>
+									<Advertised>true</Advertised>
+									<Text>Another note.</Text>
+								</NoticeAssignmentView>
+							</noticeAssignments>
 							<DepartureTime>23:33:00</DepartureTime>
 							<JourneyDuration>PT61M</JourneyDuration>
 							<dayTypes>
@@ -220,19 +233,6 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 							</Origin>
 							<Print>true</Print>
 							<Dynamic>onlyIfSignedOn</Dynamic>
-							<noticeAssignments>
-								<NoticeAssignmentView>
-									<NoticeRef ref="xxx"/>
-									<PublicityChannel> dynamicMedia</PublicityChannel>
-									<Advertised>true</Advertised>
-									<Text>Special conditions apply for payment.</Text>
-								</NoticeAssignmentView>
-								<NoticeAssignmentView>
-									<NoticeRef ref="xxx"/>
-									<Advertised>true</Advertised>
-									<Text>Another note.</Text>
-								</NoticeAssignmentView>
-							</noticeAssignments>
 							<calls>
 								<Call>
 									<ScheduledStopPointRef ref="noptis:9025002001520702"/>
@@ -480,21 +480,18 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 				</TimetableFrame>
 				<!-- =========================================== -->
 				<VehicleScheduleFrame version="any" id="noptis:9010001000000000:BL25" dataSourceRef="BL_HASTUS" changed="2010-12-23T23:05:12">
+					<validityConditions>
+						<ValidBetween>
+							<FromDate>2011-01-23T00:00:00Z</FromDate>
+							<ToDate>2011-03-25T00:00:00Z</ToDate>
+						</ValidBetween>
+					</validityConditions>
 					<FrameDefaults>
 						<DefaultResponsibilitySetRef ref="noptis:9010001000000000:BL"/>
 					</FrameDefaults>
-					<frameValidityConditions>
-						<SimpleValidityCondition>
-							<FromDate>2011-01-23T00:00:00Z</FromDate>
-							<ToDate>2011-03-25T00:00:00Z</ToDate>
-						</SimpleValidityCondition>
-					</frameValidityConditions>
 					<ServiceCalendarFrameRef ref="noptis:9010001000000000:ServiceCalendar1"/>
 					<blocks>
 						<Block version="any" id="noptis:904100100510012">
-							<Description>>Run for Block 1  3 journeys  </Description>
-							<StartTime>08:00:00</StartTime>
-							<EndTime>17:00:00</EndTime>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="any221">
 									<FromDate>2011-01-25T00:00:00Z</FromDate>
@@ -507,6 +504,9 @@ is relevant for supplying an Integrator with partial data from multiple sources.
 									<IsAvailable>false</IsAvailable>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Description>>Run for Block 1  3 journeys  </Description>
+							<StartTime>08:00:00</StartTime>
+							<EndTime>17:00:00</EndTime>
 							<dayTypes>
 								<DayTypeRef version="any" ref="D_V2207C060500_6"/>
 								<DayTypeRef version="any" ref="D_V2205T150000_2"/>

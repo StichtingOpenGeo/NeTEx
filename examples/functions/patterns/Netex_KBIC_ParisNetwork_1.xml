@@ -81,10 +81,10 @@ Includes the following:
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<CompositeFrameRef ref="spqes:Fr1234"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P7D</PublicationRefreshInterval>
@@ -121,7 +121,7 @@ Includes the following:
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="2.0" id="spq:ResponsibilitySet:RS_01">
 							<Name>Responsible for STOP PLACEs</Name>
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="spq:ResponsibilityRoleAssignment:RS_01_01">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="spq:ResponsibilityRoleAssignment:RS_01_01"  version="2.0">
 									<DataRoleType>collects</DataRoleType>
 								</ResponsibilityRoleAssignment>
 							</roles>
@@ -129,7 +129,7 @@ Includes the following:
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="3.0" id="spq:ResponsibilitySet:RS_02">
 							<Name>Responsible for SERVICE PATTERN.</Name>
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="spq:ResponsibilityRoleAssignment:RS_02_01">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="spq:ResponsibilityRoleAssignment:RS_02_01"  version="3.0">
 									<DataRoleType>collects</DataRoleType>
 								</ResponsibilityRoleAssignment>
 							</roles>
@@ -137,7 +137,7 @@ Includes the following:
 						<ResponsibilitySet created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" version="1.1" id="spq:ResponsibilitySet:RS_03">
 							<Name>Responsible for TIMING PATTERN.</Name>
 							<roles>
-								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="spq:ResponsibilityRoleAssignment:RS_03_01">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" id="spq:ResponsibilityRoleAssignment:RS_03_01"  version="1.1">
 									<DataRoleType>collects</DataRoleType>
 								</ResponsibilityRoleAssignment>
 							</roles>
@@ -906,61 +906,61 @@ Includes the following:
 					</servicePatterns>
 					<stopAssignments>
 						<!--- =====NETWORK VERSION ideentifies the ========== -->
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_01">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_01" order="1">
 							<Description>Bus Assignment 1</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP1"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP1"/>
 							<QuayRef version="any" ref="spq:Quay:SSP1"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_02">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_02"  order="1">
 							<Description>Bus Assignment 2</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP2"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP2"/>
 							<QuayRef version="any" ref="spq:Quay:SSP2"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_03">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_03"  order="1">
 							<Description>Bus Assignment 3</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP3"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP3"/>
 							<QuayRef version="any" ref="spq:Quay:SSP3"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_04">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_04"  order="1">
 							<Description>Bus Assignment 4</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP4"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP4"/>
 							<QuayRef version="any" ref="spq:Quay:SSP4"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_05">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_05"  order="1">
 							<Description>Bus Assignment 5</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP5"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP5"/>
 							<QuayRef version="any" ref="spq:Quay:SSP5"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_06">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_06"  order="1">
 							<Description>Bus Assignment 6</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP6"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP6"/>
 							<QuayRef version="any" ref="spq:Quay:SSP6"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_07">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_07"  order="1">
 							<Description>Bus Assignment 7</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP7"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP7"/>
 							<QuayRef version="any" ref="spq:Quay:SSP7"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_08">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_08"  order="1">
 							<Description>Bus Assignment 8</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP8"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP8"/>
 							<QuayRef version="any" ref="spq:Quay:SSP8"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_09">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_09"  order="1">
 							<Description>Bus Assignment 9</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP9"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP9"/>
 							<QuayRef version="any" ref="spq:Quay:SSP9"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_10">
+						<PassengerStopAssignment version="any" id="ssp:PassengerStopAssignment:PSA_10"  order="1">
 							<Description>Bus Assignment10</Description>
 							<ScheduledStopPointRef version="001" ref="ssp:ScheduledStopPoint:SSP10"/>
 							<StopPlaceRef version="any" ref="spq:StopPlace:SP10"/>

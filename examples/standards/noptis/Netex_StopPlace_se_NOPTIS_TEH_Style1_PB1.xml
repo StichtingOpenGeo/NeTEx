@@ -9,10 +9,10 @@
 		<RequestTimestamp>2001-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<SiteFrameRef ref="noptis:9010001000000000:StopPlaceTEH">REQUEST</SiteFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P3M</PublicationRefreshInterval>
@@ -35,15 +35,15 @@
 			<frames>
 				<!-- =========================================== -->
 				<SiteFrame version="any" responsibilitySetRef="noptis:9010001000000000" id="noptis:9010001000000000:StopPlaceTEH">
+					<validityConditions>
+						<AvailabilityCondition version="any" id="noptis:9010001000000000">
+							<FromDate>2011-01-01T00:00:00Z</FromDate>
+						</AvailabilityCondition>
+					</validityConditions>
 					<Name>Base</Name>
 					<FrameDefaults>
 						<DefaultResponsibilitySetRef ref="noptis:9010001000000000"/>
 					</FrameDefaults>
-					<frameValidityConditions>
-						<AvailabilityCondition version="any" id="noptis:9010001000000000">
-							<FromDate>2011-01-01T00:00:00Z</FromDate>
-						</AvailabilityCondition>
-					</frameValidityConditions>
 					<stopPlaces>
 						<!-- ========== GENERAL========= -->
 						<StopPlace version="any" id="noptis:9091001000009204">
@@ -74,7 +74,6 @@
 							</TopographicPlaceView>
 							<entrances>
 								<StopPlaceEntrance version="any" id="noptis:9023001002221001">
-									<Name>Odengatan</Name>
 									<validityConditions>
 										<AvailabilityCondition version="any" id="noptis:9023001002221001">
 											<dayTypes>
@@ -88,6 +87,7 @@
 											</timebands>
 										</AvailabilityCondition>
 									</validityConditions>
+									<Name>Odengatan</Name>
 									<EntranceType>door</EntranceType>
 									<IsExternal>true</IsExternal>
 									<IsEntry>true</IsEntry>
@@ -101,20 +101,20 @@
 							<!-- ============QUAYS ===================- -->
 							<quays>
 								<Quay version="any" id="noptis:9025001000002221">
-									<Name>1</Name>
-									<Centroid>
-										<Location srsName="WGS84">
-											<Longitude>18.0717945909683</Longitude>
-											<Latitude>59.3454833520777</Latitude>
-										</Location>
-									</Centroid>
-									<!-- Suggested change: Provide alternative versions of same object based on date-period -->
 									<validityConditions>
 										<AvailabilityCondition version="any" id="noptis:9025001000002221">
 											<FromDate>2010-05-07T00:00:00Z</FromDate>
 											<ToDate>2011-01-01T00:00:00Z</ToDate>
 										</AvailabilityCondition>
 									</validityConditions>
+									<Name>1</Name>
+									<!-- Suggested change: Provide alternative versions of same object based on date-period -->
+									<Centroid>
+										<Location srsName="WGS84">
+											<Longitude>18.0717945909683</Longitude>
+											<Latitude>59.3454833520777</Latitude>
+										</Location>
+									</Centroid>
 									<!-- Below are the ENTITies IN VERSION -->
 									<Covered>indoors</Covered>
 									<tariffZones>
@@ -135,6 +135,11 @@
 								</Quay>
 								<Quay version="any" id="noptis:9025001000002221-2">
 									<!-- Provide alternative version of same object based on date-period-->
+									<validityConditions>
+										<AvailabilityCondition version="any" id="noptis:9025001000002221-2">
+											<FromDate>2011-01-01T00:00:00Z</FromDate>
+										</AvailabilityCondition>
+									</validityConditions>
 									<Name>A</Name>
 									<Centroid>
 										<Location srsName="WGS84">
@@ -142,11 +147,6 @@
 											<Latitude>59.3454833520777</Latitude>
 										</Location>
 									</Centroid>
-									<validityConditions>
-										<AvailabilityCondition version="any" id="noptis:9025001000002221-2">
-											<FromDate>2011-01-01T00:00:00Z</FromDate>
-										</AvailabilityCondition>
-									</validityConditions>
 									<Covered>indoors</Covered>
 									<tariffZones>
 										<!-- 	<zoneRefs>
@@ -357,28 +357,28 @@
 						</StopPlace>
 					</stopPlaces>
 				</SiteFrame>
-				<ServiceFrame version="any">
+				<ServiceFrame version="any" id="SV01">
 					<FrameDefaults>
 						<DefaultResponsibilitySetRef ref="noptis:9010001000000000"/>
 					</FrameDefaults>
 					<stopAssignments>
 						<!-- == STOP ASSIGNMENTs =========== -->
-						<PassengerStopAssignment version="any" id="noptis:9021001002221000">
+						<PassengerStopAssignment order ="1" version="any" id="noptis:9021001002221000">
 							<ScheduledStopPointRef ref="noptis:9022001002221001"/>
 							<StopPlaceRef ref="noptis:9021001002221000"/>
 							<QuayRef version="any" ref="noptis:9025001000002221"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="noptis:9021001002221000-02">
+						<PassengerStopAssignment order ="1" version="any" id="noptis:9021001002221000-02">
 							<ScheduledStopPointRef ref="noptis:9022001002221002"/>
 							<StopPlaceRef ref="noptis:9021001002221000"/>
 							<QuayRef version="any" ref="noptis:9025001000002222"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="noptis:9021001060080000">
+						<PassengerStopAssignment order ="1" version="any" id="noptis:9021001060080000">
 							<ScheduledStopPointRef ref="noptis:9022001060080001"/>
 							<StopPlaceRef version="any" ref="noptis:9021001060080000"/>
 							<QuayRef version="any" ref="noptis:9025001000060080"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="noptis:9021001060080000-02">
+						<PassengerStopAssignment order ="1" version="any" id="noptis:9021001060080000-02">
 							<ScheduledStopPointRef ref="noptis:9022001060080002"/>
 							<StopPlaceRef version="any" ref="noptis:9021001060080000"/>
 							<QuayRef version="any" ref="noptis:9025001000060081"/>

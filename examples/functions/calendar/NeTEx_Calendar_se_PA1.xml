@@ -8,10 +8,10 @@
 		<RequestTimestamp>2001-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<ServiceCalendarFrameRef ref="noptis:9085002000100000"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P7D</PublicationRefreshInterval>
@@ -42,19 +42,19 @@
 				</DayType>
 				</dayTypes>
 				<dayTypeAssignments>
-					<DayTypeAssignment version="any" id="noptis:DayTypeAssignment:2007-06-17">
+					<DayTypeAssignment version="any" order="1" id="noptis:DayTypeAssignment:2007-06-17">
 						<Date>2007-06-17</Date>
 						<DayTypeRef version="any" ref="noptis:9086002000100001"/>
 					</DayTypeAssignment>
-					<DayTypeAssignment version="any" id="noptis:DayTypeAssignment:2007-06-24">
+					<DayTypeAssignment version="any" order="1" id="noptis:DayTypeAssignment:2007-06-24">
 						<Date>2007-06-24</Date>
 						<DayTypeRef version="any" ref="noptis:9086002000100001"/>
 					</DayTypeAssignment>
-					<DayTypeAssignment version="any" id="noptis:DayTypeAssignment:2007-06-18">
+					<DayTypeAssignment version="any" order="1" id="noptis:DayTypeAssignment:2007-06-18">
 						<Date>2007-06-18</Date>
 						<DayTypeRef version="any" ref="noptis:9086002000100002"/>
 					</DayTypeAssignment>
-					<DayTypeAssignment version="any" id="noptis:DayTypeAssignment:2007-06-25">
+					<DayTypeAssignment version="any" order="1" id="noptis:DayTypeAssignment:2007-06-25">
 						<Date>2007-06-25</Date>
 						<DayTypeRef version="any" ref="noptis:9086002000100002"/>
 					</DayTypeAssignment>

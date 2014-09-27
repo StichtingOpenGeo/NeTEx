@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- ==== SImple PARKING  Example ====== 
-This Example provides a   simple example of a PARKING scoded using th NeTEx schema
+This Example provides a  simple example of a PARKING scoded using th NeTEx schema
 
 This example includes only basic capacity data - see See other  examples for more detaile use with areas, bays,  prices etc
  
@@ -37,19 +37,7 @@ The example  comprises
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<SiteFrame version="any" id="SiteFrame:SF01">
-			<!-- ==  CODESPACEs = -->
-			<codespaces>
-				<Codespace id="mypark">
-					<Xmlns>mypark</Xmlns>
-					<XmlnsUrl>http://www.pkgdata.co.uk/data</XmlnsUrl>
-					<Description>Other interchange DATA SOURCE </Description>
-				</Codespace>
-			</codespaces>
-			<!--- =======FRAME DEFAULTS======== -->
-			<FrameDefaults>
-				<DefaultCodespaceRef ref="mypark"/>
-			</FrameDefaults>
-			<frameValidityConditions>
+			<validityConditions>
 				<AvailabilityCondition version="any" id="AvailabilityCondition:PP01_OpeningHours">
 					<dayTypes>
 						<DayType version="any" id="DayType:EveryDay">
@@ -82,10 +70,25 @@ The example  comprises
 						<DayTypeRef ref=""/>
 					</dayTypes>
 				</AvailabilityCondition>
-			</frameValidityConditions>
+			</validityConditions>
+			<!-- ==  CODESPACEs = -->
+			<codespaces>
+				<Codespace id="mypark">
+					<Xmlns>mypark</Xmlns>
+					<XmlnsUrl>http://www.pkgdata.co.uk/data</XmlnsUrl>
+					<Description>Other interchange DATA SOURCE </Description>
+				</Codespace>
+			</codespaces>
+			<!--- =======FRAME DEFAULTS======== -->
+			<FrameDefaults>
+				<DefaultCodespaceRef ref="mypark"/>
+			</FrameDefaults>
 			<parkings>
 				<!--- ====MULTISTOREY CAR PARK========== -->
 				<Parking version="any" id="Parking:PP01" dataSourceRef="parkopedia">
+					<validityConditions>
+						<AvailabilityConditionRef version="any" ref="AvailabilityCondition:PP01_OpeningHours"/>
+					</validityConditions>
 					<Name>Barcester  CIty centre  Car Park</Name>
 					<ShortName>CIty Car Park</ShortName>
 					<Description>Mult storey next to Sainsbury . Three storeys 220 public and 30 disabled places </Description>
@@ -95,10 +98,15 @@ The example  comprises
 							<Latitude>-90</Latitude>
 						</Location>
 					</Centroid>
-					<validityConditions>
-						<AvailabilityConditionRef version="any" ref="AvailabilityCondition:PP01_OpeningHours"/>
-					</validityConditions>
+					<Url>http://www.barpark.co.uk</Url>
 					<Image>http://ww.mycarpark.com/prettypicture.jpg</Image>
+					<PostalAddress version="any" id="PostalAddress:PP01_01">
+						<CountryRef ref="uk">String</CountryRef>
+						<HouseNumber>27</HouseNumber>
+						<Street>High Street</Street>
+						<Town>Barcester</Town>
+						<PostCode>BXC 24P</PostCode>
+					</PostalAddress>
 					<Landmark>Sainsbury's</Landmark>
 					<PublicUse>all</PublicUse>
 					<Covered>indoors</Covered>
@@ -111,21 +119,13 @@ The example  comprises
 					</facilities>
 					<SiteType>retail</SiteType>
 					<AtCentre>true</AtCentre>
-					<PostalAddress version="any" id="PostalAddress:PP01_01">
-						<CountryRef ref="uk">String</CountryRef>
-						<HouseNumber>27</HouseNumber>
-						<Street>High Street</Street>
-						<Town>Barcester</Town>
-						<PostCode>BXC 24P</PostCode>
-					</PostalAddress>
-					<Url>http://www.barpark.co.uk</Url>
 					<entrances>
 						<ParkingEntranceForVehicles version="any" id="ParkingEntranceForVehicles:PP_E11_Entrance">
-							<Name>Main Vehicle Entrance from street</Name>
 							<validityConditions>
 								<AvailabilityConditionRef version="any" ref="AvailabilityCondition:PP01_OpeningHours"/>
 							</validityConditions>
-							<ParentZoneRef version="any" ref="Parking:PP01"/> 
+							<Name>Main Vehicle Entrance from street</Name>
+							<ParentZoneRef version="any" ref="Parking:PP01"/>
 							<Label>IN</Label>
 							<EntranceType>gate</EntranceType>
 							<IsExternal>true</IsExternal>
@@ -135,11 +135,11 @@ The example  comprises
 							<Height>12.0</Height>
 						</ParkingEntranceForVehicles>
 						<ParkingEntranceForVehicles version="any" id="ParkingEntranceForVehicles:PP_E12_Exit">
-							<Name>Main Vehicle Exit to street</Name>
 							<validityConditions>
 								<AvailabilityConditionRef version="any" ref="AvailabilityCondition:PP01_ExitHours"/>
 							</validityConditions>
-							<ParentZoneRef version="any" ref="Parking:PP01"/> 
+							<Name>Main Vehicle Exit to street</Name>
+							<ParentZoneRef version="any" ref="Parking:PP01"/>
 							<Label>Exit</Label>
 							<EntranceType>gate</EntranceType>
 							<IsExternal>true</IsExternal>
@@ -214,9 +214,6 @@ The example  comprises
 				</Parking>
 				<!--- ====ON STREET CAR PARKING========== -->
 				<Parking version="any" id="Parking:PS22" dataSourceRef="parkopedia">
-					<Name>Barcester  High street Parking </Name>
-					<ShortName>CIty Car Park</ShortName>
-					<Description>On street parking metered 8.30 to 6 pm Mondat to Friday  </Description>
 					<validityConditions>
 						<AvailabilityCondition version="any" id="AvailabilityCondition:ParkingChargeHours">
 							<Name>Charged Parking times</Name>
@@ -242,6 +239,10 @@ The example  comprises
 							</timebands>
 						</AvailabilityCondition>
 					</validityConditions>
+					<Name>Barcester  High street Parking </Name>
+					<ShortName>CIty Car Park</ShortName>
+					<Description>On street parking metered 8.30 to 6 pm Mondat to Friday  </Description>
+					<Url>http://www.barpccyparkingregs.co.uk</Url>
 					<AccessibilityAssessment version="any" id="AccessibilityAssessment:PS22_01">
 						<MobilityImpairedAccess>true</MobilityImpairedAccess>
 					</AccessibilityAssessment>
@@ -249,7 +250,6 @@ The example  comprises
 					<PublicUse>all</PublicUse>
 					<Covered>outdoors</Covered>
 					<AllAreasWheelchairAccessible>true</AllAreasWheelchairAccessible>
-					<Url>http://www.barpccyparkingregs.co.uk</Url>
 					<accesses>
 						<Access version="any" id="Access:PS_s2">
 							<Description>Walk to Station</Description>
@@ -278,7 +278,8 @@ The example  comprises
 					<ParkingPaymentProcess>payByMobileDevice payAndDisplay</ParkingPaymentProcess>
 					<PaymentMethods>creditCard cash debitCard creditCard mobilePhone</PaymentMethods>
 					<DefaultCurrency>GBP</DefaultCurrency>
-					<CurrenciesAccepted>GBP</CurrenciesAccepted><CardsAccepted>diners mastercard visa eftpos</CardsAccepted>
+					<CurrenciesAccepted>GBP</CurrenciesAccepted>
+					<CardsAccepted>diners mastercard visa eftpos</CardsAccepted>
 					<ParkingReservation>noReservations</ParkingReservation>
 					<BookingUrl>http://www.bookmyparking.com</BookingUrl>
 					<PaymentByMobile>

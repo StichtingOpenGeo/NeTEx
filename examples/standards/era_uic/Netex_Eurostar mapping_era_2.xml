@@ -12,7 +12,7 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 	<Description>Example for the mapping of simple timetables</Description>
 	<dataObjects>
 		<CompositeFrame version="1" id="uic:CompositeFrame:Cf_01">
-		<!--- ======= CODESPACEs======== -->
+			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="tap">
 					<Xmlns>tap</Xmlns>
@@ -29,12 +29,12 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 					<XmlnsUrl>http://www.uic.org/responsibilities/</XmlnsUrl>
 					<Description>UIC data</Description>
 				</Codespace>
-					<Codespace id="uicorg">
+				<Codespace id="uicorg">
 					<Xmlns>uicorg</Xmlns>
 					<XmlnsUrl>http://www.uic.org/organisations/</XmlnsUrl>
 					<Description>UIC organisation codes  </Description>
 				</Codespace>
-							<Codespace id="uicloc">
+				<Codespace id="uicloc">
 					<Xmlns>uicloc</Xmlns>
 					<XmlnsUrl>http://www.uic.orglocations/</XmlnsUrl>
 					<Description>UIC location codes  </Description>
@@ -48,19 +48,19 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:00199121">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:00199121">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:00199121">
 									<FromDate>2011-02-07T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>10:32:00</DepartureTime>
 							<calls>
 								<Call>
 									<ScheduledStopPointRef ref="uicloc:ScheduledStopPoint:008814002"/>
 									<Arrival/>
-									<Departure> 
+									<Departure>
 										<QuayAssignmentView/>
 									</Departure>
 								</Call>
@@ -90,13 +90,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:00199115">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:00199115">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-05-06T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>09:26:00</DepartureTime>
 							<calls>
 								<Call>
@@ -123,13 +123,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:00199129">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:00199129">
 									<FromDate>2011-02-07T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>12:53:00</DepartureTime>
 							<calls>
 								<Call>
@@ -185,13 +185,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199129-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199129-2">
 									<FromDate>2011-02-07T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>13:02:00</DepartureTime>
 							<calls>
 								<Call>
@@ -238,13 +238,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199181">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199181">
 									<FromDate>2011-07-09T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>12:02:00</DepartureTime>
 							<calls>
 								<Call>
@@ -291,13 +291,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199181-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199181-2">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-07-02T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>12:02:00</DepartureTime>
 							<calls>
 								<Call>
@@ -333,13 +333,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199163">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199163">
 									<FromDate>2011-02-06T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>21:02:00</DepartureTime>
 							<calls>
 								<Call>
@@ -386,13 +386,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199161">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199161">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>20:32:00</DepartureTime>
 							<calls>
 								<Call>
@@ -439,13 +439,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199158">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199158">
 									<FromDate>2011-02-13T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>21:29:00</DepartureTime>
 							<calls>
 								<Call>
@@ -490,13 +490,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199158-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199158-2">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>21:54:00</DepartureTime>
 							<calls>
 								<Call>
@@ -536,13 +536,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0199157">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199157">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199157">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>19:23:00</DepartureTime>
 							<calls>
 								<Call>
@@ -602,13 +602,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199154">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199154">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199154">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>18:53:00</DepartureTime>
 							<calls>
 								<Call>
@@ -659,13 +659,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:004">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199154-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199154-2">
 									<FromDate>2011-04-03T00:00:00</FromDate>
 									<ToDate>2011-04-03T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>20:51:00</DepartureTime>
 							<calls>
 								<Call>
@@ -705,13 +705,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199154-3">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199154-3">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199154-3">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>20:29:00</DepartureTime>
 							<calls>
 								<Call>
@@ -751,13 +751,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199154-4">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199154-4">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199154-4">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-08-25T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>20:29:00</DepartureTime>
 							<calls>
 								<Call>
@@ -806,13 +806,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199153">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199153">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199153">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>18:32:00</DepartureTime>
 							<calls>
 								<Call>
@@ -863,13 +863,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199153-1">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199153-1">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199153-1">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>18:32:00</DepartureTime>
 							<calls>
 								<Call>
@@ -920,13 +920,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199149">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199149">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199149">
 									<FromDate>2011-07-03T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>17:25:00</DepartureTime>
 							<calls>
 								<Call>
@@ -986,13 +986,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199149-1">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199149-1">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199149-1">
 									<FromDate>2011-02-06T00:00:00</FromDate>
 									<ToDate>2011-06-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>17:25:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1052,13 +1052,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199149-2">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199149-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199149-2">
 									<FromDate>2011-04-03T00:00:00</FromDate>
 									<ToDate>2011-04-03T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>17:25:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1107,13 +1107,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199148">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199148">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199148">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>19:24:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1153,13 +1153,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199145">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199145">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199145">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>16:32:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1210,13 +1210,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199144">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199144">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199144">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>17:59:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1265,13 +1265,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:0:0199141">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199141">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199141">
 									<FromDate>2011-02-06T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>15:32:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1311,13 +1311,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 				<TimetableFrame version="any" id="uicvj:TimetableFrame:001">
 					<vehicleJourneys>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199139">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199139">
 									<FromDate>2011-02-08T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>15:02:00</DepartureTime>
 							<!-- ??? 
 										 
@@ -1356,13 +1356,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199138">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199138">
 									<FromDate>2011-02-13T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>16:54:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1398,13 +1398,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199137">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199137">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>14:25:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1460,13 +1460,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199132">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199132">
 									<FromDate>2011-07-04T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>13:12:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1513,13 +1513,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199132-3">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199132-3">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-07-02T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>13:12:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1566,13 +1566,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199130">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199130">
 									<FromDate>2011-02-06T00:00:00</FromDate>
 									<ToDate>2011-08-28T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>12:11:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1619,13 +1619,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199126">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199126">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>11:11:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1681,13 +1681,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199120">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199120">
 									<FromDate>2011-02-14T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>08:41:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1734,13 +1734,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199119">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199119">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>10:02:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1776,13 +1776,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199116">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199116">
 									<FromDate>2011-02-13T00:00:00</FromDate>
 									<ToDate>2011-08-29T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>09:11:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1838,13 +1838,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199116-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199116-2">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>09:11:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1891,13 +1891,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199114">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199114">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>08:25:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1944,13 +1944,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199113">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199113">
 									<FromDate>2011-05-09T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>08:59:00</DepartureTime>
 							<calls>
 								<Call>
@@ -1977,13 +1977,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199113-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199113-2">
 									<FromDate>2011-02-05T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>08:58:00</DepartureTime>
 							<calls>
 								<Call>
@@ -2019,13 +2019,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199112">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199112">
 									<FromDate>2011-07-04T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>09:54:00</DepartureTime>
 							<calls>
 								<Call>
@@ -2061,13 +2061,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199112-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199112-2">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-07-01T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>10:27:00</DepartureTime>
 							<calls>
 								<Call>
@@ -2094,13 +2094,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199110">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199110">
 									<FromDate>2011-02-12T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>07:12:00</DepartureTime>
 							<calls>
 								<Call>
@@ -2156,13 +2156,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199109">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199109">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-08-27T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>07:24:00</DepartureTime>
 							<calls>
 								<Call>
@@ -2207,13 +2207,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199108">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199108">
 									<FromDate>2011-07-04T00:00:00</FromDate>
 									<ToDate>2011-08-26T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>06:33:00</DepartureTime>
 							<calls>
 								<Call>
@@ -2280,13 +2280,13 @@ Provided by Stefan Jugtelt  era   (C) NeTEx 2011
 							</UicOperatingPeriod>
 						</DatedServiceJourney>
 						<DatedServiceJourney version="any" id="uicvj:DatedServiceJourney:0:0199108-2">
-							<Name>EUROSTAR</Name>
 							<validityConditions>
 								<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:0:0199108-2">
 									<FromDate>2011-02-11T00:00:00</FromDate>
 									<ToDate>2011-07-01T00:00:00</ToDate>
 								</AvailabilityCondition>
 							</validityConditions>
+							<Name>EUROSTAR</Name>
 							<DepartureTime>06:33:00</DepartureTime>
 							<calls>
 								<Call>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- ==== SImple Timetable  Example ====== 
-This example shows the encoding of a time interval  fare set for a  simple bus timetable for a zone in NeTex XML  
+This example shows the encoding of a time interval  fare set for a simple bus timetable for a zone in NeTex XML  
  
   There are three FARE PRODUCTs for  one hour  , two hour  and all day use
  
@@ -52,14 +52,14 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2011-01-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<FareFrameRef ref="myfares:FareFrame:any">REQUEST</FareFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -67,6 +67,12 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="myfares:CompositeFrame:CAL_02">
+			<validityConditions>
+				<ValidBetween>
+					<FromDate>2011-01-01T00:00:00Z</FromDate>
+					<ToDate>2011-07-01T00:00:00Z</ToDate>
+				</ValidBetween>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -84,12 +90,6 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="myfares"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<SimpleValidityCondition>
-					<FromDate>2011-01-01T00:00:00Z</FromDate>
-					<ToDate>2011-07-01T00:00:00Z</ToDate>
-				</SimpleValidityCondition>
-			</frameValidityConditions>
 			<frames>
 				<ServiceFrame version="1" id="myfares:ServiceFrame:svf_12">
 					<Name>Fares  for Winter timetable for Network</Name>
@@ -106,84 +106,13 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 					<FrameDefaults>
 						<DefaultCurrency>EUR</DefaultCurrency>
 					</FrameDefaults>
-					<!--- ====Fare Usage Parameters======= -->
-					<fareUsageParameters>
-						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:unlimited">
-							<Name>  transfers</Name>
-							<FrequencyOfUseType>unlimited</FrequencyOfUseType>
-						</FrequencyOfUse>
-						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:1h">
-							<Name>1 hour use</Name>
-							<UsageEnd>standardDuration</UsageEnd>
-							<StandardDuration>PT1H</StandardDuration>
-						</UsageValidityPeriod>
-						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:2h">
-							<Name>2 hour use</Name>
-							<UsageEnd>standardDuration</UsageEnd>
-							<StandardDuration>PT2H</StandardDuration>
-						</UsageValidityPeriod>
-						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:day">
-							<Name>Till end of day of furchase (Not 24 hours after purchase)</Name>
-							<UsageEnd>endOfFareDay</UsageEnd>
-						</UsageValidityPeriod>
-					</fareUsageParameters>
-					<!--- ====Fare Product======= -->
-					<fareProducts>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:timeInterval_zonal_1h">
-							<Name> 1 zone use for one hour</Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_1h_FrequencyOfUse">
-									<Name> unlimited transfers</Name>
-									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
-									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_1h_TariffZone">
-									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_1h_UsageValidityPeriod">
-									<Name>one hour </Name>
-									<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:1h"/>
-									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:fse_1h"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</PreassignedFareProduct>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:timeInterval_zonal_2h">
-							<Name> 1 zone use for two hours </Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_2h_FrequencyOfUse">
-									<Name> unlimited transfers</Name>
-									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
-									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_2h_TariffZone">
-									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_2h_UsageValidityPeriod">
-									<Name>two hours </Name>
-									<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:2h"/>
-									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:fse_2h"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</PreassignedFareProduct>
-						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:timeInterval_zonal_day">
-							<Name> 1 zone use for one day</Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_day_FrequencyOfUse">
-									<Name> unlimited transfers</Name>
-									<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_day_TariffZone">
-									<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:timeInterval_zonal_day_UsageValidityPeriod">
-									<Name>Day Pass</Name>
-									<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:day"/>
-									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:fse_day"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</PreassignedFareProduct>
-					</fareProducts>
 					<!--- ====Fare Structure======= -->
+					<timeUnits>
+						<!--- ====TimeU nit======== -->
+						<TimeUnit version="any" id="myfares:TimeUnit:tu1">
+							<Name>Time unit of 1 hour</Name>
+						</TimeUnit>
+					</timeUnits>
 					<tariffs>
 						<Tariff version="any" id="myfares:Tariff:timeInterval">
 							<Name>Zonal Fare</Name>
@@ -212,7 +141,8 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 								<TimeInterval version="any" id="myfares:TimeInterval:ti_day">
 									<Name>All Day Use on day of pruchase</Name>
 									<StartTime>06:00:00</StartTime>
-									<EndTime>24:00:00</EndTime>
+									<EndTime>02:00:00</EndTime>
+									<DayOffset>1</DayOffset>
 									<timeStructureFactors>
 										<TimeStructureFactor version="any" id="myfares:TimeStructureFactor:tsf_day">
 											<Name>All day use on day of purchase</Name>
@@ -222,29 +152,80 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 								</TimeInterval>
 							</timeIntervals>
 							<fareStructureElements>
-								<FareStructureElement version="any" id="myfares:FareStructureElement:fse_1h">
-									<Name>One hours  use of a   zone</Name>
+								<FareStructureElement version="any" id="myfares:FareStructureElement:periods">
+									<Name>Allowed uses use of a  zone</Name>
 									<timeStructureFactors>
 										<TimeStructureFactorRef version="any" ref="myfares:TimeStructureFactor:tsf_1h"/>
-									</timeStructureFactors>
-								</FareStructureElement>
-								<FareStructureElement version="any" id="myfares:FareStructureElement:fse_2h">
-									<Name>Two hours  use of a   zone</Name>
-									<timeStructureFactors>
 										<TimeStructureFactorRef version="any" ref="myfares:TimeStructureFactor:tsf_2h"/>
-									</timeStructureFactors>
-								</FareStructureElement>
-								<FareStructureElement version="any" id="myfares:FareStructureElement:fse_day">
-									<Name>Day cpass  use of a   zone</Name>
-									<timeStructureFactors>
 										<TimeStructureFactorRef version="any" ref="myfares:TimeStructureFactor:tsf_day"/>
 									</timeStructureFactors>
 								</FareStructureElement>
 							</fareStructureElements>
 						</Tariff>
 					</tariffs>
+					<!--- ====Fare Usage Parameters======= -->
+					<usageParameters>
+						<FrequencyOfUse version="any" id="myfares:FrequencyOfUse:unlimited">
+							<Name>  transfers</Name>
+							<FrequencyOfUseType>unlimited</FrequencyOfUseType>
+						</FrequencyOfUse>
+						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:1h">
+							<Name>1 hour use</Name>
+							<UsageEnd>standardDuration</UsageEnd>
+							<StandardDuration>PT1H</StandardDuration>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:2h">
+							<Name>2 hour use</Name>
+							<UsageEnd>standardDuration</UsageEnd>
+							<StandardDuration>PT2H</StandardDuration>
+						</UsageValidityPeriod>
+						<UsageValidityPeriod version="any" id="myfares:UsageValidityPeriod:day">
+							<Name>Till end of day of furchase (Not 24 hours after purchase)</Name>
+							<UsageEnd>endOfFareDay</UsageEnd>
+						</UsageValidityPeriod>
+					</usageParameters>
+					<!--- ====Fare Product======= -->
+					<fareProducts>
+						<PreassignedFareProduct version="any" id="myfares:PreassignedFareProduct:timeInterval">
+							<Name> 1 zone use for one hour</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="myfares:GenericParameterAssignment:timeInterval@conditions">
+									<Name> unlimited transfers</Name>
+									<limitations>
+										<FrequencyOfUseRef version="any" ref="myfares:FrequencyOfUse:unlimited"/>
+									</limitations>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="2" id="myfares:GenericParameterAssignment:timeInterval_zonal_1h_UsageValidityPeriod">
+									<Name>one hour </Name>
+									<FareStructureElementRef version="any" ref="myfares:FareStructureElement:periods"/>
+									<LimitationGroupingType>XOR</LimitationGroupingType>
+									<limitations>
+										<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:1h"/>
+										<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:2h"/>
+										<UsageValidityPeriodRef version="any" ref="myfares:UsageValidityPeriod:day"/>
+									</limitations>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="3" id="myfares:GenericParameterAssignment:timeInterval@zones">
+									<validityParameters>
+										<TariffZoneRef version="any" ref="myfares:TariffZone:1"/>
+									</validityParameters>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<validableElements>
+								<ValidableElement version="any" id="myfares:ValidableElement:singleRide">
+									<Name>Single  ride</Name>
+								</ValidableElement>
+							</validableElements>
+							<accessRightsInProduct>
+								<AccessRightInProduct version="any" id="myfares:AccessRightInProduct:timeInterval" order="1">
+									<Name>First ride</Name>
+									<ValidableElementRef version="any" ref="myfares:ValidableElement:singleRide"/>
+								</AccessRightInProduct>
+							</accessRightsInProduct>
+						</PreassignedFareProduct>
+					</fareProducts>
 					<!--- ====Fare Prices======= -->
-					<farePrices>
+					<priceGroups>
 						<PriceGroup version="any" id="myfares:PriceGroup:PG01">
 							<Name>Prices for Point to Point Fare Products  - Standard</Name>
 							<members>
@@ -262,21 +243,8 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 								</TimeIntervalPrice>
 							</members>
 						</PriceGroup>
-					</farePrices>
+					</priceGroups>
 				</FareFrame>
-				<!--- ====RESOURCE FRAME===== -->
-				<ResourceFrame version="any" id="myfares:ResourceFrame:RS1">
-					<typesOfValue>
-						<ValueSet>
-							<values>
-								<!--- ====TimeU nit======== -->
-								<TimeUnit version="any" id="myfares:TimeUnit:tu1">
-									<Name>Time unit of 1 hour</Name>
-								</TimeUnit>
-							</values>
-						</ValueSet>
-					</typesOfValue>
-				</ResourceFrame>
 			</frames>
 		</CompositeFrame>
 	</dataObjects>

@@ -41,7 +41,7 @@ We also include furtehr detail about the nature of the access rights  and valida
 A GTFS FareRule maps to a NeTEx FARE PRODUCT + VALIDITY PARAMETER  ASSIGNMENT 
 		using a GROUP OF LINEs
 
-Where FARE PRODUCT is a  		PREASSIGNED FARE PRODUCT   
+Where FARE PRODUCT is a PREASSIGNED FARE PRODUCT   
 
 A GTFS FareAttribute  maps to a NeTEx FARE PRODUCT + VALIDITY PARAMETER ASSIGNMENT + FrequencyOfUse + FARE   PRICE  
 
@@ -54,7 +54,7 @@ For a Flat Fare (as in this file)
 GTFS					NeTEx
 fare_id,					<PreassignedFareProduct> @id  
 route_id,				<PreassignedFareProduct> <validityParameterAssignments>
-									<ValidityParameterAssignment> <GroupOfLinesRef >
+									<GenericParameterAssignment> <GroupOfLinesRef >
 origin_id,				- 
 destination_id,		- 
 contains_id	,		-
@@ -68,11 +68,11 @@ currency_type,			<PreassignedFareProduct> 	<prices><FareProductPrice><Currency>
 payment_method,		<PreassignedFareProduct> <ChargingMoment> 
 					0 =Pay on Boarding </Name> 
 					1 = Fare must be paid before boarding 
-transfers,					<PreassignedFareProduct> <ValidityParameterAssignment>
+transfers,					<PreassignedFareProduct> <GenericParameterAssignment>
 										<UsageValidityPeriod><MaximumNumberOfChanges>
 										<FrequencyOfUse><FrequencyOfUseType>unlimited | none | single
-										<ValidityParameterAssignment><UsageValidityPeriod>endofDay | endOfRide |etc
-transfer_duration		<PreassignedFareProduct> <ValidityParameterAssignment><UsageValidityPeriod><StandardDuration>
+										<GenericParameterAssignment><UsageValidityPeriod>endofDay | endOfRide |etc
+transfer_duration		<PreassignedFareProduct> <GenericParameterAssignment><UsageValidityPeriod><StandardDuration>
 
 
 
@@ -115,13 +115,13 @@ transfer_duration		<PreassignedFareProduct> <ValidityParameterAssignment><UsageV
 				</ResourceFrame>
 				<!--- =============== FAREs =========== -->
 				<FareFrame version="any" id="mygtfsxm:FareFrame:DTA">
-					<frameValidityConditions>
-						<SimpleValidityCondition>
+					<validityConditions>
+						<ValidBetween>
 							<FromDate>2011-12-30T00:00:00Z</FromDate>
-						</SimpleValidityCondition>
-					</frameValidityConditions>
+						</ValidBetween>
+					</validityConditions>
 					<!--- ====Fare USAGE PARAMETERS======= -->
-					<fareUsageParameters>
+					<usageParameters>
 						<UsageValidityPeriod version="any" id="mygtfsxm:UsageValidityPeriod:endOfRide">
 							<UsageEnd>endOfRide</UsageEnd>
 						</UsageValidityPeriod>
@@ -134,84 +134,43 @@ transfer_duration		<PreassignedFareProduct> <ValidityParameterAssignment><UsageV
 							<FrequencyOfUseType>unlimited</FrequencyOfUseType>
 							<MinimalFrequency>0</MinimalFrequency>
 						</FrequencyOfUse>
-					</fareUsageParameters>
+					</usageParameters>
 					<!--- ====COMMON ASSIGNMENTS======= -->
-					<groupsOfAccessRightParameterAssignments>
-						<GroupOfAccessRightParameterAssignments version="any" id="mygtfsxm:GroupOfAccessRightParameterAssignments:DTA_bus">
-							<accessRightParameterAssignments>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:DTA_bus">
-									<VehicleModes>bus</VehicleModes>
-									<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
-								</ValidityParameterAssignment>
-							</accessRightParameterAssignments>
-						</GroupOfAccessRightParameterAssignments>
-						<GroupOfAccessRightParameterAssignments version="any" id="mygtfsxm:GroupOfAccessRightParameterAssignments:firstRide">
-							<GroupOfAccessRightParameterAssignmentsRef  version="any" ref="mygtfsxm:GroupOfAccessRightParameterAssignments:DTA_bus"/>
-							<accessRightParameterAssignments>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:firstRide_endOfRide"> 
-									<UsageValidityPeriodRef version="any" ref="mygtfsxm:UsageValidityPeriod:endOfRide"/>
-								</ValidityParameterAssignment>
-							</accessRightParameterAssignments>
-						</GroupOfAccessRightParameterAssignments>
-						<GroupOfAccessRightParameterAssignments version="any" id="mygtfsxm:GroupOfAccessRightParameterAssignments:subsequentRide">
-							<GroupOfAccessRightParameterAssignmentsRef  version="any" ref="mygtfsxm:GroupOfAccessRightParameterAssignments:DTA_bus"/>
-							<accessRightParameterAssignments>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:subsequentRide">
-									<Name>Subsequent Ride optional </Name>
-									<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:subsequentRide"/>
-								 
-									<UsageValidityPeriodRef version="any" ref="mygtfsxm:UsageValidityPeriod:endOfRide"/>
-								</ValidityParameterAssignment>
-							</accessRightParameterAssignments>
-						</GroupOfAccessRightParameterAssignments>
-					</groupsOfAccessRightParameterAssignments>
 					<!--- ====Fare Product======= -->
 					<fareProducts>
 						<PreassignedFareProduct version="any" id="mygtfsxm:PreassignedFareProduct:only_fare">
 							<Name>Single flat fare to ride as long as you like on the DTA</Name>
 							<ChargingMomentRef version="any" ref="gtfs:ChargingMoment:0"/>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:FrequencyOfUse_firstRide">
-									<Name>First Ride  </Name>
-									<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:firstRide"/>
-									<VehicleModes>bus</VehicleModes>
-									<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:FrequencyOfUse_subsequentRide">
-									<Name>Subsequent Ride optional </Name>
-									<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:subsequentRide"/>
-									<VehicleModes>bus</VehicleModes>
-									<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:UsageValidityPeriod_endOfRide">
-									<Name>Unlimited   ride  </Name>
-									<UsageValidityPeriodRef version="any" ref="mygtfsxm:UsageValidityPeriod:endOfRide"/>
-									<VehicleModes>bus</VehicleModes>
-									<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
 							<!--- ====VALIDABLE ELEMENTs====== -->
 							<validableElements>
 								<ValidableElement version="any" id="mygtfsxm:ValidableElement:firstRide">
 									<Name>first ride</Name>
-									<groupsOfAccessRightParameterAssignments>
-												<GroupOfAccessRightParameterAssignmentsRef  version="any" ref="mygtfsxm:GroupOfAccessRightParameterAssignments:firstRide"/>
-									</groupsOfAccessRightParameterAssignments>
+									<validityParameterAssignments>
+										<GenericParameterAssignment version="any" order="1"  id="mygtfsxm:GenericParameterAssignment:firstRide@mode">
+											<validityParameters>
+												<VehicleModes>bus</VehicleModes>
+												<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
+											</validityParameters>
+										</GenericParameterAssignment>
+									</validityParameterAssignments>
 								</ValidableElement>
 								<ValidableElement version="any" id="mygtfsxm:ValidableElement:subsequentRide">
 									<Name>subsequent ride</Name>
-									<groupsOfAccessRightParameterAssignments>
-											<GroupOfAccessRightParameterAssignmentsRef  version="any" ref="mygtfsxm:GroupOfAccessRightParameterAssignments:subsequentRide"/>
-									</groupsOfAccessRightParameterAssignments>
+									<validityParameterAssignments>
+										<GenericParameterAssignment version="any" order="1"  id="mygtfsxm:GenericParameterAssignment:subsequentRide">
+											<Name>Subsequent Ride optional </Name>
+											<limitations>
+												<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:subsequentRide"/>
+												<UsageValidityPeriodRef version="any" ref="mygtfsxm:UsageValidityPeriod:endOfRide"/>
+											</limitations>
+											<validityParameters>
+												<VehicleModes>bus</VehicleModes>
+												<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
+											</validityParameters>
+										</GenericParameterAssignment>
+									</validityParameterAssignments>
 								</ValidableElement>
 							</validableElements>
-							<!--- ====PRICEs====== -->
-							<prices>
-								<FareProductPrice version="any" id="mygtfsxm:FareProductPrice:only_fare">
-									<Amount>1.00</Amount>
-									<Currency>USD</Currency>
-								</FareProductPrice>
-							</prices>
 							<!--- ====ACCESS RIGHTs======= -->
 							<accessRightsInProduct>
 								<AccessRightInProduct version="any" id="mygtfsxm:AccessRightInProduct:firstRide" order="1">
@@ -224,9 +183,15 @@ transfer_duration		<PreassignedFareProduct> <ValidityParameterAssignment><UsageV
 									<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:subsequentRide"/>
 								</AccessRightInProduct>
 							</accessRightsInProduct>
+							<!--- ====PRICEs====== -->
+							<prices>
+								<FareProductPrice version="any" id="mygtfsxm:FareProductPrice:only_fare">
+									<Amount>1.00</Amount>
+									<Currency>USD</Currency>
+								</FareProductPrice>
+							</prices>
 						</PreassignedFareProduct>
 					</fareProducts>
-						
 				</FareFrame>
 			</frames>
 		</CompositeFrame>

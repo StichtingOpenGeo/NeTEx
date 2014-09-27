@@ -20,22 +20,22 @@ There is one Operator  :  DTA
  
 There are Two  FARE PRODUCTs
 
-	 Standard: PREASSIGNED FARE PRODUCT myfares:PreassignedFareProduct:railcard_standard  
+	 Standard: PREASSIGNED FARE PRODUCT myfares:PreassignedFareProduct:railcard@standard  
 		VALIDITY PARAMETER ASSIGNMENTs
 			OPERATOR hde:Operator:DTA
 		FARE USAGE PARAMETERs 
 			USER PROFILE - 1 myfares:UserProfile:standard
 
-	Student PREASSIGNED FARE PRODUCT myfares:PreassignedFareProduct:railcard_student
+	Student PREASSIGNED FARE PRODUCT myfares:PreassignedFareProduct:railcard@student
 		VALIDITY PARAMETER ASSIGNMENTs
 			OPERATOR hde:Operator:DTA
 		FARE USAGE PARAMETERs 
 			USER PROFILE -   myfares:UserProfile:student
  
 	PRices 
-		FARE PRODUCT   PRICE :myfares:FareProductPrice:railcard_standard   5%
+		FARE PRODUCT   PRICE :myfares:FareProductPrice:railcard@standard   5%
 								 
-		FARE PRODUCT   PRICE :myfares:FareProductPrice:railcard_student  > 10%
+		FARE PRODUCT   PRICE :myfares:FareProductPrice:railcard@student  > 10%
 									 
 
 A COMPOSITE FRAME is used to student the component FRAMEs
@@ -51,14 +51,14 @@ A COMPOSITE FRAME is used to student the component FRAMEs
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2011-01-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<FareFrameRef ref="myfares:FareFrame:any">REQUEST</FareFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -66,6 +66,12 @@ A COMPOSITE FRAME is used to student the component FRAMEs
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="myfares:CompositeFrame:DTA">
+			<validityConditions>
+				<ValidBetween>
+					<FromDate>2011-01-01T00:00:00Z</FromDate>
+					<ToDate>2011-07-01T00:00:00Z</ToDate>
+				</ValidBetween>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="mybus">
@@ -84,12 +90,6 @@ A COMPOSITE FRAME is used to student the component FRAMEs
 					<Description>Fare     data</Description>
 				</Codespace>
 			</codespaces>
-			<frameValidityConditions>
-				<SimpleValidityCondition>
-					<FromDate>2011-01-01T00:00:00Z</FromDate>
-					<ToDate>2011-07-01T00:00:00Z</ToDate>
-				</SimpleValidityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!--- ===========RESOURCEs========== -->
 				<ResourceFrame version="any" id="myfares:ResourceFrame:DTA">
@@ -119,8 +119,19 @@ A COMPOSITE FRAME is used to student the component FRAMEs
 					<FrameDefaults>
 						<DefaultCurrency>EUR</DefaultCurrency>
 					</FrameDefaults>
-						<!--- ====Fare Usage Parameters======= -->
-					<fareUsageParameters>
+					<!--- ====Pricing Parmaters======= -->
+					<PricingParameterSet version="any" id="myfares:PricingParameterSet:tap">
+						<pricingRules>
+							<DiscountingRule version="any" id="myfares:DiscountingRule:5%">
+								<DiscountAsPercentage>5</DiscountAsPercentage>
+							</DiscountingRule>
+							<DiscountingRule version="any" id="myfares:DiscountingRule:10%">
+								<DiscountAsPercentage>10</DiscountAsPercentage>
+							</DiscountingRule>
+						</pricingRules>
+					</PricingParameterSet>
+					<!--- ====Fare Usage Parameters======= -->
+					<usageParameters>
 						<UserProfile version="any" id="myfares:UserProfile:standard">
 							<Name>Normal Fare</Name>
 							<TypeOfConcessionRef version="any" ref="myfares:TypeOfConcession:standard"/>
@@ -129,55 +140,62 @@ A COMPOSITE FRAME is used to student the component FRAMEs
 							<Name>Student Fare</Name>
 							<TypeOfConcessionRef version="any" ref="myfares:TypeOfConcession:student"/>
 						</UserProfile>
-					</fareUsageParameters>
+					</usageParameters>
 					<!--- ====Fare Product======= -->
 					<fareProducts>
-						<SaleDiscountRight version="any" id="myfares:SaleDiscountRight:railcard_standard">
+						<SaleDiscountRight version="any" id="myfares:SaleDiscountRight:railcard@standard">
 							<Name>Adult  Standard Flat  fare   </Name>
 							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:railcard_standard_Operator">
-									<VehicleModes>rail</VehicleModes>
-									<OperatorRef version="any" ref="hde:Operator:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:railcard_standard_UserProfile">
+								<GenericParameterAssignment version="any" order="1"  id="myfares:GenericParameterAssignment:railcard@standard@Operator">
+									<validityParameters>
+										<VehicleModes>rail</VehicleModes>
+										<OperatorRef version="any" ref="hde:Operator:DTA"/>
+									</validityParameters>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="2"  id="myfares:GenericParameterAssignment:railcard@standard@UserProfile">
 									<Name>Students are ELigible</Name>
-									<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
-								</ValidityParameterAssignment>
+									<limitations>
+										<UserProfileRef version="any" ref="myfares:UserProfile:standard"/>
+									</limitations>
+								</GenericParameterAssignment>
 							</validityParameterAssignments>
 						</SaleDiscountRight>
-						<SaleDiscountRight version="any" id="myfares:SaleDiscountRight:railcard_student">
+						<SaleDiscountRight version="any" id="myfares:SaleDiscountRight:railcard@student">
 							<Name>student Fare ,  </Name>
 							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:railcard_student_Operator">
-									<VehicleModes>rail</VehicleModes>
-									<OperatorRef version="any" ref="hde:Operator:DTA"/>
-								</ValidityParameterAssignment>
-								<ValidityParameterAssignment version="any" id="myfares:ValidityParameterAssignment:railcard_student_UserProfile">
+								<GenericParameterAssignment version="any" order="1"  id="myfares:GenericParameterAssignment:railcard@student@Operator">
+									<validityParameters>
+										<VehicleModes>rail</VehicleModes>
+										<OperatorRef version="any" ref="hde:Operator:DTA"/>
+									</validityParameters>
+								</GenericParameterAssignment>
+								<GenericParameterAssignment version="any" order="2"  id="myfares:GenericParameterAssignment:railcard@student@UserProfile">
 									<Name>Students are ELigible</Name>
-									<UserProfileRef version="any" ref="myfares:UserProfile:student"/>
-								</ValidityParameterAssignment>
+									<limitations>
+										<UserProfileRef version="any" ref="myfares:UserProfile:student"/>
+									</limitations>
+								</GenericParameterAssignment>
 							</validityParameterAssignments>
 						</SaleDiscountRight>
 					</fareProducts>
-				
 					<!--- ====Fare Prices======= -->
-					<farePrices>
+					<priceGroups>
 						<PriceGroup version="any" id="myfares:PriceGroup:DTA">
 							<Name>Discounts for Rail Cards</Name>
 							<members>
-								<FareProductPrice version="any" id="myfares:FareProductPrice:railcard_standard">
+								<FareProductPrice version="any" id="myfares:FareProductPrice:railcard@standard">
 									<Name>Standard discount - all fares</Name>
-									<DiscountAsPercentage>5.00</DiscountAsPercentage>
-									<SaleDiscountRightRef version="any" ref="myfares:SaleDiscountRight:railcard_standard"/>
+									<DiscountingRuleRef version="any" ref="myfares:DiscountingRule:5%"/>
+									<SaleDiscountRightRef version="any" ref="myfares:SaleDiscountRight:railcard@standard"/>
 								</FareProductPrice>
-								<FareProductPrice version="any" id="myfares:FareProductPrice:railcard_student">
+								<FareProductPrice version="any" id="myfares:FareProductPrice:railcard@student">
 									<Name>Student  discount - all fares</Name>
-									<DiscountAsPercentage>10.00</DiscountAsPercentage>
-									<SaleDiscountRightRef version="any" ref="myfares:SaleDiscountRight:railcard_student"/>
+									<DiscountingRuleRef version="any" ref="myfares:DiscountingRule:10%"/>
+									<SaleDiscountRightRef version="any" ref="myfares:SaleDiscountRight:railcard@student"/>
 								</FareProductPrice>
 							</members>
 						</PriceGroup>
-					</farePrices>
+					</priceGroups>
 				</FareFrame>
 			</frames>
 		</CompositeFrame>

@@ -35,7 +35,7 @@ Some basic equipment (Platform SIGNS, ramps, etc is included)
 The Stop identfiiers of thee Physical stop are  be different from those used to reference the stop  in the timetable (ie SCHEDULED STOP POINTs)
 STOP POINT ASSIGNMENTs are used to map these
 
-A CONNECTION specifies the posisbility of a  bus / Rail  transfer
+A CONNECTION specifies the posisbility of a bus / Rail  transfer
 
 DETAILS 
 ==============
@@ -157,14 +157,14 @@ B. Frames and grouping
 		<RequestTimestamp>2001-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter> 
+			<NetworkFrameTopic>
 				<Current/>
 				<NetworkFilterByValue>
 					<places>
 						<TopographicPlaceRef ref="topat:TopographicPlace:E0034695">REQUEST</TopographicPlaceRef>
 					</places>
 				</NetworkFilterByValue>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P3M</PublicationRefreshInterval>
@@ -172,6 +172,12 @@ B. Frames and grouping
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="zbt:CompositeFrame:CF001">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="zbt:AvailabilityCondition:CF0021">
+					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
+					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="zbt">
@@ -189,12 +195,6 @@ B. Frames and grouping
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="zbt"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="zbt:AvailabilityCondition:CF0021">
-					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
-					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!--- ======SERVICE CALENDAR======= -->
 				<ServiceCalendarFrame version="any" id="zbt:ServiceCalendarFrame:SFC0021">
@@ -334,6 +334,9 @@ B. Frames and grouping
 									<gml:pos srsName="ATGRID">524811 	 170666 </gml:pos>
 								</Location>
 							</Centroid>
+							<RoadAddress version="01" created="2010-05-17T09:30:47Z" modification="new" id="ztb:RoadAddress:bh0023_RdAddr_01">
+								<RoadName>Kleiried</RoadName>
+							</RoadAddress>
 							<AccessibilityAssessment version="any" id="ztb:AccessibilityAssessment:bh0023">
 								<MobilityImpairedAccess>true</MobilityImpairedAccess>
 								<limitations>
@@ -367,9 +370,6 @@ B. Frames and grouping
 							<TopographicPlaceView>
 								<TopographicPlaceRef version="01" ref="topat:TopographicPlace:E0034695"/>
 							</TopographicPlaceView>
-							<RoadAddress version="01" created="2010-05-17T09:30:47Z" modification="new" id="ztb:RoadAddress:bh0023_RdAddr_01">
-								<RoadName>Kleiried</RoadName>
-							</RoadAddress>
 							<ContainedInPlaceRef version="01" ref="topat:TopographicPlace:E0034695"/>
 							<!-- ============LEVELS ===================- -->
 							<levels>
@@ -381,11 +381,11 @@ B. Frames and grouping
 							<!-- ============ENTRANCES ===================- -->
 							<entrances>
 								<StopPlaceEntrance version="01" created="2010-05-17T09:30:47Z" id="ztb:StopPlaceEntrance:bh0023_A1-E1">
-									<Name>Main Entrance from street</Name>
-									<Description lang="en">External Entrance to  Ticket Hall from forecourt</Description>
 									<validityConditions>
 										<AvailabilityConditionRef version="01" ref="zbt:AvailabilityCondition:AC_01_Main_Opening"/>
 									</validityConditions>
+									<Name>Main Entrance from street</Name>
+									<Description lang="en">External Entrance to  Ticket Hall from forecourt</Description>
 									<ParentZoneRef version="01" ref="ztb:AccessSpace:bh0023_A1"/>
 									<LevelRef version="01" ref="ztb:Level:bh0023_Lvl_0"/>
 									<placeEquipments>
@@ -410,11 +410,11 @@ B. Frames and grouping
 									<Height>2.0</Height>
 								</StopPlaceEntrance>
 								<StopPlaceEntrance version="01" created="2010-05-17T09:30:47Z" id="ztb:StopPlaceEntrance:bh0023_A1-E2">
-									<Name>Entrance to platform 1 from Ticket hall </Name>
-									<Description lang="en"> Entrance to  Ticket Hall from platform1</Description>
 									<validityConditions>
 										<AvailabilityConditionRef version="01" ref="zbt:AvailabilityCondition:AC_02_CC_Opening"/>
 									</validityConditions>
+									<Name>Entrance to platform 1 from Ticket hall </Name>
+									<Description lang="en"> Entrance to  Ticket Hall from platform1</Description>
 									<ParentZoneRef version="01" ref="ztb:AccessSpace:bh0023_A1"/>
 									<LevelRef version="01" ref="ztb:Level:bh0023_Lvl_0"/>
 									<placeEquipments>
@@ -1095,15 +1095,15 @@ B. Frames and grouping
 									<gml:pos srsName="ATGRID">524811 	 170666 </gml:pos>
 								</Location>
 							</Centroid>
+							<RoadAddress version="any" id="zbt:RoadAddress:LRd_Addr_02">
+								<RoadName>Kleiner Ried</RoadName>
+							</RoadAddress>
 							<AccessibilityAssessment version="01" created="2010-05-17T09:30:47Z" id="ztb:AccessibilityAssessment:bh0024">
 								<MobilityImpairedAccess>true</MobilityImpairedAccess>
 							</AccessibilityAssessment>
 							<TopographicPlaceView>
 								<TopographicPlaceRef version="01" ref="topat:TopographicPlace:E0034695"/>
 							</TopographicPlaceView>
-							<RoadAddress version="any" id="zbt:RoadAddress:LRd_Addr_02">
-								<RoadName>Kleiner Ried</RoadName>
-							</RoadAddress>
 							<TransportMode>bus</TransportMode>
 							<StopPlaceType>onstreetBus</StopPlaceType>
 							<quays>
@@ -1116,14 +1116,14 @@ B. Frames and grouping
 											<Latitude>51.4207729447</Latitude>
 										</Location>
 									</Centroid>
-									<AccessibilityAssessment version="any" id="ztb:AccessibilityAssessment:bh0024_Rail-Q1">
-										<MobilityImpairedAccess>true</MobilityImpairedAccess>
-									</AccessibilityAssessment>
-									<Covered>outdoors</Covered>
 									<RoadAddress version="any" id="ztb:RoadAddress:Rd_Addr_03">
 										<RoadName>Kleiner Ried</RoadName>
 										<BearingCompass>W</BearingCompass>
 									</RoadAddress>
+									<AccessibilityAssessment version="any" id="ztb:AccessibilityAssessment:bh0024_Rail-Q1">
+										<MobilityImpairedAccess>true</MobilityImpairedAccess>
+									</AccessibilityAssessment>
+									<Covered>outdoors</Covered>
 									<BoardingUse>true</BoardingUse>
 									<AlightingUse>true</AlightingUse>
 									<Label>Halt A</Label>
@@ -1140,7 +1140,7 @@ B. Frames and grouping
 						</StopPlace>
 					</stopPlaces>
 				</SiteFrame>
-				<ServiceFrame id="zbt:ServiceFrame:SF0023b">
+				<ServiceFrame id="zbt:ServiceFrame:SF0023b" version="any">
 					<FrameDefaults>
 						<DefaultResponsibilitySetRef version="01" ref="zbt:ResponsibilitySet:Resp02"/>
 					</FrameDefaults>
@@ -1177,18 +1177,18 @@ B. Frames and grouping
 					</connections>
 					<!-- == STOP ASSIGNMENTs =========== -->
 					<stopAssignments>
-						<PassengerStopAssignment version="any" id="ztb:PassengerStopAssignment:psa_bh0023">
+						<PassengerStopAssignment order="1" version="any" id="ztb:PassengerStopAssignment:psa_bh0023">
 							<Description>Rail Assignment regardless of Platform </Description>
 							<ScheduledStopPointRef version="032" ref="ztb:ScheduledStopPoint:ssa_bh0023"/>
 							<StopPlaceRef version="01" ref="ztb:StopPlace:bh0023"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ztb:PassengerStopAssignment:psa_bh0023_Rail-Q1">
+						<PassengerStopAssignment order="2" version="any" id="ztb:PassengerStopAssignment:psa_bh0023_Rail-Q1">
 							<Description>Rail Assignment Platform 1</Description>
 							<ScheduledStopPointRef version="032" ref="ztb:ScheduledStopPoint:ssa_bh0023"/>
 							<StopPlaceRef version="01" ref="ztb:StopPlace:bh0023"/>
 							<QuayRef version="01" ref="ztb:Quay:bh0023_Rail-Q1"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="ztb:PassengerStopAssignment:psa_bh0023_Rail-Q2">
+						<PassengerStopAssignment order="3" version="any" id="ztb:PassengerStopAssignment:psa_bh0023_Rail-Q2">
 							<Description>Rail Assignment Platform 2 </Description>
 							<ScheduledStopPointRef version="032" ref="ztb:ScheduledStopPoint:ssa_bh0023"/>
 							<StopPlaceRef version="01" ref="ztb:StopPlace:bh0023"/>
@@ -1202,7 +1202,7 @@ B. Frames and grouping
 						<ResponsibilitySet version="01" created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" responsibilitySetRef="zbt:ResponsibilitySet:Resp01" id="zbt:ResponsibilitySet:Resp01">
 							<Name>Responsibility for Stop Data</Name>
 							<roles>
-								<ResponsibilityRoleAssignment version="01" created="2010-05-17T09:30:47Z">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" version="01" id="mybus:ResponsibilityRoleAssignment:Resp01">
 									<Description>Zall Zillertal transport - Managed centrally</Description>
 									<DataRoleType>all</DataRoleType>
 									<ResponsibleOrganisationRef version="any" xsi:type="OperatorRefStructure" ref="zbt:Operator:Org_ZTLB"/>
@@ -1212,7 +1212,7 @@ B. Frames and grouping
 						<ResponsibilitySet version="01" created="2010-05-17T09:30:47Z" modification="revise" changed="2010-05-17T09:30:47Z" responsibilitySetRef="zbt:ResponsibilitySet:Resp01" id="zbt:ResponsibilitySet:Resp02">
 							<Name>Responsibility for timetables</Name>
 							<roles>
-								<ResponsibilityRoleAssignment version="01" created="2010-05-17T09:30:47Z">
+								<ResponsibilityRoleAssignment created="2010-05-17T09:30:47Z" version="01" id="mybus:ResponsibilityRoleAssignment:Resp02">
 									<Description>Zall Zillertal transport - Managed centrally</Description>
 									<DataRoleType>all</DataRoleType>
 									<ResponsibleOrganisationRef version="any" xsi:type="OperatorRefStructure" ref="zbt:Operator:Org_ZTLB"/>

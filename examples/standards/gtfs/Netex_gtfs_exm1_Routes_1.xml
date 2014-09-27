@@ -80,6 +80,9 @@ route_text_color												<Line><Presentation> <TextColour>
 					<Url>http://www.demoagency.org/ab</Url>
 					<PublicCode>10</PublicCode>
 					<OperatorRef ref="mygtfsxm:Operator:DTA"/>
+					<otherModes>
+						<ModeRef ref="railReplacementBus" mode="bus"></ModeRef>
+					</otherModes>
 					<Presentation>
 						<Colour>00FFFF</Colour>
 						<TextColour>00FFFF</TextColour>

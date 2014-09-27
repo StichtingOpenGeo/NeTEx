@@ -28,7 +28,7 @@ Summary of Mapping
 	Gtfs: FareAttribute	= Nx: PREASSIGNED FARE PRODUCT 
 											+ VALIDITY PARAMETER ASSIGNMENT 	+  FrequencyOfUse +
  
-									  FARE   PRICE  : FARE PRODUCT PRICE or a  USAGE PARAMETER PRICE 
+									  FARE   PRICE  : FARE PRODUCT PRICE or a USAGE PARAMETER PRICE 
 										or a DISTANCE MATRIX ELEMENT PRICE or a FARE STRUCTURE ELEMENT PRICE
  
 
@@ -36,7 +36,7 @@ A GTFS FareAttribute  maps to a NeTEx
 
 Where FARE PRODUCT may be 	PREASSIGNED FARE PRODUCT 
 
- And FARE   PRICE  may be a FARE PRODUCT PRICE or a  USAGE PARAMETER PRICE 
+ And FARE   PRICE  may be a FARE PRODUCT PRICE or a USAGE PARAMETER PRICE 
 	or a DISTANCE MATRIX ELEMENT PRICE or a FARE STRUCTURE ELEMENT PRICE
  
 Q. Open question onGTFS  frequency
@@ -662,14 +662,14 @@ See individual files for mappings
 					</tariffZones>
 					<!--- ===Stops.txt==TRANSFER RESTRICTIONS======== -->
 					<transferRestrictions>
-						<TransferRestriction version="any" id="mygtfsexm:TransferRestriction:NADAV-BOONDOCK">
+						<TransferRestriction order="1" version="any" id="mygtfsexm:TransferRestriction:NADAV-BOONDOCK">
 							<Name>No Transfer</Name>
 							<TypeOfTransferRef ref="mygtfsexm:TypeOfTransfer:0"/>
 							<RestrictionType>cannotTransfer</RestrictionType>
 							<FromPointRef ref="mygtfsexm:ScheduledStopPoint:NADAV"/>
 							<ToPointRef ref="mygtfsexm:ScheduledStopPoint:BOONDOCK"/>
 						</TransferRestriction>
-						<TransferRestriction version="any" id="mygtfsexm:TransferRestriction:BULLFROG-POND">
+						<TransferRestriction order="1" version="any" id="mygtfsexm:TransferRestriction:BULLFROG-POND">
 							<TypeOfTransferRef version="any" ref="gtfs:TypeOfTransfer:3"/>
 							<BothWays>true</BothWays>
 							<RestrictionType>cannotTransfer</RestrictionType>
@@ -1344,15 +1344,46 @@ See individual files for mappings
 				</TimetableFrame>
 				<!--- =============== FAREs =========== -->
 				<FareFrame version="any" id="mygtfsxm:FareFrame:DTA">
+					<FrameDefaults>
+						<DefaultCurrency>USD</DefaultCurrency>
+					</FrameDefaults>
 					<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
+					<validableElements>
+						<ValidableElement version="any" id="mygtfsxm:ValidableElement:localBusTrip">
+							<Name>A Bus Trip</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="mygtfsxm:GenericParameterAssignment:localBusTrip">
+									<validityParameters>
+										<VehicleModes>bus</VehicleModes>
+										<GroupOfLinesRef version="any" ref="mygtfsxm:GroupOfLines:p"> </GroupOfLinesRef>
+									</validityParameters>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+						</ValidableElement>
+						<ValidableElement version="any" id="mygtfsxm:ValidableElement:busTrip">
+							<Name>A Bus Trip</Name>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="mygtfsxm:GenericParameterAssignment:busTrip">
+									<validityParameters>
+										<VehicleModes>bus</VehicleModes>
+										<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
+									</validityParameters>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+						</ValidableElement>
+					</validableElements>
 					<!--- ====Fare Usage Parameters======= -->
-					<fareUsageParameters>
+					<usageParameters>
 						<Interchanging version="any" id="mygtfsxm:Interchanging:noInterchanging">
 							<CanInterchange>false</CanInterchange>
+							<FromMode>bus</FromMode>
+							<ToMode>bus</ToMode>
 							<MaximumNumberOfInterchanges>0</MaximumNumberOfInterchanges>
 						</Interchanging>
 						<Interchanging version="any" id="mygtfsxm:Interchanging:canInterchange">
 							<CanInterchange>true</CanInterchange>
+							<FromMode>bus</FromMode>
+							<ToMode>bus</ToMode>
 						</Interchanging>
 						<FrequencyOfUse version="any" id="mygtfsxm:FrequencyOfUse:single">
 							<FrequencyOfUseType>single</FrequencyOfUseType>
@@ -1360,106 +1391,53 @@ See individual files for mappings
 						<FrequencyOfUse version="any" id="mygtfsxm:FrequencyOfUse:unlimited">
 							<FrequencyOfUseType>unlimited</FrequencyOfUseType>
 						</FrequencyOfUse>
-					</fareUsageParameters>
+					</usageParameters>
 					<!--- ====Fare Product======= -->
-					<validableElements>
-						 
-						<ValidableElement version="any" id="mygtfsxm:ValidableElement:busTrip">
-							<Name>A Bus Trip</Name>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:AccessRIghtAssignment:busTrip">
-									<VehicleModes>bus</VehicleModes>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-						</ValidableElement>
-					</validableElements>
 					<fareProducts>
 						<!--- ====fare_rules.txt====== -->
 						<PreassignedFareProduct version="any" id="mygtfsxm:PreassignedFareProduct:p">
 							<Name>Local Flat Fare, no transfers</Name>
-							<ChargingMomentRef version="any" ref="gtfs:ChargingMoment:0"/>
-							<validityParameterAssignments>
-								<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:p">
-									<Name>No Transfers</Name>
-									<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:single"/>
-									<InterchangingRef version="any" ref="mygtfsxm:Interchanging:noInterchanging"/>
-									<VehicleModes>bus</VehicleModes>
-									<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
-									<GroupOfLinesRef version="any" ref="mygtfsxm:GroupOfLines:p"> </GroupOfLinesRef>
-								</ValidityParameterAssignment>
-							</validityParameterAssignments>
-							<!--- ====PRICES======= -->
-							<prices>
-								<CellPriceRef version="any" ref="mygtfsxm:CellPrice:p"/>
-								<CellPriceRef version="any" ref="mygtfsxm:CellPrice:a"/>
-							</prices>
-							<accessRightsInProduct>
-								<AccessRightInProduct id="mygtfsxm:PreassignedFareProduct:p@local" version="any">
-									<Name>Local Flat Fare, no transfers</Name>
-									<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:busTrip"/>
-									<groupsOfAccessRightParameterAssignments>
-										<GroupOfAccessRightParameterAssignments version="any" id="mygtfsxm:GroupOfAccessRightParameterAssignments:p@local">
-											<accessRightParameterAssignments>
-												<AccessRightParameterAssignment version="any" id="mygtfsxm:AccessRightParameterAssignment:p@local">
-													<Name>WHat can travel oin </Name>
-													<GroupOfLinesRef version="any" ref="mygtfsxm:GroupOfLines:p"> </GroupOfLinesRef>
-												</AccessRightParameterAssignment>
-												<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:p@local">
-													<Name>No Transfers</Name>
-													<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:single"/>
-													<InterchangingRef version="any" ref="mygtfsxm:Interchanging:noInterchanging"/>
-												</ValidityParameterAssignment>
-											</accessRightParameterAssignments>
-										</GroupOfAccessRightParameterAssignments>
-									</groupsOfAccessRightParameterAssignments>
-								</AccessRightInProduct>
-								<AccessRightInProduct id="mygtfsxm:PreassignedFareProduct:p@AMV" version="any">
-									<Name>AMV Flat Fare, no transfers</Name>
-									<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:busTrip"/>
-									<groupsOfAccessRightParameterAssignments>
-										<GroupOfAccessRightParameterAssignments version="any" id="mygtfsxm:GroupOfAccessRightParameterAssignments:p@AMV">
-											<accessRightParameterAssignments>
-												<AccessRightParameterAssignment version="any" id="mygtfsxm:AccessRightParameterAssignment:p@AMV">
-													<Name>WHat can travel oin </Name>
-													<GroupOfLinesRef version="any" ref="mygtfsxm:GroupOfLines:a"> </GroupOfLinesRef>
-												</AccessRightParameterAssignment>
-												<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:p@AMV">
-													<Name>No Transfers</Name>
-													<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:single"/>
-													<InterchangingRef version="any" ref="mygtfsxm:Interchanging:noInterchanging"/>
-												</ValidityParameterAssignment>
-											</accessRightParameterAssignments>
-										</GroupOfAccessRightParameterAssignments>
-									</groupsOfAccessRightParameterAssignments>
-								</AccessRightInProduct>
-							</accessRightsInProduct>
-						</PreassignedFareProduct>
-					</fareProducts>
-					<tariffs>
-						<Tariff version="any" id="mygtfsxm:Tariff:DTA">
-							<AuthorityRef version="any" ref="mygtfsxm:Authority:DTA"/>
-							<priceGroups>
+							<fareTables>
 								<FareTable version="any" id="mygtfsxm:FareTable:DTA">
 									<Name>Prices for example</Name>
-									<members>
-										<CellPrice version="any" id="mygtfsxm:CellPrice:p">
+									<pricesFor>
+										<PreassignedFareProductRef version="any" ref="mygtfsxm:PreassignedFareProduct:p"/>
+									</pricesFor>
+									<cells>
+										<ValidableElementPrice version="any" id="mygtfsxm:ValidableElementPrice:p">
 											<Amount>1.25</Amount>
-											<Currency>USD</Currency>
-											<GroupOfAccessRightParameterAssignmentsRef version="any" ref="mygtfsxm:GroupOfAccessRightParameterAssignments:p@local"/>
-											<PreassignedFareProductRef version="any" ref="mygtfsxm:PreassignedFareProduct:p"/>
-										</CellPrice>
-										<CellPrice version="any" id="mygtfsxm:CellPrice:a">
+											<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:localBusTrip"/>
+										</ValidableElementPrice>
+										<ValidableElementPrice version="any" id="mygtfsxm:ValidableElementPrice:a">
 											<Amount>5.25</Amount>
-											<Currency>USD</Currency>
-											<GroupOfAccessRightParameterAssignmentsRef version="any" ref="mygtfsxm:GroupOfAccessRightParameterAssignments:p@AMV"/>
-											<PreassignedFareProductRef version="any" ref="mygtfsxm:PreassignedFareProduct:p"/>
-										</CellPrice>
-									</members>
-									<GroupOfAccessRightParameterAssignmentsRef version="any" ref="mygtfsxm:GroupOfAccessRightParameterAssignments:p@AMV"/>
+											<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:busTrip"/>
+										</ValidableElementPrice>
+									</cells>
 								</FareTable>
-							</priceGroups>
-						</Tariff>
-					</tariffs>
+							</fareTables>
+							<ChargingMomentRef version="any" ref="gtfs:ChargingMoment:0"/>
+							<validityParameterAssignments>
+								<GenericParameterAssignment version="any" order="1" id="mygtfsxm:GenericParameterAssignment:p">
+									<Name>No Transfers</Name>
+									<limitations>
+										<FrequencyOfUseRef version="any" ref="mygtfsxm:FrequencyOfUse:single"/>
+										<InterchangingRef version="any" ref="mygtfsxm:Interchanging:noInterchanging"/>
+									</limitations>
+								</GenericParameterAssignment>
+							</validityParameterAssignments>
+							<accessRightsInProduct>
+								<AccessRightInProduct order="1" id="mygtfsxm:PreassignedFareProduct:p" version="any">
+									<Name>Local Flat Fare, no transfers</Name>
+									<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:localBusTrip"/>
+								</AccessRightInProduct>
+								<AccessRightInProduct order="2" id="mygtfsxm:PreassignedFareProduct:p" version="any">
+									<Name>AMV Flat Fare, no transfers</Name>
+									<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:busTrip"/>
+								</AccessRightInProduct>
+							</accessRightsInProduct>
+							<!--- ====PRICES======= -->
+						</PreassignedFareProduct>
+					</fareProducts>
 					<!--- ====fare_attributes.txt====== -->
 				</FareFrame>
 			</frames>
@@ -1480,7 +1458,7 @@ See individual files for mappings
 				<DefaultCodespaceRef ref="gtfs"/>
 			</FrameDefaults>
 			<frames>
-				<!--- DEFINTIONS OF FIXED  VALUES -->
+				<!--- DEFINITIONS OF FIXED  VALUES -->
 				<ResourceFrame version="1.5" id="gtfs:ResourceFrame:BuiltIn_Codes">
 					<Name>GTFS Built in values: Metadata defining Google values:  Stop@Location_type,</Name>
 					<typesOfValue>
@@ -1533,46 +1511,56 @@ See individual files for mappings
 						<TypeOfFrame version="1.5" changed="2011-01-20T00:00:00" id="gtfs:TypeOFrame:GTFS">
 							<Name>GTFS Version Frame definition: A GTFS timetable has the followinbg classes </Name>
 							<classes>
-								<ClassInContextRef nameOfClass="AvailabilityCondition" classRefType="memberReferences"/>
+								<ClassInFrameRef nameOfClass="AvailabilityCondition" classRefType="memberReferences"/>
 							</classes>
-							<typesOfFrame>
+							<includes>
 								<TypeOfFrame version="1.5" changed="2011-01-20T00:00:00" id="gtfs:TypeOFrame:GtfsResource">
 									<FrameClassRef nameOfClass="ResourceFrame"/>
 									<classes>
-										<ClassInContextRef nameOfClass="Authority" classRefType="memberReferences"/>
+										<ClassInFrameRef nameOfClass="Authority" classRefType="memberReferences"/>
 									</classes>
 								</TypeOfFrame>
 								<TypeOfFrame version="1.5" changed="2011-01-20T00:00:00" id="gtfs:TypeOFrame:GtfsServiceCalendar">
 									<FrameClassRef nameOfClass="ServiceCalendarFrame"/>
 									<classes>
-										<ClassInContextRef nameOfClass="DayType" classRefType="memberReferences"/>
+										<ClassInFrameRef nameOfClass="DayType" classRefType="memberReferences"/>
 									</classes>
 								</TypeOfFrame>
 								<TypeOfFrame version="1.5" changed="2011-01-20T00:00:00" id="gtfs:TypeOFrame:GtfsSite">
 									<FrameClassRef nameOfClass="SiteFrame"/>
 									<classes>
-										<ClassInContextRef nameOfClass="StopPlace" classRefType="memberReferences"/>
+										<ClassInFrameRef nameOfClass="StopPlace" classRefType="memberReferences"/>
 									</classes>
 								</TypeOfFrame>
 								<TypeOfFrame version="1.5" changed="2011-01-20T00:00:00" id="gtfs:TypeOFrame:GtfsService">
 									<FrameClassRef nameOfClass="ServiceFrame"/>
 									<classes>
-										<ClassInContextRef nameOfClass="Direction" classRefType="memberReferences"/>
-										<ClassInContextRef nameOfClass="Line" classRefType="memberReferences"/>
-										<ClassInContextRef nameOfClass="ScheduledStopPoint" classRefType="memberReferences"/>
-										<ClassInContextRef nameOfClass="TariffZone" classRefType="memberReferences"/>
+										<ClassInFrameRef nameOfClass="Direction" classRefType="memberReferences"/>
+										<ClassInFrameRef nameOfClass="Line" classRefType="memberReferences"/>
+										<ClassInFrameRef nameOfClass="ScheduledStopPoint" classRefType="memberReferences"/>
+										<ClassInFrameRef nameOfClass="TariffZone" classRefType="memberReferences"/>
 									</classes>
 								</TypeOfFrame>
 								<TypeOfFrame version="1.5" changed="2011-01-20T00:00:00" id="gtfs:TypeOFrame:GtfsTimetable">
 									<FrameClassRef nameOfClass="TimetableFrame"/>
 									<classes>
-										<ClassInContextRef nameOfClass="AvailabilityCondition" classRefType="memberReferences"/>
-										<ClassInContextRef nameOfClass="TimetableFrame" classRefType="members"/>
-										<ClassInContextRef nameOfClass="ServiceJourney" classRefType="members"/>
-										<ClassInContextRef nameOfClass="TemplateServiceJourney" classRefType="members"/>
+										<ClassInFrameRef nameOfClass="AvailabilityCondition" classRefType="memberReferences"/> 
+										<ClassInFrameRef nameOfClass="ServiceJourney" classRefType="members"/>
+										<ClassInFrameRef nameOfClass="TemplateServiceJourney" classRefType="members"/>
+										<ClassInFrame nameOfClass="TimetableFrame">
+											<ClassRefType>members</ClassRefType>
+											<relationships>
+												<ClassRelationshipInFrame>
+													<RelationshipRef nameOfClass="serviceJourneys"/>
+													<Mandatory>required</Mandatory>
+													<Containment>inline</Containment>
+													<ModificationSet>all</ModificationSet>
+												</ClassRelationshipInFrame>
+											</relationships>
+										</ClassInFrame>
 									</classes>
 								</TypeOfFrame>
-							</typesOfFrame>
+							</includes>
 						</TypeOfFrame>
 					</typesOfValue>
 				</ResourceFrame>

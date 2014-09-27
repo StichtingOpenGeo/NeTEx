@@ -7,7 +7,7 @@
 
 		</xsd:schema>
 		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:siri="http://www.siri.org.uk/siri" xmlns:netexWs="http://www.siri.org.uk/siriWS" targetNamespace="http://www.siri.org.uk/siriWS">
-			<xsd:include schemaLocation="../siri/siri_wsProducer-Framework.xsd"/>
+			<xsd:include schemaLocation="../wsdl_model/siri_wsProducer-Framework.xsd"/>
 			<xsd:element name="GetNeTexService" type="siri:SiriRequestStructure"/>
 			<xsd:element name="GetNeTexServiceResponse" type="siri:SiriResponseStructure"/>
 		</xsd:schema>

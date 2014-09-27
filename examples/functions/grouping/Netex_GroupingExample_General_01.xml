@@ -71,7 +71,7 @@ Version History
 						<ScheduledStopPointRef ref="mybus:ScheduledStopPoint:SSP0002B"/>
 						<ScheduledStopPointRef ref="mybus:ScheduledStopPoint:SSP0003CA"/>
 						<ServiceLinkRef ref="mybus:ServiceLink:SL_AtoB01"/>
-					</members>
+					</members> 
 				</GeneralGroupOfEntities>
 			</groupsOfEntities>
 		</ResourceFrame>

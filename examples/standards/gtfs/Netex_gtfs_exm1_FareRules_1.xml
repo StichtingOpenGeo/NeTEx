@@ -32,8 +32,8 @@ GTFS					NeTEx
 fare_id,					<FareProduct> @id 
 							|	<PreassignedFareProduct> 
 route_id,				<FareProduct> <validityParameterAssignments>
-									<ValidityParameterAssignment> <GroupOfLinesRef > 
-									<ValidityParameterAssignment> <AuthorityRef >
+									<GenericParameterAssignment> <GroupOfLinesRef > 
+									<GenericParameterAssignment> <AuthorityRef >
 origin_id,				- 
 destination_id,		- 
 contains_id	,		-  
@@ -43,7 +43,7 @@ contains_id	,		-
 GTFS					NeTEx
 fare_id,					<FareProduct> @id  
 route_id,				<FareProduct> <validityParameterAssignments>
-									<ValidityParameterAssignment> <GroupOfLinesRef >
+									<GenericParameterAssignment> <GroupOfLinesRef >
 origin_id,				<Tariff> <distanceMatrixElements><DistanceMatrixElement> <StartTariffZoneRef>
 							| <Tariff> <distanceMatrixElements><DistanceMatrixElement> <StartScheduledStopPointRef>
 destination_id,		<Tariff> <distanceMatrixElements><DistanceMatrixElement> <EndTariffZoneRef>
@@ -56,12 +56,12 @@ contains_id
 GTFS					NeTEx
 fare_id,					<FareProduct> @id  
 route_id,				<FareProduct> <validityParameterAssignments>
-									<ValidityParameterAssignment> <GroupOfLinesRef >
+									<GenericParameterAssignment> <GroupOfLinesRef >
 origin_id,				<DistanceMatrixElement> <StartTariffZoneRef>
 destination_id,		<DistanceMatrixElement> <EndTariffZoneRef>
 contains_id	,		<Tariff><fareStructureElements>
 								<FareStructureElement><fareStructureElementsInSequence>
-									<FareStructureElementInSequence><ValidityParameterAssignment> <TariffZoneRef > 
+									<FareStructureElementInSequence><GenericParameterAssignment> <TariffZoneRef > 
 
 
 
@@ -69,7 +69,7 @@ GTFS Data copyright Google Inc
 
  NeTEx (C) CEN Copyright 2010, 2011
 -->
-<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  >
+<PublicationDelivery version="1.0" xsi:schemaLocation="http://www.netex.org.uk/netex ../../../xsd/NeTEx_publication.xsd" xmlns="http://www.netex.org.uk/netex" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<PublicationTimestamp>2001-12-17T09:30:47.0Z</PublicationTimestamp>
 	<ParticipantRef>SYS001</ParticipantRef>
 	<!--- ======WHAT WAS REQUESTED ========== -->
@@ -134,20 +134,42 @@ GTFS Data copyright Google Inc
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="mygtfsxm"/>
 			</FrameDefaults>
+			<!--- ====VALIDABLE ELEMENTs====== -->
+			<validableElements>
+				<ValidableElement version="any" id="mygtfsxm:ValidableElement:busTrip">
+					<Name>A Bus Trip</Name>
+					<validityParameterAssignments>
+						<GenericParameterAssignment version="any" order="1"  id="mygtfsxm:GenericParameterAssignment:busTrip">
+							<validityParameters>
+								<VehicleModes>bus</VehicleModes>
+							</validityParameters>
+						</GenericParameterAssignment>
+					</validityParameterAssignments>
+				</ValidableElement>
+			</validableElements>
 			<!--- ====Fare Product======= -->
 			<fareProducts>
 				<PreassignedFareProduct version="any" id="mygtfsxm:PreassignedFareProduct:p">
 					<validityParameterAssignments>
-						<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:p">
-							<GroupOfLinesRef version="any" ref="mygtfsxm:GroupOfLines:p"> </GroupOfLinesRef>
-						</ValidityParameterAssignment>
+						<GenericParameterAssignment version="any" order="1"  id="mygtfsxm:GenericParameterAssignment:access@p">
+							<validityParameters>
+								<GroupOfLinesRef version="any" ref="mygtfsxm:GroupOfLines:p"> </GroupOfLinesRef>
+							</validityParameters>
+						</GenericParameterAssignment>
 					</validityParameterAssignments>
+					<accessRightsInProduct>
+						<AccessRightInProduct version="any" id="mygtfsxm:AccessRightInProduct:p" order="1">
+							<ValidableElementRef version="any" ref="mygtfsxm:ValidableElement:busTrip"/>
+						</AccessRightInProduct>
+					</accessRightsInProduct>
 				</PreassignedFareProduct>
 				<PreassignedFareProduct version="any" id="mygtfsxm:PreassignedFareProduct:a">
 					<validityParameterAssignments>
-						<ValidityParameterAssignment version="any" id="mygtfsxm:ValidityParameterAssignment:a">
-							<GroupOfLinesRef version="any" ref="mygtfsxm:GroupOfLines:a"> </GroupOfLinesRef>
-						</ValidityParameterAssignment>
+						<GenericParameterAssignment version="any" order="1"  id="mygtfsxm:GenericParameterAssignment:a">
+							<validityParameters>
+								<GroupOfLinesRef version="any" ref="mygtfsxm:GroupOfLines:a"> </GroupOfLinesRef>
+							</validityParameters>
+						</GenericParameterAssignment>
 					</validityParameterAssignments>
 				</PreassignedFareProduct>
 			</fareProducts>

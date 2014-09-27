@@ -9,6 +9,11 @@ This example shows the usage of Operating calendars with reference to it from th
 	<ParticipantRef>TAP</ParticipantRef>
 	<dataObjects>
 		<CompositeFrame id="tap:CompositeFrame:Cf_01" version="any">
+			<validityConditions>
+				<AvailabilityCondition id="tap:AvailabilityCondition:2009-02-24T1632_CompositeFrame" version="any">
+					<FromDate>2009-02-24T00:00:00</FromDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!--- ======= CODESPACEs======== -->
 			<codespaces>
 				<Codespace id="tap">
@@ -26,31 +31,26 @@ This example shows the usage of Operating calendars with reference to it from th
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="uic"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition id="tap:AvailabilityCondition:2009-02-24T1632_CompositeFrame" version="any">
-					<FromDate>2009-02-24T00:00:00</FromDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<ResourceFrame id="tap:RessourceFrame:Rf_01" version="any">
 					<responsibilitySets>
 						<ResponsibilitySet id="tap:ResponsibilitySet:collects:0003" version="any">
 							<roles>
-								<ResponsibilityRoleAssignment>
+								<ResponsibilityRoleAssignment id="tap:ResponsibilityRoleAssignment:collects:0003" version="any">
 									<DataRoleType>collects</DataRoleType>
 								</ResponsibilityRoleAssignment>
 							</roles>
 						</ResponsibilitySet>
 						<ResponsibilitySet id="tap:ResponsibilitySet:distributes:0003" version="any">
 							<roles>
-								<ResponsibilityRoleAssignment>
+								<ResponsibilityRoleAssignment id="tap:ResponsibilityRoleAssignment:distributes:0003" version="any">
 									<DataRoleType>distributes</DataRoleType>
 								</ResponsibilityRoleAssignment>
 							</roles>
 						</ResponsibilitySet>
 						<ResponsibilitySet id="tap:ResponsibilitySet:operates:0019" version="any">
 							<roles>
-								<ResponsibilityRoleAssignment>
+								<ResponsibilityRoleAssignment id="tap:ResponsibilityRoleAssignment:operates:0019" version="any">
 									<StakeholderRoleType>Operation</StakeholderRoleType>
 								</ResponsibilityRoleAssignment>
 							</roles>
@@ -67,8 +67,7 @@ This example shows the usage of Operating calendars with reference to it from th
 					</operatingPeriods>
 				</ServiceCalendarFrame>
 				<TimetableFrame version="any" id="uic:TimetableFrame:TIM_001">
-					<Name>Uic Example of a very simple train timetable</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="uicvj:AvailabilityCondition:393">
 							<FromDate>2006-11-04T12:00:00</FromDate>
 							<ToDate>2006-11-04T12:00:00</ToDate>
@@ -76,7 +75,8 @@ This example shows the usage of Operating calendars with reference to it from th
 								<DayTypeRef ref="uic:DayType:DT_01"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Uic Example of a very simple train timetable</Name>
 					<VehicleModes>rail</VehicleModes>
 					<vehicleJourneys>
 						<!-- =====     == -->

@@ -141,6 +141,12 @@ nptg:PointOfInterestClassification:PoiCat_Sports_WarmUp	 -  Athletics warm up ar
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="oda:CompositeFrame:OPK_01">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="oda:AvailabilityCondition:OPK_01">
+					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
+					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!-- ==  CODESPACEs = -->
 			<codespaces>
 				<Codespace id="napt">
@@ -163,12 +169,6 @@ nptg:PointOfInterestClassification:PoiCat_Sports_WarmUp	 -  Athletics warm up ar
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="oda"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="oda:AvailabilityCondition:OPK_01">
-					<FromDate>2010-12-17T09:30:47.0Z</FromDate>
-					<ToDate>2011-12-17T09:30:47.0Z</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!-- - ==== SERVICE CALENDAR === -->
 				<ServiceCalendarFrame version="any" id="oda:ServiceCalendarFrame:CAL_01">
@@ -246,53 +246,53 @@ nptg:PointOfInterestClassification:PoiCat_Sports_WarmUp	 -  Athletics warm up ar
 						</Timeband>
 					</timebands>
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-27">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-27">
 							<Description>Friday 2012-07-27 Opening</Description>
 							<Date>2012-07-27</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-28">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-28">
 							<Description>Saturday 2012-07-28</Description>
 							<Date>2012-07-28</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-29">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-29">
 							<Description>Sunday 2012-07-29</Description>
 							<Date>2012-07-29</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
 						<!-- Week 2 -->
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-30">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-30">
 							<Description>Monday 2012-07-30</Description>
 							<Date>2012-07-30</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-07-31">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-07-31">
 							<Description>Tuesday 2012-07-31</Description>
 							<Date>2012-07-31</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT03_Normal"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-01">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-01">
 							<Description>Wednesday 2012-08-01</Description>
 							<Date>2012-08-01</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT03_Normal"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-02">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-02">
 							<Description>Thusday 2012-08-02</Description>
 							<Date>2012-08-02</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-03">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-03">
 							<Description>Friday 2012-08-03</Description>
 							<Date>2012-08-03</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-04">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-04">
 							<Description>Saturday2012-08-04</Description>
 							<Date>2012-08-04</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DayAsgn_2012-08-05">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DayAsgn_2012-08-05">
 							<Description>Sunday 2012-08-05</Description>
 							<Date>2012-08-05</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
@@ -431,15 +431,15 @@ nptg:PointOfInterestClassification:PoiCat_Sports_WarmUp	 -  Athletics warm up ar
 						<PointOfInterest version="any" id="napt:PointOfInterest:8100OPK">
 							<Name>London 2012 Olympic Park</Name>
 							<Description>Queen Elizabeth II Olympic Park</Description>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-180</Longitude>
 									<Latitude>-90</Latitude>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Park"/>
 							</placeTypes>
@@ -453,14 +453,14 @@ nptg:PointOfInterestClassification:PoiCat_Sports_WarmUp	 -  Athletics warm up ar
 							<entrances>
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E1">
 									<Name>2012 Olympic Park Stratford Entrance</Name>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">184435 538185</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E1_addr1">
 										<BuildingName>Olympic Park Entrance</BuildingName>
 										<AddressLine1>Station Street  </AddressLine1>
@@ -641,14 +641,14 @@ nptg:PointOfInterestClassification:PoiCat_Sports_WarmUp	 -  Athletics warm up ar
 								</PointOfInterestEntrance>
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E2">
 									<Name>2012 Olympic Park North Entrance</Name>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">1856565.33 37409.715</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<placeTypes>
 										<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 									</placeTypes>
@@ -832,14 +832,14 @@ nptg:PointOfInterestClassification:PoiCat_Sports_WarmUp	 -  Athletics warm up ar
 								</PointOfInterestEntrance>
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E3">
 									<Name>2012 Olympic Park South Entrance</Name>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">183681 538232</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E3_Addr1">
 										<BuildingName>South Entrance</BuildingName>
 										<AddressLine1>Burford Road</AddressLine1>
@@ -1020,14 +1020,14 @@ nptg:PointOfInterestClassification:PoiCat_Sports_WarmUp	 -  Athletics warm up ar
 								</PointOfInterestEntrance>
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E4">
 									<Name>2012 Olympic Park East Entrance</Name>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">183839.455 537322.929</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E4_addr1">
 										<BuildingName>Park West Entrance</BuildingName>
 										<AddressLine1>Warton Road</AddressLine1>

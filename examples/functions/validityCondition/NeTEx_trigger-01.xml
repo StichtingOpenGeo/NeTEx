@@ -31,27 +31,27 @@
 				<ValidityRuleParameter version="any" id="hde:ValidityRuleParameter:VC_ntwkf003_002_icy">
 					<Description>Use when Icy</Description>
 					<ConditionedObjectRef nameOfRefClass="TimetableFrame" ref="abc:TimetableFrame:Tf01"/>
+					<WithConditionRef version="any" ref="hde:ValidityRuleParameter:VC_ntwkf003_002_winter"/>
 					<RuleObjectRef nameOfRefClass="Weather" ref="Myobj:Cur001">EXTERNAL</RuleObjectRef>
 					<AttributeName>roadCondition</AttributeName>
 					<ComparisonOperator>EQ</ComparisonOperator>
 					<AttributeValue>icy</AttributeValue>
-					<WithConditionRef version="any" ref="hde:ValidityRuleParameter:VC_ntwkf003_002_winter"/>
 				</ValidityRuleParameter>
 				<ValidityRuleParameter version="any" id="hde:ValidityRuleParameter:VC_ntwkf003_002_winter">
 					<Description>Use when Winter</Description>
 					<ConditionedObjectRef nameOfRefClass="TimetableFrame" ref="abc:TimetableFrame:Tf01"/>
-					<RuleObjectRef nameOfRefClass="DayType" ref="Myobj:DT001" version="1"/>
-					 <isValid>true</isValid>
 					<WithConditionRef version="any" ref="hde:ValidityRuleParameter:rp_02_long"/>
+					<RuleObjectRef nameOfRefClass="DayType" ref="Myobj:DT001" version="1"/>
+					<isValid>true</isValid>
 				</ValidityRuleParameter>
 				<ValidityRuleParameter version="any" id="hde:ValidityRuleParameter:rp_02_long">
 					<Description>If run time is greater than five minuets</Description>
 					<ConditionedObjectRef nameOfRefClass="TimetableFrame" ref="abc:TimetableFrame:Tf01"/>
+					<WithConditionRef version="any" ref="hde:ValidityTrigger:vt_01"/>
 					<RuleObjectRef nameOfRefClass="JourneyPatternRunTime" ref="JourneyPatternRunTime:JPRT_1234234"/>
 					<AttributeName>RunTime</AttributeName>
 					<ComparisonOperator>GT</ComparisonOperator>
 					<AttributeValue>'PT5M'</AttributeValue>
-					<WithConditionRef version="any" ref="hde:ValidityTrigger:vt_01"/>
 				</ValidityRuleParameter>
 				<ValidityTrigger version="any" id="hde:ValidityTrigger:vt_01">
 					<Description>Special event day</Description>

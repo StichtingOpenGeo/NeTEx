@@ -86,7 +86,7 @@ min_transfer_time,	 										<Connection><LineRef>
 					</typesOfValue>
 				</ResourceFrame>
 				<!--- =======ACTUAL DATA========== -->
-				<ServiceFrame id="mygtfsexm:ServiceFrame:DTA">
+				<ServiceFrame id="mygtfsexm:ServiceFrame:DTA" version="any">
 					<connections>
 						<Connection version="any" id="mygtfsexm:Connection:NADAV-BOONDOCK">
 							<TypeOfTransferRef version="any" ref="gtfs:TypeOfTransfer:0"/>
@@ -146,14 +146,14 @@ min_transfer_time,	 										<Connection><LineRef>
 					</connections>
 					<!--- ===Stops.txt==TRANSFER RESTRICTIONS======== -->
 					<transferRestrictions>
-						<TransferRestriction version="any" id="mygtfsexm:TransferRestriction:NADAV-BOONDOCK">
+						<TransferRestriction order='1' version="any" id="mygtfsexm:TransferRestriction:NADAV-BOONDOCK">
 							<Name>No Transfer</Name>
 							<TypeOfTransferRef version="any" ref="gtfs:TypeOfTransfer:0"/>
 							<RestrictionType>cannotTransfer</RestrictionType>
 							<FromPointRef ref="mygtfsexm:ScheduledStopPoint:NADAV"/>
 							<ToPointRef ref="mygtfsexm:ScheduledStopPoint:BOONDOCK"/>
 						</TransferRestriction>
-						<TransferRestriction version="any" id="mygtfsexm:TransferRestriction:BULLFROG-POND">
+						<TransferRestriction  order='1'  version="any" id="mygtfsexm:TransferRestriction:BULLFROG-POND">
 							<TypeOfTransferRef ref="gtfs:TypeOfTransfer:3"/>
 							<BothWays>true</BothWays>
 							<RestrictionType>cannotTransfer</RestrictionType>

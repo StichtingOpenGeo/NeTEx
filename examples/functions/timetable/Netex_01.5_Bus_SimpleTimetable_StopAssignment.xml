@@ -121,14 +121,14 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="hde:TimetableFrameTIM_23_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -281,7 +281,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 					</servicePatterns>
 					<!--- =========STOP ASSIGNMENTs=========== -->
 					<stopAssignments>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:psa_SSP_001_to_SP57001A_Q4">
+						<PassengerStopAssignment order ="1" version="any" id="hde:PassengerStopAssignment:psa_SSP_001_to_SP57001A_Q4">
 							<Description lang="en">Assigns   Alpha to physical stop -   quay  4</Description>
 							<BoardingUse>true</BoardingUse>
 							<AlightingUse>true</AlightingUse>
@@ -289,7 +289,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP57001A"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP57001A_4"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1a">
+						<PassengerStopAssignment order ="1" version="any" id="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1a">
 							<Description lang="en">Assigns Arrivals  at Bravo to Eastbound Quay</Description>
 							<BoardingUse>false</BoardingUse>
 							<AlightingUse>true</AlightingUse>
@@ -297,7 +297,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP57002B"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP57002B_1a"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1b">
+						<PassengerStopAssignment order ="2" version="any" id="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1b">
 							<Description lang="en">Assigns Departures at Bravo to Eastbound Quay</Description>
 							<BoardingUse>true</BoardingUse>
 							<AlightingUse>false</AlightingUse>
@@ -305,7 +305,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 							<StopPlaceRef version="any" ref="mybus:StopPlace:SP57002B"/>
 							<QuayRef version="any" ref="mybus:Quay:Q_SP57002B_1b"/>
 						</PassengerStopAssignment>
-						<PassengerStopAssignment version="any" id="hde:PassengerStopAssignment:psa_SSP_077_to_SP57003C">
+						<PassengerStopAssignment order ="1" version="any" id="hde:PassengerStopAssignment:psa_SSP_077_to_SP57003C">
 							<Description lang="en">Assigns   to  Charley - no quay specified </Description>
 							<BoardingUse>true</BoardingUse>
 							<AlightingUse>true</AlightingUse>
@@ -348,8 +348,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 				</ServiceFrame>
 				<!-- ======Timetable ======= -->
 				<TimetableFrame version="1" id="hde:TimetableFrame:TIM_23_O">
-					<Name>Winter timetable for route 23 outbound</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:Cnd001">
 							<Description>Sept  to March</Description>
 							<FromDate>2010-11-01T00:00:00Z</FromDate>
@@ -359,7 +358,8 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 								<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Winter timetable for route 23 outbound</Name>
 					<VehicleModes>bus</VehicleModes>
 					<vehicleJourneys>
 						<ServiceJourney version="any" id="hde:ServiceJourney:sj_24o_01">
@@ -381,7 +381,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<Arrival>
 										<ForAlighting>false</ForAlighting>
 										<QuayAssignmentView>
-											<PassengerStopAssignmentRef version="any" ref="hde:PassengerStopAssignment:psa_SSP_001_to_SP57001A_Q4"/>
+											<PassengerStopAssignmentRef order ="1" version="any" ref="hde:PassengerStopAssignment:psa_SSP_001_to_SP57001A_Q4"/>
 											<StopPlaceRef version="any" ref="mybus:StopPlace:SP57001A"/>
 											<QuayRef version="any" ref="mybus:Quay:Q_SP57001A_4"/>
 											<QuayName>Alpha Platform 4</QuayName>
@@ -397,7 +397,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<Arrival>
 										<Time>14:30:00.0Z</Time>
 										<QuayAssignmentView>
-											<PassengerStopAssignmentRef version="any" ref="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1a"/>
+											<PassengerStopAssignmentRef order ="1" version="any" ref="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1a"/>
 											<StopPlaceRef version="any" ref="mybus:StopPlace:SP57002B"/>
 											<QuayRef version="any" ref="mybus:Quay:Q_SP57002B_1a"/>
 											<Label>Bravo 1A</Label>
@@ -407,7 +407,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 										<Time>14:32:00.0Z</Time>
 										<WaitTime>PT2M</WaitTime>
 										<QuayAssignmentView>
-											<PassengerStopAssignmentRef version="any" ref="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1b"/>
+											<PassengerStopAssignmentRef order ="2" version="any" ref="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1b"/>
 											<StopPlaceRef version="any" ref="mybus:StopPlace:SP57002B"/>
 											<QuayRef version="any" ref="mybus:Quay:Q_SP57002B_1b"/>
 											<Label>Bravo 1B</Label>
@@ -423,7 +423,7 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<Departure>
 										<ForBoarding>false</ForBoarding>
 										<QuayAssignmentView>
-											<PassengerStopAssignmentRef version="any" ref="hde:PassengerStopAssignment:psa_SSP_077_to_SP57003C"/>
+											<PassengerStopAssignmentRef order ="1" version="any" ref="hde:PassengerStopAssignment:psa_SSP_077_to_SP57003C"/>
 											<StopPlaceRef version="any" ref="mybus:StopPlace:SP57003C"/>
 											<Label>C1</Label>
 										</QuayAssignmentView>
@@ -452,16 +452,16 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									</Arrival>
 									<Departure>
 										<Time>15:20:00.0Z</Time>
-										<PassengerStopAssignmentRef version="any" ref="hde:PassengerStopAssignment:psa_SSP_001_to_SP57001A_Q4"/>
+										<PassengerStopAssignmentRef order ="1" version="any" ref="hde:PassengerStopAssignment:psa_SSP_001_to_SP57001A_Q4"/>
 									</Departure>
 								</Call>
 								<Call id="hde:Call:sj_24o_02_002" order="2">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_002"/>
 									<Arrival>
 										<Time>15:30:00.0Z</Time>
-										<PassengerStopAssignmentRef version="any" ref="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1a"/>
+										<PassengerStopAssignmentRef order ="1" version="any" ref="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1a"/>
 										<noticeAssignments>
-											<NoticeAssignmentView id="hde:NoticeAssignment:sj_24o_02_002_01">
+											<NoticeAssignmentView id="hde:NoticeAssignment:sj_24o_02_002_01" order="1">
 												<NoticeRef version="any" ref="hde:Notice:sj_24o_02"/>
 												<Text>Can connect to LINE 4</Text>
 											</NoticeAssignmentView>
@@ -470,14 +470,14 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 									<Departure>
 										<Time>15:32:00.0Z</Time>
 										<WaitTime>PT2M</WaitTime>
-										<PassengerStopAssignmentRef version="any" ref="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1b"/>
+										<PassengerStopAssignmentRef order ="2" version="any" ref="hde:PassengerStopAssignment:psa_SSP_002_to_SP57002B_Q1b"/>
 									</Departure>
 								</Call>
 								<Call id="hde:Call:sj_24o_02_003" order="3">
 									<ScheduledStopPointRef version="any" ref="mybus:ScheduledStopPoint:SSP_077"/>
 									<Arrival>
 										<Time>16:10:00.0Z</Time>
-										<PassengerStopAssignmentRef version="any" ref="hde:PassengerStopAssignment:psa_SSP_077_to_SP57003C"/>
+										<PassengerStopAssignmentRef order ="1" version="any" ref="hde:PassengerStopAssignment:psa_SSP_077_to_SP57003C"/>
 									</Arrival>
 									<Departure>
 										<ForBoarding>false</ForBoarding>
@@ -717,73 +717,73 @@ A COMPOSITE FRAME is used to group the component FRAMEs
 						</DayType>
 					</dayTypes>
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
 							<Description>Monday 2010-11-01</Description>
 							<Date>2010-11-01</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
 							<Description>Tuesday 2010-11-02</Description>
 							<Date>2010-11-02</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
 							<Description>Wednesday 2010-11-03</Description>
 							<Date>2010-11-03</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
 							<Description>Thusday 2010-11-04</Description>
 							<Date>2010-11-04</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
 							<Description>MFriday 2010-11-05</Description>
 							<Date>2010-11-05</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-06">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-06">
 							<Description>Saturday 2010-11-06</Description>
 							<Date>2010-11-06</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-07">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-07">
 							<Description>Sunday 2010-11-07</Description>
 							<Date>2010-11-07</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>
 						</DayTypeAssignment>
 						<!-- Week 2 -->
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-08">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-08">
 							<Description>Monday 2010-11-08</Description>
 							<Date>2010-11-08</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-09">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-09">
 							<Description>Tuesday 2010-11-09</Description>
 							<Date>2010-11-09</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-10">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-10">
 							<Description>Wednesday 2010-11-10</Description>
 							<Date>2010-11-10</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-11">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-11">
 							<Description>Thusday 2010-11-11</Description>
 							<Date>2010-11-11</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-12">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-12">
 							<Description>MFriday 2010-11-12</Description>
 							<Date>2010-11-12</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-113">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-113">
 							<Description>Saturday 2010-11-13</Description>
 							<Date>2010-11-13</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-14">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-14">
 							<Description>Sunday 2010-11-14</Description>
 							<Date>2010-11-14</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_03-WE-NH"/>

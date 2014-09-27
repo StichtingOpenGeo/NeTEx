@@ -40,6 +40,16 @@ This version shows the use of thye general  frame to hold references rather than
 	<dataObjects>
 		<!--- =====NETWORK VERSION All========== -->
 		<GeneralFrame version="005" created="2010-05-17T09:30:47.0Z" changed="2010-05-22T10:30:51.0Z" derivedFromVersionRef="004" responsibilitySetRef="mybus:ResponsibilitySet:RS_10" id="mybus:ntwkf001">
+			<validityConditions>
+				<AvailabilityCondition created="2010-05-18T10:30:47.0Z" version="003" id="mybus:AvailabilityCondition:VC002_mf">
+					<Description>Use when no ice</Description>
+					<FromDate>2010-05-17T00:00:00Z</FromDate>
+					<ToDate>2011-05-17T00:00:00Z</ToDate>
+					<dayTypes>
+						<DayTypeRef ref="mybus:DayType:DT001_MF"/>
+					</dayTypes>
+				</AvailabilityCondition>
+			</validityConditions>
 			<Name>My Network  Version 4 One link has been removed. Baseline is version 3 as Links  needs exist</Name>
 			<BaselineVersionFrameRef ref="mybus:GeneralFrame:003">EXTERNAL</BaselineVersionFrameRef>
 			<!--- ======= CODESPACEs======== -->
@@ -55,16 +65,6 @@ This version shows the use of thye general  frame to hold references rather than
 				<DefaultCodespaceRef ref="mybus"/>
 				<DefaultResponsibilitySetRef ref="mybus:ResponsibilitySet:RS_10"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition created="2010-05-18T10:30:47.0Z" version="003" id="mybus:AvailabilityCondition:VC002_mf">
-					<Description>Use when no ice</Description>
-					<FromDate>2010-05-17T00:00:00Z</FromDate>
-					<ToDate>2011-05-17T00:00:00Z</ToDate>
-					<dayTypes>
-						<DayTypeRef ref="mybus:DayType:DT001_MF"/>
-					</dayTypes>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<members>
 				<GeneralFrameMember id="mybus:GeneralFrameMember:ntwkf001_01">
 					<ScheduledStopPointRef ref="mybus:ScheduledStopPoint:SSP0001A"/>

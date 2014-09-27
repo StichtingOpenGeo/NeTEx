@@ -158,7 +158,7 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 	<PublicationRequest version="1.0">
 		<RequestTimestamp>2001-12-17T09:30:47.0Z</RequestTimestamp>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<NetworkFilterByValue>
 					<!--- ==Get OPK data -->
@@ -166,7 +166,7 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 						<TopographicPlaceRef ref="napt:TopographicPlace:490">Wimbledon</TopographicPlaceRef>
 					</places>
 				</NetworkFilterByValue>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P3M</PublicationRefreshInterval>
@@ -174,6 +174,12 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 	<!--- =============== RESULTS =========== -->
 	<dataObjects>
 		<CompositeFrame version="1" id="oda:CompositeFrame:OPK_01">
+			<validityConditions>
+				<AvailabilityCondition version="any" id="oda:AvailabilityCondition:OPK_01">
+					<FromDate>2012-07-26T00:00:00Z</FromDate>
+					<ToDate>2012-08-12T00:00:00Z</ToDate>
+				</AvailabilityCondition>
+			</validityConditions>
 			<!-- ==  CODESPACEs = -->
 			<codespaces>
 				<Codespace id="napt">
@@ -201,12 +207,6 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 			<FrameDefaults>
 				<DefaultCodespaceRef ref="oda"/>
 			</FrameDefaults>
-			<frameValidityConditions>
-				<AvailabilityCondition version="any" id="oda:AvailabilityCondition:OPK_01">
-					<FromDate>2012-07-26T00:00:00Z</FromDate>
-					<ToDate>2012-08-12T00:00:00Z</ToDate>
-				</AvailabilityCondition>
-			</frameValidityConditions>
 			<frames>
 				<!-- - ==== SERVICE CALENDAR === -->
 				<ServiceCalendarFrame version="any" id="oda:ServiceCalendarFrame:CAL_01">
@@ -284,53 +284,53 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 						</Timeband>
 					</timebands>
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-07-27">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-07-27">
 							<Description>Friday 2012-07-27 Opening</Description>
 							<Date>2012-07-27</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-07-28">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-07-28">
 							<Description>Saturday 2012-07-28</Description>
 							<Date>2012-07-28</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-07-29">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-07-29">
 							<Description>Sunday 2012-07-29</Description>
 							<Date>2012-07-29</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT01_Very_Busy"/>
 						</DayTypeAssignment>
 						<!-- Week 2 -->
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-07-30">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-07-30">
 							<Description>Monday 2012-07-30</Description>
 							<Date>2012-07-30</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-07-31">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-07-31">
 							<Description>Tuesday 2012-07-31</Description>
 							<Date>2012-07-31</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT03_Normal"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-08-01">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-08-01">
 							<Description>Wednesday 2012-08-01</Description>
 							<Date>2012-08-01</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT03_Normal"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-08-02">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-08-02">
 							<Description>Thusday 2012-08-02</Description>
 							<Date>2012-08-02</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-08-03">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-08-03">
 							<Description>Friday 2012-08-03</Description>
 							<Date>2012-08-03</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-08-04">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-08-04">
 							<Description>Saturday2012-08-04</Description>
 							<Date>2012-08-04</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="oda:DayTypeAssignment:DTA_2012-08-05">
+						<DayTypeAssignment version="any" order="1" id="oda:DayTypeAssignment:DTA_2012-08-05">
 							<Description>Sunday 2012-08-05</Description>
 							<Date>2012-08-05</Date>
 							<DayTypeRef version="any" ref="oda:DayType:DT02_Busy"/>
@@ -339,13 +339,13 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 				</ServiceCalendarFrame>
 				<!-- === POI Definitions -->
 				<SiteFrame version="any" responsibilitySetRef="noptis:9010001000000000" id="nptg:SiteFrame:OPK_Fr001">
-					<Name>Olympic Park Frame</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="nptg:AvailabilityCondition:OPK_Fr001">
 							<FromDate>2012-07-26T00:00:00Z</FromDate>
 							<ToDate>2012-08-12T00:00:00Z</ToDate>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Olympic Park Frame</Name>
 					<!-- ==== Resusable conditions used in site ====  -->
 					<contentValidityConditions>
 						<!-- == Conditions for very busy day Daytype + Timeband === -->
@@ -487,14 +487,14 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 						<StopPlace version="any" created="2006-09-11T15:42:00" dataSourceRef="NaPTAN" changed="2009-02-26T15:47:00" responsibilitySetRef="napt:ResponsibilitySet:RS_110" id="napt:StopPlace:910GSTRFD">
 							<Name>Stratford Rail Station</Name>
 							<ShortName>Stratford Rail Station</ShortName>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GRLS"/>
+							</types>
 							<Centroid>
 								<Location>
 									<gml:pos srsName="UKOS">524811 	 170666 </gml:pos>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GRLS"/>
-							</types>
 							<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:910GSTRFD">
 								<MobilityImpairedAccess>true</MobilityImpairedAccess>
 								<limitations>
@@ -519,7 +519,7 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<StopPlaceType>railStation</StopPlaceType>
 							<unlocalisedEquipments>
 								<AssistanceService version="any" id="napt:AssistanceService:910GSTRFD-LS1">
-									<AccessibilityTrainedStaff>true</AccessibilityTrainedStaff> 
+									<AccessibilityTrainedStaff>true</AccessibilityTrainedStaff>
 									<SafetyFacilityList>ccTv  sosPoints</SafetyFacilityList>
 								</AssistanceService>
 							</unlocalisedEquipments>
@@ -591,15 +591,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<!-- 	<AdministrativeAreaRef>   -->
 							<Name>Stratford Underground Station </Name>
 							<ShortName>Stratford</ShortName>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-0.2065219984</Longitude>
 									<Latitude>51.4213610557</Latitude>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
-							</types>
 							<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:940GZZLUSTD">
 								<MobilityImpairedAccess>true</MobilityImpairedAccess>
 								<limitations>
@@ -689,15 +689,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<Name>Stratford DLRStation </Name>
 							<ShortName>Stratford DLR</ShortName>
 							<PrivateCode>20026</PrivateCode>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-0.2065219984</Longitude>
 									<Latitude>51.4213610557</Latitude>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
-							</types>
 							<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:940GZZCRSTD">
 								<MobilityImpairedAccess>true</MobilityImpairedAccess>
 								<limitations>
@@ -786,15 +786,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<!-- 	<AdministrativeAreaRef>   -->
 							<Name>West Ham Underground Station </Name>
 							<ShortName>West Ham</ShortName>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-0.2065219984</Longitude>
 									<Latitude>51.4213610557</Latitude>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:GTMU"/>
-							</types>
 							<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:940GZZLUWHM">
 								<MobilityImpairedAccess>true</MobilityImpairedAccess>
 								<limitations>
@@ -816,7 +816,7 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<StopPlaceType>metroStation</StopPlaceType>
 							<unlocalisedEquipments>
 								<AssistanceService version="any" id="napt:AssistanceService:940GZZLUWHM-ls1">
-									<AccessibilityTrainedStaff>true</AccessibilityTrainedStaff> 
+									<AccessibilityTrainedStaff>true</AccessibilityTrainedStaff>
 									<SafetyFacilityList>ccTv sosPoints</SafetyFacilityList>
 								</AssistanceService>
 							</unlocalisedEquipments>
@@ -889,18 +889,20 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<Name>London 2012 Olympic Park</Name>
 							<ShortName>Olympic Park</ShortName>
 							<Description>Queen Elizabeth II Olympic Park</Description>
+							<types>
+								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:POI"/>
+							</types>
 							<Centroid>
 								<Location>
 									<Longitude>-180</Longitude>
 									<Latitude>-90</Latitude>
 								</Location>
 							</Centroid>
-							<types>
-								<TypeOfZoneRef version="any" ref="napt:TypeOfZone:POI"/>
-							</types>
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Park"/>
 							</placeTypes>
+							<Url>http:/2012londonolympics.org.uk/</Url>
+							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:8100OPK_ACID_21">
 								<MobilityImpairedAccess>true</MobilityImpairedAccess>
 								<limitations>
@@ -914,13 +916,12 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							</AccessibilityAssessment>
 							<AccessModes>foot</AccessModes>
 							<alternativeNames>
-								<AlternativeName id="napt:AlternativeName:8100OPK_01">
+								<AlternativeName order="1" id="napt:AlternativeName:8100OPK_01">
 									<NameType>translation</NameType>
 									<TypeOfName>Title</TypeOfName>
 									<Name lang="fr">Parc Olympic</Name>
 								</AlternativeName>
 							</alternativeNames>
-							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<PublicUse>all</PublicUse>
 							<Covered>mixed</Covered>
 							<Gated>gatedArea</Gated>
@@ -930,7 +931,6 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 								<TopographicPlaceRef ref="nptg:TopographicPlace:N0060321"/>
 								<ShortName>Stratford</ShortName>
 							</TopographicPlaceView>
-							<Url>http:/2012londonolympics.org.uk/</Url>
 							<Locale>
 								<TimeZoneOffset>0</TimeZoneOffset>
 								<TimeZone>GMT</TimeZone>
@@ -947,14 +947,20 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E1">
 									<Name>2012 Olympic Park Stratford Entrance</Name>
 									<Description>Stratford Entrance</Description>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">184435 538185</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
+									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E1_addr1">
+										<BuildingName>Olympic Park Entrance</BuildingName>
+										<AddressLine1>Station Street  </AddressLine1>
+										<Town>Stratford</Town>
+										<PostCode>E15</PostCode>
+									</PostalAddress>
 									<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:8100OPK_E1_ACAS1">
 										<MobilityImpairedAccess>false</MobilityImpairedAccess>
 										<limitations>
@@ -968,12 +974,6 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 									</AccessibilityAssessment>
 									<AccessModes>foot</AccessModes>
 									<PublicUse>all</PublicUse>
-									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E1_addr1">
-										<BuildingName>Olympic Park Entrance</BuildingName>
-										<AddressLine1>Station Street  </AddressLine1>
-										<Town>Stratford</Town>
-										<PostCode>E15</PostCode>
-									</PostalAddress>
 									<SiteRef version="any" xsi:type="PointOfInterestRefStructure" ref="napt:PointOfInterest:8100OPK"/>
 									<LevelRef version="any" ref="napt:Level:8100OPK_Lvl_01"/>
 									<checkConstraints>
@@ -1151,14 +1151,14 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E1acc">
 									<Name>2012 Olympic Park Stratford Disabled user Entrance</Name>
 									<Description>Stratford Disabled USEr ENtrance  Entrance</Description>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">184435 538185</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
 									<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:8100OPK_E1acc_ACAS1">
 										<MobilityImpairedAccess>true</MobilityImpairedAccess>
 										<limitations>
@@ -1349,14 +1349,20 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E2">
 									<Name>2012 Olympic Park North Entrance</Name>
 									<Description>Entrance from North car park</Description>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">1856565.33 37409.715</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
+									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E2_addr1">
+										<BuildingName>North Entrance</BuildingName>
+										<AddressLine1>Temple Mill Lane</AddressLine1>
+										<Town>Stratford</Town>
+										<PostCode>E15</PostCode>
+									</PostalAddress>
 									<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:8100OPK_E2_ACAS1">
 										<MobilityImpairedAccess>true</MobilityImpairedAccess>
 										<limitations>
@@ -1370,12 +1376,6 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 									</AccessibilityAssessment>
 									<AccessModes>foot</AccessModes>
 									<PublicUse>all</PublicUse>
-									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E2_addr1">
-										<BuildingName>North Entrance</BuildingName>
-										<AddressLine1>Temple Mill Lane</AddressLine1>
-										<Town>Stratford</Town>
-										<PostCode>E15</PostCode>
-									</PostalAddress>
 									<SiteRef version="any" xsi:type="PointOfInterestRefStructure" ref="napt:PointOfInterest:8100OPK"/>
 									<LevelRef version="any" ref="napt:Level:8100OPK_Lvl_01"/>
 									<checkConstraints>
@@ -1561,14 +1561,20 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E3">
 									<Name>2012 Olympic Park South Entrance</Name>
 									<Description>Entrance from Southcar park</Description>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">183681 538232</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
+									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E3_Addr1">
+										<BuildingName>South Entrance</BuildingName>
+										<AddressLine1>Burford Road</AddressLine1>
+										<Town>Stratford</Town>
+										<PostCode>E15</PostCode>
+									</PostalAddress>
 									<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:8100OPK_E3_ACAS1">
 										<MobilityImpairedAccess>true</MobilityImpairedAccess>
 										<limitations>
@@ -1582,12 +1588,6 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 									</AccessibilityAssessment>
 									<AccessModes>foot</AccessModes>
 									<PublicUse>all</PublicUse>
-									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E3_Addr1">
-										<BuildingName>South Entrance</BuildingName>
-										<AddressLine1>Burford Road</AddressLine1>
-										<Town>Stratford</Town>
-										<PostCode>E15</PostCode>
-									</PostalAddress>
 									<SiteRef version="any" xsi:type="PointOfInterestRefStructure" ref="napt:PointOfInterest:8100OPK"/>
 									<LevelRef version="any" ref="napt:Level:8100OPK_Lvl_01"/>
 									<checkConstraints>
@@ -1773,14 +1773,20 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E4">
 									<Name>2012 Olympic Park East Entrance</Name>
 									<Description>Entrance from East  </Description>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">183839.455 537322.929</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
+									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E4_addr1">
+										<BuildingName>Park West Entrance</BuildingName>
+										<AddressLine1>Warton Road</AddressLine1>
+										<Town>Stratford</Town>
+										<PostCode>E15</PostCode>
+									</PostalAddress>
 									<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:8100OPK_E4_ACAS1">
 										<MobilityImpairedAccess>true</MobilityImpairedAccess>
 										<limitations>
@@ -1794,12 +1800,6 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 									</AccessibilityAssessment>
 									<AccessModes>foot</AccessModes>
 									<PublicUse>all</PublicUse>
-									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E4_addr1">
-										<BuildingName>Park West Entrance</BuildingName>
-										<AddressLine1>Warton Road</AddressLine1>
-										<Town>Stratford</Town>
-										<PostCode>E15</PostCode>
-									</PostalAddress>
 									<SiteRef version="any" xsi:type="PointOfInterestRefStructure" ref="napt:PointOfInterest:8100OPK"/>
 									<LevelRef version="any" ref="napt:Level:8100OPK_Lvl_01"/>
 									<checkConstraints>
@@ -1985,14 +1985,20 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 								<PointOfInterestEntrance version="any" id="napt:PointOfInterestEntrance:8100OPK_E5">
 									<Name>2012 Olympic Park Press</Name>
 									<Description>Entrance for press </Description>
+									<types>
+										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
+									</types>
 									<Centroid>
 										<Location>
 											<gml:pos srsName="UKOS">183839.455 537322.929</gml:pos>
 										</Location>
 									</Centroid>
-									<types>
-										<TypeOfZoneRef version="any" ref="napt:TypeOfZone:PIE"/>
-									</types>
+									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E2_addr2">
+										<BuildingName>North Entrance</BuildingName>
+										<AddressLine1>Temple Mill Lane</AddressLine1>
+										<Town>Stratford</Town>
+										<PostCode>E15</PostCode>
+									</PostalAddress>
 									<AccessibilityAssessment version="any" id="napt:AccessibilityAssessment:8100OPK_E5_ACAS1">
 										<MobilityImpairedAccess>true</MobilityImpairedAccess>
 										<limitations>
@@ -2006,12 +2012,6 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 									</AccessibilityAssessment>
 									<AccessModes>car foot</AccessModes>
 									<PublicUse>authorisedPublicOnly</PublicUse>
-									<PostalAddress version="any" id="napt:PostalAddress:8100OPK_E2_addr2">
-										<BuildingName>North Entrance</BuildingName>
-										<AddressLine1>Temple Mill Lane</AddressLine1>
-										<Town>Stratford</Town>
-										<PostCode>E15</PostCode>
-									</PostalAddress>
 									<SiteRef version="any" xsi:type="PointOfInterestRefStructure" ref="napt:PointOfInterest:8100OPK"/>
 									<LevelRef version="any" ref="napt:Level:8100OPK_Lvl_01"/>
 									<checkConstraints>
@@ -4198,15 +4198,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
+							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<AccessModes>foot</AccessModes>
 							<alternativeNames>
-								<AlternativeName id="napt:AlternativeName:8100OPK_V1_STDM">
+								<AlternativeName order="1" id="napt:AlternativeName:8100OPK_V1_STDM">
 									<NameType>translation</NameType>
 									<TypeOfName>Title</TypeOfName>
 									<Name lang="fr">Stade Olympic</Name>
 								</AlternativeName>
 							</alternativeNames>
-							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<PublicUse>all</PublicUse>
 							<Covered>covered</Covered>
 							<Gated>gatedArea</Gated>
@@ -4223,15 +4223,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
+							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<AccessModes>foot</AccessModes>
 							<alternativeNames>
-								<AlternativeName id="napt:AlternativeName:8100OPK_V2_HOCK">
+								<AlternativeName order="1" id="napt:AlternativeName:8100OPK_V2_HOCK">
 									<NameType>translation</NameType>
 									<TypeOfName>Title</TypeOfName>
 									<Name lang="fr">Centre de Hockey</Name>
 								</AlternativeName>
 							</alternativeNames>
-							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<PublicUse>all</PublicUse>
 							<Covered>indoors</Covered>
 							<Gated>gatedArea</Gated>
@@ -4270,15 +4270,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
+							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<AccessModes>foot</AccessModes>
 							<alternativeNames>
-								<AlternativeName id="napt:AlternativeName:8100OPK_V3_HAND">
+								<AlternativeName order="1" id="napt:AlternativeName:8100OPK_V3_HAND">
 									<NameType>translation</NameType>
 									<TypeOfName>Title</TypeOfName>
 									<Name lang="fr">Centre de Handball</Name>
 								</AlternativeName>
 							</alternativeNames>
-							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<PublicUse>all</PublicUse>
 							<Covered>indoors</Covered>
 							<Gated>gatedArea</Gated>
@@ -4307,15 +4307,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
+							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<AccessModes>foot</AccessModes>
 							<alternativeNames>
-								<AlternativeName id="napt:AlternativeName:8100OPK_V4_AQUA">
+								<AlternativeName order="1" id="napt:AlternativeName:8100OPK_V4_AQUA">
 									<NameType>translation</NameType>
 									<TypeOfName>Title</TypeOfName>
 									<Name lang="fr">Centre Aquatique</Name>
 								</AlternativeName>
 							</alternativeNames>
-							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<PublicUse>all</PublicUse>
 							<Covered>indoors</Covered>
 							<Gated>gatedArea</Gated>
@@ -4354,8 +4354,8 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
-							<AccessModes>foot</AccessModes>
 							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
+							<AccessModes>foot</AccessModes>
 							<PublicUse>all</PublicUse>
 							<Covered>indoors</Covered>
 							<Gated>gatedArea</Gated>
@@ -4393,8 +4393,8 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
-							<AccessModes>foot</AccessModes>
 							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
+							<AccessModes>foot</AccessModes>
 							<PublicUse>all</PublicUse>
 							<Covered>indoors</Covered>
 							<Gated>gatedArea</Gated>
@@ -4423,15 +4423,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
+							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<AccessModes>foot</AccessModes>
 							<alternativeNames>
-								<AlternativeName id="napt:AlternativeName:8100OPK_V7_VELO">
+								<AlternativeName order="1" id="napt:AlternativeName:8100OPK_V7_VELO">
 									<NameType>translation</NameType>
 									<TypeOfName>Title</TypeOfName>
 									<Name lang="fr">Vewlodrome</Name>
 								</AlternativeName>
 							</alternativeNames>
-							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<PublicUse>all</PublicUse>
 							<Covered>indoors</Covered>
 							<Gated>gatedArea</Gated>
@@ -4460,15 +4460,15 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
+							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<AccessModes>foot</AccessModes>
 							<alternativeNames>
-								<AlternativeName id="napt:AlternativeName:8100OPK_V8_BMXT">
+								<AlternativeName order="1" id="napt:AlternativeName:8100OPK_V8_BMXT">
 									<NameType>translation</NameType>
 									<TypeOfName>Title</TypeOfName>
 									<Name lang="fr">Circuit BMX</Name>
 								</AlternativeName>
 							</alternativeNames>
-							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
 							<PublicUse>all</PublicUse>
 							<Covered>covered</Covered>
 							<Gated>gatedArea</Gated>
@@ -4619,8 +4619,8 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
-							<AccessModes>foot</AccessModes>
 							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
+							<AccessModes>foot</AccessModes>
 							<PublicUse>all</PublicUse>
 							<Covered>outdoors</Covered>
 							<Gated>gatedArea</Gated>
@@ -4648,8 +4648,8 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
-							<AccessModes>foot</AccessModes>
 							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
+							<AccessModes>foot</AccessModes>
 							<PublicUse>all</PublicUse>
 							<Covered>indoors</Covered>
 							<Gated>gatedArea</Gated>
@@ -4714,8 +4714,8 @@ It is based on the 2012 London Olympic Park. See accompanying paper for diagram
 							<placeTypes>
 								<TypeOfPlaceRef version="any" ref="napt:TypeOfPlace:Venue"/>
 							</placeTypes>
-							<AccessModes>foot</AccessModes>
 							<Image>http://www.2012Londonolympics.org/park.gif.gif</Image>
+							<AccessModes>foot</AccessModes>
 							<PublicUse>all</PublicUse>
 							<Covered>outdoors</Covered>
 							<Gated>gatedArea</Gated>

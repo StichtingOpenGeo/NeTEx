@@ -54,9 +54,9 @@ ROUTE details are also provided
  
 The points and links are chosen to illustrate several points
 		- There may me more links in one layer than another, e.g. there are more TIMING LINKS than there are SERVICE LINKS and more ROUTE LINKS than there are TIMING LINKS
-	    - The End of a LINK in one layer can  can be projected onto a MIDPOINT of a LINK in another LAYER e.g. the  LINKS
+	    - The End of a LINK in one layer can    be projected onto a MIDPOINT of a LINK in another LAYER e.g. the  LINKS
 
-Mostly we project downwards ie Service layer ==> Timng layer ==> Route Layer
+Mostly we project downwards i.e. Service layer ==> Timng layer ==> Route Layer
 But we also have exampels of projecting up e.g. route point to Service point.
 
 
@@ -350,14 +350,14 @@ The Calendar is shown coded in two differnt ways
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<selectionValidityConditions>
 					<AvailabilityCondition version="any" id="hde:AvailabilityCondition:CAL_02">
 						<FromDate>2010-11-01T00:00:00Z</FromDate>
 					</AvailabilityCondition>
 				</selectionValidityConditions>
 				<TimetableFrameRef ref="hde:TimetableFrameTIM_23_O">REQUEST</TimetableFrameRef>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
@@ -1559,7 +1559,7 @@ The Calendar is shown coded in two differnt ways
 							<OutOfService>false</OutOfService>
 							<TrafficControlPointRef ref="hde:TrafficControlPoint:tcp_01"/>
 							<assignments>
-								<ActivationAssignment version="any" id="hde:ActivationAssignment:aas_01">
+								<ActivationAssignment version="any" id="hde:ActivationAssignment:aeq_01" order="1">
 									<LinkRef version="any" ref="hde:ActivationLink:al_01"/>
 									<PointRef version="any" ref="hde:TrafficControlPoint:tcp_01"/>
 								</ActivationAssignment>
@@ -1570,7 +1570,7 @@ The Calendar is shown coded in two differnt ways
 							<OutOfService>false</OutOfService>
 							<TrafficControlPointRef ref="hde:TrafficControlPoint:tcp_02"/>
 							<assignments>
-								<ActivationAssignment version="any" id="hde:ActivationAssignment:aas_02">
+								<ActivationAssignment version="any" id="hde:ActivationAssignment:aeq_02" order="1">
 									<LinkRef version="any" ref="mybus:ServiceLink:SSP_002_to_SSP_077"/>
 									<PointRef version="any" ref="hde:ActivationPoint:ap_03"/>
 								</ActivationAssignment>
@@ -1580,8 +1580,7 @@ The Calendar is shown coded in two differnt ways
 				</InfrastructureFrame>
 				<!-- ======Timetable ======= -->
 				<TimetableFrame version="1" id="hde:TimetableFrame:TIM_23_O">
-					<Name>Winter timetable for route 24, outbound</Name>
-					<frameValidityConditions>
+					<validityConditions>
 						<AvailabilityCondition version="any" id="hde:AvailabilityCondition:Cnd001">
 							<Description>Sept  to March</Description>
 							<FromDate>2010-11-01T00:00:00Z</FromDate>
@@ -1590,7 +1589,8 @@ The Calendar is shown coded in two differnt ways
 								<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 							</dayTypes>
 						</AvailabilityCondition>
-					</frameValidityConditions>
+					</validityConditions>
+					<Name>Winter timetable for route 24, outbound</Name>
 					<VehicleModes>bus</VehicleModes>
 					<!-- =====  JOURNEYS====== -->
 					<vehicleJourneys>
@@ -1805,27 +1805,27 @@ The Calendar is shown coded in two differnt ways
 						</DayType>
 					</dayTypes>
 					<dayTypeAssignments>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
+						<DayTypeAssignment version="any" order="1" id="hde:DayTypeAssignment:DayAsgn_2010-11-01">
 							<Description>Monday 2010-11-01</Description>
 							<Date>2010-11-01</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
+						<DayTypeAssignment version="any" order="2" id="hde:DayTypeAssignment:DayAsgn_2010-11-02">
 							<Description>Tuesday 2010-11-02</Description>
 							<Date>2010-11-02</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
+						<DayTypeAssignment version="any" order="3" id="hde:DayTypeAssignment:DayAsgn_2010-11-03">
 							<Description>Wednesday 2010-11-03</Description>
 							<Date>2010-11-03</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
+						<DayTypeAssignment version="any" order="4" id="hde:DayTypeAssignment:DayAsgn_2010-11-04">
 							<Description>Thusday 2010-11-04</Description>
 							<Date>2010-11-04</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
 						</DayTypeAssignment>
-						<DayTypeAssignment version="any" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
+						<DayTypeAssignment version="any" order="5" id="hde:DayTypeAssignment:DayAsgn_2010-11-05">
 							<Description>MFriday 2010-11-05</Description>
 							<Date>2010-11-05</Date>
 							<DayTypeRef version="any" ref="hde:DayType:DT_01-MF-NH"/>
