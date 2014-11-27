@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <xsd:schema xmlns="http://www.netex.org.uk/netex" xmlns:netex="http://www.netex.org.uk/netex" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:siri="http://www.siri.org.uk/siri" targetNamespace="http://www.netex.org.uk/netex" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="netex_publication">
+	<!-- ===Dummy include of all netex namespace  help Xerces - Also picks up NeTEx objects============================================= -->
+	<xsd:import namespace="http://www.siri.org.uk/siri" schemaLocation="siri/siri_all_service.xsd"/>
+	<xsd:import namespace="http://www.siri.org.uk/siri" schemaLocation="siri/siri_participant-v1.1.xsd"/>
 	<!-- ===Dependencies ======================================= -->
 	<!-- ===Regular netex============================================================== -->
 	<xsd:include schemaLocation="netex_service/netex_all-v0.1.xsd"/>
 	<!-- ======================================================================= -->
-	<!-- ===Dummy include of all netex namespace  help Xerces - Also picks up NeTEx objects============================================= -->
-	<xsd:import namespace="http://www.siri.org.uk/siri" schemaLocation="siri/siri_all_service.xsd"/>
-	<xsd:import namespace="http://www.siri.org.uk/siri" schemaLocation="siri/siri_participant-v1.1.xsd"/>
 	<!-- ===eGIF/GovTalk Documentation ======================================= -->
 	<xsd:annotation>
 		<xsd:appinfo>
@@ -3267,6 +3267,7 @@ Provides a general purpose wrapper for NeTEX data content. </xsd:documentation>
 			<xsd:field xpath="@ref"/>
 			<xsd:field xpath="@version"/>
 		</xsd:keyref>
+
 		<xsd:key name="TimingPointInJourneyPattern_AnyVersionedKey">
 			<xsd:selector xpath=".//netex:TimingPointInJourneyPattern"/>
 			<xsd:field xpath="@id"/>
@@ -3595,6 +3596,7 @@ Provides a general purpose wrapper for NeTEX data content. </xsd:documentation>
 			<xsd:selector xpath=".//netex:ServiceJourney | .//netex:VehicleJourney| .//netex:DeadRun  | .//netex:SpecialService | .//netex:TemplateServiceJourney  | .//netex:DatedServiceJourney"/>
 			<xsd:field xpath="@id"/>
 			<xsd:field xpath="@version"/>
+
 		</xsd:key>
 		<!-- =====TrainNumber============================== -->
 		<!-- =====TrainNumber unique========================== -->
