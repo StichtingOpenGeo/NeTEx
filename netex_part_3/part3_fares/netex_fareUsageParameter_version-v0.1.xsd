@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Nicholas Knowles Knowles (Kizoom Ltd) -->
+<xsd:schema xmlns="http://www.netex.org.uk/netex" xmlns:netex="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://www.netex.org.uk/netex" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1" id="netex_fareUsageParameter_version">
+	<xsd:include schemaLocation="netex_farePrice_version-v0.1.xsd"/>
+	<xsd:include schemaLocation="netex_fareUsageParameter_support-v0.1.xsd"/>
+	<xsd:include schemaLocation="../../netex_framework/netex_utility/netex_units-v0.1.xsd"/>
+	<!-- ======================================================================= -->
+	<!-- ===ENTIITY IN VERSION IN FRAME====Used in SERVICE FRAME)=================================================== -->
+	<xsd:complexType name="usageParametersInFrame_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for containment in frame of USAGE PARAMETER. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="frameContainmentStructure">
+				<xsd:sequence>
+					<xsd:element ref="UsageParameter_" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ====USAGE PARAMETER=================================================== -->
+	<xsd:element name="UsageParameter_" type="DataManagedObjectStructure" abstract="true" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>A parameter used to specify the use of a SALES PACKAGE or a FARE PRODUCT.
+</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="UsageParameter" abstract="true" substitutionGroup="UsageParameter_">
+		<xsd:annotation>
+			<xsd:documentation>A parameter used to specify the use of a SALES PACKAGE or a FARE PRODUCT.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="UsageParameter_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageParameterGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="UsageParameterIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="UsageParameter_VersionStructure" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>Type for USAGE PARAMETER.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObjectStructure">
+				<xsd:sequence>
+					<xsd:group ref="UsageParameterGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="UsageParameterGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for USAGE PARAMETER Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="MultilingualString" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Name of USAGE PARAMETER</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="prices" type="usageParameterPrices_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Prices associated with USAGE PARAMETER</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:group name="UsageParametersRefGroup">
+		<xsd:annotation>
+			<xsd:documentation>Combinations for USAGE PARAMETER PRICEE  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="CommercialProfileRef" minOccurs="0"/>
+			<xsd:element ref="FrequencyOfUseRef" minOccurs="0"/>
+			<xsd:element ref="GroupTicketRef" minOccurs="0"/>
+			<xsd:element ref="LuggageAllowanceRef" minOccurs="0"/>
+			<xsd:element ref="TransferabilityRef" minOccurs="0"/>
+			<xsd:element ref="UsageValidityPeriodRef" minOccurs="0"/>
+			<xsd:element ref="UserProfileRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====TRANSFERABILITY=================================================== -->
+	<xsd:element name="Transferability" abstract="false" substitutionGroup="UsageParameter_">
+		<xsd:annotation>
+			<xsd:documentation>The number and characteristics of persons entitled to use the public transport service instead of the original customer.
+
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="Transferability_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageParameterGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="TransferabilityGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="TransferabilityIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Transferability_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for TRANSFERABILITY.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="UsageParameter_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="TransferabilityGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="TransferabilityGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for TRANSFERABILITY Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CanTransfer" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Whetehr ticket can be transferfed to another</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TransferRestrictions" type="MultilingualString" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ==== FREQUENCY OF USE ================================================= -->
+	<xsd:element name="FrequencyOfUse" abstract="false" substitutionGroup="UsageParameter_">
+		<xsd:annotation>
+			<xsd:documentation>The limits of usage frequency for a FARE PRODUCT (or one of its components) or a SALES PACKAGE during a specific VALIDITY PERIOD. There may be different tariffs depending on how often the right is consumed during the period.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="FrequencyOfUse_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageParameterGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FrequencyOfUseGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="FrequencyOfUseIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="FrequencyOfUse_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for FREQUENCY OF USE.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="UsageParameter_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="FrequencyOfUseGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="FrequencyOfUseGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for FREQUENCY OF USE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FrequencyOfUseType" type="FrequencyOfUseTypeEnumeration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nature of FREQUENCY OF USE Transfers</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MinimalFrequency" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Minimum Number of times can be used</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximalFrequency" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximum Number of times can be used</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumNumberOfTransfers" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximum number of transfers allowed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumTimeToMakeATransfer" type="xsd:duration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MaximumTime toMakeATransfer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====USAGE VALIDITY PERIOD.================================================ -->
+	<xsd:element name="UsageValidityPeriod" abstract="false" substitutionGroup="UsageParameter_">
+		<xsd:annotation>
+			<xsd:documentation>A time limitation for validity of a FARE PRODUCT or a SALES PACKAGE. It may be composed of a standard duration (e.g. 3 days, 1 month) and/or fixed start/end dates and times.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="UsageValidityPeriod_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageParameterGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageValidityPeriodGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="UsageValidityPeriodIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="UsageValidityPeriod_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for USAGE VALIDITY PERIOD.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="UsageParameter_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="UsageValidityPeriodGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="UsageValidityPeriodGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for USAGE VALIDITY PERIOD Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ValidityPeriodType" type="ValidityPeriodTypeEnumeration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nature of TRANSFERABILITY.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StandardDuration" type="xsd:duration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Duration of  USAGE VALIDITY PERIOD PERIOD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StartDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Start date of  USAGE VALIDITY PERIOD PERIOD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StartTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Start time of  USAGE VALIDITY PERIOD PERIOD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndDate" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>End Date of  USAGE VALIDITY PERIOD PERIOD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>End time of  USAGE VALIDITY PERIOD PERIOD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====USER PROFILE================================================= -->
+	<xsd:element name="UserProfile" abstract="false" substitutionGroup="UsageParameter_">
+		<xsd:annotation>
+			<xsd:documentation>The social profile of a passenger, based on age group, education, profession, social status, sex etc., often used for allowing discounts: 18-40 years old, graduates, drivers, unemployed, women etc.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="UserProfile_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageParameterGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UserProfileGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="UserProfileIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="UserProfile_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for USER PROFILE.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="UsageParameter_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="UserProfileGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="UserProfileGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for USER PROFILE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="TypeOfConcessionRef" minOccurs="0"/>
+			<xsd:element name="MinimumAge" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="MaximumAge" type="xsd:integer" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====COMMERCIAL PROFILE=================================================== -->
+	<xsd:element name="CommercialProfile" abstract="false" substitutionGroup="UsageParameter_">
+		<xsd:annotation>
+			<xsd:documentation>A category of users depending on their commercial relations with the operator (frequency of use, amount of purchase etc.), often used for allowing discounts.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="CommercialProfile_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageParameterGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="CommercialProfileGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="CommercialProfileIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CommercialProfile_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for COMMERCIAL PROFILE.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="UsageParameter_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="CommercialProfileGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="CommercialProfileGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for COMMERCIAL PROFILE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Description" type="MultilingualString" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nature of COMMERCIAL PROFILE.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConsumptionAmount" type="CurrencyAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Amount of units consumed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConsumptionUnits" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Amount consumed amount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====GROUP TICKET=================================================== -->
+	<xsd:element name="GroupTicket" abstract="false" substitutionGroup="UsageParameter_">
+		<xsd:annotation>
+			<xsd:documentation>The number and characteristics of persons entitled to travel in addition to the holder of an access right.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="GroupTicket_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageParameterGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="GroupTicketGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="GroupTicketIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="GroupTicket_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for GROUP TICKET.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="UsageParameter_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="GroupTicketGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="GroupTicketGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for GROUP TICKET Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Description" type="MultilingualString" minOccurs="0"/>
+			<xsd:element name="MinimumNumberOfPersons" type="xsd:nonNegativeInteger" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Minimum number of persons</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumNumberOfPersons" type="xsd:nonNegativeInteger" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximum number of persons</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MinimumNumberOfChildren" type="xsd:nonNegativeInteger" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Minimum number of children allowed on ticket</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumNumberOfChildren" type="xsd:nonNegativeInteger" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Minimum number of children allowed on ticket</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====LUGGAGE ALLOWANCE=================================================== -->
+	<xsd:element name="LuggageAllowance" abstract="false" substitutionGroup="UsageParameter_">
+		<xsd:annotation>
+			<xsd:documentation>The number and characteristics (weight, volume) of luggage that a holder of an access right is entitled to carry.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="LuggageAllowance_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="UsageParameterGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="LuggageAllowanceGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="LuggageAllowanceIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="LuggageAllowance_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for LUGGAGE ALLOWANCE.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="UsageParameter_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="LuggageAllowanceGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="LuggageAllowanceGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for LUGGAGE ALLOWANCE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="MaximumNumberOfItems" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>MaximumTime toMakeATransfer</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumBagHeight" type="LengthType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximumwidth of a bag</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumBagWidth" type="LengthType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximumwidth of a bag</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumBagDepth" type="LengthType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximumwidth of a bag</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaximumBagWeight" type="WeightType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Maximumwidth of a bag</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ======================================================================= -->
+	<!-- == USAGE PARAMETER PRICE.================================ -->
+	<xsd:complexType name="usageParameterPrices_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of FARE USAGE PARAMETER PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="UsageParameterPriceRef"/>
+					<xsd:element ref="UsageParameterPrice"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="UsageParameterPrice" substitutionGroup="FarePrice_">
+		<xsd:annotation>
+			<xsd:documentation>A set of all possible price features of a FARE USAGE PARAMETER: default total price, discount in value or percentage etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="UsageParameterPrice_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FarePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DiscountablePriceGroup"/>
+						</xsd:sequence>
+						<xsd:group ref="UsageParameterPriceGroup"/>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="UsageParameterPriceIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="UsageParameterPrice_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a   USAGE PARAMETER PRICEs .</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DiscountablePrice_VersionedChildStructure">
+				<xsd:group ref="UsageParameterPriceGroup"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="UsageParameterPriceGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for USAGE PARAMETER PRICEE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="UsageParameterRef"/>
+			<xsd:element ref="FareProductRef" minOccurs="0"/>
+			<xsd:element ref="DistanceMatrixElementRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- == USAGE PARAMETER PRICE.================================ -->
+	<xsd:complexType name="CombinationPrices_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of FARE COMBINATION PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="CombinationPriceRef"/>
+					<xsd:element ref="CombinationPrice"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CombinationPrice" substitutionGroup="FarePrice_">
+		<xsd:annotation>
+			<xsd:documentation>A set of all possible price features of a set of  FARE USAGE PARAMETER:,  default total price, discount in value or percentage etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="CombinationPrice_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FarePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DiscountablePriceGroup"/>
+						</xsd:sequence>
+						<xsd:group ref="CombinationPriceGroup"/>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="CombinationPriceIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CombinationPrice_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a   COMBINATION PRICEs .</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DiscountablePrice_VersionedChildStructure">
+				<xsd:group ref="CombinationPriceGroup"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="CombinationPriceGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for COMBINATION PRICEE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Allowed" type="xsd:boolean" default="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Whether the fare is allwod </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="UsageParameterRef" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="FareProductRef" minOccurs="0"/>
+			<xsd:choice minOccurs="0">
+				<xsd:element ref="FareStructureElementRef"/>
+				<xsd:element ref="DistanceMatrixElementRef"/>
+			</xsd:choice>
+			<xsd:element ref="TimeIntervalRef" minOccurs="0"/>
+			<xsd:element ref="GeographicalIntervalRef" minOccurs="0"/>
+			<xsd:element ref="QualityStructureFactorRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====TYPE OF CONCESSION======================================== -->
+	<xsd:complexType name="TypeOfConcessions_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of TYPE OF CONCESSIONs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="TypeOfConcessionRef"/>
+					<xsd:element ref="TypeOfConcession">
+						<xsd:annotation>
+							<xsd:documentation>A TYPE OF CONCESSION specifying access rights for the FARE STRUCTURE ELEMENTs within the range of this UNIT: 0-5 km, 4-6 zones etc.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TypeOfConcession" abstract="false" substitutionGroup="TypeOfValue">
+		<xsd:annotation>
+			<xsd:documentation>Category of concession user
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="TypeOfConcession_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="TypeOfValueGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="TypeOfConcessionIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TypeOfConcession_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for TYPE OF CONCESSION.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="TypeOfValue_VersionStructure"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ======================================================================= -->
+</xsd:schema>

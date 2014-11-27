@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by Nicholas Knowles (Kizoom) -->
+<xsd:schema xmlns="http://www.netex.org.uk/netex" xmlns:netex="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.netex.org.uk/netex" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1" id="netex_transportOrganisation_version">
+	<xsd:include schemaLocation="../netex_genericFramework/netex_organisation_support-v0.1.xsd"/>
+	<xsd:include schemaLocation="../netex_responsibility/netex_relationship-v0.1.xsd"/>
+	<!-- ======================================================================= -->
+	<xsd:element name="TransportOrganisationRef" type="OrganisationRefStructure" substitutionGroup="OrganisationRef">
+		<xsd:annotation>
+			<xsd:documentation>Reference to an  TRANSPORT ORGANISATION.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="transportOrganisationRefs_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of references to an OPERATOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="oneToManyRelationshipStructure">
+				<xsd:sequence>
+					<xsd:element ref="TransportOrganisationRef" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ====Operator========================================================== -->
+	<xsd:simpleType name="OperatorIdType">
+		<xsd:annotation>
+			<xsd:documentation>Type for identifier of an OPERATOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="OrganisationIdType"/>
+	</xsd:simpleType>
+	<xsd:element name="OperatorRef" type="OperatorRefStructure" substitutionGroup="TransportOrganisationRef">
+		<xsd:annotation>
+			<xsd:documentation>Reference to an OPERATOR.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="OperatorRefStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a reference to an OPERATOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="OrganisationRefStructure">
+				<xsd:attribute name="ref" type="OperatorIdType" use="required">
+					<xsd:annotation>
+						<xsd:documentation>Identifier of an OPERATOR.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!-- ======================================================================= -->
+	<xsd:simpleType name="AuthorityIdType">
+		<xsd:annotation>
+			<xsd:documentation>Type for identifier of an AUTHORITY.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="OrganisationIdType"/>
+	</xsd:simpleType>
+	<xsd:element name="AuthorityRef" type="AuthorityRefStructure" substitutionGroup="TransportOrganisationRef">
+		<xsd:annotation>
+			<xsd:documentation>Reference to an AUTHORITY.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="AuthorityRefStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a reference to an AUTHORITY.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="OrganisationRefStructure">
+				<xsd:attribute name="ref" type="AuthorityIdType" use="required">
+					<xsd:annotation>
+						<xsd:documentation>Identifier of referenced entity</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!-- ==GROUP OF OPERATORss============================================================ -->
+	<xsd:simpleType name="GroupOfOperatorsIdType">
+		<xsd:annotation>
+			<xsd:documentation>Type for identifier of a GROUP OF OPERATORs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="GroupOfEntitiesIdType"/>
+	</xsd:simpleType>
+	<xsd:element name="GroupOfOperatorsRef" type="GroupOfOperatorsRefStructure" substitutionGroup="GroupOfEntitiesRef">
+		<xsd:annotation>
+			<xsd:documentation>Reference to a GROUP OF OPERATORs.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="GroupOfOperatorsRefStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a reference to a GROUP OF OPERATORs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="GroupOfEntitiesRefStructure">
+				<xsd:attribute name="ref" type="GroupOfOperatorsIdType" use="required">
+					<xsd:annotation>
+						<xsd:documentation>Identifier of a GROUP OF OPERATORs.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<!-- ====Operator========================================================== -->
+	<xsd:simpleType name="OperationalContextIdType">
+		<xsd:annotation>
+			<xsd:documentation>Type for identifier of an OPERATIONAL CONTEXT.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="ObjectIdType"/>
+	</xsd:simpleType>
+	<xsd:element name="OperationalContextRef" type="OperationalContextRefStructure" substitutionGroup="VersionOfObjectRef">
+		<xsd:annotation>
+			<xsd:documentation>Reference to an OPERATIONAL CONTEXT.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="OperationalContextRefStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a reference to an OPERATIONAL CONTEXT.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:restriction base="VersionOfObjectRefStructure">
+				<xsd:attribute name="ref" type="OperationalContextIdType" use="required">
+					<xsd:annotation>
+						<xsd:documentation>Identifier of an OPERATIONAL CONTEXT.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:restriction>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by Nicholas Knowles (Kizoom) -->
+<xsd:schema xmlns="http://www.netex.org.uk/netex" xmlns:netex="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.netex.org.uk/netex" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1" id="netex_transportOrganisation_version">
+	<xsd:include schemaLocation="netex_transportOrganisation_support-v0.1.xsd"/>
+	<xsd:include schemaLocation="../netex_genericFramework/netex_organisation_version-v0.1.xsd"/>
+	<xsd:include schemaLocation="netex_address_version-v0.3.xsd"/>
+	<!-- ===ENTIITY IN VERSION IN FRAME====Used in SERVICE FRAME)=================================================== -->
+	<xsd:group name="OrganisationInFrameGroup">
+		<xsd:annotation>
+			<xsd:documentation>ORGANISATION elements in frame.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="organisations" type="organisationsInFrame_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ORGANISATIONs in frame.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="groupsOfOperators" type="groupsOfOperatorsInFrame_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ORGANISATIONs in frame.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="departments" type="departmentsInFrame_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>ORGANISATIONs in frame.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:complexType name="groupsOfOperatorsInFrame_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for containment in frame of GROUP OF OPERATORs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:sequence>
+					<xsd:element ref="GroupOfOperators" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="transportOperatorsInFrame_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for containment in frame ofTransport OPERATORs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="Authority"/>
+					<xsd:element ref="Operator"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ====Operator========================================================== -->
+	<xsd:element name="Operator" substitutionGroup="Organisation_">
+		<xsd:annotation>
+			<xsd:documentation>A company  providing public transport services.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="Operator_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="OrganisationGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="OperatorGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="OperatorIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Operator_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for an OPERATOR</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Organisation_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="OperatorGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="OperatorGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements of an OPERATOR</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PrimaryMode" type="VehicleModeEnumeration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Primary transport MODE of operator</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Address" type="PostalAddress_VersionStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Address of OPERATOR.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CustomerServiceContactDetails" type="ContactStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Contact details for Customer service use.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="departments" type="departments_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Departments fof OPERATOR</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ======================================================================= -->
+	<xsd:element name="Authority" substitutionGroup="Organisation_">
+		<xsd:annotation>
+			<xsd:documentation>The organisation under which the responsibility of organising the transport service in a certain area is placed.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="Authority_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="OrganisationGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="AuthorityGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="AuthorityIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Authority_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for an AUTHORITY</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Organisation_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="AuthorityGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="AuthorityGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements of an AUTHORITY.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Address" type="PostalAddress_VersionStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Address of AUTHORITY.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="authorityTypes" type="typeOfOrganisationRefs_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Classification of of Zone. Used for arbitrary documnetation -  .</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ======================================================================= -->
+	<!-- ==GROUP OF OPERATORs============================================================ -->
+	<xsd:element name="GroupOfOperators" abstract="false" substitutionGroup="GroupOfEntities">
+		<xsd:annotation>
+			<xsd:documentation>A grouping of OPERATORs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="GroupOfOperatorsStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="GroupOfEntitiesGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="GroupOfOperatorsGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="GroupOfOperatorsIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="GroupOfOperatorsStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a GROUP OF OPERATORs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="GroupOfEntities_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="GroupOfOperatorsGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="GroupOfOperatorsGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for GROUP OF OPERATORs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="members" type="transportOrganisationRefs_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Operators in group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====Operator========================================================== -->
+	<xsd:element name="OperationalContext" substitutionGroup="Organisation_">
+		<xsd:annotation>
+			<xsd:documentation>A company  providing public transport services.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="OperationalContext_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="OperationalContextGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="OperationalContextIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="OperationalContext_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for an OPERATIONAL CONTEXT</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObject_ViewStructure">
+				<xsd:sequence>
+					<xsd:group ref="OperationalContextGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="OperationalContextGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements of an OPERATIONAL CONTEXT</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="OrganisationPartRef" minOccurs="0"/>
+			<xsd:element ref="DepartmentRef" minOccurs="0"/>
+			<xsd:element ref="TransportSubmode" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ======================================================================= -->
+	<xsd:element name="OperatorView" substitutionGroup="DerivedView">
+		<xsd:annotation>
+			<xsd:documentation>Simplified view of OPERATOR. All data except the identifier will be derived through the relationship.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Operator_DerivedViewStructure"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Operator_DerivedViewStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for an OPERATOR VIEW.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DerivedViewStructure">
+				<xsd:sequence>
+					<xsd:element ref="OperatorRef" minOccurs="0"/>
+					<xsd:group ref="OrganisationNameGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,12 @@
+<xsd:schema xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.siri.org.uk/siri" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" id="siri_all">
+	<!-- ===Dependencies ======================================= -->
+	<!-- Overcomes limitation in  Xerces and other tools  that require first declartion of all importe delements -->
+	<xsd:include schemaLocation="siri_base-v1.3.xsd"/>
+	<xsd:include schemaLocation="siri_common-v1.3.xsd"/>
+	<xsd:include schemaLocation="siri_location-v1.1.xsd"/>
+	<xsd:include schemaLocation="siri_participant-v1.1.xsd"/>
+	<xsd:include schemaLocation="siri_requests-v1.2.xsd"/>
+	<xsd:include schemaLocation="siri_time-v1.2.xsd"/>
+	<xsd:include schemaLocation="siri_types-v1.1.xsd"/>
+	<xsd:include schemaLocation="siri_utility-v1.1.xsd"/>
+</xsd:schema>

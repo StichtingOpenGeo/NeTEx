@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Nicholas Knowles Knowles (Kizoom Ltd) -->
+<xsd:schema xmlns="http://www.netex.org.uk/netex" xmlns:netex="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.netex.org.uk/netex" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1" id="netex_passingTimes_version">
+	<xsd:include schemaLocation="netex_passingTimes_version-v0.1.xsd"/>
+	<!-- ======================================================================= -->
+	<!-- ======================================================================= -->
+	<xsd:element name="DatedPassingTime" type="PassingTime_VersionedChildStructure" abstract="false" substitutionGroup="PassingTime">
+		<xsd:annotation>
+			<xsd:documentation>DatedPassingTime</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="DatedPassingTime_VersionedChildStructure" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>Type for DatedPassingTime</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PassingTime_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="DatedPassingTimeGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="DatedPassingTimeGroup">
+		<xsd:annotation>
+			<xsd:documentation>Dated PASSING TIME elements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DatedJourneyRef" type="JourneyRefStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Dated journey for which this is the  PASSING TIME. If given by context does not need to be resatted</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ===Observed================================================= -->
+	<xsd:complexType name="observedPassingTimes_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of ObservedPassingTime</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:sequence>
+					<xsd:element ref="ObservedPassingTime" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ObservedPassingTime" abstract="false" substitutionGroup="DatedPassingTime">
+		<xsd:annotation>
+			<xsd:documentation>OBSERVED PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="ObservedPassingTime_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup">
+		
+							</xsd:group>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="PassingTimeGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DatedPassingTimeGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="ObservedPassingTimeGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="ObservedPassingTimeIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:group name="ObservedTimesAtStopGroup">
+		<xsd:annotation>
+			<xsd:documentation>Times at stop elements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ActualArrivalTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Actual Arrival time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualDepartureTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Actual departure time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ActualWaitingTime" type="xsd:duration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Actual waiting interval</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:complexType name="ObservedPassingTime_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for ObservedPassingTime</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DatedPassingTime_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="ObservedPassingTimeGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="ObservedPassingTimeGroup">
+		<xsd:annotation>
+			<xsd:documentation>ObservedPassingTime  elements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:group ref="ObservedTimesAtStopGroup">
+					<xsd:annotation>
+						<xsd:documentation>Actual Times at stop</xsd:documentation>
+					</xsd:annotation>
+				</xsd:group>
+				<xsd:element name="ActualNonstopPassingTime" type="xsd:time" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Actual PASSING TIME if doesnt stop at TIMING POINT.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="ActualHeadway" type="HeadwayIntervalStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Actual Frequency of service</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ===Observed================================================= -->
+	<xsd:complexType name="estimatedPassingTimes_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of EstimatedPassingTimes</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:sequence>
+					<xsd:element ref="EstimatedPassingTime" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EstimatedPassingTime" abstract="false" substitutionGroup="DatedPassingTime">
+		<xsd:annotation>
+			<xsd:documentation>Estimated PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="EstimatedPassingTime_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup">
+			
+							</xsd:group>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="PassingTimeGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DatedPassingTimeGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="EstimatedPassingTimeGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="EstimatedPassingTimeIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:group name="EstimatedTimesAtStopGroup">
+		<xsd:annotation>
+			<xsd:documentation>Times at stop elements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ExpectedArrivalTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Expected Arrival time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedDepartureTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Expected departure time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ExpectedWaitingTime" type="xsd:duration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Expected waiting interval</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:complexType name="EstimatedPassingTime_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for EstimatedPassingTime</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DatedPassingTime_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="EstimatedPassingTimeGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="EstimatedPassingTimeGroup">
+		<xsd:annotation>
+			<xsd:documentation>EstimatedPassingTime  elements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:group ref="EstimatedTimesAtStopGroup">
+					<xsd:annotation>
+						<xsd:documentation>Expected Times at stop</xsd:documentation>
+					</xsd:annotation>
+				</xsd:group>
+				<xsd:element name="ExpectedNonstopPassingTime" type="xsd:time" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Expected PASSING TIME if doesnt stop at TIMING POINT.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="ExpectedHeadway" type="HeadwayIntervalStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Expected Frequency of service</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ===Observed================================================= -->
+	<xsd:complexType name="targetPassingTimes_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of TARGET PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:sequence>
+					<xsd:element ref="TargetPassingTime" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TargetPassingTime" abstract="false" substitutionGroup="DatedPassingTime">
+		<xsd:annotation>
+			<xsd:documentation>TARGET PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="TargetPassingTime_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup">
+		
+							</xsd:group>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="PassingTimeGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DatedPassingTimeGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="TargetPassingTimeGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="TargetPassingTimeIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TargetPassingTime_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for TARGET PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DatedPassingTime_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="TargetPassingTimeGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="TargetPassingTimeGroup">
+		<xsd:annotation>
+			<xsd:documentation>TARGET PASSING TIME  elements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:group ref="TargetTimesAtStopGroup">
+					<xsd:annotation>
+						<xsd:documentation>Aimed Times at stop</xsd:documentation>
+					</xsd:annotation>
+				</xsd:group>
+				<xsd:element name="AimedNonstopPassingTime" type="xsd:time" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Aimed PASSING TIME if doesnt stop at TIMING POINT.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="AimedHeadway" type="HeadwayIntervalStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Aimed Frequency of service</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:group name="TargetTimesAtStopGroup">
+		<xsd:annotation>
+			<xsd:documentation>Times at stop elements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AimedArrivalTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Aimed Arrival time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AimedDepartureTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Aimed departure time</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AimedWaitingTime" type="xsd:duration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Aimed waiting interval</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- === Simplified============================================ -->
+	<!-- ======================================================================= -->
+	<xsd:element name="PassingTimeView" substitutionGroup="DataManagedObjectView">
+		<xsd:annotation>
+			<xsd:documentation>Simplified TARGET PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="PassingTime_ViewStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup">
+					
+							</xsd:group>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:element name="DayOffset" type="xsd:integer" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Number of days after start day is departure day.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:sequence>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="PassingTime_ViewStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Simplified  TARGET PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObject_ViewStructure">
+				<xsd:sequence>
+					<xsd:element name="DayOffset" type="xsd:integer" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>WNumber of days after start day is departure day.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TimetabledPassingTimeView" type="TimetabledPassingTime_ViewStructure" abstract="false">
+		<xsd:annotation>
+			<xsd:documentation>Simplified TIMETABLED PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="TimetabledPassingTime_ViewStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Simplified  TIMETABLED PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PassingTime_ViewStructure">
+				<xsd:sequence>
+					<xsd:element name="ArrivalTime" type="xsd:time" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Timetabled Arrivaltime</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="DepartureTime" type="xsd:time" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Timetabled departure time</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="WaitingTime" type="xsd:duration" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Timetabled waiting interval</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Headway" type="HeadwayIntervalStructure" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Frequency of service</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EstimatedPassingTimeView" type="EstimatedPassingTime_ViewStructure" abstract="false">
+		<xsd:annotation>
+			<xsd:documentation>Simplified EstimatedPASSING TIME</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="EstimatedPassingTime_ViewStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Simplified  EstimatedPASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PassingTime_ViewStructure">
+				<xsd:sequence>
+					<xsd:group ref="EstimatedPassingTimeGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ObservedPassingTimeView" type="ObservedPassingTime_ViewStructure" abstract="false">
+		<xsd:annotation>
+			<xsd:documentation>Simplified OBSERVED PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="ObservedPassingTime_ViewStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Simplified  OBSERVED PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PassingTime_ViewStructure">
+				<xsd:sequence>
+					<xsd:group ref="ObservedPassingTimeGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TargetPassingTimeView" abstract="false">
+		<xsd:annotation>
+			<xsd:documentation>Simplified TARGET PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="TargetPassingTime_ViewStructure"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TargetPassingTime_ViewStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for Simplified  TARGET PASSING TIME</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PassingTime_ViewStructure">
+				<xsd:sequence>
+					<xsd:group ref="TargetPassingTimeGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

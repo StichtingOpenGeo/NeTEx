@@ -1,0 +1,1138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 (http://www.altova.com) by Nicholas Knowles Knowles (Kizoom Ltd) -->
+<xsd:schema xmlns="http://www.netex.org.uk/netex" xmlns:netex="http://www.netex.org.uk/netex" xmlns:siri="http://www.siri.org.uk/siri" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://www.netex.org.uk/netex" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1" id="netex_fareStructure_version">
+	<xsd:include schemaLocation="../../netex_part_1/part1_tacticalPlanning/netex_servicePattern_support-v0.1.xsd"/>
+	<xsd:include schemaLocation="netex_fareProduct_version-v0.1.xsd"/>
+	<xsd:include schemaLocation="netex_fareStructure_support-v0.1.xsd"/>
+	<xsd:include schemaLocation="netex_farePrice_version-v0.1.xsd"/>
+	<!-- ======================================================================= -->
+	<!-- ===ENTIITY IN VERSION IN FRAME====Used in SERVICE FRAME)=================================================== -->
+	<xsd:complexType name="fareStructuresInFrame_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for containment in frame of FARE STRUCTURE. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="frameContainmentStructure">
+				<xsd:sequence>
+					<xsd:element ref="FareStructure" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ====FARE STRUCTURE=================================================== -->
+	<xsd:element name="FareStructure" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>A particular tariff, described by a combination of parameters.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="FareStructure_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareStructureGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="FareStructureIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="FareStructure_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for FARE STRUCTURE.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObjectStructure">
+				<xsd:sequence>
+					<xsd:group ref="FareStructureGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="FareStructureGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for FARE STRUCTURE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="MultilingualString" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of FARE STRUCTURE.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:group ref="FareStructureGeographicalGroup">
+				<xsd:annotation>
+					<xsd:documentation>Geographical Elements for FARE STRUCTURE Group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:group>
+			<xsd:group ref="FareStructureTimeGroup">
+				<xsd:annotation>
+					<xsd:documentation>Time Elements for FARE STRUCTURE Group</xsd:documentation>
+				</xsd:annotation>
+			</xsd:group>
+			<xsd:element name="qualityStructureFactors" type="qualityStructureFactors_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>FARE STRIUCTRUE ELEMENTs to use when advertising  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="fareStructureElements" type="fareStructureElements_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>FARE STRIUCTRUE ELEMENTs to use when advertising  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="distanceMatrixElements" type="distanceMatrixElements_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>DISTANCE MATRIX ELEMENTs in FARE STRUCTURE</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:group name="FareStructureGeographicalGroup">
+		<xsd:annotation>
+			<xsd:documentation>GeographicalElements for FARE STRUCTURE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="GeographicalUnitRef" minOccurs="0"/>
+			<xsd:element name="geographicalIntervals" type="geographicalIntervals_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>VALIDITY PARAMETER ASSIGNMENTS associated with FARE STRUCTURE ELEMENT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="geographicalStructureFactors" type="geographicalStructureFactors_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>IME STRUCTURE FACTORs associated with this element</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:group name="FareStructureTimeGroup">
+		<xsd:annotation>
+			<xsd:documentation>TimeElements for FARE STRUCTURE Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="TimeUnitRef" minOccurs="0"/>
+			<xsd:element name="timeIntervals" type="timeIntervals_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>VALIDITY PARAMETER ASSIGNMENTS associated with FARE STRUCTURE ELEMENT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="timeStructureFactors" type="timeStructureFactors_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>IME STRUCTURE FACTORs associated with this element</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====FARE STRUCTURE ELEMENT.============================================= -->
+	<xsd:complexType name="fareStructureElements_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of FARE STRUCTURE ELEMENTs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="FareStructureElementRef"/>
+					<xsd:element ref="FareStructureElement">
+						<xsd:annotation>
+							<xsd:documentation>A sequence or set of CONTROLLABLE ELEMENTs to which rules for limitation of access rights and calculation of prices (fare structure) are applied.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="FareStructureElement" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>A sequence or set of CONTROLLABLE ELEMENTs to which rules for limitation of access rights and calculation of prices (fare structure) are applied.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="FareStructureElement_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareStructureElementGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="FareStructureElementIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="FareStructureElement_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for FARE STRUCTURE ELEMENT.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObjectStructure">
+				<xsd:sequence>
+					<xsd:group ref="FareStructureElementGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="FareStructureElementGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for FARE STRUCTURE ELEMENT Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="MultilingualString" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of FARE STRUCTURE ELEMENT.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="prices" type="fareStructureElementPrices_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>PRICEs of FARE STRUCTURE ELEMENT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="fareStructureElementsInSequence" type="fareStructureElementsInSequence_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Use of FARESTRUCTURE ELEMENTs in a particualr sequence</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="GeographicalStructureFactorRef" minOccurs="0"/>
+			<xsd:element ref="TimeStructureFactorRef" minOccurs="0"/>
+			<xsd:element name="validityParameterAssignments" type="validityParameterAssignments_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>VALIDITY PARAMETER ASSIGNMENTS associated with FARE STRUCTURE ELEMENT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====FARE STRUCTURE ELEMENT IN SEQUENCE.============================= -->
+	<xsd:complexType name="fareStructureElementsInSequence_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of FARE STRUCTURE ELEMENT PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:sequence maxOccurs="1">
+					<xsd:element ref="FareStructureElementInSequence" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="FareStructureElementInSequence" abstract="false" substitutionGroup="VersionedChild">
+		<xsd:annotation>
+			<xsd:documentation>A FARE STRUCTURE ELEMENT as a part of a VALIDABLE ELEMENT, including its possible order in the sequence of FARE STRUCTURE ELEMENTs forming that VALIDABLE ELEMENT, and its possible quantitative limitation.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="FareStructureElementInSequence_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareElementInSequenceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareStructureElementInSequenceGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="FareStructureElementInSequenceIdType" use="optional"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="FareStructureElementInSequence_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for FARE STRUCTURE ELEMENT IN SEQUENCE.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="FareElementInSequence_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="FareStructureElementInSequenceGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="FareStructureElementInSequenceGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for FARE STRUCTURE ELEMENT IN SEQUENCE.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="FareStructureElementRef"/>
+			<xsd:element name="validityParameterAssignments" type="validityParameterAssignments_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>VALIDITY PARAMETER ASSIGNMENTS associated with FARE STRUCTURE ELEMENT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- == FARE STRUCTURE ELEMENT PRICE.================================ -->
+	<xsd:complexType name="fareStructureElementPrices_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of FARE STRUCTURE ELEMENT PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="FareStructureElementPriceRef"/>
+					<xsd:element name="FareStructureElementPrice" type="FareStructureElementPrice_VersionedChildStructure">
+						<xsd:annotation>
+							<xsd:documentation>A set of all possible price features of a FARE STRUCTURE ELEMENT: default total price, discount in value or percentage etc.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="FareStructureElementPrice" substitutionGroup="FarePrice_">
+		<xsd:annotation>
+			<xsd:documentation>A set of all possible price features of a FARE STRUCTURE ELEMENT: default total price, discount in value or percentage etc.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="FareStructureElementPrice_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FarePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DiscountablePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareStructureElementPriceGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="FareStructureElementPriceIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="FareStructureElementPrice_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a  FARE STRUCTURE ELEMENT PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DiscountablePrice_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="FareStructureElementPriceGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="FareStructureElementPriceGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements defining a span of time.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="FareStructureElementRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====FARE STRUCTURE=================================================== -->
+	<xsd:complexType name="distanceMatrixElements_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of DISTANCE MATRIx ELEMENT.s.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="DistanceMatrixElementRef"/>
+					<xsd:element ref="DistanceMatrixElement"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DistanceMatrixElement" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>A particular tariff, described by a combination of parameters.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="DistanceMatrixElement_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DistanceMatrixElementGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="DistanceMatrixElementIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="DistanceMatrixElement_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for DISTANCE MATRIX ELEMENT.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObjectStructure">
+				<xsd:sequence>
+					<xsd:group ref="DistanceMatrixElementGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="DistanceMatrixElementGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for DISTANCE MATRIX ELEMENT Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="MultilingualString" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of DISTANCE MATRIX ELEMENT.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Distance" type="DistanceType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>DistanceMatrixElement to use when advertising Train -If different from ID</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:sequence>
+					<xsd:element name="StartStopPointRef" type="ScheduledStopPointRefStructure">
+						<xsd:annotation>
+							<xsd:documentation>Start  SCHEDULED STOP POINT for Cell of DISTANCE MATRIX </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EndStopPointRef" type="ScheduledStopPointRefStructure">
+						<xsd:annotation>
+							<xsd:documentation>End SCHEDULED STOP POINT for Cell of DISTANCE MATRIX </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:sequence>
+					<xsd:element name="StartTariffZoneRef" type="TariffZoneRefStructure">
+						<xsd:annotation>
+							<xsd:documentation>Start TARIFF ZONE for Cell of DISTANCE MATRIX </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="EndTariffZoneRef" type="TariffZoneRefStructure">
+						<xsd:annotation>
+							<xsd:documentation>End TARIFF ZONE for Cell of DISTANCE MATRIX </xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:choice>
+			<xsd:element name="prices" type="distanceMatrixElementPrices_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>prices associated with  with </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="structureFactors" type="geographicalStructureFactors_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Use of FARESTRUCTURE ELEMENTs in a particualr sequence</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- == DISTANCE MATRIX ELEMENT PRICE.================================ -->
+	<xsd:complexType name="distanceMatrixElementPrices_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of DISTANCE MATRIX ELEMENT PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="DistanceMatrixElementPriceRef"/>
+					<xsd:element ref="UsageParameterPriceRef"/>
+					<xsd:element ref="CombinationPriceRef"/>
+					<xsd:element ref="DistanceMatrixElementPrice"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DistanceMatrixElementPrice" substitutionGroup="FarePrice_">
+		<xsd:annotation>
+			<xsd:documentation>A set of all possible price features of a DISTANCE MATRIX ELEMENT: default total price etc.
+.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="DistanceMatrixElementPrice_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FarePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DistanceMatrixElementPriceGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="DistanceMatrixElementPriceIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="DistanceMatrixElementPrice_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a  DISTANCE MATRIX ELEMENT PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="FarePrice_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="DistanceMatrixElementPriceGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="DistanceMatrixElementPriceGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for a DISTANCE MATRIX ELEMENT PRICE</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="DistanceMatrixElementRef" minOccurs="0"/>
+			<xsd:element ref="FareProductRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====GEOGRAPHICAL UNIT======================================== -->
+	<xsd:complexType name="geographicalUnits_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of GEOGRAPHICAL UNITs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="GeographicalUnitRef"/>
+					<xsd:element ref="GeographicalUnit">
+						<xsd:annotation>
+							<xsd:documentation>A geographical UNIT specifying access rights for the FARE STRUCTURE ELEMENTs within the range of this UNIT: 0-5 km, 4-6 zones etc.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GeographicalUnit" abstract="false" substitutionGroup="TypeOfValue">
+		<xsd:annotation>
+			<xsd:documentation>A factor influencing access rights definition or calculation of prices,  
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="GeographicalUnit_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="TypeOfValueGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="GeographicalUnitIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="GeographicalUnit_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for GEOGRAPHICAL UNIT.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="TypeOfValue_VersionStructure"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ====GEOGRAPHICAL INTERVAL ========================================== -->
+	<xsd:complexType name="geographicalIntervals_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of GEOGRAPHICAL INTERVALs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="GeographicalIntervalRef"/>
+					<xsd:element ref="GeographicalInterval">
+						<xsd:annotation>
+							<xsd:documentation>A geographical interval specifying access rights for the FARE STRUCTURE ELEMENTs within the range of this interval: 0-5 km, 4-6 zones etc.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GeographicalInterval" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>A factor influencing access rights definition or calculation of prices,  
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="GeographicalInterval_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="GeographicalIntervalGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="GeographicalIntervalIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="GeographicalInterval_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for GEOGRAPHICAL INTERVAL.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObjectStructure">
+				<xsd:sequence>
+					<xsd:group ref="GeographicalIntervalGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="GeographicalIntervalGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for GEOGRAPHICAL INTERVAL Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="MultilingualString" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of GEOGRAPHICAL INTERVAL.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StartGeographicalValue" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Start value for Geographic Interval</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndGeographicalValue" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>End value for Geographic Interval</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="prices" type="geographicalStructureElementPrices_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>PRICEs of GEOGRAPHICAL INTERVAL</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ====FARE STRUCTURE ELEMENT.============================================= -->
+	<xsd:complexType name="fareStructureFactors_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of FARE STRUCTURE FACTORs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="FareStructureFactorRef"/>
+					<xsd:element ref="FareStructureFactor">
+						<xsd:annotation>
+							<xsd:documentation>A sequence or set of CONTROLLABLE ELEMENTs to which rules for limitation of access rights and calculation of prices (fare structure) are applied.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="FareStructureFactor" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>A factor influencing access rights definition or calculation of prices,  
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="FareStructureFactor_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareStructureFactorGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="FareStructureFactorIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="FareStructureFactor_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for FARE STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObjectStructure">
+				<xsd:sequence>
+					<xsd:group ref="FareStructureFactorGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ==== QUALITY STRUCTURE FACTOR.============================= -->
+	<xsd:complexType name="qualityStructureFactors_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of  QUALITY STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="QualityStructureFactorRef"/>
+					<xsd:element ref="QualityStructureFactor"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="QualityStructureFactor" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>The value of a QUALITY INTERVAL or a DISTANCE MATRIX ELEMENT expressed by a QUALITY UNIT.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="QualityStructureFactor_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareStructureFactorGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="QualityStructureFactorGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="QualityStructureFactorIdType" use="optional"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="QualityStructureFactor_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for QUALITY STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="FareStructureFactor_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="QualityStructureFactorGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="QualityStructureFactorGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for QUALITY STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="FareStructureRef" minOccurs="0"/>
+			<xsd:element ref="DistanceMatrixElementRef" minOccurs="0"/>
+			<xsd:element ref="TimeDemandTypeRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:group name="FareStructureFactorGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for FARE STRUCTURE FACTOR Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="MultilingualString" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of FARE STRUCTURE FACTOR.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ==== GEOGRAPHICAL STRUCTURE FACTOR.============================= -->
+	<xsd:complexType name="geographicalStructureFactors_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of  GEOGRAPHICAL STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="GeographicalStructureFactorRef"/>
+					<xsd:element ref="GeographicalStructureFactor" maxOccurs="1"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GeographicalStructureFactor" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>The value of a GEOGRAPHICAL INTERVAL or a DISTANCE MATRIX ELEMENT expressed by a GEOGRAPHICAL UNIT.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="GeographicalStructureFactor_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareStructureFactorGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="GeographicalStructureFactorGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="GeographicalStructureFactorIdType" use="optional"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="GeographicalStructureFactor_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for GEOGRAPHICAL STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="FareStructureFactor_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="GeographicalStructureFactorGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="GeographicalStructureFactorGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for GEOGRAPHICAL STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="FareStructureRef" minOccurs="0"/>
+			<xsd:element ref="GeographicalIntervalRef" minOccurs="0"/>
+			<xsd:element ref="DistanceMatrixElementRef" minOccurs="0"/>
+			<xsd:element ref="GeographicalUnitRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- == GEOGRAPHICAL INTERVAL PRICE.================================ -->
+	<xsd:complexType name="geographicalStructureElementPrices_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of GEOGRAPHICAL INTERVAL PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="GeographicalIntervalPriceRef"/>
+					<xsd:element name="GeographicalIntervalPrice" type="GeographicalIntervalPrice_VersionedChildStructure">
+						<xsd:annotation>
+							<xsd:documentation>A set of all possible price features of a GEOGRAPHICAL INTERVAL : default total price, discount in value or percentage etc.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GeographicalIntervalPrice" substitutionGroup="FarePrice_">
+		<xsd:annotation>
+			<xsd:documentation>A set of all possible price features of a GEOGRAPHICAL INTERVAL: default total price etc.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="GeographicalIntervalPrice_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FarePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DiscountablePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="GeographicalIntervalPriceGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="GeographicalIntervalPriceIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="GeographicalIntervalPrice_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a  GEOGRAPHICAL INTERVAL PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DiscountablePrice_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="GeographicalIntervalPriceGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="GeographicalIntervalPriceGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements defining a span of time.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="GeographicalIntervalRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ======================================================================= -->
+	<!-- ====TIME UNIT======================================== -->
+	<xsd:complexType name="timeUnits_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of TIME UNITs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="TimeUnitRef"/>
+					<xsd:element ref="TimeUnit">
+						<xsd:annotation>
+							<xsd:documentation>A time UNIT specifying access rights for the FARE STRUCTURE ELEMENTs within the range of this UNIT: 0-5 km, 4-6 zones etc.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TimeUnit" abstract="false" substitutionGroup="TypeOfValue">
+		<xsd:annotation>
+			<xsd:documentation>A factor influencing access rights definition or calculation of prices,  
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="TimeUnit_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="TypeOfValueGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="TimeUnitIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TimeUnit_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for TIME UNIT.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="TypeOfValue_VersionStructure"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- ====TIME INTERVAL ========================================== -->
+	<xsd:complexType name="timeIntervals_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of TIME INTERVALs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="containmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="TimeIntervalRef"/>
+					<xsd:element ref="TimeInterval">
+						<xsd:annotation>
+							<xsd:documentation>A time interval specifying access rights for the FARE STRUCTURE ELEMENTs within the range of this interval: 0-5 km, 4-6 zones etc.
+</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TimeInterval" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>A factor influencing access rights definition or calculation of prices,  
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="TimeInterval_VersionStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="TimeIntervalGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="TimeIntervalIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TimeInterval_VersionStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for TIME INTERVAL.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DataManagedObjectStructure">
+				<xsd:sequence>
+					<xsd:group ref="TimeIntervalGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="TimeIntervalGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for TIME INTERVAL Group</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Name" type="MultilingualString" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Description of TIME INTERVAL.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="StartTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Start time for TIME INTERVAL if restricted to a specifc time .</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="EndTime" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>End value for TIME INTERVAL.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Duration" type="xsd:duration" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Duration for TIME INTERVAL.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="prices" type="timeStructureElementPrices_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>PRICEs of TIME INTERVAL</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="timeStructureFactors" type="timeStructureFactors_RelStructure" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>IME STRUCTURE FACTORs associated with this element</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ==== TIME STRUCTURE FACTOR.============================= -->
+	<xsd:complexType name="timeStructureFactors_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of  TIME STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="TimeStructureFactorRef"/>
+					<xsd:element ref="TimeStructureFactor" maxOccurs="unbounded"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TimeStructureFactor" abstract="false" substitutionGroup="DataManagedObject">
+		<xsd:annotation>
+			<xsd:documentation>The value of a TIME INTERVAL or a DISTANCE MATRIX ELEMENT expressed by a TIME UNIT.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="TimeStructureFactor_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DataManagedObjectGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FareStructureFactorGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="TimeStructureFactorGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="TimeStructureFactorIdType" use="optional"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TimeStructureFactor_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for TIME STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="FareStructureFactor_VersionStructure">
+				<xsd:sequence>
+					<xsd:group ref="TimeStructureFactorGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="TimeStructureFactorGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements for TIME STRUCTURE FACTOR.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="FareStructureRef" minOccurs="0"/>
+			<xsd:element ref="TimeIntervalRef" minOccurs="0"/>
+			<xsd:element ref="TimeUnitRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- == TIME INTERVAL PRICE.================================ -->
+	<xsd:complexType name="timeStructureElementPrices_RelStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a list of TIME INTERVAL PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="strictContainmentAggregationStructure">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="TimeIntervalPriceRef"/>
+					<xsd:element name="TimeIntervalPrice" type="TimeIntervalPrice_VersionedChildStructure">
+						<xsd:annotation>
+							<xsd:documentation>A set of all possible price features of a TIME INTERVAL : default total price, discount in value or percentage etc.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TimeIntervalPrice" substitutionGroup="FarePrice_">
+		<xsd:annotation>
+			<xsd:documentation>A set of all possible price features of a TIME INTERVAL: default total price etc.
+</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:restriction base="TimeIntervalPrice_VersionedChildStructure">
+					<xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="VersionedChildGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="FarePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="DiscountablePriceGroup"/>
+						</xsd:sequence>
+						<xsd:sequence>
+							<xsd:group ref="TimeIntervalPriceGroup"/>
+						</xsd:sequence>
+					</xsd:sequence>
+					<xsd:attribute name="id" type="TimeIntervalPriceIdType"/>
+				</xsd:restriction>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TimeIntervalPrice_VersionedChildStructure">
+		<xsd:annotation>
+			<xsd:documentation>Type for a  TIME INTERVAL PRICEs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="DiscountablePrice_VersionedChildStructure">
+				<xsd:sequence>
+					<xsd:group ref="TimeIntervalPriceGroup"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:group name="TimeIntervalPriceGroup">
+		<xsd:annotation>
+			<xsd:documentation>Elements defining a span of time.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element ref="TimeIntervalRef" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<!-- ======================================================================= -->
+</xsd:schema>
