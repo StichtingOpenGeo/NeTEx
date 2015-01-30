@@ -135,6 +135,11 @@ Rail transport, Roads and Road transport
 					<xsd:documentation>Table of Month Validty offsets for each month.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+			<xsd:element name="AllowCumulativeDiscounts" type="xsd:boolean" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Whether cumulative discounts are allowed.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element ref="RoundingRef" minOccurs="0"/>
 			<xsd:element name="roundings" type="roundings_RelStructure" minOccurs="0">
 				<xsd:annotation>
@@ -341,12 +346,13 @@ Rail transport, Roads and Road transport
 			<xsd:documentation>Elements for a ROUNDING STEP.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="RoundIfGreaterThan" type="CurrencyAmountType" minOccurs="0">
+			<xsd:element ref="RoundingStepRef" minOccurs="0"/>
+			<xsd:element name="RoundIfGreaterThan" type="CurrencyAmountType">
 				<xsd:annotation>
 					<xsd:documentation>Rounding Step Threshold.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="RoundTo" type="CurrencyAmountType" minOccurs="0">
+			<xsd:element name="RoundTo" type="CurrencyAmountType">
 				<xsd:annotation>
 					<xsd:documentation>Amount to which to round.</xsd:documentation>
 				</xsd:annotation>

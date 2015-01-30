@@ -418,8 +418,8 @@ Rail transport, Roads and Road transport
 			<xsd:documentation>Elements for a CONTROLLABLE ELEMENT IN SEQUENCE.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element ref="ValidableElementRef" minOccurs="0"/>
-			<xsd:element ref="PreassignedFareProductRef" minOccurs="0"/>
+			<xsd:element ref="ControllableElementRef" minOccurs="0"/>
+			<xsd:element ref="FareStructureElementRef" minOccurs="0"/>
 			<xsd:element name="accessRightParameterAssignments" type="accessRightParameterAssignments_RelStructure" minOccurs="0">
 				<xsd:annotation>
 					<xsd:documentation>ACCESS RIGHT PARAMETER ASSIGNMENTs that apply to the VALIDABLE ELEMENT.</xsd:documentation>

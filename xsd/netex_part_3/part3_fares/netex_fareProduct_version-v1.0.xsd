@@ -765,6 +765,11 @@ Rail transport, Roads and Road transport
 		</xsd:annotation>
 		<xsd:sequence>
 			<xsd:element ref="PriceUnitRef" minOccurs="0"/>
+			<xsd:element name="Amount" type="xsd:decimal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Number of units</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 		</xsd:sequence>
 	</xsd:group>
 	<!-- ==== PREASSIGNED FARE PRODUC=============================================== -->

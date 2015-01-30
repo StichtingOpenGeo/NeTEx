@@ -4,7 +4,6 @@
 	<!-- ===Dependencies ======================================= -->
 	<!-- ====INCLUDE NETEX REQUESTS==================================================== -->
 	<xsd:import namespace="http://www.netex.org.uk/netex" schemaLocation="netex_service/netex_all-v1.0.xsd"/>
-	<xsd:import namespace="http://www.netex.org.uk/netex" schemaLocation="netex_service/netex_dataObjectRequest_service-v1.0.xsd"/>
 	<!-- ======================================================================= -->
 	<xsd:include schemaLocation="siri/siri_base-v2.0.xsd"/>
 	<!-- ===eGIF/GovTalk Documentation ======================================= -->

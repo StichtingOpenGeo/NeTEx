@@ -236,9 +236,10 @@ Rail transport, Roads and Road transport
 			<xsd:documentation>Allowed values for BlackoutStart event.</xsd:documentation>
 		</xsd:annotation>
 		<xsd:restriction base="xsd:normalizedString">
-			<xsd:enumeration value="noTravelWithinPeriod"/>
-			<xsd:enumeration value="mayCompleteIfStartedBefore"/>
 			<xsd:enumeration value="mayTravelAnytime"/>
+			<xsd:enumeration value="noTravelWithinPeriod"/>
+			<xsd:enumeration value="noTravelWithinTimeband"/>
+			<xsd:enumeration value="mayCompleteIfStartedBefore"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="UsageTriggerEnumeration">

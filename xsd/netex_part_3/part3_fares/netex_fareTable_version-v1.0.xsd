@@ -171,6 +171,11 @@ Rail transport, Roads and Road transport
 			<xsd:group ref="FareTableReferencesGroup"/>
 			<xsd:group ref="FareTableCommonAssignmentsGroup"/>
 			<xsd:group ref="FareTableHeadingsGroup"/>
+			<xsd:element name="EmbargoUntil" type="xsd:dateTime" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Prices must not be released until this date.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="cells" type="cells_RelStructure" minOccurs="0">
 				<xsd:annotation>
 					<xsd:documentation>Cells in the table.</xsd:documentation>

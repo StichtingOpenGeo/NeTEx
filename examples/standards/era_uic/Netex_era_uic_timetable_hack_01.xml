@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- ==== SImple Timetable  Example ====== 
  
-This is drfat example of encoding a basic UIC timetable of dated service journeys in netex in NeTEx
+This is draft  example of encoding a basic UIC timetable of dated service journeys in netex in NeTEx
 
 It has just two journeys
 
 Assumes there is not a common calendar but rather specific days
-
-To be decided - Hopw to represent operaing day 
-
-    How to encode UIC facilities
+ 
  
 
 -->
@@ -21,10 +18,10 @@ To be decided - Hopw to represent operaing day
 		<RequestTimestamp>2010-12-17T09:30:47.0Z</RequestTimestamp>
 		<ParticipantRef>SYS002</ParticipantRef>
 		<topics>
-			<FrameTopicFilter>
+			<NetworkFrameTopic>
 				<Current/>
 				<TimetableFrameRef ref="uic:hack001"/>
-			</FrameTopicFilter>
+			</NetworkFrameTopic>
 		</topics>
 	</PublicationRequest>
 	<PublicationRefreshInterval>P1M</PublicationRefreshInterval>
