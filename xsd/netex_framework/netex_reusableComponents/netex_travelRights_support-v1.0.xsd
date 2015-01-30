@@ -206,6 +206,7 @@ Rail transport, Roads and Road transport
 			<xsd:enumeration value="untilPreviousDay"/>
 			<xsd:enumeration value="advanceOnly"/>
 			<xsd:enumeration value="advanceAndDayOfTravel"/>
+				<xsd:enumeration value="other"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<!-- =================================================== -->

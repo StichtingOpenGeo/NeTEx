@@ -1,233 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
-	<Folder FolderName="XML Examples" ExtStr="xml;cml;math;mtx;rdf;smil;svg;wml">
-		<Folder FolderName="publications">
-			<Folder FolderName="functions">
-				<Folder FolderName="versioning">
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_01.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_02.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_03.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_04.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05_ByRef.xml"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05_GeneralFrame.xml"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_VersionHistories_01.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_VersionHistories_02.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="variant">
-					<File FilePath="examples\functions\fares\Netex_51.1_Bus_SimpleFares_PointToPoint_SingleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\variant\Netex_VariantExample_Step_05.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05_ByRef.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05_GeneralFrame.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="network">
-					<File FilePath="examples\functions\simpleNetwork\Netex_SimpleNetwork_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\simpleNetwork\Netex_uk_underground_1.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="stopPlace">
-					<File FilePath="examples\functions\stopPlace\Netex_01_StopPoints_NoFrills_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\stopPlace\Netex_01_Stops_SingleStopOnStreet_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\stopPlace\Netex_02_Stops_StopPairOnStreet_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\stopPlace\Netex_10_StopPlace_uk_ComplexStation_Wimbledon_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\stopPlace\Netex_10_StopPlace_withParking_1.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="site">
-					<File FilePath="examples\functions\site\Netex_01_Sites_SimpleStadium_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\site\Netex_10_Sites_OlympicPark_2_basic.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\site\Netex_11_Sites_OlympicPark_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\site\Netex_12_Sites_OlympicPark_3_nav.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\site\Netex_13_Sites_OlympicPark_4_delayOnly.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\site\Netex_14_Olympic Venues 1.1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\site\Netex_21_Sites_Parking_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\site\Netex_21_Sites_Parking_2.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="patterns">
-					<File FilePath="examples\functions\patterns\Netex_KBIC_ParisNetwork_1.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="validityCondition">
-					<File FilePath="examples\functions\stopPlace\Netex_04_Stops_SimpleStation_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\validityCondition\NeTEx_trigger-01.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="timetable">
-					<File FilePath="examples\functions\timetable\Netex_01.1_Bus_SimpleTimetable_JourneysOnly.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_01.2_Bus_SimpleTimetable_WithTimings.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_01.3_Bus_SimpleTimetable_WithMultiplePatterns.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_01.4_Bus_SimpleTimetable_WithConnection.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_01.5_Bus_SimpleTimetable_StopAssignment.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_01.6_Bus_SimpleTimetable_RouteProjection.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_02.1_Bus_CircularRoute_Timetable.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_03.1_Bus_BranchedRouteTimetable_SimplePatterns.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_03.2_Bus_BranchedRouteTimetable_SharedPatterns.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_05.1_Bus_TemplateTimetable_HeadwayFrequency.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_05.2_Bus_TemplateTimetable_RhythmicalFrequency.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_06.1_Bus_FrequencyJourneyTimetable_HeadwayInterval.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_06.2_Bus_FrequencyJourneyTimetable_RhythmicalInterval.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_07.1_Bus_FlexibleTimetable_ZonesOnly.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_07.2_Bus_FlexibleTimetable_WithPattern.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_08.1_BusTram_Timetable_AmbiguousLinks.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_08.2_Bus_SimpleTimetable_Cancellation.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_09.1_Bus_InterchangeRule..xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_10_Rail_SplittingJoiningTimetable.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_11_Rail_CompoundTrain.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_21_Rail_NetworkTimetable_eurostar.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\timetable\Netex_32_Multimodal_PassengerInformationEquipment.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="calendar">
-					<File FilePath="examples\functions\calendar\NeTEx_Calendar_se_PA1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\calendar\Netex_calendarCodeing_02.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\calendar\Netex_calendarExample_01_BHN01.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\vdv452\calendar\Netex_de_calendarExample_01_gd.xml"/>
-				</Folder>
-				<Folder FolderName="pointOfInterest">
-					<File FilePath="examples\functions\fares\Netex_101.21_TfL_GeographicFares_UnitZone_MultipleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\pointOfInterest\Netex_Sites_PoiClassification_1.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="vehicleSchedule">
-					<File FilePath="examples\functions\vehicleSchedule\Netex_simpleVehicleSchedule_01.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="grouping">
-					<File FilePath="examples\functions\grouping\Netex_GroupingExample_General_01.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="fares">
-					<File FilePath="examples\functions\fares\Netex_101.21_TfL_GeographicFares_UnitZone_MultipleProduct.xml"/>
-					<File FilePath="examples\functions\fares\Netex_51.2_Bus_SimpleFares_PointToPoint_MultipleProducts.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_51.3_Bus_SimpleFares_ZoneToZone_AdultChildProducts.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_51.4_Bus_SimpleFares_ZoneToZone_OffPeakProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_61.1_Bus_GeographicFares_UnitDistance_SingleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_61.1_Bus_GeographicFares_UnitFareStage_SingleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_61.2_Bus_GeographicFares_UnitZone_MultipleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_61.3_Bus_GeographicFares_HierarchicalZone_MultipleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_71.1_Bus_TimeIntervalFares_Zonal_MultipleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_71.2_Bus_ZonalFares_MultipleSalesPackages.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_71.3_Bus_ZonalFares_TimeUnitsPackages.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_81.1_Metro_FlatFare_GroupProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_81.2_Metro_TravelCard_MultipleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_81.3_Metro_WeeklyPass_MultipleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\functions\fares\Netex_91.1_Rail_RailCard_MultipleProduct.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_FareAttributes_1.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_FareRules_1.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_zz_Composite.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_1_flatFare_unlimitedTransfer.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_2_flatFare_noTransfer.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_3_flatFare_90mTransfer.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_4_flatFare_byLineGroup.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_5_flatFare_feeToTransfer.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_6_pointToPointFare_anyRoute.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_7_zoneSequenceFare.xml" HomeFolder="Yes"/>
-				</Folder>
-			</Folder>
-			<Folder FolderName="standards">
-				<Folder FolderName="noptis">
-					<File FilePath="examples\standards\noptis\NeTEx_Calendar_TimetableAndVehicleSchedule_PB2.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\noptis\Netex_StopPlace_se_NOPTIS_Example_TEH_PA1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\noptis\Netex_StopPlace_se_NOPTIS_TEH_Style1_PB1.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="vdv452">
-					<Folder FolderName="brighton">
-						<File FilePath="examples\standards\vdv452\brighton\stopPlace\Netex_vdv_452_brighton_Stops_1.xml" HomeFolder="Yes"/>
-					</Folder>
-					<File FilePath="examples\standards\vdv452\timetable\NeTEx VDV Example.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\vdv452\calendar\Netex_de_calendarExample_01_gd.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="era_uic">
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_calendar.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_complexsite.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_joiningsplitting.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_organisations.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_scheduledstoppointsforaregion.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_simplepark(Disneyland).xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_simpletimetable.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_Stations_Se_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_Stations_SSP_Se_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_era_uic_tariffzones.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_Eurostar mapping_era_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_Eurostar mapping_era_2.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\era_uic\Netex_Eurostar_stations.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="gtfs">
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Agency_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Calendar_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_CalendarDates_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_FareAttributes_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_FareRules_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Frequencies_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Routes_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Shapes_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Stops_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_StopTimes_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Transfers_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Trips_1.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_zz_Composite.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_1_flatFare_unlimitedTransfer.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_2_flatFare_noTransfer.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_3_flatFare_90mTransfer.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_4_flatFare_byLineGroup.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_5_flatFare_feeToTransfer.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_6_pointToPointFare_anyRoute.xml"/>
-					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_7_zoneSequenceFare.xml"/>
-				</Folder>
-				<Folder FolderName="transxchange">
-					<File FilePath="examples\standards\txc\netex_uk_nptg_dummy.xml" HomeFolder="Yes"/>
-					<File FilePath="examples\standards\txc\netex_uk_txc_linear.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="neptune">
-					<File FilePath="examples\standards\neptune\RATP_Line7bis-extract-2009-NeTEx.xml" HomeFolder="Yes"/>
-				</Folder>
-				<Folder FolderName="tap_tsi">
-					<Folder FolderName="B1_NRT">
-						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_sncf_b1_1.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_B1-1080-full.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_B1-1080.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_B1.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_tcvc_carrier_1.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_tcvg_stations_1.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_tcvs_series_1.xml" HomeFolder="Yes"/>
-					</Folder>
-					<Folder FolderName="B2_IRT">
-						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_B2-1180.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_B2-1181.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_B2-71.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_B2.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_tcvs_irt_1.xml" HomeFolder="Yes"/>
-					</Folder>
-					<Folder FolderName="B3_SPECIAL">
-						<File FilePath="examples\standards\tap_tsi\B3_Special\Netex_tap_tsi_B3+more.xml" HomeFolder="Yes"/>
-						<File FilePath="examples\standards\tap_tsi\B3_Special\Netex_tap_tsi_B3.xml" HomeFolder="Yes"/>
-					</Folder>
-					<Folder FolderName="Other">
-						<File FilePath="examples\standards\tap_tsi\Other\Netex_tap_trainhotel_SalesPackage_2.xml" HomeFolder="Yes"/>
-					</Folder>
-				</Folder>
-			</Folder>
-		</Folder>
-		<Folder FolderName="netex_siri_requests">
-			<Folder FolderName="siri_generic">
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_checkStatus_request.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_checkStatus_response.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_dataReady_request.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_dataReady_response.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_dataReceived_response.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_dataSupply_request.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_heartbeat_request.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_requestSubscription_response.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_terminateSubscription_request.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_terminateSubscription_response.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_generic\exa_terminateSubscription_response_err.xml" HomeFolder="Yes"/>
-			</Folder>
-			<Folder FolderName="siri_netex">
-				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_request.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_request_b1.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_response.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_response_b1.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_subscriptionRequest.xml" HomeFolder="Yes"/>
-			</Folder>
-			<Folder FolderName="siri_netex_hardwired">
-				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_response_b1-NX.xml" HomeFolder="Yes"/>
-				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_subscriptionRequest-Nx.xml" HomeFolder="Yes"/>
-			</Folder>
-		</Folder>
-	</Folder>
-	<Folder FolderName="Schemas" ExtStr="dtd;dcd;xdr;biz;xsd">
+	<Folder FolderName="NeTEx Schemas" ExtStr="dtd;dcd;xdr;biz;xsd">
 		<Folder FolderName="NeTEx_top_level Schema">
 			<File FilePath="xsd\ifopt.xsd" HomeFolder="Yes"/>
 			<File FilePath="xsd\NeTEx_publication.xsd" HomeFolder="Yes"/>
@@ -601,6 +374,10 @@
 				<File FilePath="xsd\netex_part_3\part3_parkingTariff\netex_parkingTariff_support-v1.0.xsd" HomeFolder="Yes"/>
 				<File FilePath="xsd\netex_part_3\part3_parkingTariff\netex_parkingTariff_version-v1.0.xsd" HomeFolder="Yes"/>
 			</Folder>
+			<Folder FolderName="netex_part_3_PiQuery">
+				<File FilePath="xsd\netex_part_3\part3_PiQuery\netex_all_objects_part3_piQuery-v1.0.xsd" HomeFolder="Yes"/>
+				<File FilePath="xsd\netex_part_3\part3_PiQuery\netex_piQuery_support-v1.0.xsd" HomeFolder="Yes"/>
+			</Folder>
 		</Folder>
 		<Folder FolderName="netex_service">
 			<File FilePath="xsd\netex_service\netex_all-v1.0.xsd" HomeFolder="Yes"/>
@@ -632,7 +409,7 @@
 			<File FilePath="xsd\gml\gmlBasic2d-extract-v3_2_1-.xsd" HomeFolder="Yes"/>
 		</Folder>
 	</Folder>
-	<Folder FolderName="wsdl">
+	<Folder FolderName="NeTEx Wsdl">
 		<Folder FolderName="siri_wsdl_model">
 			<File FilePath="xsd\wsdl_model\siri_wsConsumer-Framework.xsd" HomeFolder="Yes"/>
 			<File FilePath="xsd\wsdl_model\siri_wsConsumer-Services.xsd" HomeFolder="Yes"/>
@@ -647,6 +424,234 @@
 		<File FilePath="xsd\wsdl\NeTEx_wsProducer-Rpc.wsdl"/>
 		<File FilePath="xsd\wsdl\NeTEx_wsProducer-WSDL2.wsdl"/>
 		<File FilePath="xsd\wsdl\siri_all_functionalServices.xsd" HomeFolder="Yes"/>
+	</Folder>
+	<Folder FolderName="NeTEx XML Examples" ExtStr="xml;cml;math;mtx;rdf;smil;svg;wml">
+		<Folder FolderName="publications">
+			<Folder FolderName="functions">
+				<Folder FolderName="versioning">
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_01.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_02.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_03.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_04.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05_ByRef.xml"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05_GeneralFrame.xml"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_VersionHistories_01.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_VersionHistories_02.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="variant">
+					<File FilePath="examples\functions\fares\Netex_51.1_Bus_SimpleFares_PointToPoint_SingleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\variant\Netex_VariantExample_Step_05.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05_ByRef.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\versioning\Netex_VersioningExample_Step_05_GeneralFrame.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="network">
+					<File FilePath="examples\functions\simpleNetwork\Netex_SimpleNetwork_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\simpleNetwork\Netex_uk_underground_1.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="stopPlace">
+					<File FilePath="examples\functions\stopPlace\Netex_01_StopPoints_NoFrills_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\stopPlace\Netex_01_Stops_SingleStopOnStreet_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\stopPlace\Netex_02_Stops_StopPairOnStreet_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\stopPlace\Netex_10_StopPlace_uk_ComplexStation_Wimbledon_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\stopPlace\Netex_10_StopPlace_withParking_1.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="site">
+					<File FilePath="examples\functions\site\Netex_01_Sites_SimpleStadium_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\site\Netex_10_Sites_OlympicPark_2_basic.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\site\Netex_11_Sites_OlympicPark_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\site\Netex_12_Sites_OlympicPark_3_nav.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\site\Netex_13_Sites_OlympicPark_4_delayOnly.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\site\Netex_14_Olympic Venues 1.1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\site\Netex_21_Sites_Parking_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\site\Netex_21_Sites_Parking_2.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="patterns">
+					<File FilePath="examples\functions\patterns\Netex_KBIC_ParisNetwork_1.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="validityCondition">
+					<File FilePath="examples\functions\stopPlace\Netex_04_Stops_SimpleStation_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\validityCondition\NeTEx_trigger-01.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="timetable">
+					<File FilePath="examples\functions\timetable\Netex_01.1_Bus_SimpleTimetable_JourneysOnly.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_01.2_Bus_SimpleTimetable_WithTimings.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_01.3_Bus_SimpleTimetable_WithMultiplePatterns.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_01.4_Bus_SimpleTimetable_WithConnection.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_01.5_Bus_SimpleTimetable_StopAssignment.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_01.6_Bus_SimpleTimetable_RouteProjection.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_02.1_Bus_CircularRoute_Timetable.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_03.1_Bus_BranchedRouteTimetable_SimplePatterns.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_03.2_Bus_BranchedRouteTimetable_SharedPatterns.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_05.1_Bus_TemplateTimetable_HeadwayFrequency.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_05.2_Bus_TemplateTimetable_RhythmicalFrequency.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_06.1_Bus_FrequencyJourneyTimetable_HeadwayInterval.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_06.2_Bus_FrequencyJourneyTimetable_RhythmicalInterval.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_07.1_Bus_FlexibleTimetable_ZonesOnly.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_07.2_Bus_FlexibleTimetable_WithPattern.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_08.1_BusTram_Timetable_AmbiguousLinks.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_08.2_Bus_SimpleTimetable_Cancellation.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_09.1_Bus_InterchangeRule..xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_10_Rail_SplittingJoiningTimetable.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_11_Rail_CompoundTrain.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_21_Rail_NetworkTimetable_eurostar.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\timetable\Netex_32_Multimodal_PassengerInformationEquipment.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="calendar">
+					<File FilePath="examples\functions\calendar\NeTEx_Calendar_se_PA1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\calendar\Netex_calendarCodeing_02.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\calendar\Netex_calendarExample_01_BHN01.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\vdv452\calendar\Netex_de_calendarExample_01_gd.xml"/>
+				</Folder>
+				<Folder FolderName="pointOfInterest">
+					<File FilePath="examples\functions\fares\Netex_101.21_TfL_GeographicFares_UnitZone_MultipleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\pointOfInterest\Netex_Sites_PoiClassification_1.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="vehicleSchedule">
+					<File FilePath="examples\functions\vehicleSchedule\Netex_simpleVehicleSchedule_01.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="grouping">
+					<File FilePath="examples\functions\grouping\Netex_GroupingExample_General_01.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="fares">
+					<File FilePath="examples\functions\fares\Netex_101.21_TfL_GeographicFares_UnitZone_MultipleProduct.xml"/>
+					<File FilePath="examples\functions\fares\Netex_51.2_Bus_SimpleFares_PointToPoint_MultipleProducts.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_51.3_Bus_SimpleFares_ZoneToZone_AdultChildProducts.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_51.4_Bus_SimpleFares_ZoneToZone_OffPeakProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_61.1_Bus_GeographicFares_UnitDistance_SingleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_61.1_Bus_GeographicFares_UnitFareStage_SingleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_61.2_Bus_GeographicFares_UnitZone_MultipleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_61.3_Bus_GeographicFares_HierarchicalZone_MultipleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_71.1_Bus_TimeIntervalFares_Zonal_MultipleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_71.2_Bus_ZonalFares_MultipleSalesPackages.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_71.3_Bus_ZonalFares_TimeUnitsPackages.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_81.1_Metro_FlatFare_GroupProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_81.2_Metro_TravelCard_MultipleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_81.3_Metro_WeeklyPass_MultipleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\functions\fares\Netex_91.1_Rail_RailCard_MultipleProduct.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_FareAttributes_1.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_FareRules_1.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_zz_Composite.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_1_flatFare_unlimitedTransfer.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_2_flatFare_noTransfer.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_3_flatFare_90mTransfer.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_4_flatFare_byLineGroup.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_5_flatFare_feeToTransfer.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_6_pointToPointFare_anyRoute.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_7_zoneSequenceFare.xml" HomeFolder="Yes"/>
+				</Folder>
+			</Folder>
+			<Folder FolderName="standards">
+				<Folder FolderName="noptis">
+					<File FilePath="examples\standards\noptis\NeTEx_Calendar_TimetableAndVehicleSchedule_PB2.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\noptis\Netex_StopPlace_se_NOPTIS_Example_TEH_PA1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\noptis\Netex_StopPlace_se_NOPTIS_TEH_Style1_PB1.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="vdv452">
+					<Folder FolderName="brighton">
+						<File FilePath="examples\standards\vdv452\brighton\stopPlace\Netex_vdv_452_brighton_Stops_1.xml" HomeFolder="Yes"/>
+					</Folder>
+					<File FilePath="examples\standards\vdv452\timetable\NeTEx VDV Example.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\vdv452\calendar\Netex_de_calendarExample_01_gd.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="era_uic">
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_calendar.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_complexsite.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_joiningsplitting.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_organisations.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_scheduledstoppointsforaregion.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_simplepark(Disneyland).xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_simpletimetable.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_Stations_Se_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_Stations_SSP_Se_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_tariffzones.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_era_uic_timetable_hack_01.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_Eurostar mapping_era_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_Eurostar mapping_era_2.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\era_uic\Netex_Eurostar_stations.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="gtfs">
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Agency_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Calendar_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_CalendarDates_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_FareAttributes_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_FareRules_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Frequencies_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Routes_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Shapes_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Stops_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_StopTimes_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Transfers_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_Trips_1.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_exm1_zz_Composite.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_1_flatFare_unlimitedTransfer.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_2_flatFare_noTransfer.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_3_flatFare_90mTransfer.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_4_flatFare_byLineGroup.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_5_flatFare_feeToTransfer.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_6_pointToPointFare_anyRoute.xml"/>
+					<File FilePath="examples\standards\gtfs\Netex_gtfs_fares_Example_7_zoneSequenceFare.xml"/>
+				</Folder>
+				<Folder FolderName="transxchange">
+					<File FilePath="examples\standards\txc\netex_uk_nptg_dummy.xml" HomeFolder="Yes"/>
+					<File FilePath="examples\standards\txc\netex_uk_txc_linear.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="neptune">
+					<File FilePath="examples\standards\neptune\RATP_Line7bis-extract-2009-NeTEx.xml" HomeFolder="Yes"/>
+				</Folder>
+				<Folder FolderName="tap_tsi">
+					<Folder FolderName="B1_NRT">
+						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_sncf_b1_1.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_B1-1080-full.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_B1-1080.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_B1.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_tcvc_carrier_1.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_tcvg_stations_1.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B1_NRT\Netex_tap_tsi_tcvs_series_1.xml" HomeFolder="Yes"/>
+					</Folder>
+					<Folder FolderName="B2_IRT">
+						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_B2-1180.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_B2-1181.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_B2-71.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_B2.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B2_IRT\Netex_tap_tsi_tcvs_irt_1.xml" HomeFolder="Yes"/>
+					</Folder>
+					<Folder FolderName="B3_SPECIAL">
+						<File FilePath="examples\standards\tap_tsi\B3_Special\Netex_tap_tsi_B3+more.xml" HomeFolder="Yes"/>
+						<File FilePath="examples\standards\tap_tsi\B3_Special\Netex_tap_tsi_B3.xml" HomeFolder="Yes"/>
+					</Folder>
+					<Folder FolderName="Other">
+						<File FilePath="examples\standards\tap_tsi\Other\Netex_tap_trainhotel_SalesPackage_2.xml" HomeFolder="Yes"/>
+					</Folder>
+				</Folder>
+			</Folder>
+		</Folder>
+		<Folder FolderName="netex_siri_requests">
+			<Folder FolderName="siri_generic">
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_checkStatus_request.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_checkStatus_response.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_dataReady_request.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_dataReady_response.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_dataReceived_response.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_dataSupply_request.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_heartbeat_request.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_requestSubscription_response.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_terminateSubscription_request.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_terminateSubscription_response.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_generic\exa_terminateSubscription_response_err.xml" HomeFolder="Yes"/>
+			</Folder>
+			<Folder FolderName="siri_netex">
+				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_request.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_request_b1.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_response.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_response_b1.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_subscriptionRequest.xml" HomeFolder="Yes"/>
+			</Folder>
+			<Folder FolderName="siri_netex_hardwired">
+				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_response_b1-NX.xml" HomeFolder="Yes"/>
+				<File FilePath="examples\ws_siri_request\siri_netex\exu_dataObject_subscriptionRequest-Nx.xml" HomeFolder="Yes"/>
+			</Folder>
+		</Folder>
 	</Folder>
 	<File FilePath="ReadMe.txt" HomeFolder="Yes"/>
 </Project>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <xsd:schema xmlns="http://www.netex.org.uk/netex" xmlns:netex="http://www.netex.org.uk/netex" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:siri="http://www.siri.org.uk/siri" targetNamespace="http://www.netex.org.uk/netex" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" id="netex_publication_timetable">
-	<!-- ==+ THIS SCHEMA PROVDIES A REDUCED VERSION OF THE FULL NETEX PULICATION SCHEMA ===== -->
+	<!-- ==+ THIS SCHEMA PROVIDS A REDUCED VERSION OF THE FULL NETEX PULICATION SCHEMA ===== -->
 	<!-- ==+ IT INCLUDES ELEMENTS RELEVANT FOR THE EXCHANGE OF TIMETABLES ===== -->
 	<!-- ==+ANY DOCUMENT COMPLIANT WITH THIS SCHEMA WILL ALSO BE COMPLIANT WITH NetEx_publication.xsd ===== -->
 	<!-- ===Dependencies ======================================= -->
@@ -143,16 +143,8 @@ Provides a general purose wrapper for NeTEx data content.</xsd:documentation>
 		</xsd:annotation>
 		<!-- =======START OF CONSTRAINTS=================================== 
 -->
-		<!-- =======START OF CONSTRAINTS=================================== 
--->
-		<!--		<xsd:unique name="ObjectIdAndAttributeVersion">
-			<xsd:annotation>
-				<xsd:documentation>Every [Element Id + Version attribute] must be unique within document.</xsd:documentation>
-			</xsd:annotation>
-			<xsd:selector xpath=".//netex:*"/>
-			<xsd:field xpath="@id"/>
-			<xsd:field xpath="@version"/>
-		</xsd:unique>-->
+				<!-- =====REFERENTIAL INTEGRITY Constraints========================= -->
+		<!-- =====FRAMEWO RK Constraints========================= -->
 		<xsd:unique name="KeyValuePair">
 			<xsd:annotation>
 				<xsd:documentation>Every Key Value Pair must be unique.</xsd:documentation>
@@ -161,30 +153,8 @@ Provides a general purose wrapper for NeTEx data content.</xsd:documentation>
 			<xsd:field xpath="netex:System"/>
 			<xsd:field xpath="netex:Value"/>
 		</xsd:unique>
-		<!--
-		<xsd:unique name="ObjectId">
-			<xsd:annotation>
-				<xsd:documentation>Every EntityIn Version ID / version must be unique.</xsd:documentation>
-			</xsd:annotation>
-			<xsd:selector xpath=".//netex:Id"/>
-			<xsd:field xpath="."/>
-			<xsd:field xpath=".//@version"/>
-		</xsd:unique> -->
-		<!--	-->
-		<!-- =====Object Key ========================== -->
-		<!--
-		<xsd:keyref name="Object_AnyKeyRef" refer="netex:Object_AnyVersionedKey">
-			<xsd:selector xpath=".//netex:VersionOfObjectRef |.//netex:AppliesToRef"/>
-			<xsd:field xpath="@ref"/>
-			<xsd:field xpath="@version"/>
-		</xsd:keyref>
-		<xsd:key name="Object_AnyVersionedKey">
-			<xsd:selector xpath=".//netex:RoadJunction"/>
-			<xsd:field xpath="@id"/>
-			<xsd:field xpath="@version"/>
-		</xsd:key>-->
-		<!-- =====REFERENTIAL INTEGRITY Constraints========================= -->
-		<!-- =====FRAMEWO RK Constraints========================= -->
+	 
+
 		<!-- ===== Codespace Unique=========================== -->
 		<xsd:unique name="Codespace_UniqueId">
 			<xsd:annotation>

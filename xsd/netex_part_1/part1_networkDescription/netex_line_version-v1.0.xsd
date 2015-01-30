@@ -388,7 +388,7 @@ Rail transport, Roads and Road transport
 					<xsd:documentation>Routes that follow the LINE.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="RefresentedByGroupRef" type="GroupOfLinesRefStructure" minOccurs="0">
+			<xsd:element name="RepresentedByGroupRef" type="GroupOfLinesRefStructure" minOccurs="0">
 				<xsd:annotation>
 					<xsd:documentation>GROUPS OF LINEs that can be used to represent LINE.</xsd:documentation>
 				</xsd:annotation>

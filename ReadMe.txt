@@ -1,22 +1,22 @@
 NeTEX XMl schema
-(C) 2009-2014  NeTEX , CEN, Crown Copyright
+(C) 2009-2015  NeTEX , CEN, Crown Copyright
         
 NeTwork EXchange : Core, Part 1 (Network),  Part 2 (Timetables , Part3 (Fares)   Schemas
 ================================================
-
-This is a work in progress schema with a few  errors and outstanding issues. 
+Version 1.01 - Base version plus minor fixes to WSDL 
+ 
 See the NeTEx UML Physical and Conceptual models for an UML view
 
-The Part 1 and Part 2 Schemas are stable (A few Small corrections  have beene made).
-The Part3 schema may  still be subject to  minor  revisions 
+The Part 1 and Part 2 Schemas include  corrections since teh issue f teh documents,,
+The Part 3 schema accomopanie sof teh Part 3 Documents
 
 There is an XMLSpy project file in the root directory  that provides an organised view  of the schema and examples
     
-  - netex-v099.x.spp
+  - netex-v1.01.spp
   
 There is also an Oxygen project file
 
-   - netex-v099.x.xpr
+   - netex-v1.01.xpr
 
 ====================
 
@@ -34,39 +34,45 @@ In addition
     The NX schema is not intended for actual use. 
 
 There are XML examples  of the use of both protocols. see examples subdirectory.
-
    
 =====================================================================================================================
 
-
-SOME TODOs 
-     
-    Discussion   
-             
-     TXC 
-        Registration extensions 
-     FIX   
-       Substitution groups need correcting   
-     Examples                 
-   	  Add routing constraint example
-         Add varying  time demand example  
-         Add Activated equipment examples  
-         Add service exlusion eg gatwick express    
-    ? 
-         ACtual Vehicle Equipment is it a type of assignment
-  
-       Open issues  
-                Are GroupOfDistanceMatrixElements & GroupsOfSalesPacakges really templates?    
-                CardMemo file   00  000 applies to all taridffss ramges 
-                     how best to tie groups of max traveltimes to product 
-       SpecificParameterAssignment cant be compound ? 
-       
-       Update constraints, update oxygen list, sort wdsl 
+ 
 =============================================================================================
 Change List
+     - 2015.01.02 v 1.01
+            - With minor fixes by CD to wdsl files
+		in siri_wsProducer-Framework.xsd
+		    <xsd:import namespace="http://www.siri.org.uk/siri" schemaLocation="../siriSg.xsd"/>
+		Replaced by (no more SIRI SG and NeTEx prefix ....)
+		    <xsd:import namespace="http://www.siri.org.uk/siri" schemaLocation="../NeTEx_siri.xsd"/>
+
+		-----------------------------------------
+		in NeTEx_wsProducer-Document.wsdl
+		move up GetNeTexService and GetNeTexServiceResponse (just under import of "../netex_siri.xsd")
+		Add "Request" and "Answer" wrapper (for WSDL RPC compatibility) to GetNeTexService and GetNeTexServiceResponse
+
+		------------------------------------------------------------------------   
+		in NeTEx_wsConsumer-Document.wsdl
+		move up NotifyNetex (just under import of "../netex_siri.xsd")
+		Add "Request" wrapper (for WSDL RPC compatibility) to NotifyNetex
+
+		------------
+		In NeTEx_wsProducer-Rpc.wsdl 
+		Fix of a namespace issue compared to Document version: in all operation  replace 
+				<soap:body use="literal" namespace="http://wsdl.netex.org.uk/netex"/>
+		with
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
+
+		Same thing in NeTEx_wsConsumer-Rpc.wsdl
+
+
+
+     -       2014.09.20 Turin  Meeting Comments V 1.00
+               Release as V1.0
+                     
     - Changes affecting existing netex xml docs are marked (MODEL CHANGE),.dx = diagram change.  x xml change
-         
-  
+    
          2014.06.16 Stenungsund  Meeting Comments V 97.8
              [Stenungsund ]
             
@@ -86,8 +92,8 @@ Change List
                [fx] Add name to COupledJourney x dx
                [fx] Add LuggageChargingBasis to LuggageALlowance  x dx [TX Part3 toDO]. 
                [fx] Move Reselling and Transferablity types to an AfterSalesPackage. x dx.
-               [fx] Add Heated and Airconditioend to WaitingRoomEquipment. x dx [TX Part1 Leave]
-               [fx] Add Dogs Mustbe carried to TravelatorEquipment. x dx [TX Part1 Leave]
+               [fx] Add Heated and Airconditined to WaitingRoomEquipment. x dx [TX Part1 Leave]
+               [fx] Add Dogs Must be carried to TravelatorEquipment. x dx [TX Part1 Leave]
            
                [fx] Update CELL ASSIGNMENT UML to include GROUP OF SERVICES and type of fare product dx. [TX TODO]
                [fx] Simplify Condition to follow UML  x.              

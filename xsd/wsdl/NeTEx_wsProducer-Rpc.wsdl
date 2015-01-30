@@ -80,47 +80,47 @@
 		<operation name="GetNetex">
 			<soap:operation soapAction="GetNetexPublication"/>
 			<input>
-				<soap:body use="literal" namespace="http://wsdl.netex.org.uk/netex"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</input>
 			<output>
-				<soap:body use="literal" namespace="http://wsdl.netex.org.uk/netex"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</output>
 		</operation>
 		<!-- ====general  services ===== -->
 		<operation name="Subscribe">
 			<soap:operation soapAction="Subscribe"/>
 			<input>
-				<soap:body use="literal" namespace="http://wsdl.siri.org.uk/siri"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</input>
 			<output>
-				<soap:body use="literal" namespace="http://wsdl.siri.org.uk/siri"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</output>
 		</operation>
 		<operation name="DeleteSubscription">
 			<soap:operation soapAction="DeleteSubscription"/>
 			<input>
-				<soap:body use="literal" namespace="http://wsdl.siri.org.uk/siri"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</input>
 			<output>
-				<soap:body use="literal" namespace="http://wsdl.siri.org.uk/siri"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</output>
 		</operation>
 		<operation name="DataSupply">
 			<soap:operation soapAction="DataSupply"/>
 			<input>
-				<soap:body use="literal" namespace="http://wsdl.siri.org.uk/siri"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</input>
 			<output>
-				<soap:body use="literal" namespace="http://wsdl.siri.org.uk/siri"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</output>
 		</operation>
 		<operation name="CheckStatus">
 			<soap:operation soapAction="CheckStatus"/>
 			<input>
-				<soap:body use="literal" namespace="http://wsdl.siri.org.uk/siri"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</input>
 			<output>
-				<soap:body use="literal" namespace="http://wsdl.siri.org.uk/siri"/>
+				<soap:body use="literal" namespace="http://www.siri.org.uk/siriWS"/>
 			</output>
 		</operation>
 	</binding>
